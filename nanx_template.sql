@@ -43,9 +43,10 @@ CREATE TABLE `nanx_activity` (
   `win_size_width_operation` int(11) DEFAULT NULL,
   `view_filter` char(100) DEFAULT NULL,
   `view_filter_memo` char(250) DEFAULT NULL,
+  `owner_data_only` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `activity_code` (`activity_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='活动注册表格';
+) ENGINE=InnoDB AUTO_INCREMENT=265 DEFAULT CHARSET=utf8 COMMENT='活动注册表格';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +55,7 @@ CREATE TABLE `nanx_activity` (
 
 LOCK TABLES `nanx_activity` WRITE;
 /*!40000 ALTER TABLE `nanx_activity` DISABLE KEYS */;
-INSERT INTO `nanx_activity` VALUES (90,'NANX_TBL_DATA','service',NULL,NULL,'mrdbms/getTableFields','curd/listData','rdbms/getTableFields','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png','',NULL,NULL,NULL,'system',662,800,NULL,NULL,NULL),(91,'NANX_TBL_STRU','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(92,'NANX_TBL_INDEX','service',NULL,NULL,'mrdbms/get_min_table_indexes_no_directshow','rdbms/get_min_table_indexes_directshow','rdbms/get_min_table_indexes_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(93,'NANX_TBL_CREATE','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(116,'NANX_SYS_CONFIG','service',NULL,'',NULL,'curd/listData','',NULL,'',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(134,'NANX_APP_SUMMARY','html',NULL,NULL,NULL,'tree/systemSummary','',NULL,'icon-48-links.png','NANX_APP_SUMMARY',NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(177,'NANX_TB_LAYOUT','sql',NULL,NULL,NULL,'curd/listData','',NULL,'',NULL,'select   field_list   from  nanx_activity_biz_layout   where  raw_table=$table',NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL),(226,'NANX_FS_2_TABLE','service',NULL,NULL,'mfile/getFSGridFields','file/fs2array','mfile/getFSGridFields',NULL,'default_act.png','',NULL,NULL,NULL,'system',662,800,899,NULL,NULL),(234,'NANX_SQL_ACTIVITY','sql',NULL,NULL,NULL,'curd/listData','',NULL,'act_sql.png','run_sql','show tables;\n',NULL,NULL,'system',644,800,899,NULL,NULL);
+INSERT INTO `nanx_activity` VALUES (90,'NANX_TBL_DATA','service',NULL,NULL,'mrdbms/getTableFields','curd/listData','rdbms/getTableFields','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png','',NULL,NULL,NULL,'system',662,800,NULL,NULL,NULL,NULL),(91,'NANX_TBL_STRU','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(92,'NANX_TBL_INDEX','service',NULL,NULL,'mrdbms/get_min_table_indexes_no_directshow','rdbms/get_min_table_indexes_directshow','rdbms/get_min_table_indexes_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(93,'NANX_TBL_CREATE','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(116,'NANX_SYS_CONFIG','service',NULL,'',NULL,'curd/listData','',NULL,'',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(134,'NANX_APP_SUMMARY','html',NULL,NULL,NULL,'tree/systemSummary','',NULL,'icon-48-links.png','NANX_APP_SUMMARY',NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(177,'NANX_TB_LAYOUT','sql',NULL,NULL,NULL,'curd/listData','',NULL,'',NULL,'select   field_list   from  nanx_activity_biz_layout   where  raw_table=$table',NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(226,'NANX_FS_2_TABLE','service',NULL,NULL,'mfile/getFSGridFields','file/fs2array','mfile/getFSGridFields',NULL,'default_act.png','',NULL,NULL,NULL,'system',662,800,899,NULL,NULL,NULL),(234,'NANX_SQL_ACTIVITY','sql',NULL,NULL,NULL,'curd/listData','',NULL,'act_sql.png','run_sql','show tables;\n',NULL,NULL,'system',644,800,899,NULL,NULL,NULL),(264,'act_parkos_sale_item_49624738','table',NULL,'parkos_sale_item',NULL,NULL,'',NULL,'act_common.png','活动_saleitem',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `nanx_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +239,7 @@ CREATE TABLE `nanx_activity_forbidden_field` (
   `field` char(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `activity_code` (`activity_code`,`field`)
-) ENGINE=MyISAM AUTO_INCREMENT=189 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -385,7 +386,7 @@ CREATE TABLE `nanx_biz_column_editor_cfg` (
   `path_col` char(40) DEFAULT NULL,
   `subdir_by_col` char(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,6 +395,7 @@ CREATE TABLE `nanx_biz_column_editor_cfg` (
 
 LOCK TABLES `nanx_biz_column_editor_cfg` WRITE;
 /*!40000 ALTER TABLE `nanx_biz_column_editor_cfg` DISABLE KEYS */;
+INSERT INTO `nanx_biz_column_editor_cfg` VALUES (1,'ref_activity','parkos_sale_item','sales',1,0,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `nanx_biz_column_editor_cfg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,7 +476,7 @@ CREATE TABLE `nanx_biz_tables` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `table_screen_name` (`table_screen_name`),
   UNIQUE KEY `table_name` (`table_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -483,6 +485,7 @@ CREATE TABLE `nanx_biz_tables` (
 
 LOCK TABLES `nanx_biz_tables` WRITE;
 /*!40000 ALTER TABLE `nanx_biz_tables` DISABLE KEYS */;
+INSERT INTO `nanx_biz_tables` VALUES (41,'parkos_sale_item','saleitem',NULL);
 /*!40000 ALTER TABLE `nanx_biz_tables` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -691,7 +694,7 @@ CREATE TABLE `nanx_user` (
   `salt` char(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -700,7 +703,7 @@ CREATE TABLE `nanx_user` (
 
 LOCK TABLES `nanx_user` WRITE;
 /*!40000 ALTER TABLE `nanx_user` DISABLE KEYS */;
-INSERT INTO `nanx_user` VALUES (3,'cnix','b62fdfd165082eda2215655b520ae2f4','管理员','Y','0000-00-00 00:00:00',NULL,NULL,'9414fe'),(4,'admin','642060e50298c0a99118ba26dee7202a','管理员','Y','0000-00-00 00:00:00',NULL,NULL,'78bdea');
+INSERT INTO `nanx_user` VALUES (4,'admin','642060e50298c0a99118ba26dee7202a','管理员','Y','0000-00-00 00:00:00',NULL,NULL,'78bdea'),(5,'sales1','ce97dc2d94dbe9d086fbf2737fd28d98','sales1','Y','0000-00-00 00:00:00',NULL,NULL,'d5f42d'),(6,'sales2','d705ba394cb50921327521b4c1432dfe','sales2','Y','0000-00-00 00:00:00',NULL,NULL,'a7318b');
 /*!40000 ALTER TABLE `nanx_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -726,7 +729,7 @@ CREATE TABLE `nanx_user_role` (
 
 LOCK TABLES `nanx_user_role` WRITE;
 /*!40000 ALTER TABLE `nanx_user_role` DISABLE KEYS */;
-INSERT INTO `nanx_user_role` VALUES (4,'admin','管理员'),(6,'sales','销售'),(7,'market','市场');
+INSERT INTO `nanx_user_role` VALUES (4,'admin','管理员'),(6,'sales','销售');
 /*!40000 ALTER TABLE `nanx_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -747,7 +750,7 @@ CREATE TABLE `nanx_user_role_assign` (
   KEY `role_code` (`role_code`),
   CONSTRAINT `nanx_user_role_assign_ibfk_1` FOREIGN KEY (`user`) REFERENCES `nanx_user` (`user`),
   CONSTRAINT `nanx_user_role_assign_ibfk_2` FOREIGN KEY (`role_code`) REFERENCES `nanx_user_role` (`role_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -756,7 +759,7 @@ CREATE TABLE `nanx_user_role_assign` (
 
 LOCK TABLES `nanx_user_role_assign` WRITE;
 /*!40000 ALTER TABLE `nanx_user_role_assign` DISABLE KEYS */;
-INSERT INTO `nanx_user_role_assign` VALUES (4,'admin','admin'),(3,'cnix','admin');
+INSERT INTO `nanx_user_role_assign` VALUES (4,'admin','admin'),(5,'sales1','sales'),(6,'sales2','sales');
 /*!40000 ALTER TABLE `nanx_user_role_assign` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -776,7 +779,7 @@ CREATE TABLE `nanx_user_role_privilege` (
   UNIQUE KEY `role_code` (`role_code`,`activity_code`),
   KEY `activity_code` (`activity_code`),
   CONSTRAINT `nanx_user_role_privilege_ibfk_2` FOREIGN KEY (`role_code`) REFERENCES `nanx_user_role` (`role_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -785,6 +788,7 @@ CREATE TABLE `nanx_user_role_privilege` (
 
 LOCK TABLES `nanx_user_role_privilege` WRITE;
 /*!40000 ALTER TABLE `nanx_user_role_privilege` DISABLE KEYS */;
+INSERT INTO `nanx_user_role_privilege` VALUES (37,'sales','act_parkos_sale_item_49624738',NULL),(38,'admin','act_parkos_sale_item_49624738',NULL);
 /*!40000 ALTER TABLE `nanx_user_role_privilege` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -815,6 +819,32 @@ LOCK TABLES `nanx_who_is_who` WRITE;
 /*!40000 ALTER TABLE `nanx_who_is_who` DISABLE KEYS */;
 /*!40000 ALTER TABLE `nanx_who_is_who` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_sale_item`
+--
+
+DROP TABLE IF EXISTS `parkos_sale_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_sale_item` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cust` char(20) DEFAULT NULL,
+  `cust_mobile` char(22) DEFAULT NULL,
+  `sales` char(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_sale_item`
+--
+
+LOCK TABLES `parkos_sale_item` WRITE;
+/*!40000 ALTER TABLE `parkos_sale_item` DISABLE KEYS */;
+INSERT INTO `parkos_sale_item` VALUES (5,'cust11','mob11','sales1'),(6,'cust22','mob22','sales2');
+/*!40000 ALTER TABLE `parkos_sale_item` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -825,4 +855,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-13  8:50:06
+-- Dump completed on 2018-03-13 10:16:59

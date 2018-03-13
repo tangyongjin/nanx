@@ -249,5 +249,6 @@ view_file:'查看文件',
 set_to_biz_table:'',
 set_owner_data_only:'仅能查看自己录入的数据',
 sql_syntax_error:'sql语法错误,请检查sql语句',
+set_activity_menu:'设置菜单',
 zzz:'zzz' 
 }
