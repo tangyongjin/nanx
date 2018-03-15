@@ -150,6 +150,7 @@ Act.prototype.setcfg = function(ret) {
     this.getBtns(ret.layoutCfg);
     this.tBar = this.getTbar();
     this.bBar = this.getBbar();
+    this.treeViewCfg={tree_text_field:ret.tree_text_field,tree_parent_field:ret.tree_parent_field}
 };
 
 
@@ -180,6 +181,10 @@ Act.prototype.showActivityWindow=function(){
                 case 'menugroup':
                      that.createActivityHtmlPanel();
                      break;
+                case 'tree':
+                     that.createActivityTreePanel();
+                     break;
+                     
                 default:
                      that.createActivityGridPanel();
                 }
@@ -188,8 +193,200 @@ Act.prototype.showActivityWindow=function(){
     });
 };
 
+
+Act.prototype.getTreeBtns=function(){
+    
+    var that=this
+    var treeMenu_btns=[];
+    {
+        treeMenu_btns.push({
+            xtype:'button',
+            text:i18n.add,
+            iconCls:'n_add',
+            style:{
+                marginRight:'6px'
+            },
+            ctCls:'x-btn-over',
+            handler:function(){
+                
+                var tree=Ext.getCmp('menutree');
+                var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
+                var rawdata={}
+                rawdata[that.treeViewCfg.tree_text_field]='新节点'
+                rawdata[that.treeViewCfg.tree_parent_field]=currentNode.attributes.id
+                var addObj={actcode:that.actcode,table:that.table,
+                            rawdata:rawdata
+                           } 
+                Fb.ajaxPostData(CURD_TREE_ADD_DATA_URL,addObj, function(){currentNode.expand() }   );
+            }
+        });
+    }
+
+   
+   treeMenu_btns.push({
+            text:i18n.drop,
+            iconCls:'n_del',
+            style:{
+                marginRight: '6px'
+            },
+            ctCls:'x-btn-over',
+            id:'pub_delete',
+            handler:function(e,x){
+                var tree=Ext.getCmp('menutree');
+                var record = tree.getSelectionModel().getSelectedNode() 
+                var id_to_del=[record.attributes.id]
+                var delObj={actcode:that.actcode,table:that.table,
+                            id_to_del:id_to_del
+                           } 
+                Fb.ajaxPostData(CURD_TREE_DEL_DATA_URL,delObj, function(){ tree.getRootNode().reload(); tree.expandAll() }   );
+                }
+
+        });
+        
+     
+   
+        treeMenu_btns.push({
+            text:i18n.update,
+            iconCls:'n_edit',
+            style:{
+                marginRight: '6px'
+            },
+            ctCls:'x-btn-over',
+            id:'pub_edit',
+            handler:function(){
+                var tree=Ext.getCmp('menutree');
+                var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
+                console.log(currentNode)
+
+            }
+        });
+
+
+       treeMenu_btns.push({
+            text:i18n.refresh,
+            iconCls:'n_edit',
+            style:{
+                marginRight: '6px'
+            },
+            ctCls:'x-btn-over',
+            id:'pub_refresh',
+            handler:function(){
+                var tree=Ext.getCmp('menutree');
+                tree.getRootNode().reload();
+                tree.expandAll() 
+                
+            }
+        });
+        
+    return treeMenu_btns;
+}
+
+
+Act.prototype.createActivityTreePanel=function(){
+    /**/
+     console.log(this)
+     var that=this
+     var tree = new Ext.tree.TreePanel(
+     {
+        loader: new Ext.tree.TreeLoader({
+
+                    url: CURD_TREE_GET_DATA_URL,
+                    requestMethod:"POST",
+                    baseParams:{actcode:this.actcode,'asktreedata':'yes'}
+                }),
+
+        root: {nodeType: 'async'},
+        rootVisible:false,
+        requestMethod:"POST",
+        enableDD:true
+        ,ddGroup:'NANX_gridDD'
+        ,id:'menutree'
+        ,region:'east'
+        // ,title:'--'
+        ,layout:'fit'
+        ,width:786
+        ,height:360
+         ,tbar:{
+            xtype:'buttongroup',
+            title:'',
+            items:this.getTreeBtns()
+        }
+        ,split:true
+        ,bodyStyle:'background-color:white;'
+        ,border:true
+        ,collapsible:true
+        ,autoScroll:true
+        ,listeners:
+         {
+
+            // create nodes based on data from grid
+            beforenodedrop:{fn:function(e) {
+                // e.data.selections is the array of selected records
+                if(Ext.isArray(e.data.selections)) {
+                    // reset cancel flag
+                    e.cancel = false;
+                    // setup dropNode (it can be array of nodes)
+                    e.dropNode = [];
+                    var r;
+                    for(var i = 0; i < e.data.selections.length; i++) {
+                        // get record from selectons
+                        r = e.data.selections[i];
+                        // create node from record data
+                        e.dropNode.push(this.loader.createNode({
+                             text:r.get('text')
+                            ,leaf:true,
+                             activity_code:r.get('value')
+                        }));
+                    }
+                    return true;
+                }
+            }}
+        }
+    });
+
+   
+
+    var te = new Ext.tree.TreeEditor(tree, new Ext.form.TextField({
+        allowBlank: false,
+        blankText:''
+    }), {
+        editDelay: 1,
+        revertInvalid: false
+    });
+
+    te.on('beforestartedit', function(ed, boundEl, value) {
+            return true;
+        // if (ed.editNode.leaf)
+        //     return false;
+    });
+
+
+    te.on("complete", function(treeEditer,value,startValue){   
+          
+            // var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
+
+            var rawdata={}
+            rawdata[that.treeViewCfg.tree_text_field]=value 
+            rawdata['id']=treeEditer.editNode.attributes.id
+            var updateObj={actcode:that.actcode,table:that.table,
+                        rawdata:rawdata
+                       } 
+
+            console.log(updateObj)
+                       
+            Fb.ajaxPostData(CURD_TREE_UPDATE_DATA_URL,updateObj, function(){  tree.getRootNode().reload();
+                tree.expandAll()  }   );
+
+       });   
+    /**/
+    this.gridPanel=tree;
+}
+
+
              
 Act.prototype.createActivityGridPanel=function(){
+     console.log(this)
+
     if (this.sql_syntax_error){
         return;
     }
@@ -264,6 +461,9 @@ Act.prototype.createActivityGridPanel=function(){
     if(!this.nosm){gridcfg.sm=this.sm;}
 
     this.gridPanel=(this.cfg.edit_type==='noedit')?new Ext.grid.GridPanel(gridcfg):new Ext.grid.EditorGridPanel(gridcfg);
+
+    console.log(this.gridPanel.getStore())
+
     this.gridPanel.getStore().on('load',function(ds){
        this.autoHeader();
     }, this);
@@ -526,6 +726,11 @@ Act.prototype.getMainStore=function(){
         var mainStore=this.getStoreByTableAndField(this.table,this.storeField,this.cfg);
     }
 
+
+    if (this.activity_type=='tree'){
+        var mainStore=this.getStoreByTableAndField(this.table,this.storeField,this.cfg);
+    }
+
     if (this.activity_type=='service'){
         var mainStore=this.getStoreByService();
     }
@@ -657,6 +862,7 @@ Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg){
     });
 
     ds.on('loadexception',function(store,records,options){
+        console.log(options)
         var ret_json =Ext.util.JSON.decode(options.responseText);
         Ext.Msg.alert(i18n.error,ret_json.msg);
         WaitMask.hide();
@@ -2007,7 +2213,6 @@ Act.prototype.showWindow = function(){
 
   if (this.cfg.showwhere == 'container'  )
     {
-        //this.gridPanel.getTopToolbar().hide();
         var motherBoard = Ext.getCmp(this.renderto);
         var h=motherBoard.getHeight();
         this.gridPanel.setTitle(i18n.layout);

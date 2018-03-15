@@ -270,6 +270,23 @@ class MActivity extends CI_Model
             }
         }
 
+      if ($activity_type == 'tree') {
+            $para_array['transfer'] = true;
+            $fields_e_with_idforbidden_option = $this->skip_field($activity_code, $this->db->list_fields($base_table));
+
+
+            $fields_e=$fields_e_with_idforbidden_option['NotForbidden'];
+            $col_cfg = $this->MFieldcfg->getColsCfg($activity_code,$base_table, $fields_e, $para_array['transfer']);
+           
+            if( $fields_e_with_idforbidden_option['id_hidden'] ){
+               $id_col_cfg = $this->MFieldcfg->getColsCfg($activity_code,$base_table,array('id'), $para_array['transfer']);
+               $id_col_cfg[0]['display_cfg']['idhidden']=true;
+               $col_cfg=array_merge($id_col_cfg,$col_cfg);
+            }
+        }
+
+
+
         if ($activity_type == 'sql') {
             $this->load->model('MFieldcfg');
             
@@ -306,18 +323,28 @@ class MActivity extends CI_Model
         $activity_summary             = $query->first_row('array');
         $activity_type   = $activity_summary['activity_type'];
 
-      //  debug($activity_summary);
-
+     
 
         if ($activity_type == 'table') {
             $base_table             = $activity_summary['base_table'];
             $layout_cfg = $this->MLayout->getLayoutCfg($activity_code, $base_table);
         }
 
+
+
+        if ($activity_type == 'tree') {
+            $base_table             = $activity_summary['base_table'];
+            $layout_cfg = $this->MLayout->getLayoutCfg($activity_code, $base_table);
+        }
+
+
+
         if (array_key_exists('table', $para_array) && (strlen($para_array['table']) > 0)) {
             $activity_summary['base_table'] = $para_array['table'];
         }
         
+
+
         $col_cfg=$this->getFieldesByType($activity_summary,$para_array);
         
         if(array_key_exists('sql_syntax_error', $col_cfg))

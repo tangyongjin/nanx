@@ -12,12 +12,78 @@ class Curd extends CI_Controller
 
          $post    = file_get_contents('php://input');
          $p       = (array) json_decode($post);
+         
+
+         logtext($_POST); 
 
          $this->load->model('MCurd');
          $result=$this->MCurd->getActivityData($p);
          $json = json_encode($result, JSON_UNESCAPED_UNICODE);
          echo $json;
-    }
+     }
+
+
+
+   function tree($arr,$p_id='0') {
+      $tree = array();
+      foreach($arr as $row){
+          if($row['parent_id']==$p_id){
+              $tmp = $this->tree($arr,$row['id']);
+              if($tmp){
+                  $row['children']=$tmp;
+                  $row['leaf']=false ;
+              }
+              else
+              {
+                 $row['leaf']=true ;
+              }
+              $tree[]=$row;                
+          }
+      }
+      return $tree;         
+   } 
+     
+
+     public function abc(){
+
+       
+         
+         $sql = "SELECT id,title as text, parent_id FROM parkos_org  ";
+         $results = $this->db->query($sql)->result_array();
+         $tree = $this->tree($results,0);
+         print_r( json_encode(  $tree));
+
+ 
+     }
+
+
+
+     function TreeListData(){
+
+         $post    = file_get_contents('php://input');
+         $p       = (array) json_decode($post);
+         $actcode=$_POST['actcode'] ;
+         logtext( $actcode );
+
+         $sql="select * from nanx_activity where activity_code= '$actcode'  " ;
+         logtext($sql);
+          
+
+         $row=$this->db->query($sql)->row_array();
+         $base_table=$row['base_table'];
+         $tree_text_field=$row['tree_text_field'];
+         $tree_parent_field =$row['tree_parent_field'];
+         
+         $sql= " SELECT id,$tree_text_field as text, $tree_parent_field as parent_id ,mobile FROM $base_table ";   
+         logtext($sql);
+         $results = $this->db->query($sql)->result_array();
+         $tree = $this->tree($results,0);
+         print_r( json_encode(  $tree));
+
+         // echo $json;
+
+     }
+
     
     function updateData()
     { 
@@ -44,7 +110,7 @@ class Curd extends CI_Controller
                 
              );
             echo json_encode($resp);
-            return;
+            return; 
         }
         
 
@@ -161,8 +227,6 @@ class Curd extends CI_Controller
 
     }
 
-
-    
     function addData()
     {  
 
@@ -205,6 +269,58 @@ class Curd extends CI_Controller
         $this->hookhandler($after,$p,'add');
         $this->write_session_log('add', $p, '');
         echo json_encode($resp);
+    }
+    
+    
+    //ZZZ TO-DO-FIX
+    function TreeAddData()
+    {  
+
+        $post    = file_get_contents('php://input');
+        $p       = (array) json_decode($post);
+        $actcode = $p['actcode'];
+        $this->load->model('MHooks');
+        $hooks=$this->MHooks->getHooksbyActcode($actcode,'add');
+        $before=$hooks['before'];
+        $after=$hooks['after'];
+        $checks=$hooks['checks'];
+        $check_result=$this->hookhandler($checks,$p,'add',true);
+        if($check_result==false){
+              $resp = array(
+                'success' => false,
+                'msg'=>'error'
+             ); 
+            echo json_encode($resp);
+            return;
+        }
+        
+        $this->hookhandler($before,$p,'add');
+        $this->write_notify($actcode, 'add');
+        $base_table = $p['table'];
+
+        $rawData    = (array) $p['rawdata'];
+        
+        $this->db->insert($base_table, $rawData);
+
+
+
+        $errno = $this->db->_error_number();
+        if ($errno == 0) { 
+            $resp = array(
+                'success' => true,
+                'msg' => $this->lang->line('success_add_table_data')
+            );
+        } else {
+            $resp = array(
+                'success' => false,
+                'msg' => $this->lang->line('error_code') . ':' . $errno
+            );
+        }
+
+        $this->hookhandler($after,$p,'add');
+        $this->write_session_log('add', $p, '');
+        echo json_encode($resp);
+    
     }
     
      function deleteData()
@@ -269,6 +385,69 @@ class Curd extends CI_Controller
     }
     
     
+
+     function TreeDeleteData()
+    {
+        
+        $post    = file_get_contents('php://input');
+        $p       = (array) json_decode($post);
+
+        $para_for_hooks=array();
+        $para_for_hooks['table']= $p['table'];
+
+
+        $actcode = $p['actcode'];
+        $this->write_notify($actcode, 'delete');
+        $base_table   = $p['table'];
+        $ids         = $p['id_to_del']; // id like '1,23,4,9'
+        $total_error  = 0;
+
+        $this->load->model('MHooks');
+        $hooks=$this->MHooks->getHooksbyActcode($actcode,'delete');
+        $before=$hooks['before'];
+        $after=$hooks['after'];
+
+        
+
+        $rows_deleted = array();
+        
+        foreach ($ids as $id) {
+            $where = array(
+                'id' => $id
+            );
+            
+            $this->db->where($where);
+            $row_to_del_query = $this->db->get($base_table);
+            $row_to_del= $row_to_del_query->result_array();
+            
+            if (count($row_to_del) == 1) {
+                array_push($rows_deleted, $row_to_del[0]);
+            }
+            
+            $this->db->delete($base_table, $where);
+            $para_for_hooks['id_to_del']=$id;
+            $para_for_hooks['row']= $row_to_del[0];
+            $this->hookhandler($after,$para_for_hooks,'delete');
+            $errno       = $this->db->_error_number();
+            $total_error = $total_error + $errno;
+        }
+        
+        if ($total_error == 0) {
+            $resp = array(
+                'success' => true,
+                'msg' => $this->lang->line('success_delete_table_data')
+            );
+        } else {
+            $resp = array(
+                'success' => false,
+                'msg' => $this->lang->line('error_code') . ':' . $errno
+            );
+        }
+        $this->write_session_log('delete', $p, $rows_deleted);
+        echo json_encode($resp);
+    }
+    
+
     function write_notify($activity_code, $action)
     {
         $sess     = $this->session->all_userdata();

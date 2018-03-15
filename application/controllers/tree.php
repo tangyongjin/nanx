@@ -183,8 +183,11 @@ class Tree extends CI_Controller {
                        TABLE_NAME ='#value'", 'leaf' => true),
 
 			'activitys' => array('sql' =>
+
 				"select  id, activity_code  as  value, grid_title as text, pic_url as pic, 'activity' as category,base_table from  nanx_activity where level<>'system' and activity_type='table'
                  union
+                select  id, activity_code  as  value, grid_title as text, pic_url as pic, 'activity' as category,base_table from  nanx_activity where level<>'system' and activity_type='tree'
+                 union 
                  select  id, activity_code  as  value, grid_title as text, pic_url as pic, 'activity_js' as category,base_table from  nanx_activity where level<>'system' and activity_type='js'
                  union
                  select  id, activity_code  as  value, grid_title as text, pic_url as pic, 'activity_service' as category ,base_table from  nanx_activity where level<>'system' and activity_type='service'

@@ -80,6 +80,13 @@ class MCurd extends CI_Model
             if (($activity_type == 'table') || ($p['code'] == 'NANX_TBL_DATA')) {
                 return $this->getdata_tbl($p, $view_filter);
             }
+            
+            if (($activity_type == 'tree') || ($p['code'] == 'NANX_TBL_DATA')) {
+                return $this->getdata_tbl($p, $view_filter);
+            }
+                
+
+
         }
         
         if ($activity_type == 'sql') {

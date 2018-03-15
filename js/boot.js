@@ -113,6 +113,17 @@ App.route = function(activity_type, code,fnname,service_url,memo){
                 });
           }
         
+
+        if(activity_type=='tree')
+          {
+           new Act({
+                'code': code,
+                'edit_type':'noedit',
+                'showwhere': 'autowin',
+                'host': null
+                });
+          }
+
         
         if(activity_type=='sql')
         	{
@@ -129,7 +140,8 @@ App.route = function(activity_type, code,fnname,service_url,memo){
            Act_service(code,service_url,memo);
           }
 
-     if(activity_type=='menugroup')
+        
+        if(activity_type=='menugroup')
           {
            new Act({
                 'code': code,
@@ -139,6 +151,11 @@ App.route = function(activity_type, code,fnname,service_url,memo){
                 'host': null
                 });
           }
+
+
+
+
+
 }
  
 

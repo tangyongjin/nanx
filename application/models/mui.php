@@ -205,6 +205,18 @@ if( substr($bs_url, -1)=="/" ){
           </div>";
      }
 	   
+   if($act_type=='tree')
+     {  
+        $bs= $this->config->base_url();
+        $onediv =" 
+            <div class='icon'>  
+              <a class='nanx-4-ext'  activity_type='tree' id=$acode  href=#>
+                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <span>{$data['grid_title']}</span>
+              </a>
+          </div>";
+     }
+     
 
 	   
 	   if($act_type=='html')

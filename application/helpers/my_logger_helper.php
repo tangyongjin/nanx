@@ -43,10 +43,11 @@ function helper_getlogname()
 }
 
 
-function logtext($txt)
+function logtext($para)
 {
     $log = fopen(helper_getlogname(), "a+");
-    fwrite($log, $txt);
+    $logtext = var_export($para,true);
+    fwrite($log, $logtext);
     fwrite($log, "\n");
     fclose($log);
 }

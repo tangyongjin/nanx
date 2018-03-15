@@ -1,0 +1,66 @@
+
+
+
+body{
+font-size:12px;
+}
+
+.functionname
+{
+font-size:16px;
+color:red;
+margin-right:20px;
+}
+
+.thin
+ {border-collapse:collapse;
+border:1px;
+margin-left:2px;}
+
+.thin td,.thin th{
+border:1px solid #3F506B;
+font-size:12px;
+height:25px;
+padding:1px 12px 1px 12px;
+border-collapse:collapse;
+}
+.tdblue{
+font-weight:bold;
+color:#3C00C6;
+}
+
+.info{
+ 
+font-size:12px;
+}
+
+input {
+    height:expression(this.type=="button"?"24ppx":"style");
+        }
+input[type="button"] {
+        height:24px;
+        }
+
+input {
+    width:expression(this.type=="text"?"200px":"style");
+        }
+input[type="text"] {
+        width:200px;
+        }
+
+
+
+
+
+.xh2
+{
+text-decoration:underline;
+color:#008080;
+}
+
+.formblock {
+ BORDER-TOP: #ccc 1px solid;
+ WIDTH: 590px;
+ BORDER-BOTTOM: #ccc 0px solid;
+ margin-left:10px;
+}

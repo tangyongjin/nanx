@@ -370,18 +370,18 @@ Fb.getTreeBtns=function(yy){
 
 
 
-        var te = new Ext.tree.TreeEditor(tree, new Ext.form.TextField({
-            allowBlank: false,
-            blankText:''
-        }), {
-            editDelay: 100,
-            revertInvalid: false
-        });
+    var te = new Ext.tree.TreeEditor(tree, new Ext.form.TextField({
+        allowBlank: false,
+        blankText:''
+    }), {
+        editDelay: 100,
+        revertInvalid: false
+    });
 
-        te.on('beforestartedit', function(ed, boundEl, value) {
-            if (ed.editNode.leaf)
-                return false;
-        });
+    te.on('beforestartedit', function(ed, boundEl, value) {
+        if (ed.editNode.leaf)
+            return false;
+    });
     return tree;
  }
 
