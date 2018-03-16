@@ -44,17 +44,33 @@ class Curd extends CI_Controller
    } 
      
 
-     public function abc(){
+    
 
+     function abc(){
+        $ids_to_del=array();
+        $this->getSubTree(2,$ids_to_del);
        
-         
-         $sql = "SELECT id,title as text, parent_id FROM parkos_org  ";
-         $results = $this->db->query($sql)->result_array();
-         $tree = $this->tree($results,0);
-         print_r( json_encode(  $tree));
-
- 
      }
+
+     function getSubTree($category_id,&$ids) 
+       {
+
+            if(! in_array($category_id,$ids) ){
+                $ids[]=$category_id;
+            }
+         
+             // 获得当前节点的所有孩子节点（直接孩子，没有孙子）
+            $sql = "SELECT * FROM parkos_org WHERE parent_id= $category_id ";
+           
+            // 遍历孩子节点，打印节点
+            $rows=$this->db->query($sql)->result_array();
+            foreach ($rows as $key => $row) {
+                 if(! in_array($category_id,$ids) ){
+                    $ids[]=$row['id'];
+                 }
+                 $this->getSubTree($row['id'], $ids);
+            }
+       }
 
 
 
@@ -399,7 +415,8 @@ class Curd extends CI_Controller
         $actcode = $p['actcode'];
         $this->write_notify($actcode, 'delete');
         $base_table   = $p['table'];
-        $ids         = $p['id_to_del']; // id like '1,23,4,9'
+        $id_array         = $p['id_to_del']; // id like '1,23,4,9'
+        $sub_tree_id=$id_array[0];
         $total_error  = 0;
 
         $this->load->model('MHooks');
@@ -409,8 +426,13 @@ class Curd extends CI_Controller
 
         
 
-        $rows_deleted = array();
+       
+        $ids=array();
+
         
+        $this->getSubTree($sub_tree_id,$ids);
+
+        $rows_deleted=array();
         foreach ($ids as $id) {
             $where = array(
                 'id' => $id
