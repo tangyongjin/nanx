@@ -22,6 +22,7 @@ var event_task ={
         interval:1000000
         
 }  
+
 var event_runner = new Ext.util.TaskRunner();
-event_runner.start(event_task);
+// event_runner.start(event_task);
 

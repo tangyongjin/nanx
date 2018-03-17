@@ -563,6 +563,11 @@ background-image: url(backimgs/icons/biz_table.png) !important;
 }
 
 
+.dropdown_codetable {
+	background-image: url(backimgs/icons/text_columns.png) !important;
+}
+
+
 .dropdown_item {
 	background-image: url(backimgs/icons/dropdown_item.png) !important;
 }

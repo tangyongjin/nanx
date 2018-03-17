@@ -819,7 +819,14 @@ Act.prototype.filter2QueryCfg=function(cfg)
 }
 
 
-Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg){
+Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg,codetable_filter_cfg){
+    
+    console.log(cfg)
+
+    if(!codetable_filter_cfg){
+        codetable_filter_cfg={}
+    }
+
     var whoami=this.whoami;
      
     if (this.id_order) {
@@ -835,7 +842,8 @@ Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg){
         who_is_who:this.who_is_who,
         owner_data_only:this.owner_data_only,
         id_order:id_order,
-        query_cfg:querycfg
+        query_cfg:querycfg,
+        codetable_filter_cfg:codetable_filter_cfg
     };
 
     var table_query_json=Ext.encode(table_query_obj);

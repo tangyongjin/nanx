@@ -32,6 +32,7 @@ $lang['doc_items_desc']                  = 'Fields:';
 $lang['doc_notice']                      = 'Notice:';
 $lang['doc_operation']                   = 'Operation';
 $lang['dropdown_groups']                 = 'Dropdown Items';
+$lang['dropdown_codetable']              = 'CodeTable';
 $lang['err_occur']                       = 'Error occured,message:';
 $lang['error_code']                      = 'Error code';
 $lang['executed']                        = 'executed ';

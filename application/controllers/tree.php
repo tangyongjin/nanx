@@ -50,10 +50,10 @@ class Tree extends CI_Controller {
                     union
                     select  table_name as value,'" . $this->lang->line('trigger_groups') . "'  as  text ,'trigger_groups' as category, table_name as hostby
                     from  nanx_biz_tables      where id='#value'
-                    union
+                    union  
                     select  table_name as value,'" . $this->lang->line('dropdown_groups') . "'  as  text ,'dropdown_groups' as category, table_name as hostby
-                    from  nanx_biz_tables      where id='#value'
-                    union 
+                    from  nanx_biz_tables      where id='#value'  
+                    union
                     select  '#hostby' as value,'" . $this->lang->line('view_filter') . "'  as  text ,'view_filter' as category, id as hostby
                     from  nanx_activity      where activity_code='#hostby' 
                     

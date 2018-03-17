@@ -238,6 +238,7 @@ class MActivity extends CI_Model
         return $col_cfg;   
     }
 
+    //return col_cfg
 
      function getFieldesByType($activity_summary,$para_array)
     {    
@@ -346,6 +347,8 @@ class MActivity extends CI_Model
 
 
         $col_cfg=$this->getFieldesByType($activity_summary,$para_array);
+
+        // $codetable_cfg=$this->getFieldesByType($activity_summary,$para_array);
         
         if(array_key_exists('sql_syntax_error', $col_cfg))
         {

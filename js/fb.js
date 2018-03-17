@@ -1330,6 +1330,9 @@ Fb.setJsonPath=function(obj,path, val) {
   //下拉字段
    Fb.getDropdownlistEditor = function(  one_col_cfg, row,readonly_flag,whoami_cfg) {
      
+
+     console.log(one_col_cfg.editor_cfg.trigger_cfg)
+
      var row_value= this.getColInitValueAndRawValue(one_col_cfg,row,whoami_cfg) 
      one_col_cfg.ini=row_value._ini
      one_col_cfg.raw_value=row_value._raw_value
@@ -1349,7 +1352,17 @@ Fb.setJsonPath=function(obj,path, val) {
      one_col_cfg.detail_btn = true;
 
      var dropdownOption=this.getDropdownOption(one_col_cfg)
-     var combo_store = Act.prototype.getStoreByTableAndField(dropdownOption.table, dropdownOption.fields, dropdownOption.filter_cfg);
+     
+     console.log(dropdownOption)
+
+     var codetable_filter_cfg={}
+     // codetable 增加送给后台的筛选配置
+     
+     if( dropdownOption.table=='nanx_code_table'){
+           codetable_filter_cfg={codetable_category_value:one_col_cfg.editor_cfg.trigger_cfg.codetable_category_value}
+     }
+     
+     var combo_store = Act.prototype.getStoreByTableAndField(dropdownOption.table, dropdownOption.fields, dropdownOption.filter_cfg,codetable_filter_cfg);
 
      return this.getBasicCombo(one_col_cfg, combo_store,readonly_flag);
  }

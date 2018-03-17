@@ -16,7 +16,7 @@ class Log extends CI_Controller
 		$css  = $base_url."css/log.css";
 		$css_str = "<link rel='stylesheet' href=$css><link rel='shortcut icon' href='/imgs/log.ico'>";
 		echo '<html><head><meta http-equiv="content-type" content="text/html;charset=utf-8">' . $jstr . $css_str . 
-    '<title>和园区API日志</title></head>';
+    '<title>ParkOS-API日志</title></head>';
 		echo "<body><div>";        
 		echo "<input onclick=clear_log() type=button value=Clear_log name=Hide_Input>";
 		echo "</div>";

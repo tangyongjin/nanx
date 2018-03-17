@@ -13,6 +13,24 @@ class Curd extends CI_Controller
          $post    = file_get_contents('php://input');
          $p       = (array) json_decode($post);
          
+         // codetable补丁:
+
+         if( $p['table']=='nanx_code_table'  &&  $p['codetable_filter_cfg'] ){
+             $ret=array();
+             
+
+             
+             $code_filter= (array) $p['codetable_filter_cfg'];
+             logtext($code_filter);
+             $category_value=$code_filter['codetable_category_value'];
+
+             $sql="select * from nanx_code_table where category=  '{$category_value}' " ;
+             $rows=$this->db->query($sql)->result_array();
+             $ret['rows']=$rows;
+             echo json_encode($ret, JSON_UNESCAPED_UNICODE);
+             die;
+
+         }
 
          logtext($_POST); 
 
