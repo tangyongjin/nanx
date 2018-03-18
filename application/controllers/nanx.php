@@ -1168,6 +1168,9 @@ class Nanx extends CI_Controller {
 
 		if ($dbcmdtype == 'insert') {
 			if (count($data_fixed) > 0) {
+				logtext($tbused);
+				logtext($data_fixed);
+				
 				$this->db->insert_batch($tbused, $data_fixed);
 			}
 		}

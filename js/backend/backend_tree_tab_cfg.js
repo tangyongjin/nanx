@@ -1796,9 +1796,11 @@ var contextMenu = [
             place:'context',
             itemcfg:[{
                 item_type:'field',
+                id:'field_e',
                 label:i18n.field_name
             }, {
                 item_type:'field',
+                id:'field_c',
                 label:i18n.field_display
             }]
         }]
