@@ -1,7 +1,16 @@
   Ext.override(Ext.Component,{
         Callback_setValue:function(value){
                 var xtype=this.getXType();
-                if(xtype=='textfield'||xtype=='textarea'||xtype=='combo'||xtype=='StarHtmleditor') {this.setValue(value);}
+                console.log(this)
+                console.log(xtype)
+                console.log(value)
+                
+                if(xtype=='textfield'||xtype=='textarea'||xtype=='combo'||xtype=='StarHtmleditor') 
+                    {
+                        this.setValue(value);
+                        // this.setRawValue(value);
+                    }
+
                 if((xtype=='panel') &&( this.items.itemAt(0).getXType()=='checkbox' )) 
                 {
                                for( var i=0;i< this.items.getCount();i++)
@@ -1031,8 +1040,10 @@ Fb.getTreeBtns=function(yy){
          } else {
              p.setValue(p.getValue());
          }
+         
 
-          p.setRawValue(cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
+         //bug: 导致后台setvalue失败?
+        // p.setRawValue(cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
 
          var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
          var tmp_v = combo.getValue();
@@ -2045,7 +2056,10 @@ Fb.getWhoami=function()
 Fb.setSingleField=function(jsondata, item) {
          if (item.path) {
              var v = jsondata[item.path];
+             console.log("setting ",v)
              var compent = Ext.getCmp(item.id);
+             console.log(compent)
+             
              if (compent) { compent.Callback_setValue(v) };
             }
 }
@@ -2066,18 +2080,22 @@ Fb.setSingleField=function(jsondata, item) {
                  } else {
                      var data_from_json = ret_json[key_used];
                  }
-               
+                 console.log("后台返回:")
+                 console.log(data_from_json)
 
                  Ext.each(mcfg.itemcfg, function(item) {
 
                      switch (item.item_type){
                       case 'combo_group':
-                       
+                         console.log("setting combo_group:")
                          Fb.setSingleField(data_from_json, item.root_combox);
                          for (var i = 0; i < item.slave_comboxes.length; i++) {
+                            console.log("setSingleField :",data_from_json,item.slave_comboxes[i])
+                         
                              Fb.setSingleField(data_from_json, item.slave_comboxes[i]);
                          }
-                         Ext.getCmp(item.root_combox.id).getStore().reload();
+
+                             Ext.getCmp(item.root_combox.id).getStore().reload();
                       
                          break;
                       

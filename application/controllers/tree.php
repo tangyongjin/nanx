@@ -21,7 +21,7 @@ class Tree extends CI_Controller {
 				'leaf' => false),
 
 			'biz_tables_can_follow' => array('sql' =>
-				"select  id, table_name as value, table_name as 'table', table_screen_name as  text ,'biz_table' as category from  nanx_biz_tables",
+				"select id, table_name as value, table_name as 'table', table_screen_name as  text ,'biz_table' as category from  nanx_biz_tables",
 				'leaf' => false),
 
 			'fks' => array('sql' =>
