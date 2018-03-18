@@ -321,5 +321,6 @@ deletehook:'Delete Hook',
 addhock:'Add Hock',
 set_activity_order:'Set Activity order',
 set_activity_menu:'Set Menu',
+codetable:'CodeTable',
 zzz:'zzz'
 }

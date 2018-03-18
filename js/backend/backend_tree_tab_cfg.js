@@ -29,6 +29,12 @@ var appCategory_List = [{
         leaf:false
     },
     {
+        category:'codetable',
+        label:i18n.codetable,
+        leaf:false
+    },
+    
+    {
         category:'medias',
         label:i18n.file_mnt,
         leaf:true
@@ -1803,6 +1809,13 @@ var contextMenu = [
                 id:'field_c',
                 label:i18n.field_display
             }]
+        }]
+    },{
+        category: ['codetable'],
+        menus:[{
+            title:i18n.browse,
+            opcode:'edit_codetable',
+            place:'context'
         }]
     }, {
         category:['single_col_display'],

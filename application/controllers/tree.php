@@ -109,6 +109,14 @@ class Tree extends CI_Controller {
 				"select id as value,concat('[',field_e,'->',field_c,']') as text,'single_col_display' as category from nanx_activity_field_public_display_cfg",
 				'leaf' => true),
 
+             'codetable' => array('sql' =>
+				" select  distinct category  as text , category    from nanx_code_table ",
+				'leaf' => true),
+
+
+		 
+
+
 			'public_cols_show_in_summary' => array('sql' =>
 				"select  field_e as text,field_c  as value,'ce_sum' as category from nanx_activity_field_public_display_cfg",
 				'leaf' => true),

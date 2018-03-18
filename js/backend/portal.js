@@ -268,6 +268,16 @@ function specialCodeRoute(node,category,opcode)
                         new Act({edit_type:'edit',table:'nanx_activity_field_public_display_cfg',code:'NANX_TBL_DATA',showwhere:'autowin',wintitle:i18n.title_setdisplycfg,host:null});
                         }
                 }
+
+
+                if (opcode=='edit_codetable'){
+                        common_fn=function(){
+                        var host=Ext.getCmp('table_data');
+                        new Act({edit_type:'edit',table:'nanx_code_table',code:'NANX_TBL_DATA',showwhere:'autowin',wintitle:i18n.title_setdisplycfg,host:null});
+                        }
+                }
+
+
           return common_fn;
 }
 
@@ -277,7 +287,7 @@ function specialCodeRoute(node,category,opcode)
 
 function  getMenuItemHandler(node,category,opcode,alt_win_id)
 {
-    var specialCodes = ["mem_copy", "mem_paste", "create_table", "preview_activity","edit_public_field"];
+    var specialCodes = ["mem_copy", "mem_paste", "create_table", "preview_activity","edit_public_field","edit_codetable"];
     var route = specialCodes.indexOf(opcode);
     if(route>=0)
     {
