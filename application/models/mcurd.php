@@ -121,7 +121,6 @@ class MCurd extends CI_Model
     
     public function getdata_service($p)
     {
-        logtext('getdata_service');
 
         $table = $p['table'];
         if (isset($_GET['start'])) {

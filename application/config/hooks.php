@@ -10,15 +10,6 @@
 |
 */
 
- 
-$hook['post_controller_constructor'][] 
-=array( 
-'class'=>'Logger', 
-'function'=>'mlog', 
-'filename'=>'logger.php', 
-'filepath'=>'hooks'); 
-
-
 
 $hook['post_controller_constructor'][] 
 =array( 
@@ -26,6 +17,16 @@ $hook['post_controller_constructor'][]
 'function'=>'filter', 
 'filename'=>'acl.php', 
 'filepath'=>'hooks'); 
+ 
+
+
+$hook['post_controller_constructor'][] 
+=array( 
+'class'=>'Logger', 
+'function'=>'mlog', 
+'filename'=>'logger.php', 
+'filepath'=>'hooks'); 
+
 
 $hook['post_controller_constructor'][] = array(
                                 'class'    => 'I18n',

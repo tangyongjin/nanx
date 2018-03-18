@@ -219,11 +219,7 @@ class Home extends CI_Controller
         $session_data['page_title']=$page_title;
         $session_data['banner_title']=$banner_title;
 
-        // print_r($session_data);die;
-
-
-
-        logtext('set_session abcd');
+        
 
         $this->session->set_userdata($session_data);
 

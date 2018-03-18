@@ -21,17 +21,13 @@ class MDatafactory extends CI_Model
         // 对每个列,查找combo_fields,看是否需要替换为left join形式.
         $this->load->model('MFieldcfg');
         foreach ($base_fields as $table_field) {
-            logtext("----->");
-            // logtext($basetable);
-            // logtext($table_field);
-            // logtext($combo_fields);
+           
             
 
 
             $found           = $this->MFieldcfg->getTransedField($basetable, $table_field, $combo_fields);
             
-            logtext($found);
-            
+             
             $transed_fields[] = $found['transed'];
             $ghosts[]        = $found['ghost'];
             $joins[]         = $found['join'];
@@ -145,7 +141,7 @@ class MDatafactory extends CI_Model
             $sql   = $sql . " limit $start,$limit";
         }
         
-        logtext($sql);
+       
 
         $rows          = $this->db->query($sql)->result_array();
         $data['rows']  = $rows;

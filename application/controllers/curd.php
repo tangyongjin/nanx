@@ -21,7 +21,7 @@ class Curd extends CI_Controller
 
              
              $code_filter= (array) $p['codetable_filter_cfg'];
-             logtext($code_filter);
+           
              $category_value=$code_filter['codetable_category_value'];
 
              $sql="select * from nanx_code_table where category=  '{$category_value}' " ;
@@ -32,7 +32,7 @@ class Curd extends CI_Controller
 
          }
 
-         logtext($_POST); 
+      
 
          $this->load->model('MCurd');
          $result=$this->MCurd->getActivityData($p);
@@ -97,11 +97,10 @@ class Curd extends CI_Controller
          $post    = file_get_contents('php://input');
          $p       = (array) json_decode($post);
          $actcode=$_POST['actcode'] ;
-         logtext( $actcode );
+     
 
          $sql="select * from nanx_activity where activity_code= '$actcode'  " ;
-         logtext($sql);
-          
+       
 
          $row=$this->db->query($sql)->row_array();
          $base_table=$row['base_table'];
@@ -109,7 +108,7 @@ class Curd extends CI_Controller
          $tree_parent_field =$row['tree_parent_field'];
          
          $sql= " SELECT id,$tree_text_field as text, $tree_parent_field as parent_id ,mobile FROM $base_table ";   
-         logtext($sql);
+        
          $results = $this->db->query($sql)->result_array();
          $tree = $this->tree($results,0);
          print_r( json_encode(  $tree));
