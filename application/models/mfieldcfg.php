@@ -123,18 +123,10 @@ class MFieldcfg  extends CI_Model{
       'field_e' => $field
     );
     
-    // 从其他表格的下拉列表
+   
     $this->db->where($where);
     $this->db->select('combo_table,codetable_category_value,list_field,value_field,filter_field,group_id,level');
 	  $dropdown_from_table=$this->db->get('nanx_biz_column_trigger_group')->first_row('array');
-   
-  
-    //  // 从code_table的下拉列表
-    // $this->db->where($where);
-    // $this->db->select('category');
-    // $dropdown_from_codetable=$this->db->get('nanx_biz_column_dropdown_codetable_cfg')->first_row('array');
-     
-    
 
     return   $dropdown_from_table ;
 
@@ -292,16 +284,21 @@ class MFieldcfg  extends CI_Model{
         
         //如果combo_fields不为空,则检查,找到则返回转后的,否则直接直接返回field.
         
-        foreach ($combo_fileds as $combo_4meta) {
+        foreach ($combo_fileds as $key=>$combo_4meta) {
             if ($field == $combo_4meta['field_e']) {
-                $transed = $combo_4meta['combo_table'] . "." . $combo_4meta['list_field'] . " as " . $combo_4meta['field_e'];
-                $join    = " left join   " . $combo_4meta['combo_table'] . " on " . $combo_4meta['combo_table'] . "." . $combo_4meta['value_field'] . "=" . $basetable . "." . $field;
-                $ghost   = " $basetable.$field  as ghost_$field";
-                break;
+           
+              //表别名
+              $tb_alias= $combo_4meta['combo_table']."_$key";
+
+              $transed = $tb_alias . "." . $combo_4meta['list_field'] . " as " . $combo_4meta['field_e'];
+           
+              $join    = " left join {$combo_4meta['combo_table']} $tb_alias on {$tb_alias}.{$combo_4meta['value_field']} = $basetable.$field ";
+              $ghost   = " $basetable.$field  as ghost_$field";
+              break;
             } else {
-                $join    = '';
-                $transed = $basetable . "." . $field;
-                $ghost   = '';
+              $join    = '';
+              $transed = $basetable . "." . $field;
+              $ghost   = '';
             }
         }
         

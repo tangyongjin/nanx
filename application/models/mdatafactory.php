@@ -10,7 +10,7 @@ class MDatafactory extends CI_Model
         $combo_fields = $this->db->select('base_table,field_e,combo_table,list_field,value_field,filter_field,group_id,level')->get_where('nanx_biz_column_trigger_group', $where)->result_array();
         $base_fields  = $this->db->list_fields($basetable);
         
-        $transed_field = array();
+        $transed_fields = array();
         $joins         = array();
         $ghosts        = array();
         
@@ -21,14 +21,26 @@ class MDatafactory extends CI_Model
         // 对每个列,查找combo_fields,看是否需要替换为left join形式.
         $this->load->model('MFieldcfg');
         foreach ($base_fields as $table_field) {
+            logtext("----->");
+            // logtext($basetable);
+            // logtext($table_field);
+            // logtext($combo_fields);
+            
+
+
             $found           = $this->MFieldcfg->getTransedField($basetable, $table_field, $combo_fields);
             
-            $transed_field[] = $found['transed'];
+            logtext($found);
+            
+            $transed_fields[] = $found['transed'];
             $ghosts[]        = $found['ghost'];
             $joins[]         = $found['join'];
         }
+
+
         
-        foreach ($transed_field as $field) {
+        
+        foreach ($transed_fields as $field) {
             $field_list_str .= $field . ",";
         }
         
@@ -132,6 +144,8 @@ class MDatafactory extends CI_Model
             $limit = $_GET['limit'];
             $sql   = $sql . " limit $start,$limit";
         }
+        
+        logtext($sql);
 
         $rows          = $this->db->query($sql)->result_array();
         $data['rows']  = $rows;

@@ -17,7 +17,7 @@ CURD_TREE_DEL_DATA_URL=CURD_URL+'TreeDeleteData';
 CURD_TREE_UPDATE_DATA_URL=CURD_URL+'updateData';
 
 
-LOGIN_URL=BASE_URL+'/home/login';
+LOGIN_URL=BASE_URL+'home/login';
 Ext.BLANK_IMAGE_URL=BASE_URL+'jslib/ext/resources/images/default/s.gif';
 pageSize=25;
  
