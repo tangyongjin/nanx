@@ -1116,7 +1116,54 @@ var contextMenu = [
                   path:'follow_cfg'
                   }
                   ]
-              } 
+              },
+              {
+                title:i18n.add_codetable_config,
+                json:{'value':'#value','hostby':'#hostby'},
+                opcode:'1set_biz_field_combo_resorce,1set_biz_field_combo_follow',
+                place:'context',
+                // callback_set_url:'nanx/getFieldSource_and_follow',
+                // callback_set_json_key:'combo_cfg',
+                width:700,
+                itemcfg:
+                [
+                {       item_type:'field',
+                        id:'group_id',
+                        value:'@random',
+                        hidden:true
+                },
+                {       item_type:'combo_list',
+                        id:'field_e',
+                        label:i18n.value_col_in_base_table,
+                        level:1,
+                        value:'#value',
+                        category_to_use:'biz_cols' 
+                },
+                {
+                         item_type: 'combo_list',
+                         id: 'category',
+                         label:i18n.select_codetable_category,
+                         displayField: 'text',
+                         valueField: 'category',
+                         category_to_use: 'codetable_category'
+                }
+               ]
+              }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             ]
         },
     {

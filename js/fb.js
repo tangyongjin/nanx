@@ -1537,8 +1537,13 @@ Fb.getWhoami=function()
      var fmdata = {};
      var formel = form.getEl();
      var ipts = formel.query('input');
+     console.log(ipts)
+
      for (var i = 0; i < ipts.length; i++) {
          var field_id = ipts[i].getAttribute("id");
+         
+         console.log(field_id)
+
          if (Ext.getCmp(field_id)) {
              var field = Ext.getCmp(field_id);
              var field_type = field.getXType();
@@ -1550,17 +1555,27 @@ Fb.getWhoami=function()
                  }
              }
              fmdata[field_id] = field_value;
+         }else
+         {
+
+            console.log("!!!!!!!!!!!!!not found")
          }
      }
-     
+     console.log('fmdata',fmdata)
+
      var xtypes = form.findByType("timepickerfield");
+     
      for (var i = 0; i < xtypes.length; i++) {
          fmdata[xtypes[i].id] = xtypes[i].getValue();
      }
+
      var fm_tmp_v = form.getForm().getValues();
+     console.log(fm_tmp_v)
+
      Ext.applyIf(fmdata, form.getForm().getValues());
      for (var p in fmdata) {
          if ((p.substring(0, 7) == 'ext-gen') || (p.substring(0, 8) == 'ext-comp')) {
+             console.log("delete ----")
              delete fmdata[p];
          };
      }

@@ -16,8 +16,10 @@ App.bind = function() {
                         var acode = target.getAttribute('id');
                         var fnname= target.getAttribute('fnname');
                         var service_url= target.getAttribute('service_url');
+
+                        var grid_title=target.getAttribute('grid_title');
                         var memo=target.getAttribute('memo');
-                        App.route(activity_type, acode,fnname,service_url,memo);
+                        App.route(activity_type, acode,fnname,service_url,memo,grid_title);
         
 
     }, this, {
@@ -83,7 +85,7 @@ App.bind = function() {
         
 }
 
-App.route = function(activity_type, code,fnname,service_url,memo){
+App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
   
 	      if(activity_type=='js'){
 	       if(NANXplugin_window.prototype[fnname]) 
@@ -105,6 +107,7 @@ App.route = function(activity_type, code,fnname,service_url,memo){
 
 	      if(activity_type=='table')
         	{
+           
            new Act({
                 'code': code,
                 'edit_type':'noedit',
@@ -138,6 +141,14 @@ App.route = function(activity_type, code,fnname,service_url,memo){
         if(activity_type=='service')
         	{
            Act_service(code,service_url,memo);
+          }
+
+       
+
+        if(activity_type=='html')
+          {
+         
+           Act_html(code,service_url,memo,grid_title);
           }
 
         

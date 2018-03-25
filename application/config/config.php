@@ -20,6 +20,8 @@
 // $config['log_threshold'] =0;
 
 $config['base_url'] = 'http://61.232.6.35:9002';
+$config['login_url'] = $config['base_url']."/home/login";
+
 $config['log_path'] = '/var/www/html/logs';
 $config['log_date_format'] = 'Y-m-d H:i:s';
 // $config['cache_path'] = '';

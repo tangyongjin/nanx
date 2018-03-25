@@ -224,7 +224,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $bs= $this->config->base_url();
      	  $onediv =" 
             <div class='icon'>  
-              <a class='nanx-4-ext'  activity_type='table' id=$acode  href=#>
+              <a class='nanx-4-ext'   grid_title={$data['grid_title']}  activity_type='html' id=$acode  href=#>
                 <img src='{$bs}/imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>

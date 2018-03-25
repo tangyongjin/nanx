@@ -495,6 +495,7 @@ Act.prototype.createActivityGridPanel=function(){
 
 
 Act.prototype.createActivityHtmlPanel=function(){
+    
     var btn1={
         text:i18n.refresh,
         iconCls:'table_data_refresh',
@@ -503,14 +504,24 @@ Act.prototype.createActivityHtmlPanel=function(){
             panel.doAutoLoad();
         }
     };
+
     var tbar=[{
         xtype:'buttongroup',
         items:[btn1]
     }];
+    
     var f=new Ext.Panel({
+
         autoScroll:true,
         tbar:tbar,
-        autoLoad:AJAX_ROOT+this.dataUrl
+        frame:true,
+        width:250,
+        height:250,
+        autoLoad:{
+            url:AJAX_ROOT+this.serviceUrl
+        }
+
+      
     });
     this.gridPanel=f;
 }
@@ -2494,4 +2505,48 @@ function Act_service(acode,service_url,memo){
         modal:true
     });
     service_win.show();
+}
+
+
+
+function Act_html(acode,service_url,memo,grid_title){
+    
+
+  var iframeContainer = new Ext.BoxComponent({
+    autoEl: {
+        tag: 'iframe',
+        frameborder: '0',
+        src: 'http://61.232.6.35:9002/plugin/3d/rfid_report/index.html'
+    },
+
+    width: 900,  
+    height: 800  ,
+
+    listeners: {
+        afterrender: function () {
+            console.log('rendered');
+
+            this.getEl().on('load', function () {
+                console.log('loaded');
+            });
+        }
+    }
+    });
+
+    console.log(iframeContainer)
+
+    
+    var html_win=new Ext.Window({
+        autoScroll:true,
+        closeAction:'destroy',
+        constrain:true,
+        width:920,
+        height:820,
+        id:'win_'+acode,
+        title:grid_title,
+        items:[iframeContainer],
+        modal:true
+    });
+
+    html_win.show();
 }

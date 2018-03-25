@@ -28,7 +28,8 @@ class ACL
        
         $url = str_replace( '/index.php','', $_SERVER['REQUEST_URI']);
         
-       
+        // $url = str_replace( '//home','/home', $_SERVER['REQUEST_URI']);
+        
 
         $arr = explode('/', $url);
 
@@ -50,9 +51,10 @@ class ACL
 
         if(!$is_login) 
         { 
-            logtext('check_login failed, will return;');
             
-            $bs_url= $this->CI->config->item('base_url');
+            $login_url= $this->CI->config->item('login_url');
+            logtext("check_login failed, will return; login_url is $login_url");
+            // $login_url=
             header("Location:$bs_url/home/login");
             return false ;             
         }
