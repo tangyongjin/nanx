@@ -2540,7 +2540,7 @@ function Act_html(acode,service_url,memo,grid_title){
         autoScroll:true,
         closeAction:'destroy',
         constrain:true,
-        width:920,
+        width:930,
         height:820,
         id:'win_'+acode,
         title:grid_title,

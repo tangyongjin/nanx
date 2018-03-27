@@ -44,9 +44,11 @@ CREATE TABLE `nanx_activity` (
   `view_filter` char(100) DEFAULT NULL,
   `view_filter_memo` char(250) DEFAULT NULL,
   `owner_data_only` int(1) DEFAULT NULL,
+  `tree_text_field` char(100) DEFAULT NULL,
+  `tree_parent_field` char(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `activity_code` (`activity_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=265 DEFAULT CHARSET=utf8 COMMENT='活动注册表格';
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8 COMMENT='活动注册表格';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +57,7 @@ CREATE TABLE `nanx_activity` (
 
 LOCK TABLES `nanx_activity` WRITE;
 /*!40000 ALTER TABLE `nanx_activity` DISABLE KEYS */;
-INSERT INTO `nanx_activity` VALUES (90,'NANX_TBL_DATA','service',NULL,NULL,'mrdbms/getTableFields','curd/listData','rdbms/getTableFields','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png','',NULL,NULL,NULL,'system',662,800,NULL,NULL,NULL,NULL),(91,'NANX_TBL_STRU','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(92,'NANX_TBL_INDEX','service',NULL,NULL,'mrdbms/get_min_table_indexes_no_directshow','rdbms/get_min_table_indexes_directshow','rdbms/get_min_table_indexes_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(93,'NANX_TBL_CREATE','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(116,'NANX_SYS_CONFIG','service',NULL,'',NULL,'curd/listData','',NULL,'',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(134,'NANX_APP_SUMMARY','html',NULL,NULL,NULL,'tree/systemSummary','',NULL,'icon-48-links.png','NANX_APP_SUMMARY',NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(177,'NANX_TB_LAYOUT','sql',NULL,NULL,NULL,'curd/listData','',NULL,'',NULL,'select   field_list   from  nanx_activity_biz_layout   where  raw_table=$table',NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL),(226,'NANX_FS_2_TABLE','service',NULL,NULL,'mfile/getFSGridFields','file/fs2array','mfile/getFSGridFields',NULL,'default_act.png','',NULL,NULL,NULL,'system',662,800,899,NULL,NULL,NULL),(234,'NANX_SQL_ACTIVITY','sql',NULL,NULL,NULL,'curd/listData','',NULL,'act_sql.png','run_sql','show tables;\n',NULL,NULL,'system',644,800,899,NULL,NULL,NULL),(264,'act_parkos_sale_item_49624738','table',NULL,'parkos_sale_item',NULL,NULL,'',NULL,'act_common.png','活动_saleitem',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,1);
+INSERT INTO `nanx_activity` VALUES (90,'NANX_TBL_DATA','service',NULL,NULL,'mrdbms/getTableFields','curd/listData','rdbms/getTableFields','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png','',NULL,NULL,NULL,'system',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(91,'NANX_TBL_STRU','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(92,'NANX_TBL_INDEX','service',NULL,NULL,'mrdbms/get_min_table_indexes_no_directshow','rdbms/get_min_table_indexes_directshow','rdbms/get_min_table_indexes_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(93,'NANX_TBL_CREATE','service',NULL,NULL,'mrdbms/get_table_creation_info_no_directshow','rdbms/get_table_creation_info_directshow','rdbms/get_table_creation_info_no_directshow','table','http://127.0.0.1/nanx/imgs/icon-48-banner-categories.png',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(116,'NANX_SYS_CONFIG','service',NULL,'',NULL,'curd/listData','',NULL,'',NULL,NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(134,'NANX_APP_SUMMARY','html',NULL,NULL,'tree/systemSummary','tree/systemSummary','',NULL,'icon-48-links.png','NANX_APP_SUMMARY',NULL,NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(177,'NANX_TB_LAYOUT','sql',NULL,NULL,NULL,'curd/listData','',NULL,'',NULL,'select   field_list   from  nanx_activity_biz_layout   where  raw_table=$table',NULL,NULL,'system',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(226,'NANX_FS_2_TABLE','service',NULL,NULL,'mfile/getFSGridFields','file/fs2array','mfile/getFSGridFields',NULL,'default_act.png','',NULL,NULL,NULL,'system',662,800,899,NULL,NULL,NULL,NULL,NULL),(234,'NANX_SQL_ACTIVITY','sql',NULL,NULL,NULL,'curd/listData','',NULL,'act_sql.png','run_sql','show tables;\n',NULL,NULL,'system',644,800,899,NULL,NULL,NULL,NULL,NULL),(265,'act_parkos_org_1607399151','tree',NULL,'parkos_org',NULL,NULL,'',NULL,'node.png','组织结构管理',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,'title','parent_id'),(266,'act_parkos_noticeinfo_2092101938','table',NULL,'parkos_noticeinfo',NULL,NULL,'',NULL,'media.png','通知信息',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(267,'act_parkos_company_1472731013','table',NULL,'parkos_company',NULL,NULL,'',NULL,'organize.png','入住企业',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(268,'act_parkos_subsys_gateway_545671900','table',NULL,'parkos_subsys_gateway',NULL,NULL,'',NULL,'switch.png','应用网关',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(270,'org_employee','table',NULL,'parkos_org',NULL,'curd/listData','',NULL,'contacts.png','员工管理',NULL,NULL,NULL,'F',644,800,899,NULL,NULL,NULL,NULL,NULL),(271,'act_parkos_assets_1427086552','table',NULL,'parkos_assets',NULL,NULL,'',NULL,'hardware.png','设备管理',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(272,'act_parkos_dev_knowledge_base_1453357961','table',NULL,'parkos_dev_knowledge_base',NULL,NULL,'',NULL,'knowbase.png','知识库',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(273,'act_parkos_company_fee_log_1224881844','table',NULL,'parkos_company_fee_log',NULL,NULL,'',NULL,'invoice.png','租金管理',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(274,'act_parkos_meeting_room_2134843644','table',NULL,'parkos_meeting_room',NULL,NULL,'',NULL,'prod_category.png','会议室',NULL,NULL,NULL,'F',662,800,NULL,NULL,NULL,NULL,NULL,NULL),(275,'rfid_person_report','html','plugin/3d/rfid_report/index.html',NULL,'plugin/3d/rfid_report/index.html',NULL,'',NULL,'act_service.png','人员统计',NULL,NULL,NULL,'F',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `nanx_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +184,7 @@ CREATE TABLE `nanx_activity_field_public_display_cfg` (
   `label_width` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `base_table` (`field_e`)
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='活动UI的字段配置。';
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='活动UI的字段配置。';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +215,7 @@ CREATE TABLE `nanx_activity_field_special_display_cfg` (
   `show_as_pic` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `activity_code` (`activity_code`,`base_table`,`field_e`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='活动UI的字段配置。';
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='活动UI的字段配置。';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +224,7 @@ CREATE TABLE `nanx_activity_field_special_display_cfg` (
 
 LOCK TABLES `nanx_activity_field_special_display_cfg` WRITE;
 /*!40000 ALTER TABLE `nanx_activity_field_special_display_cfg` DISABLE KEYS */;
-INSERT INTO `nanx_activity_field_special_display_cfg` VALUES (1,'ref_activity','t_plug_goods_list','course_id',NULL,'球场',NULL,0),(2,'ref_activity','t_plug_goods_list','goods_id',NULL,'商品',NULL,0),(3,'ref_activity','t_plug_goods_list','price_via_course',NULL,'买入价格',NULL,0),(4,'ref_activity','t_plug_goods_list','price_via_user',NULL,'零售价格',NULL,0),(5,'ref_activity','t_plug_goods_list','billing_method',NULL,'时长计费方式',NULL,0);
+INSERT INTO `nanx_activity_field_special_display_cfg` VALUES (1,'ref_activity','t_plug_goods_list','course_id',NULL,'球场',NULL,0),(2,'ref_activity','t_plug_goods_list','goods_id',NULL,'商品',NULL,0),(3,'ref_activity','t_plug_goods_list','price_via_course',NULL,'买入价格',NULL,0),(4,'ref_activity','t_plug_goods_list','price_via_user',NULL,'零售价格',NULL,0),(5,'ref_activity','t_plug_goods_list','billing_method',NULL,'时长计费方式',NULL,0),(6,'ref_activity','parkos_company','name',NULL,'企业名称',NULL,0),(7,'ref_activity','parkos_company','org_code',NULL,'企业标识',NULL,0),(8,'ref_activity','parkos_company','contact',NULL,'联系人',NULL,0),(9,'ref_activity','parkos_company','contact_mobile',NULL,'联系人手机号',NULL,0),(10,'ref_activity','parkos_company','license',NULL,'企业执照号',NULL,0),(11,'ref_activity','parkos_company','biz_intro',NULL,'企业介绍',NULL,0),(12,'ref_activity','parkos_company','docker_port',NULL,'端口号',NULL,0),(13,'ref_activity','parkos_company','org_logo',NULL,'企业logo',NULL,0),(14,'ref_activity','parkos_company','contract_no',NULL,'合同号',NULL,0),(15,'ref_activity','parkos_company','occpy_size',NULL,'占用面积',NULL,0),(16,'ref_activity','parkos_company','occupy_size',NULL,'占用面积',NULL,0),(17,'ref_activity','parkos_company','month_fee',NULL,'月租金',NULL,0),(18,'ref_activity','parkos_assets','device_type',NULL,'设备类型',NULL,0),(19,'ref_activity','parkos_assets','device_name',NULL,'设备名称',NULL,0),(20,'ref_activity','parkos_assets','device_location',NULL,'位置',NULL,0),(21,'ref_activity','parkos_assets','device_installed',NULL,'安装日期',NULL,0),(22,'ref_activity','parkos_assets','vendor',NULL,'制造商',NULL,0),(23,'ref_activity','parkos_assets','tech_support_person',NULL,'技术支持人',NULL,0),(24,'ref_activity','parkos_assets','tech_support_mobile',NULL,'售后电话',NULL,0),(25,'ref_activity','parkos_assets','last_maintenance',NULL,'最后维护日期',NULL,0),(26,'ref_activity','parkos_assets','device_model',NULL,'设备型号',NULL,0),(27,'ref_activity','parkos_dev_knowledge_base','model',NULL,'设备型号',NULL,0),(28,'ref_activity','parkos_dev_knowledge_base','bugtext',NULL,'故障描述',NULL,0),(29,'ref_activity','parkos_dev_knowledge_base','solution',NULL,'解决方案',NULL,0),(30,'ref_activity','parkos_meeting_room','price',NULL,'价格',NULL,0),(31,'ref_activity','parkos_meeting_room','room_size',NULL,'面积',NULL,0),(32,'ref_activity','parkos_meeting_room','status',NULL,'状态',NULL,0),(33,'ref_activity','parkos_meeting_room','location',NULL,'位置',NULL,0),(34,'ref_activity','parkos_meeting_room','roominfo',NULL,'简介',NULL,0),(35,'ref_activity','parkos_meeting_room','roomtitle',NULL,'会议室名称',NULL,0),(36,'ref_activity','parkos_noticeinfo','title',NULL,'标题',NULL,0),(37,'ref_activity','parkos_noticeinfo','id',NULL,'ID',NULL,0),(38,'ref_activity','parkos_noticeinfo','content',NULL,'内容',NULL,0),(39,'ref_activity','parkos_noticeinfo','addtime',NULL,'发送时间',NULL,0),(40,'ref_activity','parkos_noticeinfo','onshow',NULL,'生效时间',NULL,0),(41,'ref_activity','parkos_company','position',NULL,'公司所在位置',NULL,0),(42,'ref_activity','parkos_company','move_in_date',NULL,'入驻日期',NULL,0),(43,'ref_activity','parkos_company','move_out_date',NULL,'离开日期',NULL,0),(44,'ref_activity','parkos_subsys_gateway','system_name',NULL,'系统名称',NULL,0),(45,'ref_activity','parkos_company_fee_log','company_id',NULL,'公司名称',NULL,0),(46,'ref_activity','parkos_company_fee_log','cost_type',NULL,'费用类型',NULL,0),(47,'ref_activity','parkos_company_fee_log','pay_date',NULL,'缴费时间',NULL,0),(48,'ref_activity','parkos_company_fee_log','cost_amount',NULL,'费用金额',NULL,0),(49,'ref_activity','parkos_company_fee_log','effective_date',NULL,'生效日期',NULL,0),(50,'ref_activity','parkos_company_fee_log','deadline',NULL,'截止日期',NULL,0),(51,'ref_activity','parkos_company_fee_log','account_number',NULL,'收款账户',NULL,0),(52,'ref_activity','parkos_company_fee_log','cashier',NULL,'收款单位',NULL,0),(53,'ref_activity','parkos_company_fee_log','pay_account',NULL,'支付账号',NULL,0),(54,'ref_activity','parkos_company_fee_log','pay_type',NULL,'支付方式',NULL,0),(55,'ref_activity','parkos_company_fee_log','receipt_number',NULL,'收据号',NULL,0),(56,'ref_activity','parkos_company_fee_log','invoice_number',NULL,'发票号',NULL,0),(57,'ref_activity','parkos_company_fee_log','remarks',NULL,'备注',NULL,0);
 /*!40000 ALTER TABLE `nanx_activity_field_special_display_cfg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,6 +365,32 @@ LOCK TABLES `nanx_activity_nofity` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `nanx_biz_column_dropdown_codetable_cfg`
+--
+
+DROP TABLE IF EXISTS `nanx_biz_column_dropdown_codetable_cfg`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nanx_biz_column_dropdown_codetable_cfg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `base_table` char(100) NOT NULL DEFAULT '',
+  `field_e` char(30) NOT NULL DEFAULT '',
+  `category` char(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nanx_biz_column_dropdown_codetable_cfg`
+--
+
+LOCK TABLES `nanx_biz_column_dropdown_codetable_cfg` WRITE;
+/*!40000 ALTER TABLE `nanx_biz_column_dropdown_codetable_cfg` DISABLE KEYS */;
+INSERT INTO `nanx_biz_column_dropdown_codetable_cfg` VALUES (1,'parkos_org','sex','gender');
+/*!40000 ALTER TABLE `nanx_biz_column_dropdown_codetable_cfg` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `nanx_biz_column_editor_cfg`
 --
 
@@ -386,7 +414,7 @@ CREATE TABLE `nanx_biz_column_editor_cfg` (
   `path_col` char(40) DEFAULT NULL,
   `subdir_by_col` char(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -395,7 +423,7 @@ CREATE TABLE `nanx_biz_column_editor_cfg` (
 
 LOCK TABLES `nanx_biz_column_editor_cfg` WRITE;
 /*!40000 ALTER TABLE `nanx_biz_column_editor_cfg` DISABLE KEYS */;
-INSERT INTO `nanx_biz_column_editor_cfg` VALUES (1,'ref_activity','parkos_sale_item','sales',1,0,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `nanx_biz_column_editor_cfg` VALUES (1,'ref_activity','parkos_sale_item','sales',1,0,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL),(2,'ref_activity','parkos_noticeinfo','content',0,0,1,0,NULL,0,NULL,NULL,NULL,NULL,NULL),(3,'ref_activity','parkos_dev_knowledge_base','bugtext',0,0,1,0,NULL,0,NULL,NULL,NULL,NULL,NULL),(4,'ref_activity','parkos_dev_knowledge_base','solution',0,0,1,0,NULL,0,NULL,NULL,NULL,NULL,NULL),(5,'ref_activity','parkos_meeting_room','roominfo',0,0,1,0,NULL,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `nanx_biz_column_editor_cfg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,6 +469,7 @@ CREATE TABLE `nanx_biz_column_trigger_group` (
   `base_table` char(100) NOT NULL DEFAULT '',
   `field_e` char(30) NOT NULL DEFAULT '',
   `combo_table` char(100) DEFAULT NULL,
+  `codetable_category_value` char(100) DEFAULT NULL,
   `list_field` char(30) DEFAULT NULL,
   `value_field` char(30) DEFAULT NULL,
   `filter_field` varchar(255) DEFAULT NULL,
@@ -448,7 +477,7 @@ CREATE TABLE `nanx_biz_column_trigger_group` (
   `level` int(11) DEFAULT NULL,
   `group_type` char(7) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,7 +486,7 @@ CREATE TABLE `nanx_biz_column_trigger_group` (
 
 LOCK TABLES `nanx_biz_column_trigger_group` WRITE;
 /*!40000 ALTER TABLE `nanx_biz_column_trigger_group` DISABLE KEYS */;
-INSERT INTO `nanx_biz_column_trigger_group` VALUES (5,'t_plug_goods_list','course_id','t_course_small','name','id',NULL,'ir1MNaL3',1,'nogroup'),(6,'t_plug_goods_list','goods_id','t_plug_goods','goods_name','id',NULL,'lLvXiL3e',1,'nogroup'),(7,'t_plug_course_opeartors','course_id','t_course','name','id',NULL,'MwEAU04Z',1,'nogroup'),(9,'t_plug_course_opeartors','userid','t_user','nickname','id',NULL,'VCyULBnI',1,'nogroup'),(10,'t_plug_goods_list','billing_method','t_plug_billing_method','billing_method','id',NULL,'406MqF4b',1,'nogroup'),(11,'t_plug_course_opeartors','user_type','t_plug_operator_type','operator_type','id',NULL,'RtrrrsZ5',1,'nogroup');
+INSERT INTO `nanx_biz_column_trigger_group` VALUES (23,'parkos_company_fee_log','company_id','parkos_company',NULL,'name','id',NULL,'aZ3e0PfP',1,'nogroup');
 /*!40000 ALTER TABLE `nanx_biz_column_trigger_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -476,7 +505,7 @@ CREATE TABLE `nanx_biz_tables` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `table_screen_name` (`table_screen_name`),
   UNIQUE KEY `table_name` (`table_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -485,8 +514,34 @@ CREATE TABLE `nanx_biz_tables` (
 
 LOCK TABLES `nanx_biz_tables` WRITE;
 /*!40000 ALTER TABLE `nanx_biz_tables` DISABLE KEYS */;
-INSERT INTO `nanx_biz_tables` VALUES (41,'parkos_sale_item','saleitem',NULL);
+INSERT INTO `nanx_biz_tables` VALUES (42,'parkos_org','org',NULL),(43,'parkos_company','入住企业',NULL),(44,'parkos_ merchant','商户',NULL),(45,'parkos_noticeinfo','App顶部信息',NULL),(46,'parkos_subsys_gateway','应用网关',NULL),(48,'nanx_code_table','下拉表',NULL),(49,'parkos_assets','设备管理',NULL),(50,'parkos_dev_knowledge_base','知识库',NULL),(51,'parkos_company_fee_log','租金管理',NULL),(52,'parkos_meeting_room','会议室',NULL);
 /*!40000 ALTER TABLE `nanx_biz_tables` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nanx_code_table`
+--
+
+DROP TABLE IF EXISTS `nanx_code_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nanx_code_table` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `category` char(100) DEFAULT NULL,
+  `display_text` char(100) DEFAULT NULL,
+  `value` char(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nanx_code_table`
+--
+
+LOCK TABLES `nanx_code_table` WRITE;
+/*!40000 ALTER TABLE `nanx_code_table` DISABLE KEYS */;
+INSERT INTO `nanx_code_table` VALUES (1,'gender','男c','male'),(2,'gender','女c','female'),(3,'device_type','电冰箱',NULL),(4,'device_type','电视机',NULL);
+/*!40000 ALTER TABLE `nanx_code_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -550,13 +605,13 @@ DROP TABLE IF EXISTS `nanx_menu`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `nanx_menu` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `parent` int(11) DEFAULT NULL,
+  `parent` char(200) DEFAULT NULL,
   `activity_code` char(100) DEFAULT NULL,
   `grid_title` char(200) DEFAULT NULL,
   `activity_type` char(100) DEFAULT NULL,
-  `role_code` int(11) DEFAULT NULL,
+  `role_code` char(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -565,6 +620,7 @@ CREATE TABLE `nanx_menu` (
 
 LOCK TABLES `nanx_menu` WRITE;
 /*!40000 ALTER TABLE `nanx_menu` DISABLE KEYS */;
+INSERT INTO `nanx_menu` VALUES (36,NULL,'act_parkos_org_1607399151','组织结构管理',NULL,'admin'),(37,NULL,'act_parkos_company_fee_log_1224881844','租金管理',NULL,'admin'),(38,NULL,'mgroup_nbPDlUla','菜单',NULL,'admin'),(39,'mgroup_nbPDlUla','act_parkos_company_1472731013','入住企业',NULL,'admin'),(40,NULL,'org_employee','员工管理',NULL,'admin');
 /*!40000 ALTER TABLE `nanx_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -779,7 +835,7 @@ CREATE TABLE `nanx_user_role_privilege` (
   UNIQUE KEY `role_code` (`role_code`,`activity_code`),
   KEY `activity_code` (`activity_code`),
   CONSTRAINT `nanx_user_role_privilege_ibfk_2` FOREIGN KEY (`role_code`) REFERENCES `nanx_user_role` (`role_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -788,7 +844,7 @@ CREATE TABLE `nanx_user_role_privilege` (
 
 LOCK TABLES `nanx_user_role_privilege` WRITE;
 /*!40000 ALTER TABLE `nanx_user_role_privilege` DISABLE KEYS */;
-INSERT INTO `nanx_user_role_privilege` VALUES (37,'sales','act_parkos_sale_item_49624738',NULL),(38,'admin','act_parkos_sale_item_49624738',NULL);
+INSERT INTO `nanx_user_role_privilege` VALUES (39,'admin','act_parkos_org_1607399151',NULL),(40,'admin','act_parkos_noticeinfo_2092101938',NULL),(41,'admin','act_parkos_company_1472731013',NULL),(42,'admin','act_parkos_subsys_gateway_545671900',NULL),(43,'admin','org_employee',NULL),(45,'admin','act_parkos_assets_1427086552',NULL),(46,'admin','act_parkos_dev_knowledge_base_1453357961',NULL),(47,'admin','act_parkos_company_fee_log_1224881844',NULL),(49,'admin','act_parkos_meeting_room_2134843644',NULL),(50,'admin','rfid_person_report',NULL);
 /*!40000 ALTER TABLE `nanx_user_role_privilege` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -821,29 +877,318 @@ LOCK TABLES `nanx_who_is_who` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `parkos_sale_item`
+-- Table structure for table `parkos_ merchant`
 --
 
-DROP TABLE IF EXISTS `parkos_sale_item`;
+DROP TABLE IF EXISTS `parkos_ merchant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `parkos_sale_item` (
+CREATE TABLE `parkos_ merchant` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `cust` char(20) DEFAULT NULL,
-  `cust_mobile` char(22) DEFAULT NULL,
-  `sales` char(10) DEFAULT NULL,
+  `org_code` char(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `parkos_sale_item`
+-- Dumping data for table `parkos_ merchant`
 --
 
-LOCK TABLES `parkos_sale_item` WRITE;
-/*!40000 ALTER TABLE `parkos_sale_item` DISABLE KEYS */;
-INSERT INTO `parkos_sale_item` VALUES (5,'cust11','mob11','sales1'),(6,'cust22','mob22','sales2');
-/*!40000 ALTER TABLE `parkos_sale_item` ENABLE KEYS */;
+LOCK TABLES `parkos_ merchant` WRITE;
+/*!40000 ALTER TABLE `parkos_ merchant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_ merchant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_assets`
+--
+
+DROP TABLE IF EXISTS `parkos_assets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_assets` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `device_type` int(11) DEFAULT NULL COMMENT '设备类型',
+  `device_name` char(200) DEFAULT NULL COMMENT '设备名称',
+  `device_location` char(200) DEFAULT NULL COMMENT '设备位置',
+  `device_installed` date DEFAULT NULL COMMENT '安装日期',
+  `vendor` char(100) DEFAULT NULL COMMENT '厂家',
+  `tech_support_person` char(40) DEFAULT NULL COMMENT '技术支持人',
+  `tech_support_mobile` char(11) DEFAULT NULL COMMENT '技术支持电话',
+  `last_maintenance` date DEFAULT NULL COMMENT '最后维护日期',
+  `device_model` char(100) DEFAULT NULL COMMENT '设备型号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_assets`
+--
+
+LOCK TABLES `parkos_assets` WRITE;
+/*!40000 ALTER TABLE `parkos_assets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_assets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_assets_maintenance_log`
+--
+
+DROP TABLE IF EXISTS `parkos_assets_maintenance_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_assets_maintenance_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `equipment_name` char(20) DEFAULT NULL COMMENT '设备名称',
+  `equipment_comapny_id` int(11) DEFAULT NULL COMMENT '设备所属公司',
+  `maintain_staff` char(20) DEFAULT NULL COMMENT '维护人员',
+  `maintain_time` date DEFAULT NULL COMMENT '维护时间',
+  `maintain_content` char(200) DEFAULT NULL COMMENT '维护内容',
+  `if_err` int(1) DEFAULT NULL COMMENT '是否异常',
+  `err_number` int(11) DEFAULT NULL COMMENT '异常信息编号',
+  `remarks` char(200) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_assets_maintenance_log`
+--
+
+LOCK TABLES `parkos_assets_maintenance_log` WRITE;
+/*!40000 ALTER TABLE `parkos_assets_maintenance_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_assets_maintenance_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_company`
+--
+
+DROP TABLE IF EXISTS `parkos_company`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_company` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` char(100) DEFAULT NULL COMMENT '企业名称',
+  `org_code` char(10) DEFAULT NULL COMMENT '企业标识',
+  `contact` char(10) DEFAULT NULL COMMENT '联系人',
+  `contact_mobile` char(11) DEFAULT NULL COMMENT '联系人电话',
+  `license` char(50) DEFAULT NULL COMMENT '公司执照编号',
+  `position` char(200) DEFAULT NULL COMMENT '公司所在位置',
+  `biz_intro` text COMMENT '公司业务介绍',
+  `docker_port` int(11) DEFAULT NULL COMMENT '企业端口号',
+  `move_in_date` date DEFAULT NULL COMMENT '入驻日期',
+  `move_out_date` date DEFAULT NULL COMMENT '离开日期',
+  `contract_no` char(100) DEFAULT NULL COMMENT '合同号',
+  `org_logo` char(200) DEFAULT NULL COMMENT '企业logo',
+  `occupy_size` int(11) DEFAULT NULL COMMENT '占用面积',
+  `month_fee` int(11) DEFAULT NULL COMMENT '月租金',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_company`
+--
+
+LOCK TABLES `parkos_company` WRITE;
+/*!40000 ALTER TABLE `parkos_company` DISABLE KEYS */;
+INSERT INTO `parkos_company` VALUES (1,'IBM北京科技有限公司','IBM','','','','','',0,NULL,NULL,'','',0,0),(2,'HP科技有限公司','HP','','','','','',0,NULL,NULL,'','',0,0),(3,'爱建证券有限责任公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'安信证券股份有限公司','深圳',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'北京高华证券有限责任公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'渤海证券股份有限公司','天津',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'财达证券股份有限公司','河北',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'财富证券有限责任公司','湖南',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'财通证券股份有限公司','浙江',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'财通证券资产管理有限公司','浙江',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'长城国瑞证券有限公司','厦门',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'长城证券股份有限公司','深圳',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'长江证券（上海）资产管理有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'长江证券承销保荐有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'长江证券股份有限公司','湖北',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'网信证券有限责任公司','辽宁',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'川财证券有限责任公司','四川',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'大通证券股份有限公司','大连',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'大同证券经纪有限责任公司','山西',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'德邦证券股份有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,'第一创业证券承销保荐有限责任公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(22,'第一创业证券股份有限公司','深圳',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,'东北证券股份有限公司','吉林',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(24,'东方花旗证券有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(25,'东方证券股份有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(26,'东海证券股份有限公司','江苏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(27,'东莞证券股份有限公司','广东',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(28,'东吴证券股份有限公司','江苏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(29,'东兴证券股份有限公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(30,'方正证券股份有限公司','湖南',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(31,'高盛高华证券有限责任公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(32,'光大证券股份有限公司','上海',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(33,'广发证券股份有限公司','广东',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(34,'广发证券资产管理（广东）有限公司','广东',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(35,'广州证券股份有限公司','广东',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(36,'国都证券股份有限公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(37,'国海证券股份有限公司','广西',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(38,'国金证券股份有限公司','四川',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(39,'国开证券股份有限公司','北京',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `parkos_company` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_company_fee_log`
+--
+
+DROP TABLE IF EXISTS `parkos_company_fee_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_company_fee_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `company_id` int(10) DEFAULT NULL COMMENT '付款单位',
+  `cost_type` char(20) DEFAULT NULL COMMENT '费用类型',
+  `pay_date` date DEFAULT NULL COMMENT '缴费时间',
+  `cost_amount` int(10) DEFAULT NULL COMMENT '费用金额',
+  `effective_date` date DEFAULT NULL COMMENT '生效日期',
+  `deadline` date DEFAULT NULL COMMENT '截止日期',
+  `account_number` char(20) DEFAULT NULL COMMENT '收款账户',
+  `cashier` char(10) DEFAULT NULL COMMENT '收款单位',
+  `pay_account` char(20) DEFAULT NULL COMMENT '支付账号',
+  `pay_type` int(10) DEFAULT NULL COMMENT '支付方式',
+  `receipt_number` char(20) DEFAULT NULL COMMENT '收据号',
+  `invoice_number` char(20) DEFAULT NULL COMMENT '发票号',
+  `remarks` char(100) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_company_fee_log`
+--
+
+LOCK TABLES `parkos_company_fee_log` WRITE;
+/*!40000 ALTER TABLE `parkos_company_fee_log` DISABLE KEYS */;
+INSERT INTO `parkos_company_fee_log` VALUES (1,1,'',NULL,1000,NULL,NULL,'','','',0,'','',''),(2,34,'',NULL,0,NULL,NULL,'','','',0,'','','');
+/*!40000 ALTER TABLE `parkos_company_fee_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_dev_knowledge_base`
+--
+
+DROP TABLE IF EXISTS `parkos_dev_knowledge_base`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_dev_knowledge_base` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `model` char(100) DEFAULT NULL COMMENT '设备型号',
+  `bugtext` text COMMENT '故障描述',
+  `solution` text COMMENT '解决方案',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_dev_knowledge_base`
+--
+
+LOCK TABLES `parkos_dev_knowledge_base` WRITE;
+/*!40000 ALTER TABLE `parkos_dev_knowledge_base` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_dev_knowledge_base` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_device_type`
+--
+
+DROP TABLE IF EXISTS `parkos_device_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_device_type` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `device_type` char(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_device_type`
+--
+
+LOCK TABLES `parkos_device_type` WRITE;
+/*!40000 ALTER TABLE `parkos_device_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_device_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_meeting_room`
+--
+
+DROP TABLE IF EXISTS `parkos_meeting_room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_meeting_room` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `roomtitle` char(100) DEFAULT NULL COMMENT '会议室名称',
+  `price` int(10) DEFAULT NULL COMMENT '价格',
+  `room_size` int(10) DEFAULT NULL COMMENT '会议室面积',
+  `status` char(20) DEFAULT NULL COMMENT '会议室状态',
+  `location` char(100) DEFAULT NULL COMMENT '位置',
+  `roominfo` text COMMENT '会议室描述,设备等',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_meeting_room`
+--
+
+LOCK TABLES `parkos_meeting_room` WRITE;
+/*!40000 ALTER TABLE `parkos_meeting_room` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_meeting_room` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_noticeinfo`
+--
+
+DROP TABLE IF EXISTS `parkos_noticeinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_noticeinfo` (
+  `id` varchar(100) NOT NULL DEFAULT '' COMMENT 'ID',
+  `title` varchar(100) DEFAULT NULL COMMENT '标题',
+  `content` longtext COMMENT '内容',
+  `addtime` datetime DEFAULT NULL COMMENT '发送时间',
+  `onshow` datetime DEFAULT NULL COMMENT '生效时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公告';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_noticeinfo`
+--
+
+LOCK TABLES `parkos_noticeinfo` WRITE;
+/*!40000 ALTER TABLE `parkos_noticeinfo` DISABLE KEYS */;
+INSERT INTO `parkos_noticeinfo` VALUES ('','','',NULL,NULL);
+/*!40000 ALTER TABLE `parkos_noticeinfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_org`
+--
+
+DROP TABLE IF EXISTS `parkos_org`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_org` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `title` char(10) DEFAULT NULL,
+  `mobile` char(11) DEFAULT NULL,
+  `sex` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_org`
+--
+
+LOCK TABLES `parkos_org` WRITE;
+/*!40000 ALTER TABLE `parkos_org` DISABLE KEYS */;
+INSERT INTO `parkos_org` VALUES (1,0,'根',NULL,1),(13,12,'新节点','',NULL),(16,1,'物业',NULL,NULL),(22,1,'人力资源',NULL,NULL),(30,16,'新节点',NULL,NULL),(31,1,'新节点',NULL,NULL),(32,22,'员工B1','',1),(33,1,'行政',NULL,NULL),(34,33,'新节点',NULL,NULL);
+/*!40000 ALTER TABLE `parkos_org` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parkos_subsys_gateway`
+--
+
+DROP TABLE IF EXISTS `parkos_subsys_gateway`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parkos_subsys_gateway` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `system_name` char(100) DEFAULT NULL,
+  `portal_url` char(200) DEFAULT NULL,
+  `vendor` char(100) DEFAULT NULL,
+  `api_key` char(100) DEFAULT NULL,
+  `api_query_url` char(200) DEFAULT NULL,
+  `api_operate_url` char(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parkos_subsys_gateway`
+--
+
+LOCK TABLES `parkos_subsys_gateway` WRITE;
+/*!40000 ALTER TABLE `parkos_subsys_gateway` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parkos_subsys_gateway` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -855,4 +1200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-13 10:16:59
+-- Dump completed on 2018-03-27  9:52:01

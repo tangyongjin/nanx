@@ -13,7 +13,6 @@ class Home extends CI_Controller
     {
 
        
-        // debug($allsession) ;
         $this->setsession();
         $lang = $lang = $this->i18n->get_current_locale();
         $this->load->model('MUi');
@@ -33,6 +32,8 @@ class Home extends CI_Controller
     function getThemeMenu($roles){
         $this->load->model('MXmenu');
         $menu_html=$this->MXmenu->getMenuByRole($roles); 
+
+ 
         $bootstrap_menu='
            <div  id="ul_menu"> 
                 <ul id="main-menu">
@@ -180,21 +181,16 @@ class Home extends CI_Controller
         $session_data=array();
 
         $user=$this->session->userdata('user');
-        // $user='admin';
 
 
         $this->load->model('MUserRole');
         $this->load->model('MSystempara');
-        // $eid = $this->config->item('eidfolder');
  
-        // $session_data['eid']=$eid;
         $session_data['user']=$user;
-        // $session_data['user']='admin';
            
 
 
         $sql   = "select role_code from nanx_user_role_assign where user='" . $user . "' ";
-        // echo $sql;
 
         $roles = $this->db->query($sql)->result_array();
         $session_data['roles']=$roles;

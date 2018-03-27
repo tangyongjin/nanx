@@ -68,8 +68,6 @@ class MXmenu extends CI_Model
   
 public function build_a_tag($type,$cfg){
 
- // print_r($cfg);
-//
   $img='<img  class="menu_item_icon"  src="http://cloud.nan-x.com/haokuan/imgs/thumbs/cpanel.png">';
   
   $a= '<a id="AID" class="nanx-4-ext"   activity_type="ATYPE" href="#" >TITLE</a>';
@@ -91,7 +89,7 @@ public function build_a_tag($type,$cfg){
            where parent is null and  activity_code not in (select activity_code from   nanx_activity) and  role_code='$roles' ";
        
 
-        // echo $sql;die;   
+       
         
         $this->tree=$this->db->query($sql)->result_array();
          
