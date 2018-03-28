@@ -150,7 +150,7 @@ if( substr($bs_url, -1)=="/" ){
 	{
 		$left= '<div  id="cpanel-left" class="cpanel-left">';
 
-    $left.='<div class="cpanel">';
+    $left.='<div class="cpanel" id="nanx_act_blocks">';
 		$divs = '';
 		foreach($acts as $one_activity)
 		{
@@ -185,7 +185,7 @@ if( substr($bs_url, -1)=="/" ){
         $onediv =" 
             <div class='icon'>  
               <a class='nanx-4-ext'  activity_type='menugroup' id=$acode  href=#>
-                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -196,10 +196,11 @@ if( substr($bs_url, -1)=="/" ){
      if($act_type=='table')
      {  
      	  $bs= $this->config->base_url();
+        $id_div='ct_'.$acode;
      	  $onediv =" 
-            <div class='icon'>  
+            <div class='icon' id=$id_div>  
               <a class='nanx-4-ext'  activity_type='table' id=$acode  href=#>
-                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -211,7 +212,7 @@ if( substr($bs_url, -1)=="/" ){
         $onediv =" 
             <div class='icon'>  
               <a class='nanx-4-ext'  activity_type='tree' id=$acode  href=#>
-                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -225,7 +226,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $onediv =" 
             <div class='icon'>  
               <a class='nanx-4-ext'   grid_title={$data['grid_title']}  activity_type='html' id=$acode  href=#>
-                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -240,7 +241,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $onediv =" 
             <div class='icon'>  
               <a  class='nanx-4-ext'   activity_type='js' fnname=$fnname id=$acode  href=#>
-                <img src='{$bs}/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -253,7 +254,7 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'  onClick=$onclick>  
               <a href=#  id=$acode class='nanx-4-ext' activity_type='url'>
-                <img src='$base_url/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -266,7 +267,7 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'>  
               <a href=# class='nanx-4-ext' activity_type='service' memo=$memo  id=$acode  service_url=$url>
-                <img src='$base_url/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -278,13 +279,13 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'>  
               <a href=# class='nanx-4-ext' activity_type='sql' id=$acode  service_url=$url>
-                <img src='$base_url/imgs/{$data['pic_url']}'/>
+                <img src='imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
      }
      
-     
+   
 		return $onediv;
 	}
 

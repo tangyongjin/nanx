@@ -163,7 +163,7 @@ class Tree extends CI_Controller {
 
 
 			'activity_under_role' => array('sql' =>
-              "select  grid_title as text, nanx_user_role_privilege.activity_code  as value,  'activity' as category from
+              "select  grid_title as text, 'abc' as node, nanx_user_role_privilege.activity_code  as value,  'activity' as category from
                nanx_user_role_privilege, nanx_activity      where  role_code='#value'
                and  nanx_user_role_privilege.activity_code=nanx_activity.activity_code order by  display_order ",
               'leaf' => true),

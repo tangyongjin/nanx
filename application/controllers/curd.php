@@ -107,7 +107,7 @@ class Curd extends CI_Controller
          $tree_text_field=$row['tree_text_field'];
          $tree_parent_field =$row['tree_parent_field'];
          
-         $sql= " SELECT id,$tree_text_field as text, $tree_parent_field as parent_id ,mobile FROM $base_table ";   
+         $sql= " SELECT id,$tree_text_field as text, $tree_parent_field as parent_id  FROM $base_table ";   
         
          $results = $this->db->query($sql)->result_array();
          $tree = $this->tree($results,0);

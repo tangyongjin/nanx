@@ -2249,24 +2249,14 @@ var contextMenu = [
                     column:'value',
                     hidden:true,
                     column_title:i18n.activity
-                }
-                
-                 
+                } 
                 ]
             },
             {
       
                 item_type:'treeGrid' 
-               
-            
-            },
-
-            ]
-        },
-
-
-
-
+            }]
+        }
         ]
     }, 
     {

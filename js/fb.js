@@ -324,7 +324,7 @@ Fb.getTreeBtns=function(yy){
 }
 
 
- Fb.getTreeGrid=function(cfg){
+Fb.getTreeGrid=function(cfg){
     var tree = new Ext.tree.TreePanel(
      {
         root:{text:'root',leaf:false,activity_code:'',id:'root',expanded:false, children:[]}
@@ -349,28 +349,24 @@ Fb.getTreeBtns=function(yy){
         ,collapsible:true
         ,autoScroll:true
         ,listeners:{
-            // create nodes based on data from grid
+
+            
             beforenodedrop:{fn:function(e) {
 
-                // e.data.selections is the array of selected records
                 if(Ext.isArray(e.data.selections)) {
-
-                    // reset cancel flag
                     e.cancel = false;
-                    // setup dropNode (it can be array of nodes)
                     e.dropNode = [];
-                    var r;
-                    for(var i = 0; i < e.data.selections.length; i++) {
-
-                        // get record from selectons
-                        r = e.data.selections[i];
-                        // create node from record data
-                        e.dropNode.push(this.loader.createNode({
-                             text:r.get('text')
-                            ,leaf:true,
-                             activity_code:r.get('value')
-                        }));
-                    }
+                    
+                    var selectedRecord =e.source.dragData.selections[0];
+                    
+                    console.log(selectedRecord)
+                    var node_to_add=selectedRecord.data
+                    node_to_add.leaf=true;
+                    node_to_add.json=selectedRecord.json
+                    //从拖拽来的grid删除记录
+                    e.source.grid.store.remove(selectedRecord);
+                    //增加一个节点
+                    e.dropNode.push(this.loader.createNode(node_to_add))
                     return true;
                 }
             }}
@@ -379,21 +375,21 @@ Fb.getTreeBtns=function(yy){
 
 
 
-    var te = new Ext.tree.TreeEditor(tree, new Ext.form.TextField({
-        allowBlank: false,
-        blankText:''
-    }), {
-        editDelay: 100,
-        revertInvalid: false
-    });
+        var te = new Ext.tree.TreeEditor(tree, new Ext.form.TextField({
+            allowBlank: false,
+            blankText:''
+        }), {
+            editDelay: 100,
+            revertInvalid: false
+        });
 
-    te.on('beforestartedit', function(ed, boundEl, value) {
-        if (ed.editNode.leaf)
-            return false;
-    });
+        te.on('beforestartedit', function(ed, boundEl, value) {
+            if (ed.editNode.leaf)
+                return false;
+        });
     return tree;
  }
-
+ 
 
  Fb.showUploadResult=function(r)
  {
@@ -837,9 +833,17 @@ Fb.getTreeBtns=function(yy){
      var cm = new Ext.grid.ColumnModel(col_need);
      var ds = new Ext.data.JsonStore(ds_cfg);
      ds.load();
+     
 
+     console.log(col_need)
+     console.log(ds)
+     
+     var groupName='NANX_gridDD'
+     if (grid_cfg.DD_group){
+          groupName =grid_cfg.DD_group
+     }
 
-     var singleCol = new Ext.grid.GridPanel({
+     var Dragable_grid  = new Ext.grid.GridPanel({
          'title': grid_cfg.gridlabel,
          id: grid_cfg.grid_ext_id,
          height: 360,
@@ -848,44 +852,59 @@ Fb.getTreeBtns=function(yy){
          border: true,
          cm: cm,
          columnLines: true,
-         ddGroup: "NANX_gridDD",
+         ddGroup: 'NANX_gridDD',
          enableDragDrop: true,
          autoScroll: true,
          sm: new Ext.grid.RowSelectionModel({
              singleSelect: true
          })
-     });
-     singleCol.addListener('render', Fb.dnd_mgr.createDelegate(this, [grid_cfg.self_dnd], true));
+        });
+     
+     Dragable_grid.addListener('afterrender', Fb.grid_dnd_mgr.createDelegate(this,[],true));
      return {
-         items: [singleCol]
+         items: [Dragable_grid]
      };
  };
 
- Fb.dnd_mgr = function(grid, self_dnd) {
-     if (!self_dnd) {
-         return;
-     }
-     var c = new Ext.dd.DropTarget(grid.container, {
-         ddGroup: "NANX_gridDD",
-         copy: false,
-         notifyDrop: function(DragSource, event, DragData) {
-             var ds = grid.store;
-             var selModel = grid.getSelectionModel();
-             var selected_rows = selModel.getSelections();
-             if (DragSource.getDragData(event)) {
-                 var row_index = DragSource.getDragData(event).rowIndex;
-                 if (typeof(row_index) != "undefined") {
-                     for (i = 0; i < selected_rows.length; i++) {
-                         ds.remove(ds.getById(selected_rows[i].id))
-                     }
-                     ds.insert(row_index, DragData.selections);
-                     selModel.clearSelections();
-                 }
-             }
-         }
-     });
- };
 
+  
+ Fb.grid_dnd_mgr = function(grid) {
+  
+                var firstGridDropTargetEl =  grid.getView().scroller.dom;
+                var firstGridDropTarget = new Ext.dd.DropTarget(firstGridDropTargetEl, {
+                ddGroup    : 'NANX_gridDD',
+                notifyDrop : function(DragSource, event, DragData)
+                {  
+
+                     if (  DragSource instanceof  Ext.grid.GridDragZone)
+                      {   // 内部数据
+                          var ds = grid.store;
+                             var selModel = grid.getSelectionModel();
+                             var selected_rows = selModel.getSelections();
+                             if (DragSource.getDragData(event)) {
+                                 var row_index = DragSource.getDragData(event).rowIndex;
+                                 if (typeof(row_index) != "undefined") {
+                                     for (i = 0; i < selected_rows.length; i++) {
+                                         ds.remove(ds.getById(selected_rows[i].id))
+                                     }
+                                     ds.insert(row_index, DragData.selections);
+                                     selModel.clearSelections();
+                                 }
+                             }
+
+                     }else{   // 从外部tree来的数据
+                          var tree_rec = new Ext.data.Record(DragData.node.attributes.json);
+                          grid.store.add(tree_rec)
+                     }
+                   return true
+                }
+               });
+ }
+
+
+  
+
+  
  Fb.split2col = function(pleft, pright, cfg, directData) {
      if (directData) {
          var ds_left = pleft;
@@ -2402,9 +2421,9 @@ Fb.setSingleField=function(jsondata, item) {
          case 'dndgrid':
              item.grid_width = item.width ? item.width : 470;
              item.value = node.attributes[[item.value_reference]];
-             var dndgrid = new Fb.dndgrid(item);
+             
              var f = new Ext.Container({
-                 items: dndgrid
+                 items:  new Fb.dndgrid(item)
              });
              break;
 
@@ -2415,6 +2434,8 @@ Fb.setSingleField=function(jsondata, item) {
 
          case 'treeGrid':
               var menutree = Fb.getTreeGrid(item);
+              console.log(item)
+
               var f = new Ext.Container({
                   layout: 'absolute',
                   items: menutree,
