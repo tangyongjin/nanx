@@ -276,7 +276,7 @@ Fb.getTreeBtns=function(yy){
                 var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
                 currentNode.appendChild({
                  text : '菜单',
-                 activity_code: 'mgroup_'.concat(Fb.randomString()),
+                 value: 'mgroup_'.concat(Fb.randomString()),
                  leaf : false,
                  children:[]
                   });
@@ -327,7 +327,7 @@ Fb.getTreeBtns=function(yy){
 Fb.getTreeGrid=function(cfg){
     var tree = new Ext.tree.TreePanel(
      {
-        root:{text:'root',leaf:false,activity_code:'',id:'root',expanded:false, children:[]}
+        root:{text:'root',leaf:false,value:'',id:'root',expanded:false, children:[]}
         ,enableDD:true
         ,ddGroup:'NANX_gridDD'
 

@@ -161,4 +161,5 @@ $lang['user_locked']                     = '用户被锁,禁止登录';
 $lang['week']                            = array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
 $lang['workevent']                       = '工作事件';
 $lang['write_file_failed']               = '文件写入失败';
+$lang['set_activity_menu']               = '菜单设置成功';
 ?>

@@ -161,4 +161,6 @@ $lang['user_locked']                     = 'User locked';
 $lang['week']                            = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 $lang['workevent']                       = 'Workevent';
 $lang['write_file_failed']               = 'Write file failed';
+$lang['set_activity_menu']               = 'Menu saved';
+
 ?>
