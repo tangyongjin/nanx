@@ -141,6 +141,7 @@ var Explorer={
                                 scope:this
                         }
                 });
+
                 Explorer.explorerTreePanel.superclass.constructor.call(this, {
                         id:"AppTree",
                         autoScroll:true,
@@ -360,6 +361,8 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                 	      var opcode=nodemenus[i].opcode;
                 	      var title=nodemenus[i].title;
                 	      var css=nodemenus[i].iconCls;
+
+                        
                           var submenuitem=this.menuItemProcessor(node,nc,opcode,title,css);
                           var enabled=nodemenus[i].hasOwnProperty('enable')?nodemenus[i].enable:true;
                           if(enabled){ menu.push(submenuitem);}

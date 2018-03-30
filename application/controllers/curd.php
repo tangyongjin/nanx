@@ -41,34 +41,10 @@ class Curd extends CI_Controller
      }
 
 
-
-   function tree($arr,$p_id='0') {
-      $tree = array();
-      foreach($arr as $row){
-          if($row['parent_id']==$p_id){
-              $tmp = $this->tree($arr,$row['id']);
-              if($tmp){
-                  $row['children']=$tmp;
-                  $row['leaf']=false ;
-              }
-              else
-              {
-                 $row['leaf']=true ;
-              }
-              $tree[]=$row;                
-          }
-      }
-      return $tree;         
-   } 
-     
+ 
 
     
-
-     function abc(){
-        $ids_to_del=array();
-        $this->getSubTree(2,$ids_to_del);
-       
-     }
+ 
 
      function getSubTree($category_id,&$ids) 
        {
@@ -92,6 +68,25 @@ class Curd extends CI_Controller
 
 
 
+   function tree($arr,$p_id= null ) {
+      $tree = array();
+      foreach($arr as $row){
+          if($row['parent_id']==$p_id){
+              $tmp = $this->tree($arr,$row['id']);
+              if($tmp){
+                  $row['children']=$tmp;
+                  $row['leaf']=false ;
+              }
+              else
+              {
+                 $row['leaf']=true ;
+              }
+              $tree[]=$row;                
+          }
+      }
+      return $tree;         
+   } 
+     
      function TreeListData(){
 
          $post    = file_get_contents('php://input');
@@ -100,15 +95,15 @@ class Curd extends CI_Controller
      
 
          $sql="select * from nanx_activity where activity_code= '$actcode'  " ;
-       
-
+         
+         
          $row=$this->db->query($sql)->row_array();
          $base_table=$row['base_table'];
          $tree_text_field=$row['tree_text_field'];
          $tree_parent_field =$row['tree_parent_field'];
          
          $sql= " SELECT id,$tree_text_field as text, $tree_parent_field as parent_id  FROM $base_table ";   
-        
+         
          $results = $this->db->query($sql)->result_array();
          $tree = $this->tree($results,0);
          print_r( json_encode(  $tree));

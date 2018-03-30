@@ -12,59 +12,7 @@ class MXmenu extends CI_Model
 
 
  
-
-
-    // function getsubitemDiv($one_item){
-
-
-    //     $bs= $this->config->base_url();
-    //     $acode=$one_item['activity_code'];
-    //     $onediv =" 
-    //         <div class='icon'>  
-    //           <a class='nanx-4-ext'  activity_type='table' id=$acode  href=#>
-    //             <img src='{$bs}/imgs/{$one_item['pic_url']}'/>
-    //             <span>{$one_item['grid_title']}</span>
-    //           </a>
-    //       </div>";
-        
-    //     return   $onediv;
-    // }
-    
-    // function debug($arr){
-    //   echo "<pre>";
-    //   print_r($arr);
-    //   echo "</pre>";
-       
-    // }
-
-
-    
-
-
-
- // public function test22() {
-
-        
- //        $sql=" select * from nanx_menu_copy where parent is null" ;
- //        $this->tree=$this->db->query($sql)->result_array();
- //        for ($i = 0; $i < count($this->tree); $i++) {
- //           $this->tree[$i]['child']= $this->setchild($this->tree[$i]['activity_code']);
- //        }
- //        $this->debug($this->tree);
- // }
-
-
-
-// public function setchild($code){
-//           $sql=" select * from nanx_menu_copy where parent= '".$code."'" ;
-//           $res=$this->db->query($sql)->result_array();
-//           for ($i = 0; $i < count( $res); $i++) {
-//              $res[$i]['child']= $this->setchild($res[$i]['activity_code']);
-//           }
-//           return $res;
-// }
-
-
+ 
   
 public function build_a_tag($type,$cfg){
 
@@ -89,7 +37,7 @@ public function build_a_tag($type,$cfg){
            where parent is null and  activity_code not in (select activity_code from   nanx_activity) and  role_code='$roles' ";
        
 
-       
+        logtext($sql);
         
         $this->tree=$this->db->query($sql)->result_array();
          

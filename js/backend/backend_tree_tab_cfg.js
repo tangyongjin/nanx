@@ -2253,8 +2253,8 @@ var contextMenu = [
                 ]
             },
             {
-      
-                item_type:'treeGrid' 
+                item_type:'menuTreeGrid' ,  //取某个角色的菜单分组情况
+                value_reference:'value'
             }]
         }
         ]
