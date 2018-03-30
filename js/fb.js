@@ -256,103 +256,15 @@ Ext.data.Node.prototype.getJson = function ( node) {
 }
 
 
-Fb.getMenuTreeBtns=function(menutree_id){
-   
-    var public_btns=[];
-    {
-        public_btns.push({
-            xtype:'button',
-            text:i18n.add,
-            iconCls:'n_add',
-            style:{
-                marginRight:'6px'
-            },
-            ctCls:'x-btn-over',
-            handler:function(){
-                var tree=Ext.getCmp(menutree_id);
-                var rootnode=tree.getRootNode()
-                var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
-                currentNode.appendChild({
-                 text : '菜单组',
-                 value: 'mgroup_'.concat(Fb.randomString()),
-                 leaf : false,
-                 expanded:false,
-                 iconCls:'x-grid-tree-node-expanded', 
-                 children:[]
-                  });
-            }
-        });
-    }
+
 
    
-   public_btns.push({
-            text:i18n.drop,
-            iconCls:'n_del',
-            style:{
-                marginRight: '6px'
-            },
-            ctCls:'x-btn-over',
-            id:'pub_delete',
-            handler:function(e,x){
-              
-            
-                var tree=Ext.getCmp(menutree_id);
-                var record = tree.getSelectionModel().getSelectedNode() 
-                
-                if(record){
-                     
-                     if(record.id=='root_menu_id_1234'){
-                        alert("根节点不能删除")
-                        return
-                     }
 
-                     if(  record.attributes.value.indexOf('mgroup_')=== -1 ){
-                              alert('只能删除空白的组合节点,菜单项可以拖拽到左边')
-                              return 
-                       
-                     } 
-                      
+Fb.getTreeBtns_for_tree_activity=function(TreePanelId,treeGrid_cfg){
 
-                     if(  record.attributes.value.indexOf('mgroup_')===0 ){
-                          if( record.childNodes.length >0){
-                              alert("节点下面有菜单项,请先拖拽到左边")
-                              return
-                          }else
-                          {
-                              record.remove(true);
-                          }
-                     } 
-                 }
-            }
-        });
-        
-     
-   
-        public_btns.push({
-            text:i18n.update,
-            iconCls:'n_edit',
-            style:{
-                marginRight: '6px'
-            },
-            ctCls:'x-btn-over',
-            id:'pub_edit',
-            handler:function(){
-                var tree=Ext.getCmp('menutree');
-                var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
-            }
-        });
-    return public_btns;
-}
-
-
-
+    var activity_btns=[];
     
-
-Fb.getTreeBtns_2=function(TreePanelId,treeGrid_cfg){
-
-    var treeMenu_btns=[];
-    {
-        treeMenu_btns.push({
+        activity_btns.push({
             xtype:'button',
             text:i18n.add,
             iconCls:'n_add',
@@ -378,10 +290,10 @@ Fb.getTreeBtns_2=function(TreePanelId,treeGrid_cfg){
                 Fb.ajaxPostData(CURD_TREE_ADD_DATA_URL,addObj, function(){  tree.getRootNode().reload(); tree.expandAll() }   );
             }
         });
-    }
+
 
    
-   treeMenu_btns.push({
+   activity_btns.push({
             text:i18n.drop,
             iconCls:'n_del',
             style:{
@@ -403,13 +315,13 @@ Fb.getTreeBtns_2=function(TreePanelId,treeGrid_cfg){
          
 
 
-       treeMenu_btns.push({
+       activity_btns.push({
             text:i18n.refresh,
             iconCls:'n_edit',
             style:{
                 marginRight: '6px'
             },
-            ctCls:'x-btn-over',
+            ctCls:'x-btn-refresh',
             id:'pub_refresh',
             handler:function(){
                 var tree=Ext.getCmp(TreePanelId);
@@ -419,7 +331,7 @@ Fb.getTreeBtns_2=function(TreePanelId,treeGrid_cfg){
             }
         });
         
-    return treeMenu_btns;
+    return activity_btns;
 }
 
 
@@ -449,7 +361,7 @@ Fb.createActivityTreePanel=function(treeGrid_cfg){
         ,  tbar:{
             xtype:'buttongroup',
             title:'',
-            items:this.getTreeBtns_2(TreePanelId,treeGrid_cfg)
+            items:this.getTreeBtns_for_tree_activity(TreePanelId,treeGrid_cfg)
         }
         ,split:true
         ,bodyStyle:'background-color:white;'
@@ -520,24 +432,119 @@ Fb.createActivityTreePanel=function(treeGrid_cfg){
 
 
 
+Fb.getMenuTreeBtns=function(menutree_id){
+   
+    var public_btns=[];
+
+    public_btns.push({
+        xtype:'button',
+        text:i18n.add,
+        iconCls:'n_add',
+        style:{
+            marginRight:'6px'
+        },
+        ctCls:'x-btn-over',
+        handler:function(){
+            var tree=Ext.getCmp(menutree_id);
+            var rootnode=tree.getRootNode()
+            var currentNode=tree.getSelectionModel().getSelectedNode() || tree.root;
+            currentNode.appendChild({
+             text : '菜单组',
+             value: 'mgroup_'.concat(Fb.randomString()),
+             leaf : false,
+             expanded:false,
+             iconCls:'x-grid-tree-node-expanded', 
+             children:[]
+              });
+        }
+    });
+
+
+   
+   public_btns.push({
+            text:i18n.drop,
+            iconCls:'n_del',
+            style:{
+                marginRight: '6px'
+            },
+            ctCls:'x-btn-over',
+            id:'pub_delete',
+            handler:function(e,x){
+              
+            
+                var tree=Ext.getCmp(menutree_id);
+                var record = tree.getSelectionModel().getSelectedNode() 
+                
+                if(record){
+                     
+                     if(record.id=='root_menu_id_1234'){
+                        alert("根节点不能删除")
+                        return
+                     }
+
+                     if(  record.attributes.value.indexOf('mgroup_')=== -1 ){
+                              alert('只能删除空白的组合节点,菜单项可以拖拽到左边')
+                              return 
+                       
+                     } 
+                      
+
+                     if(  record.attributes.value.indexOf('mgroup_')===0 ){
+                          if( record.childNodes.length >0){
+                              alert("节点下面有菜单项,请先拖拽到左边")
+                              return
+                          }else
+                          {
+                              record.remove(true);
+                          }
+                     } 
+                 }
+            }
+        });
+        
+   
+    public_btns.push({
+            text:i18n.refresh,
+            iconCls:'n_edit',
+            style:{
+                marginRight: '6px'
+            },
+            ctCls:'x-btn-over',
+            id:'pub_refresh',
+            handler:function(){
+
+                alert('refresh')
+                var tree=Ext.getCmp(menutree_id);
+                console.log(tree )
+                tree.getLoader().load(tree.root);
+                // tree.getRootNode().reload();
+
+                // tree.getRootNode().reload();
+                // tree.expandAll() 
+                
+            }
+        });
+
+    return public_btns;
+}
+
+
 Fb.getMenuTreeGrid=function(cfg){
     console.log(cfg)
     var menutree_id='menutree'
     var tree = new Ext.tree.TreePanel(
      {
 
-        //  loader: new Ext.tree.TreeLoader({
+       loader: new Ext.tree.TreeLoader(
+            {
+                url: CURD_TREE_GET_MENU_DATA_URL,
+                requestMethod:"POST",
+                method:"POST",
+                baseParams:{rule:cfg.rule_value,'asktreedata':'yes'}
+            }),
 
-        //             url: CURD_TREE_GET_DATA_URL,
-        //             requestMethod:"POST",
-        //             baseParams:{actcode:this.actcode,'asktreedata':'yes'}
-        //         }),
-
-        // root: {nodeType: 'async'},
-        // rootVisible:false,
  
-
-        root:{text:'菜单',leaf:false,value:'mgroup_root_1234',id:'root_menu_id_1234',expanded:false, children:[]},
+        root: {text:'菜单',nodeType:'async',leaf:false,disable:true,value:'mgroup_root_1234',id:'root_menu_id_1234',expanded:false },
         rootVisible:true,
         enableDD:true,
         ddGroup:'NANX_gridDD',
@@ -559,10 +566,12 @@ Fb.getMenuTreeGrid=function(cfg){
         collapsible:true,
         autoScroll:true,
         listeners:{
+            render :function(){
+              this.expandAll()
+            },
+
             beforenodedrop:{fn:function(e,x) {
-                
                  console.log( e.target.attributes.value )
-                 
                  if( e.target.attributes.value.indexOf('mgroup_')=== -1){
                     alert('菜单项只能放在菜单组下面')
                     return false
@@ -583,7 +592,15 @@ Fb.getMenuTreeGrid=function(cfg){
                     //增加一个节点
                     var newnode=  new Ext.tree.TreeNode(node_to_add);
                     e.dropNode=newnode;
-                    e.target.attributes.children.push(  newnode )
+                    
+                    // if( e.target.attributes.hasOwnProperty('children') ){
+                    //         e.target.attributes.children.push(  newnode )
+                    // }else{
+                    //        e.target.attributes.children=[];
+                    //        e.target.attributes.children.push(  newnode )
+                    // }
+                    
+                    
                     return true;
                 }
             }}
@@ -1856,6 +1873,9 @@ Fb.getWhoami=function()
      if( Ext.getCmp('menutree') ){
         Ext.getCmp('menutree').getRootNode().expand(true);
         extradata= getTreeData('menutree');
+        
+        console.log(extradata)
+
      }
 
 

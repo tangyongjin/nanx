@@ -1580,7 +1580,27 @@ class Nanx extends CI_Controller {
          foreach ($ret as $key => $one_value) {
          	 $ret[$key]['role_code']=$role_code;
          }
-	     return $ret;
+
+         $root=array('activity_code'=>'mgroup_root',
+         	'grid_title'=>'菜单',
+     		'parent'=>'root_menu_id_1234',
+     		'role_code'=>$role_code
+     );
+
+         $fix_ret=array();
+          
+         foreach ($ret as $key => $one_node) {
+            $tmp=$one_node;
+            if(  is_null($one_node['parent'])){
+             $tmp['parent'] ='mgroup_root' ;
+            }
+          $fix_ret[]= $tmp;
+            
+         }
+
+         logtext($ret);
+         logtext($fix_ret);
+	     return $fix_ret;
 	}
 
 

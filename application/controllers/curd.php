@@ -87,14 +87,64 @@ class Curd extends CI_Controller
       return $tree;         
    } 
      
+   
+
+   function treeX($arr,$p_id= null ) {
+      $tree = array();
+      foreach($arr as $row){
+          if($row['parent']==$p_id){
+              $tmp = $this->treeX($arr,$row['activity_code']);
+              if($tmp){
+                  $row['children']=$tmp;
+                  $row['leaf']=false ;
+              }
+              else
+              {
+                 $row['leaf']=true ;
+              }
+              $tree[]=$row;                
+          }
+      }
+      return $tree;         
+   } 
+       
+
+     function TreeListMenuData(){
+         
+ 
+
+
+         logtext('TreeListMenuData');
+         $rule=$_POST['rule'] ;
+         logtext($rule);
+         
+         $sql= " SELECT id,parent,activity_code,activity_code as value,grid_title as text,activity_type,role_code FROM nanx_menu  where  role_code='{$rule}' ";   
+         logtext($sql);
+
+         $results = $this->db->query($sql)->result_array();
+         $tree = $this->treeX($results,'mgroup_root');
+         
+         logtext($tree);
+         
+         $ret=array();
+         $ret['server_resp']= $tree;
+
+         print_r( json_encode(  $ret));
+
+         // echo $json;
+
+     }
+
+
      function TreeListData(){
 
          $post    = file_get_contents('php://input');
          $p       = (array) json_decode($post);
          $actcode=$_POST['actcode'] ;
-     
+        
 
          $sql="select * from nanx_activity where activity_code= '$actcode'  " ;
+       
          
          
          $row=$this->db->query($sql)->row_array();
