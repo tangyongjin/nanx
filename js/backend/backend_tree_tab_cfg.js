@@ -2386,7 +2386,7 @@ var AppCategory = {
         var nodemenus=this.getCategoryMenusByCategory(category);
         for (var i=0;i<nodemenus.length;i++){
             if (nodemenus[i].opcode==opcode){
-                var m_item=Fb.DeepClone(nodemenus[i]);
+                var m_item=DeepClone(nodemenus[i]);
                 return m_item;
             }
         }

@@ -74,7 +74,7 @@ function Act(cfg) {
 }
 
 Act.prototype.init_all = function(cfg) {
-  
+
     this.cfg = cfg;
     this.with_checkbox_col = cfg.hasOwnProperty('checkbox') ? cfg.checkbox : true;
     this.gridHeader = cfg.hasOwnProperty('gridheader') ? cfg.gridheader : false;
@@ -193,7 +193,7 @@ Act.prototype.showActivityWindow=function(){
                      treeGrid_cfg.table=that.table
                      
 
-                     that.gridPanel=Fb.createActivityTreePanel( treeGrid_cfg );
+                     that.gridPanel=MenuTree.createActivityTreePanel( treeGrid_cfg );
                      break;
                      
                 default:
@@ -247,7 +247,7 @@ Act.prototype.createActivityGridPanel=function(){
             {
                if(this.file_type=='img')
                 {
-                   var src = Fb.getFileValue(grid, row, col) ;
+                   var src = FileUpload.getFileValue(grid, row, col) ;
                    grid.stopEditing();
                    Fb.showPic(src.filename);
                    return;
@@ -1010,7 +1010,7 @@ Act.prototype.getSerachPanel=function(table,storeId,winid){
             var ds=Ext.StoreMgr.key(storeId);
             var ext_sp=this.ownerCt.ownerCt;
             var fm=ext_sp.getForm();
-            var data=Fb.getFormData(ext_sp);
+            var data=FormBuilder.getFormData(ext_sp);
             if (!data){
                 return;
             }
@@ -1447,7 +1447,7 @@ Act.prototype.delData=function(btn){
                 that.gridPanel.getStore().load();
             }
             del_data.table=that.table;
-            Fb.ajaxPostData(CURD_URL +'deleteData',del_data,succ);
+            ajaxPostData(CURD_URL +'deleteData',del_data,succ);
         }
     });
 }
@@ -1502,7 +1502,7 @@ Act.prototype.writeExcel=function(btn,e){
         activity_type:this.activity_type,
         excel_name:(this.actcode=="NANX_TBL_DATA")?this.table:girdtitle
     };
-    Fb.ajaxPostData(AJAX_ROOT+'activity/grid2excel',excel_cfg,null)
+    ajaxPostData(AJAX_ROOT+'activity/grid2excel',excel_cfg,null)
 };
 
 
@@ -1602,7 +1602,7 @@ Act.prototype.SaveDataChanges=function(btn,e){
     };
     btn.ownerCt.disable();
     adu.table=this.table;
-    Fb.ajaxPostData(AJAX_ROOT+'rdbms/adu',adu,succ);
+    ajaxPostData(AJAX_ROOT+'rdbms/adu',adu,succ);
 }
 
 
@@ -1733,7 +1733,7 @@ Act.prototype.getMediaGridValue=function(grid){
      }else  
       {
        if(grid.getSelectionModel().selection){
-            var cell= Fb.getFileValue(grid,grid.getSelectionModel().selection.cell[0],grid.getSelectionModel().selection.cell[1]);
+            var cell= FileUpload.getFileValue(grid,grid.getSelectionModel().selection.cell[0],grid.getSelectionModel().selection.cell[1]);
             selected.push(cell.filename);
        }
      }
@@ -1755,7 +1755,7 @@ Act.prototype.setLogo=function(grid){
                  'key': 'COMPANY_LOGO'
              }
          };
-     Fb.ajaxPostData(AJAX_ROOT + 'nanx', fmv, function() {});
+     ajaxPostData(AJAX_ROOT + 'nanx', fmv, function() {});
 }
 
 Act.prototype.uploadFile=function(grid){
@@ -1810,7 +1810,7 @@ Act.prototype.delFile=function(grid){
             var succ=function(){
                  grid.getStore().load();
             }
-            Fb.ajaxPostData(AJAX_ROOT+'file/deleteFile',del_data,succ);
+            ajaxPostData(AJAX_ROOT+'file/deleteFile',del_data,succ);
         }
     });
 }
@@ -2159,7 +2159,7 @@ Act.prototype.actionWin = function(type,form,wincfg){
         
         form.extra_fn=refresh;
         if (wincfg.opcode=='run_sql'){form.extra_fn=runStandSqlActivity;}
-        form=Fb.formBuilder(form,wincfg.opcode);
+        form=FormBuilder.backendFromWrapper(form,wincfg.opcode);
       }
     
       if(wincfg&&wincfg.althandler){
@@ -2235,7 +2235,7 @@ Act.prototype.FormAction=function(form){
         var that=this;
         if((form.uptasks==0)&&(form.upload_errcount==0))
         {
-            var formData=Fb.getFormData(form);
+            var formData=FormBuilder.getFormData(form);
             if (!formData){
                 return;
             }
@@ -2247,7 +2247,7 @@ Act.prototype.FormAction=function(form){
             };
              if(!Ext.isEmpty(form.extra_url))
              {
-             Fb.ajaxPostData(form.extra_url,dataSend,form.extra_fn);
+             ajaxPostData(form.extra_url,dataSend,form.extra_fn);
              }
         }
 }

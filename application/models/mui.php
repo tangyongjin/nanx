@@ -1,96 +1,120 @@
 <?php
 class MUI extends CI_Model
 {
+ 
+
+
+ function get_login_file_need($lang_folder){
+       
+       return array(
+         'css'=>array('css/country.css','css/template.css','css/reveal.css','jslib/ext/resources/css/ext-all.css'),
+         'js'=>array(
+         'js/language/'.$lang_folder.'/i18n.js',
+         'jslib/jquery/jquery-1.7.1.min.js',
+         'jslib/jquery/country.js',
+         'js/login.js',
+         'js/fixheight.js',
+         'js/globalvars.js',
+         'js/jquery.reveal.js')
+       );
+  }
+
+ function get_front_file_need($lang_folder){
+      return array(
+        'css'=>array(
+            'menutheme/css/menu.css',
+            'menutheme/css/font-awesome.css',
+             'css/template.css',
+             'jslib/ext/resources/css/ext-all.css',
+             'jslib/ext/ux/fileuploadfield/css/fileuploadfield.css',
+             'jslib/Datetime/Spinner.css' ,
+             'css/toolbars.css',
+           
+             ),
+             
+        'js'=>array(
+             'jslib/jquery/jquery-1.7.1.min.js',
+             'js/language/'.$lang_folder.'/i18n.js',
+             'jslib/ext/ext-base.js', 
+             'jslib/ext/ext-all.js',
+             'jslib/Datetime/Spinner.js', 
+             'jslib/Datetime/SpinnerField.js', 
+             'jslib/Datetime/DateTimeField.js',
+             'jslib/ext/Power_htmleditor.js', 
+             'jslib/ext/ux/fileuploadfield/fileuploadfield.js', 
+             'js/globalvars.js', 
+             'js/activity_curd.js',
+             'js/backend/backend_tree_tab_cfg.js',
+             'js/util.js',
+             'js/compoment_menu_tree.js',
+             'js/compoment_basic_combo.js',
+             'js/form.formbuilder.js',
+             'js/fb.js', 
+             'js/fixheight.js',
+             'js/event_list.js', 
+             'js/boot.js',
+             'menutheme/js/function.js',
+            )
+      );
+ }
+ 
+ function get_backend_file_need($lang_folder){
+     return array(
+          'css'=>array(
+            'jslib/ext/resources/css/ext-all.css',
+            'css/backend/dblite.css',
+            'css/backend/multiselect.css',
+            'jslib/ext/ux/fileuploadfield/css/fileuploadfield.css',
+            'jslib/ext/ux/css/data-view.css',
+            'css/toolbars.css' 
+           ),
+           'js'=>array(
+                'js/language/'.$lang_folder.'/i18n.js', 
+                'jslib/ext/ext-base.js', 
+                'jslib/ext/ext-all.js', 
+                'jslib/ext/ux/CheckColumn.js', 
+                'jslib/ext/ux/MultiSelect.js',  
+                'jslib/Datetime/Spinner.js', 
+                'jslib/Datetime/SpinnerField.js', 
+                'jslib/Datetime/DateTimeField.js',
+                'jslib/ext/ux/ItemSelector.js',  
+                'jslib/ext/Power_htmleditor.js', 
+                'jslib/ext/ux/fileuploadfield/fileuploadfield.js',
+                'js/globalvars.js',
+                'js/backend/backend_tree_tab_cfg.js',
+                'js/util.js',
+                'js/form.formbuilder.js',
+                'js/compoment_file_upload.js',
+                'js/compoment_menu_tree.js',
+                'js/compoment_layoutmanager.js',
+                'js/compoment_dragdrop_grid.js',
+                'js/fb.js',
+                'js/backend/portal.js',
+                'js/activity_curd.js',
+                'js/backend/tabsmnt.js',
+                'js/backend/topmenu.js'
+                )
+    );
+ }
+ 
 
  function getCssJSCfg($lang_folder)
  {
+
   $cfg=array
   (
-   'login'=> array(
-     'css'=>array('css/country.css','css/template.css','css/reveal.css','jslib/ext/resources/css/ext-all.css'),
-     'js'=>array(
-     'js/language/'.$lang_folder.'/i18n.js',
-     'jslib/jquery/jquery-1.7.1.min.js',
-     'jslib/jquery/country.js',
-     'js/login.js',
-     'js/fixheight.js',
-     'js/globalvars.js',
-     'js/jquery.reveal.js')
-  ),
-  
-  'front'=>
-   array(
-    'css'=>array(
-        'menutheme/css/menu.css',
-        'menutheme/css/font-awesome.css',
-         'css/template.css',
-         'jslib/ext/resources/css/ext-all.css',
-         'jslib/ext/ux/fileuploadfield/css/fileuploadfield.css',
-         'jslib/Datetime/Spinner.css' ,
-         'css/toolbars.css',
-       
-         ),
-         
-    'js'=>array(
-        'jslib/jquery/jquery-1.7.1.min.js',
-        'js/language/'.$lang_folder.'/i18n.js',
-        'jslib/ext/ext-base.js', 
-        'jslib/ext/ext-all.js',
-         'jslib/Datetime/Spinner.js', 
-          'jslib/Datetime/SpinnerField.js', 
-         'jslib/Datetime/DateTimeField.js',
-         'jslib/ext/Power_htmleditor.js', 
-         'jslib/ext/ux/fileuploadfield/fileuploadfield.js', 
-         'js/globalvars.js', 
-         'js/activity_curd.js',
-        'js/backend/backend_tree_tab_cfg.js',
-         'js/fb.js', 
-         'js/fixheight.js',
-        'js/event_list.js', 
-         'js/boot.js',
-         'menutheme/js/function.js',
-        )
-  ),
-  'backend'=>array(
-  'css'=>array(
-    'jslib/ext/resources/css/ext-all.css',
-    'css/backend/dblite.css',
-    'css/backend/multiselect.css',
-    'jslib/ext/ux/fileuploadfield/css/fileuploadfield.css',
-    'jslib/ext/ux/css/data-view.css',
-    'css/toolbars.css' 
-   ),
-   'js'=>array(
-        'js/language/'.$lang_folder.'/i18n.js', 
-        'jslib/ext/ext-base.js', 
-        'jslib/ext/ext-all.js', 
-        'jslib/ext/ux/CheckColumn.js', 
-        'jslib/ext/ux/MultiSelect.js',  
-        'jslib/Datetime/Spinner.js', 
-        'jslib/Datetime/SpinnerField.js', 
-         'jslib/Datetime/DateTimeField.js',
-        'jslib/ext/ux/ItemSelector.js',  
-        'jslib/ext/Power_htmleditor.js', 
-        'jslib/ext/ux/fileuploadfield/fileuploadfield.js',
-        'js/globalvars.js',
-        'js/backend/backend_tree_tab_cfg.js',
-        'js/fb.js',
-        'js/backend/portal.js',
-        'js/activity_curd.js',
-        'js/backend/tabsmnt.js',
-        'js/backend/topmenu.js'
-        )
-    )
+   'login'=> $this->get_login_file_need($lang_folder),
+   'front'=> $this->get_front_file_need($lang_folder),
+   'backend'=>$this->get_backend_file_need($lang_folder)
   );
 
- $bs_url = $this->config->item('base_url');
+  $bs_url = $this->config->item('base_url');
 
- // $bs_url='1111'; 
 
-if( substr($bs_url, -1)=="/" ){
-   
-   $bs_url=substr($bs_url, 0, -1);
-}
+  if( substr($bs_url, -1)=="/" ){
+     
+     $bs_url=substr($bs_url, 0, -1);
+  }
 
 
  while(list($key,$value)=each($cfg))
@@ -177,8 +201,7 @@ if( substr($bs_url, -1)=="/" ){
      $onediv ="<div>not set</div>";
 
 
-   //  echo "  <br/> $acode  activity_type is $act_type"     ;
-
+ 
      if($act_type=='menugroup')
      {  
         $bs= $this->config->base_url();
@@ -200,7 +223,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $onediv =" 
             <div class='icon' id=$id_div>  
               <a class='nanx-4-ext'  activity_type='table' id=$acode  href=#>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -212,7 +235,7 @@ if( substr($bs_url, -1)=="/" ){
         $onediv =" 
             <div class='icon'>  
               <a class='nanx-4-ext'  activity_type='tree' id=$acode  href=#>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -226,7 +249,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $onediv =" 
             <div class='icon'>  
               <a class='nanx-4-ext'   grid_title={$data['grid_title']}  activity_type='html' id=$acode  href=#>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -241,7 +264,7 @@ if( substr($bs_url, -1)=="/" ){
      	  $onediv =" 
             <div class='icon'>  
               <a  class='nanx-4-ext'   activity_type='js' fnname=$fnname id=$acode  href=#>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -254,7 +277,7 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'  onClick=$onclick>  
               <a href=#  id=$acode class='nanx-4-ext' activity_type='url'>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -267,7 +290,7 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'>  
               <a href=# class='nanx-4-ext' activity_type='service' memo=$memo  id=$acode  service_url=$url>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";
@@ -279,7 +302,7 @@ if( substr($bs_url, -1)=="/" ){
      	 $onediv = " 
             <div class='icon'>  
               <a href=# class='nanx-4-ext' activity_type='sql' id=$acode  service_url=$url>
-                <img src='imgs/{$data['pic_url']}'/>
+                <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
           </div>";

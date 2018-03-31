@@ -296,7 +296,7 @@ function  getMenuItemHandler(node,category,opcode,alt_win_id)
       return common_fn;
     }
     var common_fn=function(){
-              var opform=Fb.backendForm(category,opcode,node);
+              var opform=FormBuilder.backendForm(category,opcode,node);
               var wincfg={
                  category:category,
                  opcode:opcode, 
