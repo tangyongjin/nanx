@@ -86,7 +86,7 @@ App.bind = function() {
                         var fnname= target.getAttribute('fnname');
                         var service_url= target.getAttribute('service_url');
                         var grid_title=target.getAttribute('grid_title');
-                        var memo=target.getAttribute('memo');
+                         var memo=target.getAttribute('memo');
                         App.route(activity_type, acode,fnname,service_url,memo,grid_title);
         
 
@@ -185,20 +185,6 @@ App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
                 });
           }
 
-
-         if(activity_type=='folder')
-          {
-           
-           // new Act({
-           //      'code': code,
-           //      'edit_type':'noedit',
-           //      'showwhere': 'autowin',
-           //      'host': null
-           //      });
-          }
-
-        
-
         if(activity_type=='tree')
           {
            new Act({
@@ -225,28 +211,35 @@ App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
            Act_service(code,service_url,memo);
           }
 
-       
-
-        if(activity_type=='html')
+        if(activity_type=='folder')
           {
-         
-           Act_html(code,service_url,memo,grid_title);
-          }
+          
 
-        
-        if(activity_type=='menugroup')
-          {
-           new Act({
-                'code': code,
-                'edit_type':'noedit',
-                'showwhere': 'autowin',
-                'tbar_type':'bar4menu',
-                'host': null
+                 var subcfg={'parent':code};
+                 var jsondata=Ext.encode(subcfg);
+                 Ext.Ajax.request({
+                  url:GET_FIRST_LEVEL_URL,
+                  jsonData:jsondata,
+                  callback:function(options,success,response){
+                      var div=Ext.fly('nanx_act_blocks')
+                      var ret_json=Ext.util.JSON.decode(response.responseText);
+                      console.log(ret_json)
+                      var newhtml=''
+                      for (var i=0;i<ret_json.length;i++){
+                                 console.log(ret_json[i]['block'])
+                                 newhtml=newhtml+ret_json[i]['block']
+                          }
+                      div.update( newhtml )
+                  }
                 });
           }
 
+              
 
-
+        if(activity_type=='html')
+          {
+           Act_html(code,service_url,memo,grid_title);
+          }
 
 
 }
@@ -255,6 +248,23 @@ App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
 Ext.onReady(function(){
        App.init();
        App.enableDD()
-       // getevent();
+       var subcfg={'parent':'mgroup_root'};
+                 var jsondata=Ext.encode(subcfg);
+                 Ext.Ajax.request({
+                  url:GET_FIRST_LEVEL_URL,
+                  jsonData:jsondata,
+                  callback:function(options,success,response){
+                      var div=Ext.fly('nanx_act_blocks')
+                      var ret_json=Ext.util.JSON.decode(response.responseText);
+                      console.log(ret_json)
+                      var newhtml=''
+                      for (var i=0;i<ret_json.length;i++){
+                                 console.log(ret_json[i]['block'])
+                                 newhtml=newhtml+ret_json[i]['block']
+                          }
+                      div.update( newhtml )
+                  }
+                });
+
 })
   

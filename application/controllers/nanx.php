@@ -1581,16 +1581,25 @@ class Nanx extends CI_Controller {
          	 $ret[$key]['role_code']=$role_code;
          }
 
-         $root=array('activity_code'=>'mgroup_root',
-         	'grid_title'=>'菜单',
-     		'parent'=>'root_menu_id_1234',
-     		'role_code'=>$role_code
-     );
+        
 
          $fix_ret=array();
           
          foreach ($ret as $key => $one_node) {
             $tmp=$one_node;
+
+            logtext($tmp);
+
+            // 根据activity_code 设置 grid_title 和 activity_type 
+            $info_nanx_activity=$this->db->get_where('nanx_activity',array('activity_code'=>$tmp['activity_code']))->row_array();
+            if($info_nanx_activity){
+             $tmp['activity_type']	= $info_nanx_activity['activity_type'];
+            }else
+            {
+			 $tmp['activity_type']='folder';
+            }
+
+            
             if(  is_null($one_node['parent'])){
              $tmp['parent'] ='mgroup_root' ;
             }
@@ -1598,7 +1607,6 @@ class Nanx extends CI_Controller {
             
          }
 
-         logtext($ret);
          logtext($fix_ret);
 	     return $fix_ret;
 	}

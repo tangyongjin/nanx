@@ -9,18 +9,7 @@ class MTree extends CI_Model{
    public $children;
    public $depth;
 
-  public function __construct()
-    {
-        // parent::__construct();
-      // $this->id = $id;
-      // $this->parent_id = $parent_id;
-      // $this->value = $value;
-      // $this->children = array();
-      // $this->depth = 0;
-
-
-    }
-
+   
 
      function get_children_from_mysql() {
       $query = "SELECT * FROM parkos_org WHERE parent_id = '$this->id' ";

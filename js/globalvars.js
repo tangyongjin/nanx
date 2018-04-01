@@ -20,6 +20,8 @@ CURD_TREE_ADD_DATA_URL=CURD_URL+'TreeAddData';
 CURD_TREE_DEL_DATA_URL=CURD_URL+'TreeDeleteData';
 CURD_TREE_UPDATE_DATA_URL=CURD_URL+'updateData';
 
+GET_FIRST_LEVEL_URL=BASE_URL+'home/getFirstLevelActs'
+
 
 LOGIN_URL=BASE_URL+'home/login';
 Ext.BLANK_IMAGE_URL=BASE_URL+'jslib/ext/resources/images/default/s.gif';

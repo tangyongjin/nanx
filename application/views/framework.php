@@ -55,19 +55,12 @@
 						$user_item = 'user';
 						if (isset($loginview))
 							{
-							$l = $this->load->view($loginview);
+						      $this->load->view($loginview);
 							}
 						  else
 							{
-							if (isset($left))
-								{
-						  echo $left;
-								}
-
-							if (isset($right))
-								{
+							 $this->load->view($left);
 					    	 $this->load->view($right);
-								}
 
 							if (isset($activity_div))
 								{

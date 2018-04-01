@@ -111,7 +111,7 @@ MenuTree.getMenuTreeGrid=function(cfg){
                 url: CURD_TREE_GET_MENU_DATA_URL,
                 requestMethod:"POST",
                 method:"POST",
-                baseParams:{rule:cfg.rule_value,'asktreedata':'yes'}
+                baseParams:{role:cfg.rule_value,'asktreedata':'yes'}
             }),
 
  

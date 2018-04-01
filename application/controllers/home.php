@@ -3,82 +3,28 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 class Home extends CI_Controller
 {
- 
-
-    function abc(){
-        echo "abc";
-    }
-
+    
     function index()
     {
-
-       
+        
+        $this->load->model('MXmenu');
+        
         $this->setsession();
         $lang = $lang = $this->i18n->get_current_locale();
         $this->load->model('MUi');
         $page          = $this->MUi->getCommPage('front', $lang);
-        $activities    = $this->session->userdata('user_activity');
-        $left          = $this->MUi->getActionBlock($activities);
-        $page['left']  = $left;
+        $page['left']  = 'jpanel_left';
         $page['right'] = 'jpanel_right';
-       
-        $allsession=$this->session->all_userdata();
-        $roles=$allsession['roles'][0]['role_code'];
-        $page['bootstrap_menu']=$this->getThemeMenu($roles);
+        
+        $allsession = $this->session->all_userdata();
+        $roles      = $allsession['roles'][0]['role_code'];
+        
+        $page['bootstrap_menu'] = $this->MXmenu->getThemeMenu($roles);
         $this->load->view('framework', $page);
         
     }
-
-    function getThemeMenu($roles){
-        $this->load->model('MXmenu');
-        $menu_html=$this->MXmenu->getMenuByRole($roles); 
-
- 
-        $bootstrap_menu='
-           <div  id="ul_menu"> 
-                <ul id="main-menu">
-                    <li class="current-menu-item"><a href="http://www.freshdesignweb.com">Home</a></li>
-                    <li class="parent">
-                        <a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Server</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a class="parent" href="#"><i class="icon-file-alt"></i>IBM</a>
-                                <ul class="sub-menu">
-                                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Full Width</a></li>
-                                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Left Sidebar</a></li>
-                                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Right Sidebar</a></li>
-                                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Double Sidebar</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html"><i class="icon-wrench"></i>HP</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html"><i class="icon-credit-card"></i>Dell</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html"><i class="icon-gift"></i> Icons</a></li>
-                            
-                        </ul>
-                    </li>
-                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Portfolio</a></li>
-                    <li class="parent">
-                        <a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Large Image</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Medium Image</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Masonry</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Double Sidebar</a></li>
-                            <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Single Post</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">Contact</a></li>
-                </ul>
-             
-                </div>
-        ';
-
-
-         $bootstrap_menu='<div  id="ul_menu">'.$menu_html.'</div>';
-         return $bootstrap_menu;
-
-    }
+    
+    
     
     
     function checkDatabaseConnection()
@@ -92,7 +38,7 @@ class Home extends CI_Controller
     
     function login()
     {
- 
+        
         if ($this->uri->segment(3) === FALSE) {
             $lang = $this->i18n->get_current_locale();
             $this->i18n->load_language();
@@ -102,12 +48,12 @@ class Home extends CI_Controller
         }
         
         $this->load->model('MUi');
-
+        
         $page              = $this->MUi->getCommPage("login", $lang);
         $page['lang']      = $lang;
         $page['loginview'] = 'loginview';
         $this->load->view('framework', $page);
-
+        
     }
     
     
@@ -153,13 +99,13 @@ class Home extends CI_Controller
                 $result['msg']  = '';
                 $result['user'] = $p['account'];
                 
-                $user_logged=$p['account'];
+                $user_logged = $p['account'];
                 
-
+                
                 $this->session->set_userdata('user', $user_logged);
-                 
-                $this->db->where('user',$user_logged);
-                $user_roles= $this->db->get('nanx_user_role_assign')->result_array();
+                
+                $this->db->where('user', $user_logged);
+                $user_roles = $this->db->get('nanx_user_role_assign')->result_array();
                 $this->session->set_userdata('roles', $user_roles);
                 echo json_encode($result);
                 return;
@@ -173,68 +119,84 @@ class Home extends CI_Controller
         }
     }
     
+    function getFirstLevelActs()
+    {
+        
+        $post = file_get_contents('php://input');
+        $para = (array ) json_decode($post);
+        
+        $parent = $para['parent'];
+        
+        logtext($para);
+        $this->load->model('MXmenu');
+        $this->load->model('MUi');
+        $allsession = $this->session->all_userdata();
+        
+        
+        $roles         = $allsession['roles'];
+        $activity_list = $this->MXmenu->getActivitybyRoleCode($roles, $parent);
+        
+        $ret = array();
+        $tmp = array();
+        foreach ($activity_list as $act) {
+            
+            $block                = $this->MXmenu->getOneBlockbyActivityCode($act['activity_code']);
+            $tmp['activity_code'] = $act['activity_code'];
+            $tmp['block']         = $block;
+            $ret[]                = $tmp;
+        }
+        echo json_encode($ret, JSON_UNESCAPED_UNICODE);
+    }
     
-    
- function setsession()
-    {   
-
-        $session_data=array();
-
-        $user=$this->session->userdata('user');
-
-
+    function setsession()
+    {
+        
+        $session_data = array();
+        $user = $this->session->userdata('user');
+        
+        
         $this->load->model('MUserRole');
         $this->load->model('MSystempara');
- 
-        $session_data['user']=$user;
-           
-
-
-        $sql   = "select role_code from nanx_user_role_assign where user='" . $user . "' ";
-
-        $roles = $this->db->query($sql)->result_array();
-        $session_data['roles']=$roles;
+        $session_data['user'] = $user;
+        
+        
+        $sql = "select role_code from nanx_user_role_assign where user='" . $user . "' ";
+        $roles                 = $this->db->query($sql)->result_array();
+        $session_data['roles'] = $roles;
         
         
         $activity_list = $this->MUserRole->getActivitybyRoleCode($roles);
-        $activity      = array_retrieve($activity_list, 'activity_code');
-        $session_data['user_activity']=$activity;
         
-        $sql      = "select  *  from nanx_user where user='" . $user . "'";
-        $user_get = $this->db->query($sql)->row_array();
-        $session_data['staff_name']=$user_get['staff_name'];
+        $activity                      = array_retrieve($activity_list, 'activity_code');
+        $session_data['user_activity'] = $activity;
+        
+        $sql                        = "select  *  from nanx_user where user='" . $user . "'";
+        $user_get                   = $this->db->query($sql)->row_array();
+        $session_data['staff_name'] = $user_get['staff_name'];
         
         
-        $sql        = "select  *  from nanx_who_is_who where user='" . $user . "'";
-        $who_is_who = $this->db->query($sql)->result_array();
-        $session_data['who_is_who']=$who_is_who;
+        $sql                        = "select  *  from nanx_who_is_who where user='" . $user . "'";
+        $who_is_who                 = $this->db->query($sql)->result_array();
+        $session_data['who_is_who'] = $who_is_who;
         
         $page_title   = $this->MSystempara->getCfgItem('PAGE_TITLE');
         $banner_title = $this->MSystempara->getCfgItem('BANNER_TITLE');
-      
-        $session_data['page_title']=$page_title;
-        $session_data['banner_title']=$banner_title;
-
         
-
+        $session_data['page_title']   = $page_title;
+        $session_data['banner_title'] = $banner_title;
         $this->session->set_userdata($session_data);
-
-
-
-    }
-
-    function logout()
-    {
-       
-
-       print_r($this->session->userdata); 
-       $this->session->sess_destroy();
-       print_r($this->session->userdata); 
-       redirect('home/login');
     }
     
-
-    function test()
+    function logout()
+    {
+        print_r($this->session->userdata);
+        $this->session->sess_destroy();
+        print_r($this->session->userdata);
+        redirect('home/login');
+    }
+    
+    
+    function testemail()
     {
         $this->load->library('email');
         $this->email->from('tangyongjin97@qq.com', 'Tang');

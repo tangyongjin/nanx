@@ -172,15 +172,18 @@ Act.prototype.showActivityWindow=function(){
             WaitMask.hide();
             var ret_json=Ext.util.JSON.decode(response.responseText);
             that.setcfg(ret_json);
- 
+            console.log(ret_json)
            switch(ret_json.activity_type)
                 {
-                case 'html':
-                     that.createActivityHtmlPanel();
-                     break;
-                case 'menugroup':
-                     that.createActivityHtmlPanel();
-                     break;
+
+                // case 'html':
+                //      that.createActivityHtmlPanel();
+                //      break;
+
+                // case 'folder':
+                //      that.createActivityFolderPanel();
+                //      break;
+                
                 case 'tree':
                  
                      var treeGrid_cfg={}
@@ -284,10 +287,12 @@ Act.prototype.createActivityGridPanel=function(){
     this.gridPanel=(this.cfg.edit_type==='noedit')?new Ext.grid.GridPanel(gridcfg):new Ext.grid.EditorGridPanel(gridcfg);
 
     console.log(this.gridPanel.getStore())
+    if(this.gridPanel.getStore() ){
+          this.gridPanel.getStore().on('load',function(ds){this.autoHeader(); }, this);
+   
 
-    this.gridPanel.getStore().on('load',function(ds){
-       this.autoHeader();
-    }, this);
+    }
+
      
        
     if (this.cfg.callback){
@@ -295,16 +300,13 @@ Act.prototype.createActivityGridPanel=function(){
             this.gridPanel.addListener(this.cfg.callback[i].event, this.cfg.callback[i].fn);
         }
     }
-        this.mainStore.addListener('load', function(store) {
-             var serverRet=store.reader.jsonData;
-             if( serverRet.hasOwnProperty('dbok'))
-             {
-              if(serverRet.dbok===false){
-                Ext.Msg.alert(i18n.error,i18n.sql_syntax_error+':<br/>'+serverRet.sql+'<br/>SQLcode:'+ serverRet.sql_code+'<br/>SQlmsg:'+serverRet.sql_error_msg);
-              }
-             }
-        });
 
+        if (this.mainStore){
+             
+
+        } 
+
+         
 
        this.mainStore.load({
         params:{
@@ -314,9 +316,45 @@ Act.prototype.createActivityGridPanel=function(){
     });
 }
 
+ 
+Act.prototype.createActivityFolderPanel=function(){
+    
+    var btn1={
+        text:i18n.refresh,
+        iconCls:'table_data_refresh',
+        handler:function(){
+            var panel=this.ownerCt.ownerCt.ownerCt;
+            panel.doAutoLoad();
+        }
+    };
+
+    var tbar=[{
+        xtype:'buttongroup',
+        items:[btn1]
+    }];
+    
+    var f=new Ext.Panel({
+
+        autoScroll:true,
+        tbar:tbar,
+        frame:true,
+        width:250,
+        height:250,
+        autoLoad:{
+            url:AJAX_ROOT+this.serviceUrl
+        }
+
+      
+    });
+    this.gridPanel=f;
+}
+
 
 Act.prototype.createActivityHtmlPanel=function(){
     
+    
+    alert(AJAX_ROOT+this.serviceUrl)
+
     var btn1={
         text:i18n.refresh,
         iconCls:'table_data_refresh',
@@ -2330,6 +2368,61 @@ function Act_service(acode,service_url,memo){
         modal:true
     });
     service_win.show();
+}
+
+
+
+
+function Act_folder(acode,title){
+
+    function te33(win,code){
+       var subcfg={'parent':code};
+       var jsondata=Ext.encode(subcfg);
+       Ext.Ajax.request({
+        url:GET_FIRST_LEVEL_URL,
+        jsonData:jsondata,
+        callback:function(options,success,response){
+            
+
+
+            var div=Ext.fly('nanx_act_blocks')
+            console.log(div)
+
+            var ret_json=Ext.util.JSON.decode(response.responseText);
+            console.log(ret_json)
+            var newhtml=''
+            for (var i=0;i<ret_json.length;i++){
+                       console.log(win)
+                       console.log(ret_json[i]['block'])
+                       newhtml=newhtml+ret_json[i]['block']
+                }
+                  // win.body.update(newhtml)
+                // win.body.update( '<div>'+ newhtml+'</div>' )
+            div.update( newhtml )
+
+             
+        }
+      });
+       
+    }
+
+    var folder_win=new Ext.Window({
+        autoScroll:true,
+        closeAction:'destroy',
+        constrain:true,
+        width:800,
+        height:648,
+        id:'win_'+acode,
+        title:title,
+        html:'aaa',
+        // items:[],
+        modal:true
+    });
+
+    
+    folder_win.addListener('show', te33.createDelegate(this,[acode],true));
+    folder_win.doLayout()
+    // folder_win.show();
 }
 
 
