@@ -45,9 +45,17 @@ function helper_getlogname()
 
 function logtext($para)
 {
+    
     $log = fopen(helper_getlogname(), "a+");
-    $logtext = var_export($para,true);
-    fwrite($log, $logtext);
+    if (is_string($para)){
+        $logtext =$para;
+    }else{
+        $logtext = var_export($para,true);
+    }
+    
+
+
+    fwrite($log, '<br/>'.$logtext);
     fwrite($log, "\n");
     fclose($log);
 }

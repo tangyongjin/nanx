@@ -176,9 +176,9 @@ Act.prototype.showActivityWindow=function(){
            switch(ret_json.activity_type)
                 {
 
-                // case 'html':
-                //      that.createActivityHtmlPanel();
-                //      break;
+                case 'html':
+                     that.createActivityHtmlPanel();
+                     break;
 
                 // case 'folder':
                 //      that.createActivityFolderPanel();
@@ -302,7 +302,7 @@ Act.prototype.createActivityGridPanel=function(){
     }
 
         if (this.mainStore){
-             
+
 
         } 
 
@@ -351,10 +351,6 @@ Act.prototype.createActivityFolderPanel=function(){
 
 
 Act.prototype.createActivityHtmlPanel=function(){
-    
-    
-    alert(AJAX_ROOT+this.serviceUrl)
-
     var btn1={
         text:i18n.refresh,
         iconCls:'table_data_refresh',
@@ -363,24 +359,14 @@ Act.prototype.createActivityHtmlPanel=function(){
             panel.doAutoLoad();
         }
     };
-
     var tbar=[{
         xtype:'buttongroup',
         items:[btn1]
     }];
-    
     var f=new Ext.Panel({
-
         autoScroll:true,
         tbar:tbar,
-        frame:true,
-        width:250,
-        height:250,
-        autoLoad:{
-            url:AJAX_ROOT+this.serviceUrl
-        }
-
-      
+        autoLoad:AJAX_ROOT+this.dataUrl
     });
     this.gridPanel=f;
 }
@@ -2369,65 +2355,9 @@ function Act_service(acode,service_url,memo){
     });
     service_win.show();
 }
+ 
 
-
-
-
-function Act_folder(acode,title){
-
-    function te33(win,code){
-       var subcfg={'parent':code};
-       var jsondata=Ext.encode(subcfg);
-       Ext.Ajax.request({
-        url:GET_FIRST_LEVEL_URL,
-        jsonData:jsondata,
-        callback:function(options,success,response){
-            
-
-
-            var div=Ext.fly('nanx_act_blocks')
-            console.log(div)
-
-            var ret_json=Ext.util.JSON.decode(response.responseText);
-            console.log(ret_json)
-            var newhtml=''
-            for (var i=0;i<ret_json.length;i++){
-                       console.log(win)
-                       console.log(ret_json[i]['block'])
-                       newhtml=newhtml+ret_json[i]['block']
-                }
-                  // win.body.update(newhtml)
-                // win.body.update( '<div>'+ newhtml+'</div>' )
-            div.update( newhtml )
-
-             
-        }
-      });
-       
-    }
-
-    var folder_win=new Ext.Window({
-        autoScroll:true,
-        closeAction:'destroy',
-        constrain:true,
-        width:800,
-        height:648,
-        id:'win_'+acode,
-        title:title,
-        html:'aaa',
-        // items:[],
-        modal:true
-    });
-
-    
-    folder_win.addListener('show', te33.createDelegate(this,[acode],true));
-    folder_win.doLayout()
-    // folder_win.show();
-}
-
-
-
-function Act_html(acode,service_url,memo,grid_title){
+function Act_iframe(acode,service_url,memo,grid_title){
     
 
   var iframeContainer = new Ext.BoxComponent({
@@ -2451,10 +2381,7 @@ function Act_html(acode,service_url,memo,grid_title){
     }
     });
 
-    console.log(iframeContainer)
-
-    
-    var html_win=new Ext.Window({
+    var iframe_win=new Ext.Window({
         autoScroll:true,
         closeAction:'destroy',
         constrain:true,
@@ -2466,5 +2393,5 @@ function Act_html(acode,service_url,memo,grid_title){
         modal:true
     });
 
-    html_win.show();
+    iframe_win.show();
 }

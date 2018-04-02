@@ -136,7 +136,7 @@ function  getDate()
              obj.items = items;
 
              var url = "http://127.0.0.1/newoss/index.php/dbdocu/help_generator";
-             Fb.ajaxPostData(url, obj, null);
+             ajaxPostData(url, obj, null);
          }
      }
      return;

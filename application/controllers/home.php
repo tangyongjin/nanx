@@ -127,7 +127,7 @@ class Home extends CI_Controller
         
         $parent = $para['parent'];
         
-        logtext($para);
+         
         $this->load->model('MXmenu');
         $this->load->model('MUi');
         $allsession = $this->session->all_userdata();

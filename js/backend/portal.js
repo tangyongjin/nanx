@@ -243,7 +243,7 @@ function specialCodeRoute(node,category,opcode)
                                   };
                                   
                     MEM_COPY_PASTE.target=copypaste_target;              
-                    Fb.ajaxPostData(AJAX_ROOT +'copynode/',MEM_COPY_PASTE,function(){});
+                    ajaxPostData(AJAX_ROOT +'copynode/',MEM_COPY_PASTE,function(){});
                          }
                 }
                  
@@ -385,7 +385,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                 e.dropNode.attributes.loader='';
                 e.target.attributes.loader='';
                 var p={'src':e.dropNode.attributes,'target': e.target.attributes };
-                Fb.ajaxPostData(AJAX_ROOT+'nanx/dnd',p,function(ret){
+                ajaxPostData(AJAX_ROOT+'nanx/dnd',p,function(ret){
                        if(e.target.parentNode){
                          var f=e.target.parentNode;
                          e.target.parentNode.on('load',function(){ f.expand(); },this,{single:true});

@@ -780,6 +780,7 @@ Fb.getWhoami=function()
 
   Fb.determineOriginalValue = function(op_type, editCfg, row) {
     
+     console.log(editCfg)
      var rowOriginalValue = null;
      if (op_type == 'update') {
          rowOriginalValue = row.get(editCfg['field_e']);

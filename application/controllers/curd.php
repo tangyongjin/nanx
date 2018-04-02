@@ -15,7 +15,11 @@ class Curd extends CI_Controller
         
         // codetable补丁:
         
-        if ($p['table'] == 'nanx_code_table' && $p['codetable_filter_cfg']) {
+        if ($p['table'] == 'nanx_code_table' && array_key_exists('codetable_filter_cfg', $p)) {
+            logtext('codetable补丁');
+
+            logtext($p);
+
             $ret = array();
             
             

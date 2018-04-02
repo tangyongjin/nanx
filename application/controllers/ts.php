@@ -3,16 +3,14 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 class Ts extends CI_Controller
 {
-    function   sendsms()
+    function   test()
     {
     
      
-    
-    $x=array(
-        'code'=>10,
-        'ms1g'=>'msg show');
-
-    echo  json_encode($x);
+     echo 111;
+     $para="select * fro '111'  ";
+     $logtext = var_dump($para,false);
+     echo  $logtext;
 
   
     }

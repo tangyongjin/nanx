@@ -5,61 +5,23 @@ App.init = function(){
 };
   
 
-App.enableDD=function(){
+App.renewHash=function(parent){
 
-     var overrides = {
-            startDrag: function(e) {
-                //shortcut to access our element later
-                if (!this.el) {
-                    this.el = Ext.get(this.getEl());
-                }
-                //add a css class to add some transparency to our div
-                this.el.addCls('selected');
-                //when we drop our item on an invalid place  we need to return it to its initial position
-                this.initialPosition = this.el.getXY();
-            },
-            onDrag: function(e) {
-                this.el.moveTo(e.getPageX() - 32, e.getPageY() - 32);
-            },
-            onDragEnter: function(e, id) {
-                Ext.fly(id).addCls('valid-zone');
-            },
-            onDragOver: function(e, id) {
-                Ext.fly(id).addCls('valid-zone');
-            },
-            onDragOut: function(e, id) {
-                console.log('onDragOut');
-            },
-            onDragDrop: function(e, id) {
-                // change the item position to absolute
-                this.el.dom.style.position = 'absolute';
-                //move the item to the mouse position
-                this.el.moveTo(e.getPageX() - 32, e.getPageY() - 32);
-                Ext.fly(id).removeCls('valid-zone');
-
-            },
-            onInvalidDrop: function() {
-                this.el.removeCls('valid-zone');               
-                this.el.moveTo(this.initialPosition[0], this.initialPosition[1]);
-            },
-            endDrag: function(e, id) {
-                this.el.removeCls('selected');
-                alert(1)
-                //Ext.fly(id).removeCls('drop-target');
-              //  this.el.highlight();
-            }
-        };
-
-        var overrides2 = {};
-
-
-         var acts= Ext.get(document.getElementById("nanx_act_blocks")).select('div')
-         console.log(acts)
-         Ext.each(acts.elements, function (el) {
-            console.log(el.id)
-            var dd1 = new Ext.dd.DD(el.id);
-        });
-        
+  var subcfg={'parent':parent};
+                 var jsondata=Ext.encode(subcfg);
+                 Ext.Ajax.request({
+                  url:GET_FIRST_LEVEL_URL,
+                  jsonData:jsondata,
+                  callback:function(options,success,response){
+                      var div=Ext.fly('nanx_act_blocks')
+                      var ret_json=Ext.util.JSON.decode(response.responseText);
+                      var newhtml=''
+                      for (var i=0;i<ret_json.length;i++){
+                                 newhtml=newhtml+ret_json[i]['block']
+                          }
+                      div.update( newhtml )
+                  }
+                });
 
 
 }
@@ -213,32 +175,14 @@ App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
 
         if(activity_type=='folder')
           {
-          
-
-                 var subcfg={'parent':code};
-                 var jsondata=Ext.encode(subcfg);
-                 Ext.Ajax.request({
-                  url:GET_FIRST_LEVEL_URL,
-                  jsonData:jsondata,
-                  callback:function(options,success,response){
-                      var div=Ext.fly('nanx_act_blocks')
-                      var ret_json=Ext.util.JSON.decode(response.responseText);
-                      console.log(ret_json)
-                      var newhtml=''
-                      for (var i=0;i<ret_json.length;i++){
-                                 console.log(ret_json[i]['block'])
-                                 newhtml=newhtml+ret_json[i]['block']
-                          }
-                      div.update( newhtml )
-                  }
-                });
+                  App.renewHash(code)
           }
 
               
 
         if(activity_type=='html')
           {
-           Act_html(code,service_url,memo,grid_title);
+           Act_iframe(code,service_url,memo,grid_title);
           }
 
 
@@ -247,24 +191,38 @@ App.route = function(activity_type, code,fnname,service_url,memo,grid_title){
 
 Ext.onReady(function(){
        App.init();
-       App.enableDD()
-       var subcfg={'parent':'mgroup_root'};
-                 var jsondata=Ext.encode(subcfg);
-                 Ext.Ajax.request({
-                  url:GET_FIRST_LEVEL_URL,
-                  jsonData:jsondata,
-                  callback:function(options,success,response){
-                      var div=Ext.fly('nanx_act_blocks')
-                      var ret_json=Ext.util.JSON.decode(response.responseText);
-                      console.log(ret_json)
-                      var newhtml=''
-                      for (var i=0;i<ret_json.length;i++){
-                                 console.log(ret_json[i]['block'])
-                                 newhtml=newhtml+ret_json[i]['block']
-                          }
-                      div.update( newhtml )
-                  }
-                });
-
+       App.renewHash('mgroup_root')  
 })
-  
+
+   
+
+ document.onmouseover = function() {
+    //User's mouse is inside the page.
+    window.innerDocClick = true;
+}
+
+document.onmouseleave = function() {
+    //User's mouse has left the page.
+    window.innerDocClick = false;
+}
+
+window.onhashchange = function(event) {
+    if (window.innerDocClick) {
+     //浏览器内部导致hash变化,不用管.
+    } else {
+      console.log('xxx-bbaaa')
+      console.log(event)
+
+      var hash = event.newURL.substring(event.newURL.indexOf('#')+1);
+
+      if( hash.indexOf("http") == 0 ) {
+            hash='mgroup_root'
+      }
+
+      if( hash.length == 0 ) {
+            hash='mgroup_root'
+      }
+      
+      App.renewHash(hash)  // 刷新 icons 列表
+    }
+}

@@ -242,6 +242,9 @@ class MActivity extends CI_Model
 
      function getFieldesByType($activity_summary,$para_array)
     {    
+        
+        
+
         $activity_type   = $activity_summary['activity_type'];
         $activity_code   = $activity_summary['activity_code'];
         $service_url     = $activity_summary['service_url'];
@@ -256,19 +259,23 @@ class MActivity extends CI_Model
             $col_cfg = array();
         }
       
-       if ($activity_type == 'table') {
+       if ( ($activity_type == 'table') ||( $base_table=='nanx_code_table' ) )   {
+
+ 
             $para_array['transfer'] = true;
             $fields_e_with_idforbidden_option = $this->skip_field($activity_code, $this->db->list_fields($base_table));
 
 
             $fields_e=$fields_e_with_idforbidden_option['NotForbidden'];
             $col_cfg = $this->MFieldcfg->getColsCfg($activity_code,$base_table, $fields_e, $para_array['transfer']);
-           
+            
             if( $fields_e_with_idforbidden_option['id_hidden'] ){
                $id_col_cfg = $this->MFieldcfg->getColsCfg($activity_code,$base_table,array('id'), $para_array['transfer']);
                $id_col_cfg[0]['display_cfg']['idhidden']=true;
                $col_cfg=array_merge($id_col_cfg,$col_cfg);
             }
+
+             
         }
 
       if ($activity_type == 'tree') {
@@ -294,19 +301,28 @@ class MActivity extends CI_Model
             if (isset($para_array['para_json'])) {
                 $sql_para  = $para_array['para_json'];
                 $sql_fixed = strMarcoReplace($sql, $sql_para);
-
-            //    $sql_fixed= "select   field_list   from  nanx_activity_biz_layout   where  raw_table='aaa' " ;
             
             } else {
                 $sql_fixed = $sql;
             }
            $col_cfg=$this->getFieldesByType_sql($activity_code,$sql_fixed);
         }
-           if ($activity_type == 'service') {
-                $col_cfg=$this->getFieldesByType_service($activity_summary ,$para_array);
-            }
-         
+      
+        if ($activity_type == 'service') {
 
+            if( $base_table=='nanx_code_table'){
+             //do nothing
+            } else
+            {
+               $col_cfg=$this->getFieldesByType_service($activity_summary ,$para_array);
+            }
+
+             
+        
+
+        }
+
+        
        return $col_cfg;
     }
 
@@ -347,8 +363,6 @@ class MActivity extends CI_Model
 
 
         $col_cfg=$this->getFieldesByType($activity_summary,$para_array);
-
-        // $codetable_cfg=$this->getFieldesByType($activity_summary,$para_array);
         
         if(array_key_exists('sql_syntax_error', $col_cfg))
         {

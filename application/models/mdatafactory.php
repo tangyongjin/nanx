@@ -7,7 +7,7 @@ class MDatafactory extends CI_Model
             'base_table' => $basetable
         );
         
-        $combo_fields = $this->db->select('base_table,field_e,combo_table,list_field,value_field,filter_field,group_id,level')->get_where('nanx_biz_column_trigger_group', $where)->result_array();
+        $combo_fields = $this->db->select('base_table,field_e,codetable_category_value,combo_table,list_field,value_field,filter_field,group_id,level')->get_where('nanx_biz_column_trigger_group', $where)->result_array();
         $base_fields  = $this->db->list_fields($basetable);
         
         $transed_fields = array();
@@ -110,8 +110,14 @@ class MDatafactory extends CI_Model
     
     function getDatabyBasetable($table, $id_order, $query_cfg,$who_is_who_found,$view_filter)
     {
+
+        logtext('getDatabyBasetable');
+
         $transfer = true;
         $sql      = $this->setSqlbyBasetable($table,$id_order);
+        
+        logtext($sql);
+
         if ($query_cfg) {
             $all_fields = $this->db->query("show full fields from  $table")->result_array();
             $all_fields = array_retrieve($all_fields, array(
@@ -141,7 +147,8 @@ class MDatafactory extends CI_Model
             $sql   = $sql . " limit $start,$limit";
         }
         
-       
+        logtext($sql);
+
 
         $rows          = $this->db->query($sql)->result_array();
         $data['rows']  = $rows;
@@ -206,6 +213,13 @@ class MDatafactory extends CI_Model
 
     function buildSql($table, $sql, $count, $lines, $needs)
     {
+
+        $d=array( $table, $sql, $count, $lines, $needs );
+        
+        logtext('000011111');
+        logtext($d);
+
+
         $fix   = 'where 1=1 and(';
         $where = '';
         for ($i = 0; $i < $count; $i++) {

@@ -35,7 +35,7 @@ class MXmenu extends CI_Model
             $bs     = $this->config->base_url();
             $onediv = " 
             <div class='icon'>  
-              <a class='nanx-4-ext' grid_title={$data['grid_title']} activity_type='folder' id=$acode  href=#>
+              <a class='nanx-4-ext' grid_title={$data['grid_title']} activity_type='folder' id=$acode  href=#$acode>
                 <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
               </a>
@@ -191,7 +191,6 @@ class MXmenu extends CI_Model
     {
         
         $sql = " SELECT id,parent,activity_code,activity_code as value,grid_title as text,activity_type,role_code FROM nanx_menu  where  role_code='{$role}' ";
-        logtext($sql);
         $results = $this->db->query($sql)->result_array();
         $tree    = $this->treeX($results, 'mgroup_root');
         return $tree;
@@ -223,12 +222,7 @@ public function build_a_tag($type,$cfg){
            where parent is null and  activity_code not in (select activity_code from   nanx_activity) and  role_code='$roles' ";
        
 
-        logtext($sql);
-        
         $this->tree=$this->db->query($sql)->result_array();
-         
-       
-        
         $this->html.='<ul id="main-menu">';
         for ($i = 0; $i < count($this->tree); $i++) {
             

@@ -145,11 +145,8 @@ class MFieldcfg  extends CI_Model{
       'field_e' => $field
       );
 
-     //debug($w1);die;
      $this->db->where($w1);
      $common1=$this->db->get('nanx_biz_column_editor_cfg')->first_row('array');
-     
-
 
      $w2=array(
       'base_table'=> $base_table,
@@ -201,6 +198,7 @@ class MFieldcfg  extends CI_Model{
 
   function getEditorCfg($activity_code, $base_table,$field)
 	{
+
 	if ($base_table=='NULL')
 	  {
     	if($field=='datatype')  	
@@ -216,12 +214,15 @@ class MFieldcfg  extends CI_Model{
 		}
 		
 	$editor_cfg=$this->getCommonEditCfg($activity_code, $base_table,$field);
+
+  
 	$dt=$this->checkDatetimeField($base_table,$field);
 	if($dt){$editor_cfg['datetime']=$dt;}
 	$follow_cfg=$this->getFollowCfg($base_table,$field);
   $trigger_cfg=$this->getTriggerCfg($base_table,$field);
   $editor_cfg['trigger_cfg']=$trigger_cfg;
   $editor_cfg['follow_cfg']=$follow_cfg;
+
   return $editor_cfg;
   }	  
   
@@ -284,7 +285,9 @@ class MFieldcfg  extends CI_Model{
         
         //如果combo_fields不为空,则检查,找到则返回转后的,否则直接直接返回field.
         
+
         foreach ($combo_fileds as $key=>$combo_4meta) {
+            logtext($combo_4meta);
             if ($field == $combo_4meta['field_e']) {
            
               //表别名
@@ -292,7 +295,16 @@ class MFieldcfg  extends CI_Model{
 
               $transed = $tb_alias . "." . $combo_4meta['list_field'] . " as " . $combo_4meta['field_e'];
            
-              $join    = " left join {$combo_4meta['combo_table']} $tb_alias on {$tb_alias}.{$combo_4meta['value_field']} = $basetable.$field ";
+              $join=" left join {$combo_4meta['combo_table']} $tb_alias on {$tb_alias}.{$combo_4meta['value_field']}=$basetable.$field ";
+
+              // fix  字典表
+              if ('nanx_code_table'== $combo_4meta['combo_table']  ){
+                logtext($join);
+                logtext("<br/> will add   {$tb_alias}.category='{$combo_4meta['codetable_category_value']}'  1=1 ");
+                
+                $join.=" and {$tb_alias}.category='{$combo_4meta['codetable_category_value']}' "; 
+              }
+
               $ghost   = " $basetable.$field  as ghost_$field";
               break;
             } else {

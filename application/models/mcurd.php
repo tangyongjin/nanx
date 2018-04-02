@@ -75,7 +75,9 @@ class MCurd extends CI_Model
         }
         
         if (($activity_type == 'service') && ($code == 'NANX_TBL_DATA')) {
+
             return $this->getdata_service($p);
+        
         } else {
             if (($activity_type == 'table') || ($p['code'] == 'NANX_TBL_DATA')) {
                 return $this->getdata_tbl($p, $view_filter);
@@ -98,6 +100,8 @@ class MCurd extends CI_Model
     
     public function getdata_tbl($p, $view_filter)
     {
+        logtext('102');
+
         $who_is_who_found = $this->Mdatafactory->getWhoIsWho_where($p);
         if (strlen(trim($who_is_who_found)) == 0 && array_key_exists('owner_data_only', $p)) {
             if ($p['owner_data_only'] == 1) {
