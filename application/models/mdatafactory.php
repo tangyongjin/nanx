@@ -21,13 +21,8 @@ class MDatafactory extends CI_Model
         // 对每个列,查找combo_fields,看是否需要替换为left join形式.
         $this->load->model('MFieldcfg');
         foreach ($base_fields as $table_field) {
-           
-            
-
 
             $found           = $this->MFieldcfg->getTransedField($basetable, $table_field, $combo_fields);
-            
-             
             $transed_fields[] = $found['transed'];
             $ghosts[]        = $found['ghost'];
             $joins[]         = $found['join'];
@@ -111,13 +106,10 @@ class MDatafactory extends CI_Model
     function getDatabyBasetable($table, $id_order, $query_cfg,$who_is_who_found,$view_filter)
     {
 
-        logtext('getDatabyBasetable');
 
         $transfer = true;
         $sql      = $this->setSqlbyBasetable($table,$id_order);
         
-        logtext($sql);
-
         if ($query_cfg) {
             $all_fields = $this->db->query("show full fields from  $table")->result_array();
             $all_fields = array_retrieve($all_fields, array(
@@ -139,16 +131,12 @@ class MDatafactory extends CI_Model
         
         $total=$this->getRowsCount($table);     // 如果 table 数据太多,有可能导致php 内存用满.直接采取 count(*)计算总条数
 
-        
-        
         if (isset($_GET['start'])) {
             $start = $_GET['start'];
             $limit = $_GET['limit'];
             $sql   = $sql . " limit $start,$limit";
         }
         
-        logtext($sql);
-
 
         $rows          = $this->db->query($sql)->result_array();
         $data['rows']  = $rows;
@@ -212,13 +200,9 @@ class MDatafactory extends CI_Model
     }
 
     function buildSql($table, $sql, $count, $lines, $needs)
-    {
-
+    {   
         $d=array( $table, $sql, $count, $lines, $needs );
         
-        logtext('000011111');
-        logtext($d);
-
 
         $fix   = 'where 1=1 and(';
         $where = '';

@@ -8,11 +8,32 @@ Ext.ns('COMBOX');
 
 var COMBOX = {};
 
+ 
+ COMBOX.findSlaves = function(form, grp_id, level, direct) {
+     if(!form){return []}
+     var found = [];
+     var slaves = form.find('group_id', grp_id);
+     for (i = 0; i < slaves.length; i++) {
+         if (arguments.length == 4) 
+            {
+             if (slaves[i].level - 1 == level) {
+                 found.push(slaves[i]);
+             }
+         } else 
+            {
+             if (slaves[i].level > level) {
+                 found.push(slaves[i]);
+             }
+         }
+     }
+     return found;
+ }
 
-
+  
  COMBOX.getBasicCombo = function(xcfg, store,_readOnly) {
 
    var cfg=DeepClone(xcfg);
+
    if ( _readOnly== undefined) {  
          _readOnly=false;  
     }  
@@ -38,7 +59,6 @@ var COMBOX = {};
          forceSelection: true,
          editable: true,
          pageSize:pageSize,           //显示下拉列表的分页
-         // readOnly:_readOnly,
          name: com_id,
          width:cfg.width?cfg.width+100:300,
          allowBlank: cfg.hasOwnProperty('allowBlank') ? cfg.allowBlank : true,
@@ -55,89 +75,10 @@ var COMBOX = {};
      
 
 
-     var combo = new Ext.form.ComboBox(combox_cfg);
+      var combo = new Ext.form.ComboBox(combox_cfg);
+      store.addListener('load', COMBOX.loadSlaveStore.createDelegate(store,[cfg,combox_cfg,combo],false));
+      combo.addListener('select', COMBOX.refreshSlaveStore.createDelegate(combo,[cfg],true));
       
-     store.on('load', function() {
-         
-          var p = Ext.getCmp(combox_cfg.id);
-          
-          if (cfg.ini) {
-             p.setValue(cfg.ini);
-           
-             cfg.ini = null;
-
-         } else {
-             p.setValue(p.getValue());
-         }
-         
-
-         //bug: 导致后台setvalue失败?
-        // p.setRawValue(cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
-
-         var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
-         var tmp_v = combo.getValue();
-         if (Ext.isEmpty(tmp_v)) {
-           
-             return;
-         }
-
-         var current_rec = combo.findRecord(combo.valueField || combo.displayField, tmp_v);
-         if(!current_rec){
-            return;
-         }
-
-         var current_v = current_rec.json[cfg.value_key_for_slave] || combo.getValue();
-         var x_group_id = combox_cfg.group_id;
-         var level = combox_cfg.level;
-         
-         var direct_slaves = Fb.findSlaves(tfm, x_group_id, level, true);
-         
-         for (var i = 0; i < direct_slaves.length; i++) {
-             var ds = direct_slaves[i].getStore();
-             var path='query_cfg.lines.vset_'+i;
-             Fb.setStorePara(ds, path,current_v);
-             direct_slaves[i].getStore().load();
-         }
-     });
-
-
-     combo.on("select", function(c, record) {
-
-         COMBOX.setFollowFieldValue.createDelegate(this, [c, record, cfg], true)();
-         var fm = c.findParentByType('form');
-         var tmp_v = c.getValue();
-
-         if (Ext.isEmpty(tmp_v)) {
-             return;
-         }
-         
-         var current_rec = c.findRecord(c.valueField || c.displayField, tmp_v);
-         var v = current_rec.json[cfg.value_key_for_slave];
-         
-         if (Ext.isEmpty(v)) {
-             v = tmp_v;
-         }
-         
-         var x_group_id = cfg.group_id;
-         var level = cfg.level;
-         var all_slaves = Fb.findSlaves(fm, x_group_id, level);
-         var direct_slaves = Fb.findSlaves(fm, x_group_id, level, true);
-
-         for (var i = 0; i < all_slaves.length; i++) {
-             all_slaves[i].getStore().clearData();
-             all_slaves[i].clearValue();
-         }
-
-         for (var i = 0; i < direct_slaves.length; i++) {
-             var ds = direct_slaves[i].getStore();
-             var path='query_cfg.lines.vset_'+i;
-             Fb.setStorePara(ds, path, v);
-             ds.reload();
-         }
-     });
-     
-      
-
      if (cfg.detail_btn) {
          var table = cfg.editor_cfg.trigger_cfg.combo_table;
          var btn_detail = Fb.getDetailBtn(table);
@@ -154,6 +95,108 @@ var COMBOX = {};
  }
 
 
+COMBOX.ComboStoreChangeHandler=function(combo,field_cfg){
+
+         var fm = combo.findParentByType('form');
+         var tmp_v = combo.getValue();
+
+         if (Ext.isEmpty(tmp_v)) {
+             return;
+         }
+         
+         var current_rec = combo.findRecord(combo.valueField || combo.displayField, tmp_v);
+         var v = current_rec.json[field_cfg.value_key_for_slave];
+         
+         if (Ext.isEmpty(v)) {
+             v = tmp_v;
+         }
+         
+         var x_group_id = field_cfg.group_id;
+
+         var level = field_cfg.level;COMBOX
+         var all_slaves = COMBOX.findSlaves(fm, x_group_id, level);
+         var direct_slaves = COMBOX.findSlaves(fm, x_group_id, level, true);
+
+         for (var i = 0; i < all_slaves.length; i++) {
+             all_slaves[i].getStore().clearData();
+             all_slaves[i].clearValue();
+         }
+
+         for (var i = 0; i < direct_slaves.length; i++) {
+             var ds = direct_slaves[i].getStore();
+             var path='query_cfg.lines.vset_'+i;
+             COMBOX.setStorePara(ds, path, v);
+             ds.reload();
+         }
+
+}
+
+
+COMBOX.refreshSlaveStore=function(combo,record,idx,field_cfg){
+         
+         COMBOX.setFollowFieldValue.createDelegate(this, [combo, record, field_cfg], true)();
+         COMBOX.ComboStoreChangeHandler(combo,field_cfg)
+         
+}
+
+
+
+
+
+COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){ 
+
+
+          if (field_cfg.ini) {
+             combo.setValue(field_cfg.ini);
+             field_cfg.ini = null;
+          } else {
+             combo.setValue(combo.getValue());
+          }
+         
+
+         //bug: 导致后台setvalue失败?
+        // p.setRawValue(field_cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
+         var x_group_id = combox_cfg.group_id;
+         console.log(x_group_id)
+
+         var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
+         var tmp_v = combo.getValue();
+         if (Ext.isEmpty(tmp_v)) {
+              
+             return;
+         }
+
+         var current_rec = combo.findRecord(combo.valueField || combo.displayField, tmp_v);
+         console.log(current_rec)
+         if(!current_rec){
+            return;
+         }
+        
+       
+         var current_v = current_rec.json[field_cfg.value_key_for_slave] || combo.getValue();
+         var level = combox_cfg.level;
+         var direct_slaves = COMBOX.findSlaves(tfm, x_group_id, level, true);
+         for (var i = 0; i < direct_slaves.length; i++) {
+             var ds = direct_slaves[i].getStore();
+             var path='query_cfg.lines.vset_'+i;
+             
+             console.log(path)
+
+             COMBOX.setStorePara(ds, path,current_v);
+             direct_slaves[i].getStore().load();
+         }
+
+
+}
+
+
+ COMBOX.setStorePara = function(store, key, value) {
+     if (store.proxy.conn.jsonData) {
+          setJsonPath(store.proxy.conn.jsonData,key,value);
+     } else {
+         store.baseParams.value = value;
+     }
+ }
 
 
  COMBOX.setFollowFieldValue = function(e, record, oneFieldCfg) {

@@ -287,7 +287,6 @@ class MFieldcfg  extends CI_Model{
         
 
         foreach ($combo_fileds as $key=>$combo_4meta) {
-            logtext($combo_4meta);
             if ($field == $combo_4meta['field_e']) {
            
               //表别名
@@ -299,8 +298,6 @@ class MFieldcfg  extends CI_Model{
 
               // fix  字典表
               if ('nanx_code_table'== $combo_4meta['combo_table']  ){
-                logtext($join);
-                logtext("<br/> will add   {$tb_alias}.category='{$combo_4meta['codetable_category_value']}'  1=1 ");
                 
                 $join.=" and {$tb_alias}.category='{$combo_4meta['codetable_category_value']}' "; 
               }

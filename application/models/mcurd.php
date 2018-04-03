@@ -100,7 +100,6 @@ class MCurd extends CI_Model
     
     public function getdata_tbl($p, $view_filter)
     {
-        logtext('102');
 
         $who_is_who_found = $this->Mdatafactory->getWhoIsWho_where($p);
         if (strlen(trim($who_is_who_found)) == 0 && array_key_exists('owner_data_only', $p)) {

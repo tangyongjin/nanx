@@ -677,8 +677,7 @@ Act.prototype.filter2QueryCfg=function(cfg)
 
 Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg,codetable_filter_cfg){
     
-    console.log(cfg)
-
+    
     if(!codetable_filter_cfg){
         codetable_filter_cfg={}
     }

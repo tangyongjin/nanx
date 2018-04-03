@@ -503,40 +503,8 @@ Ext.data.Node.prototype.getJson = function ( node) {
      return multiselector;
  };
 
- Fb.findSlaves = function(form, grp_id, level, direct) {
- 
-     if(!form){return []}
-     var found = [];
-     var slaves = form.find('group_id', grp_id);
-    
-     
-
-     for (i = 0; i < slaves.length; i++) {
-         if (arguments.length == 4) 
-            {
-             if (slaves[i].level - 1 == level) {
-                 found.push(slaves[i]);
-             }
-         } else 
-            {
-             if (slaves[i].level > level) {
-                 found.push(slaves[i]);
-             }
-         }
-     }
-     return found;
- }
 
 
-
-
- Fb.setStorePara = function(store, key, value) {
-     if (store.proxy.conn.jsonData) {
-          setJsonPath(store.proxy.conn.jsonData,key,value);
-     } else {
-         store.baseParams.value = value;
-     }
- }
 
 
 
@@ -780,7 +748,7 @@ Fb.getWhoami=function()
 
   Fb.determineOriginalValue = function(op_type, editCfg, row) {
     
-     console.log(editCfg)
+     
      var rowOriginalValue = null;
      if (op_type == 'update') {
          rowOriginalValue = row.get(editCfg['field_e']);

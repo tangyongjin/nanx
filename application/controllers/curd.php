@@ -16,38 +16,21 @@ class Curd extends CI_Controller
         // codetable补丁:
         
         if ($p['table'] == 'nanx_code_table' && array_key_exists('codetable_filter_cfg', $p)) {
-            logtext('codetable补丁');
-
-            logtext($p);
-
             $ret = array();
-            
-            
-            
             $code_filter = (array) $p['codetable_filter_cfg'];
-            
             $category_value = $code_filter['codetable_category_value'];
-            
             $sql         = "select * from nanx_code_table where category=  '{$category_value}' ";
             $rows        = $this->db->query($sql)->result_array();
             $ret['rows'] = $rows;
             echo json_encode($ret, JSON_UNESCAPED_UNICODE);
             die;
-            
         }
-        
-        
         
         $this->load->model('MCurd');
         $result = $this->MCurd->getActivityData($p);
         $json   = json_encode($result, JSON_UNESCAPED_UNICODE);
         echo $json;
     }
-    
-    
-    
-    
-    
     
     
     function getSubTree($category_id, &$ids)
@@ -125,7 +108,6 @@ class Curd extends CI_Controller
         $post    = file_get_contents('php://input');
         $p       = (array) json_decode($post);
         $actcode = $_POST['actcode'];
-        
         
         $sql = "select * from nanx_activity where activity_code= '$actcode'  ";
         
