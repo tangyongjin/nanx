@@ -48,20 +48,16 @@ Ext.override(Ext.Window, {
 });
 
 Ext.ns('NANXplugin');
-
 function NANXplugin() {}
 Ext.ns('NANXplugin_button');
-
 function NANXplugin_button() {}
 Ext.ns('NANXplugin_window');
-
 function NANXplugin_window() {}
 
 Ext.ns('Act');
 
  
-
-function Act(cfg) {
+Act=function(cfg) {
     var winid = 'win_' + cfg.code;
     if (!Ext.getCmp(winid)) {
         this.init_all(cfg);
@@ -72,6 +68,7 @@ function Act(cfg) {
         grid_win.toFront();
     }
 }
+
 
 Act.prototype.init_all = function(cfg) {
 
@@ -180,22 +177,14 @@ Act.prototype.showActivityWindow=function(){
                      that.createActivityHtmlPanel();
                      break;
 
-                // case 'folder':
-                //      that.createActivityFolderPanel();
-                //      break;
                 
                 case 'tree':
-                 
                      var treeGrid_cfg={}
                      treeGrid_cfg[that.treeViewCfg.tree_text_field]='新节点'
                      treeGrid_cfg.tree_text_field=that.treeViewCfg.tree_text_field
-
                      treeGrid_cfg.tree_parent_field=that.treeViewCfg.tree_parent_field
-
                      treeGrid_cfg.actcode=that.actcode
                      treeGrid_cfg.table=that.table
-                     
-
                      that.gridPanel=MenuTree.createActivityTreePanel( treeGrid_cfg );
                      break;
                      
@@ -209,11 +198,11 @@ Act.prototype.showActivityWindow=function(){
 
 
 Act.prototype.createActivityGridPanel=function(){
-     console.log(this)
-
+    
     if (this.sql_syntax_error){
         return;
     }
+
     var that=this;
     var gridcfg={
         store:this.mainStore,
@@ -245,6 +234,7 @@ Act.prototype.createActivityGridPanel=function(){
                     edit_btn.handler.call(edit_btn);
                 }
             },
+
             cellclick:that.handleCellClick,
             celldblclick:function(grid,row,col)
             {
@@ -252,7 +242,7 @@ Act.prototype.createActivityGridPanel=function(){
                 {
                    var src = FileUpload.getFileValue(grid, row, col) ;
                    grid.stopEditing();
-                   Fb.showPic(src.filename);
+                   FileUpload.showPic(src.filename);
                    return;
                 }           
             },
@@ -283,30 +273,20 @@ Act.prototype.createActivityGridPanel=function(){
     };
     
     if(!this.nosm){gridcfg.sm=this.sm;}
+    
 
     this.gridPanel=(this.cfg.edit_type==='noedit')?new Ext.grid.GridPanel(gridcfg):new Ext.grid.EditorGridPanel(gridcfg);
-
-    console.log(this.gridPanel.getStore())
+     
     if(this.gridPanel.getStore() ){
           this.gridPanel.getStore().on('load',function(ds){this.autoHeader(); }, this);
-   
-
     }
 
-     
        
     if (this.cfg.callback){
         for (var i=0;i<this.cfg.callback.length;i++){
             this.gridPanel.addListener(this.cfg.callback[i].event, this.cfg.callback[i].fn);
         }
     }
-
-        if (this.mainStore){
-
-
-        } 
-
-         
 
        this.mainStore.load({
         params:{
@@ -725,7 +705,6 @@ Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg,codetable_fi
     });
 
     ds.on('loadexception',function(store,records,options){
-        console.log(options)
         var ret_json =Ext.util.JSON.decode(options.responseText);
         Ext.Msg.alert(i18n.error,ret_json.msg);
         WaitMask.hide();
@@ -733,168 +712,6 @@ Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg,codetable_fi
 
     return ds;
 }
-
-Act.prototype.insertQueryLine=function(table,holderid){
-    var field_def=[];
-    for (var i=0;i<this.colsCfg.length;i++){
-        field_def.push([this.colsCfg[i].field_e, this.colsCfg[i]['display_cfg'].field_c, this.colsCfg[i]['editor_cfg'].datetime]);
-    }
-    var holder=Ext.getCmp(holderid);
-    var lines=(holder.find('nanx_type','query_line')).length;
-    var field_def_store=new Ext.data.SimpleStore({
-        fields: ['value','text','dt'],
-        data:field_def,
-        autoLoad:true
-    });
-
-    var combo=new Ext.form.ComboBox({
-        valueField:'value',
-        displayField:'text',
-        mode:'local',
-        allowBlank:lines==0?true:false,
-        hideMode:'visibility',
-        id:'field_'+lines,
-        editable:false,
-        triggerAction:'all',
-        style:{
-            'margin-left':'10px'
-        },
-        listeners:{
-            select:function(combo,record,index){
-                if (record.data.dt.length>=4){
-                    if(record.data.dt=='date'){
-                        var xtype = 'datefield';
-                        var fmt="Y-m-d"
-                    }
-                    if(record.data.dt=='datetime'){
-                        var xtype='datetimefield';
-                        var fmt='Y-m-d h:m:s';
-                    }
-                    if(record.data.dt=='time'){
-                        var xtype='timepickerfield';
-                        var fmt='h:m:s';
-                    }
-                    var input_f ={
-                        id:'vset_'+lines,
-                        width:200,
-                        value:'',
-                        xtype:xtype,
-                        format:fmt,
-                        allowBlank:false,
-                        style:{
-                            'margin-left':'10px'
-                        }
-                    };
-
-                }else{
-                    input_f={
-                        id:'vset_'+lines,
-                        xtype:'textfield',
-                        width:200,
-                        style:{
-                            'margin-left': '10px'
-                        }
-                    };
-                }
-
-                var line_container=this.ownerCt;
-                var vfield=Ext.getCmp('vset_'+lines);
-                vfield.destroy();
-                line_container.insert(3,input_f);
-                line_container.doLayout();
-
-            }
-        },
-        store:field_def_store
-    });
-
-    var and_or=new Ext.form.ComboBox({
-        width:50,
-        valueField:'value',
-        displayField:'text',
-        mode:'local',
-        allowBlank:lines==0?true:false,
-        hidden:lines==0?true:false,
-        hideMode:'visibility',
-        id:'and_or_'+lines,
-        editable:false,
-        triggerAction:'all',
-        style:{
-            'margin-left':'10px'
-        },
-        store: new Ext.data.ArrayStore({
-            fields:['value','text'],
-            data:[
-                ['and',i18n.and],
-                ['or',i18n.or]
-            ]
-        })
-    });
-
-
-    var operator=new Ext.form.ComboBox({
-        width:80,
-        valueField:'value',
-        displayField:'text',
-        editable:false,
-        id:'operator_'+lines,
-        allowBlank:false,
-        triggerAction:'all',
-        mode:'local',
-        style:{
-            'margin-left':'10px'
-        },
-        store:new Ext.data.ArrayStore({
-            fields:['value','text'],
-            data:[
-                ['=',i18n.equal],
-                ['<',i18n.less],
-                ['>',i18n.biger],
-                ['<>',i18n.notequal],
-                ['like',i18n.contain],
-                ['like_end',i18n.endwidh],
-                ['like_begin',i18n.beginwith]
-            ]
-        })
-    });
-
-    var btn_remove=new Ext.Button({
-        text:i18n.remove,
-        disabled:lines==0?true:false,
-        style:{
-            'margin-left': '10px'
-        },
-        handler:function(){
-            this.ownerCt.ownerCt.remove(this.ownerCt);
-        }
-    });
-    var trigger={
-        id:'vset_'+lines,
-        xtype:'textfield',
-        width:200,
-        height:22,
-        style:{
-            'margin-left':'10px'
-        }
-    };
-
-    var query_line=new Ext.Container({
-        layout:'table',
-        width:600,
-        style:{
-            'margin-top': '4px'
-        },
-        nanx_type:'query_line',
-        items:[btn_remove,and_or,combo,operator,trigger]
-    });
-    holder.insert(lines+1,query_line);
-    holder.ownerCt.doLayout();
-}
-
-
-
- 
-
 
 
 Act.prototype.getPublicBtns=function(){
@@ -957,162 +774,18 @@ Act.prototype.getPublicBtns=function(){
         }
     };
     if (!this.cfg.nosearch){
-        var qbtn=this.getQueryBtn();
+        //ActPlug.getQueryBtn
+        console.log(this)
+        var qbtn=ActPlug.getQueryBtn(this);
         public_btns.push(qbtn);
     }
+
     public_btns.push(excel_exp_btn);
 
     if (that.activity_type=='sql'){
         var public_btns=[excel_exp_btn]
     }
     return public_btns;
-}
-
-
-
-Act.prototype.getQueryBtn = function(){
-    var that=this;
-    var gp_id=this.cfg.grid_id;
-    var qBtn={
-        text:i18n.query,
-        iconCls:'n_query',
-        ctCls:'x-btn-over',
-        refer_grid_id:gp_id,
-        style: {
-            marginRight: '6px'
-        },
-        handler: function(){
-            if (Ext.getCmp('query_builder') && Ext.getCmp('query_builder').isVisible()){
-                return;
-            }
-
-            Ext.getCmp(this.refer_grid_id).setHeight(Ext.getCmp(this.refer_grid_id).getHeight() - 100);
-            if (Ext.getCmp('query_builder')){
-                Ext.getCmp('query_builder').show();
-            } else{
-                var table=that.table;
-                var colsCfg=that.colsCfg;
-                var store_id=that.gridPanel.store.storeId;
-                var win=this.findParentByType('window');
-                var search_pn=that.getSerachPanel(table,store_id,win.getId());
-                win.insert(0,search_pn);
-                win.doLayout();
-            }
-        }
-    };
-    return qBtn;
-}
-
-
-Act.prototype.getSerachPanel=function(table,storeId,winid){
-    var that=this;
-    var btn_add=new Ext.Button({
-        text:i18n.addquerylien,
-        iconCls:'n_add',
-        listeners:{
-            'click':function(){
-                that.insertQueryLine(table,'nanx_query_holder');
-            },
-            'afterrender':function(){
-                this.fireEvent('click', this)
-            }
-        }
-    });
-
-    var execute=new Ext.Button({
-        text:i18n.execute,
-        nanx_query_cfg:{
-            table:table,
-            storeId:storeId
-        },
-        iconCls:'n_run',
-        style:{
-            'margin-left': '10px'
-        },
-        handler:function(){
-            var ds=Ext.StoreMgr.key(storeId);
-            var ext_sp=this.ownerCt.ownerCt;
-            var fm=ext_sp.getForm();
-            var data=FormBuilder.getFormData(ext_sp);
-            if (!data){
-                return;
-            }
-
-            data['and_or_0']='and';
-            var condition_rows=sp.find('nanx_type','query_line');
-            var puredata={};
-            for (var i=0;i<condition_rows.length;i++){
-                puredata['and_or_'+i]=data['and_or_'+i];
-                puredata['field_'+i]=data['field_'+i];
-                puredata['operator_'+i]=data['operator_'+i];
-                puredata['vset_'+i]=data['vset_'+i];
-            }
-            ds.proxy.conn.jsonData['query_cfg']={
-                count:condition_rows.length,
-                lines:puredata
-            };
-
-
-            ds.load({
-                params:{
-                    start:0,
-                    limit:pageSize
-                }
-            });
-
-            delete ds.proxy.conn.jsonData.nanx_query_cfg;
-        }
-    });
-
-    var btn_close_query = new Ext.Button({
-        text:i18n.close,
-        iconCls:'n_close',
-        style:{
-            'margin-left': '10px'
-        },
-        listeners:{
-            'click':function(){
-                var qb=Ext.getCmp('query_builder');
-
-                var hostwin=qb.ownerCt;
-                var hostgrid=hostwin.findByType('grid');
-                var hoststore=hostgrid[0].getStore();
-
-                hoststore.reload();
-
-
-                Ext.getCmp('query_builder').hide();
-                var gp=Ext.getCmp(winid).findByType('panel');
-                gp[2].setHeight(gp[2].getHeight() + 100);
-                gp[2].doLayout();
-            }
-        }
-    });
-
-
-    var btn_search_bar=new Ext.Container({
-        layout:'table',
-        height:30,
-        items:[btn_add, execute, btn_close_query]
-    });
-
-    var pnl=new Ext.FormPanel({
-        id:'nanx_query_holder',
-        items:[btn_search_bar]
-    });
-
-    var sp=new Ext.Panel({
-        width:Ext.getCmp(winid).getWidth() - 14,
-        frame:true,
-        autoScroll:true,
-        height:95,
-        bodyStyle:{
-            'margin':'5px 0px 0px 5px'
-        },
-        id:'query_builder',
-        items:pnl
-    });
-    return sp;
 }
 
 

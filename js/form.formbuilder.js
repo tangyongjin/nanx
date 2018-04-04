@@ -302,7 +302,7 @@ var FormBuilder = {};
 
              item.displayField = 'text';
              item.valueField = 'value';
-             var store = Fb.buildTreeStore(item);
+             var store = Fb.buildTriggerStore(item);
              var f = COMBOX.getBasicCombo(item, store);
              break;
          
@@ -317,13 +317,13 @@ var FormBuilder = {};
               var f=Fb.horizon_line(item,node);
               return f;
 
-         case 'follow_tbar':
-               var f=Fb.getTriggerBar12(node.attributes.hostby);
+         case 'follow_tbar': 
+               var f=TriggerGroup.getTriggerBar12(node.attributes.hostby);
              break;
 
          case 'trigger_bar':
           
-             var f = Fb.getTriggerBar12345(item,node);
+             var f = TriggerGroup.getTriggerGroupHeader(item,node);
              break;
 
          case 'layout_panel':
@@ -397,11 +397,8 @@ var FormBuilder = {};
                  }
              }
              fmdata[field_id] = field_value;
-         }else
-         {
-
-            console.log("!!!!!!!!!!!!!not found")
          }
+
      }
      console.log('fmdata',fmdata)
 

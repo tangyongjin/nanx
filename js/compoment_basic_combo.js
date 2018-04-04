@@ -76,7 +76,7 @@ var COMBOX = {};
 
 
       var combo = new Ext.form.ComboBox(combox_cfg);
-      store.addListener('load', COMBOX.loadSlaveStore.createDelegate(store,[cfg,combox_cfg,combo],false));
+      store.addListener('load', COMBOX.loadHandler.createDelegate(store,[cfg,combox_cfg,combo],false));
       combo.addListener('select', COMBOX.refreshSlaveStore.createDelegate(combo,[cfg],true));
       
      if (cfg.detail_btn) {
@@ -143,8 +143,8 @@ COMBOX.refreshSlaveStore=function(combo,record,idx,field_cfg){
 
 
 
-COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){ 
-
+COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){ 
+         
 
           if (field_cfg.ini) {
              combo.setValue(field_cfg.ini);
@@ -155,21 +155,27 @@ COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){
          
 
          //bug: 导致后台setvalue失败?
-        // p.setRawValue(field_cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
+         combo.setRawValue(field_cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
+         
+         console.log(field_cfg.raw_value)
+
          var x_group_id = combox_cfg.group_id;
          console.log(x_group_id)
 
          var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
          var tmp_v = combo.getValue();
          if (Ext.isEmpty(tmp_v)) {
-              
+             console.log("return for tmp_v: "+ combo.valueField || combo.displayField  )
              return;
          }
 
          var current_rec = combo.findRecord(combo.valueField || combo.displayField, tmp_v);
          console.log(current_rec)
          if(!current_rec){
+            console.log("return for current_rec by : "+  combo.valueField || combo.displayField +tmp_v)
             return;
+         }else{
+             console.log(  current_rec)
          }
         
        
@@ -180,8 +186,7 @@ COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){
              var ds = direct_slaves[i].getStore();
              var path='query_cfg.lines.vset_'+i;
              
-             console.log(path)
-
+             console.log(" direct_slaves loading... "+ current_v)
              COMBOX.setStorePara(ds, path,current_v);
              direct_slaves[i].getStore().load();
          }
@@ -257,7 +262,7 @@ COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){
 
       
 
-     var ds_root = Fb.buildTreeStore(root_cfg);
+     var ds_root = Fb.buildTriggerStore(root_cfg);
      var f_root = COMBOX.getBasicCombo(root_cfg, ds_root);
      f.push(f_root);
 
@@ -274,7 +279,7 @@ COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){
          slave_cfg.nanx_type = 'slave';
          slave_cfg.displayField = 'text';
          slave_cfg.valueField = 'value';
-         var ds_slave = Fb.buildTreeStore(slave_cfg);
+         var ds_slave = Fb.buildTriggerStore(slave_cfg);
          var f_slave = COMBOX.getBasicCombo(slave_cfg, ds_slave);
          f.push(f_slave);
      }
@@ -284,13 +289,13 @@ COMBOX.loadSlaveStore=function(field_cfg,combox_cfg,combo){
 
 
 
-COMBOX.toggle_combo=function(togglefalg)
-{
-   //enable or disable all combo in form
-   var current_form = Ext.getCmp('back_opform');
-   var cbs = current_form.findByType(['combo']);
-   for (var i = 0; i < cbs.length; i++){
-       if (togglefalg){cbs[i].enable(); }else{cbs[i].disable(); }
-   }
-}
+// COMBOX.toggle_combo=function(togglefalg)
+// {
+//    //enable or disable all combo in form
+//    var current_form = Ext.getCmp('back_opform');
+//    var cbs = current_form.findByType(['combo']);
+//    for (var i = 0; i < cbs.length; i++){
+//        if (togglefalg){cbs[i].enable(); }else{cbs[i].disable(); }
+//    }
+// }
 
