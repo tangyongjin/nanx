@@ -43,12 +43,13 @@ var FormBuilder = {};
  };
 
  FormBuilder.getBackendFormItem = function(item,node) {
-
+     
      var readonly = item.readonly ? item.readonly : false;
      var hidden = item.hidden ? item.hidden : false;
      var checked = item.all_checked ? item.all_checked : false;
      var field_v=item.value;
    
+     console.log(item.item_type)
 
      switch (item.item_type) {
          case 'field':
@@ -311,8 +312,6 @@ var FormBuilder = {};
              break;
 
 
-
-
          case 'horizon_line':
               var f=Fb.horizon_line(item,node);
               return f;
@@ -321,11 +320,7 @@ var FormBuilder = {};
                var f=TriggerGroup.getTriggerBar12(node.attributes.hostby);
              break;
 
-         case 'trigger_bar':
-          
-             var f = TriggerGroup.getTriggerGroupHeader(item,node);
-             break;
-
+       
          case 'layout_panel':
              var container_id = 'r_grid_' + Ext.id();
              var f = new Ext.Container({

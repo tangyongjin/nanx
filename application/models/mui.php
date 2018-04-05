@@ -92,6 +92,7 @@ class MUI extends CI_Model
                 'jslib/ext/Power_htmleditor.js',
                 'jslib/ext/ux/fileuploadfield/fileuploadfield.js',
                 'js/globalvars.js',
+                'js/backend/contextmenu.js',
                 'js/backend/backend_tree_tab_cfg.js',
                 'js/util.js',
                 'js/form.formbuilder.js',

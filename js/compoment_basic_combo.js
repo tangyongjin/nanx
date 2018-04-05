@@ -31,8 +31,11 @@ var COMBOX = {};
 
   
  COMBOX.getBasicCombo = function(xcfg, store,_readOnly) {
+   
 
    var cfg=DeepClone(xcfg);
+
+   console.log(cfg)
 
    if ( _readOnly== undefined) {  
          _readOnly=false;  
@@ -48,6 +51,10 @@ var COMBOX = {};
         cfg.serial=0;
      }
 
+     var combox_width=cfg.width?cfg.width:300
+     combox_width=140;
+     console.log(combox_width)
+
      var combox_cfg = {
          id: com_id,
          serial:cfg.serial,
@@ -60,7 +67,7 @@ var COMBOX = {};
          editable: true,
          pageSize:pageSize,           //显示下拉列表的分页
          name: com_id,
-         width:cfg.width?cfg.width+100:300,
+         width:combox_width,
          allowBlank: cfg.hasOwnProperty('allowBlank') ? cfg.allowBlank : true,
          style: cfg.style ? cfg.style : null,
          group_id: cfg.group_id ? cfg.group_id : 'RS_' + Ext.id(),
@@ -99,8 +106,11 @@ COMBOX.ComboStoreChangeHandler=function(combo,field_cfg){
 
          var fm = combo.findParentByType('form');
          var tmp_v = combo.getValue();
+          
+         
 
          if (Ext.isEmpty(tmp_v)) {
+             console.log( 'return for isEmpty  tmp_v ' ) 
              return;
          }
          
@@ -155,9 +165,9 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
          
 
          //bug: 导致后台setvalue失败?
-         combo.setRawValue(field_cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
-         
-         console.log(field_cfg.raw_value)
+         // combo.setRawValue(field_cfg.raw_value); //显示下拉框的文本, 因为store分页,有可能不在当前page里面,所有强制设定
+         console.log(field_cfg)
+         // console.log(field_cfg.raw_value)
 
          var x_group_id = combox_cfg.group_id;
          console.log(x_group_id)
@@ -232,7 +242,7 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
 
 
  COMBOX.getComboGroup = function(xitem) {
-
+     
      var item=DeepClone(xitem);
 
      var f = [];
@@ -258,9 +268,6 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
      
      root_cfg.displayField = 'text';
      root_cfg.valueField = 'value';
-     
-
-      
 
      var ds_root = Fb.buildTriggerStore(root_cfg);
      var f_root = COMBOX.getBasicCombo(root_cfg, ds_root);
@@ -281,21 +288,14 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
          slave_cfg.valueField = 'value';
          var ds_slave = Fb.buildTriggerStore(slave_cfg);
          var f_slave = COMBOX.getBasicCombo(slave_cfg, ds_slave);
-         f.push(f_slave);
+         // skip 第一个  filter_field
+         if( !(slave_cfg.id == 'filter_field' &&  slave_cfg.serial==1 ) ){
+                f.push(f_slave);
+         } 
      }
+
      return f;
  }
 
 
-
-
-// COMBOX.toggle_combo=function(togglefalg)
-// {
-//    //enable or disable all combo in form
-//    var current_form = Ext.getCmp('back_opform');
-//    var cbs = current_form.findByType(['combo']);
-//    for (var i = 0; i < cbs.length; i++){
-//        if (togglefalg){cbs[i].enable(); }else{cbs[i].disable(); }
-//    }
-// }
-
+ 

@@ -181,6 +181,8 @@ Ext.data.Node.prototype.getJson = function ( node) {
 
 
  Fb.horizon_line=function(item,node){
+     alert('horizon_line')
+     console.log(item)
      var line_add_btn = new Ext.Button({
          text:i18n.add_trigger,
          id:'trigger_bar_button',
@@ -189,23 +191,22 @@ Ext.data.Node.prototype.getJson = function ( node) {
                  var form = this.findParentByType('form');
                  var trigger_rows =form.find('nanx_type','trigger_row');
                  item.serial=trigger_rows.length+1;
-                 var newline =   TriggerGroup.create_horizon_line(item,node);
+                 var newline =   TriggerGroup.create_comboxs_line(item,node);
                  this.ownerCt.ownerCt.insert(12,newline);
                  this.ownerCt.ownerCt.doLayout();
              }
          }
      })
-    
-     tb_c=this.create_group_table_header(item.headers);
+     
+     title=this.create_group_table_header(item.headers);
 
      var f = new Ext.Container({
          fieldLabel:i18n.group_item,
          layout:'table',
-      items:[line_add_btn,tb_c]
+      items:[line_add_btn,title]
+      
      });
      return f;
-
-
  }
 
 
@@ -749,7 +750,7 @@ Fb.setSingleField=function(jsondata, item) {
                  console.log(data_from_json)
 
                  Ext.each(mcfg.itemcfg, function(item) {
-
+                    
                      switch (item.item_type){
                       case 'combo_group':
                          console.log("setting combo_group:")
@@ -765,6 +766,7 @@ Fb.setSingleField=function(jsondata, item) {
                          break;
                       
                       case 'follow_tbar':
+                             console.log("setting follow_tbar:")
                              follow_key_used = item.path;
                              TriggerGroup.addTriggerRow12_from_response(ret_json[follow_key_used]);
                              break;
@@ -774,11 +776,13 @@ Fb.setSingleField=function(jsondata, item) {
 
                        
                       case 'horizon_line':
-                      follow_key_used = item.path;
+                       console.log("setting horizon_line:")
+                       follow_key_used = item.path;
                        TriggerGroup.show_trigger_lines(ret_json[follow_key_used], node,item);
                       break;
                       
                       default:
+                         console.log("setting setSingleField:")
                          Fb.setSingleField(data_from_json, item);
                      }
                  });
