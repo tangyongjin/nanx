@@ -170,7 +170,7 @@ Act.prototype.showActivityWindow=function(){
             var ret_json=Ext.util.JSON.decode(response.responseText);
             that.setcfg(ret_json);
             console.log(ret_json)
-           switch(ret_json.activity_type)
+            switch(ret_json.activity_type)
                 {
 
                 case 'html':
@@ -240,9 +240,9 @@ Act.prototype.createActivityGridPanel=function(){
             {
                if(this.file_type=='img')
                 {
-                   var src = FileUpload.getFileValue(grid, row, col) ;
+                   var src = FileMgr.getFileValue(grid, row, col) ;
                    grid.stopEditing();
-                   FileUpload.showPic(src.filename);
+                   FileMgr.showPic(src.filename);
                    return;
                 }           
             },
@@ -1015,7 +1015,7 @@ Act.prototype.addData=function(){
         width:width,
         table:this.table,
         actcode:this.actcode,
-        fileUpload:true,
+        fileMgr:true,
         borderStyle:'padding-top:3px',
         frame:true,
         labelAlign:'right',
@@ -1049,7 +1049,7 @@ Act.prototype.editData=function(btn){
         xtype:'form',
         id:'update_form',
         autoHeight:true,
-        fileUpload:true,
+        fileMgr:true,
         width:w,
         table:this.table,
         actcode:this.actcode,
@@ -1104,7 +1104,7 @@ Act.prototype.batchUpdate=function(btn){
             },
             items:helper_btns
         },
-        fileUpload:true,
+        fileMgr:true,
         borderStyle:'padding-top:3px',
         frame:true,
         labelAlign:'right',
@@ -1351,164 +1351,8 @@ Act.prototype.getBtns=function( ){
     }
 
     if (this.cfg.tbar_type=='file_php'||this.cfg.tbar_type=='file_img'||this.cfg.tbar_type=='file_js'){
-        this.btns=this.getFileBasedBtns();
+        this.btns=FileMgr.getFileBasedBtns( this.cfg.file_type );
     }
-}
-
-
-Act.prototype.getFileBasedBtns=function(){
-    var that=this;
-    var public_btns=[];
-        if (this.cfg.file_type=='img'){
-        public_btns.push({
-            text:i18n.set_as_logo,
-            iconCls:'view_item',
-            style:{
-                marginRight: '6px'
-            },
-            ctCls:'x-btn-over',
-            id:'pub_upload',
-            handler:function(a){
-                that.setLogo(a.findParentByType('grid') || a.findParentByType('editorgrid'))
-            }
-        });
-        }
-
-        public_btns.push({
-            xtype:'button',
-            text:i18n.upload_file,
-            iconCls:'n_add',
-            style:{
-                marginRight:'6px'
-            },
-            ctCls:'x-btn-over',
-            handler:function(a){
-            that.uploadFile(a.findParentByType('grid') || a.findParentByType('editorgrid'))
-
-            }
-        });
-    
-        public_btns.push({
-            text:i18n.view_or_edit,
-            iconCls:'n_edit',
-            style:{
-                marginRight: '6px'
-            },
-            ctCls:'x-btn-over',
-            id:'pub_edit',
-            handler:function(a){
-                that.editFile(a.findParentByType('grid') || a.findParentByType('editorgrid'))
-            }
-        });
-    
-        public_btns.push({
-            text:i18n.delete_file,
-            iconCls:'n_del',
-            style:{
-                marginRight:'6px'
-            },
-            ctCls:'x-btn-over',
-            handler:function(a){
-                that.delFile(a.findParentByType('grid') || a.findParentByType('editorgrid'))
-            }
-        });
-    return public_btns;
-}
-
-
-Act.prototype.getMediaGridValue=function(grid){
-     var selected=[];
-     if(grid.getXType()=='grid')
-     {
-            var userRecord=grid.getSelectionModel().getSelections();
-            var len=userRecord.length;
-            for (var i = 0; i < userRecord.length; i++) {
-                selected.push(userRecord[i].get('Filename')); 
-            };
-  
-     }else  
-      {
-       if(grid.getSelectionModel().selection){
-            var cell= FileUpload.getFileValue(grid,grid.getSelectionModel().selection.cell[0],grid.getSelectionModel().selection.cell[1]);
-            selected.push(cell.filename);
-       }
-     }
-    return selected;     
-}
-
-Act.prototype.setLogo=function(grid){
-      var meida_value=this.getMediaGridValue(grid);
-      if(meida_value.length==0){
-                Ext.Msg.alert(i18n.alert,i18n.choose_atleast_one_record);
-                return false;
-      }
-
-      var picname = meida_value[0].split('/').pop();
-      var fmv = {
-             rawdata: {
-                 'opcode': 'set_logo',
-                 'picfile': picname,
-                 'key': 'COMPANY_LOGO'
-             }
-         };
-     ajaxPostData(AJAX_ROOT + 'nanx', fmv, function() {});
-}
-
-Act.prototype.uploadFile=function(grid){
-    var os_path=this.cfg.os_path;
-    var vnode={attributes:{os_path:os_path,file_type:this.cfg.file_type}};
-    var category='medias';
-    var opcode='upload_file';
-    view_file_fun=getMenuItemHandler(vnode,category,opcode,Ext.id());
-    view_file_fun();
-}
-
-Act.prototype.editFile=function(grid){
-    var os_path=this.cfg.os_path;
-    var meida_value=this.getMediaGridValue(grid);
-     if(meida_value.length==0){
-                Ext.Msg.alert(i18n.alert,i18n.choose_atleast_one_record);
-                return false;
-     }
-
-     if (grid.file_type=='img'){
-          Fb.showPic(meida_value[0]);
-     }
-        else
-        {
-          var vnode={attributes:{os_path:os_path,text:meida_value[0],value:meida_value[0]}};
-          var category='js_file';
-          var opcode='update_file_content';
-          view_file_fun=getMenuItemHandler(vnode,category,opcode,Ext.id());
-          view_file_fun();    
-        }
-}
-
-Act.prototype.delFile=function(grid){
-    var os_path=this.cfg.os_path;
-    var meida_value=this.getMediaGridValue(grid);
-    if(meida_value.length==0){
-                Ext.Msg.alert(i18n.alert,i18n.choose_atleast_one_record);
-                return false;
-     }
-
-    Ext.Msg.confirm(i18n.confirm,i18n.really_delete+"?",function(btn){
-        var file_to_del=[];
-        if (btn=='yes'){
-            var files_to_del=[];
-            for (var i=0;i<meida_value.length;i++){
-                    files_to_del.push({ os_path:os_path,filename:meida_value[i]});
-            }
-            var del_data={
-                'cmd':'delete',
-                'files':files_to_del
-            };
-            var succ=function(){
-                 grid.getStore().load();
-            }
-            ajaxPostData(AJAX_ROOT+'file/deleteFile',del_data,succ);
-        }
-    });
 }
 
 
@@ -1628,6 +1472,7 @@ Act.prototype.getTbar=function(){
 
     if (this.cfg.tbar_type=='file_php'||this.cfg.tbar_type=='file_js'){
         var bar=this.btns;
+        console.log(bar)
     }
     
     if (this.cfg.tbar_type=='file_img'){
@@ -1850,6 +1695,8 @@ Act.prototype.actionWin = function(type,form,wincfg){
         var backendUrl=AppCategory.getBackendCrontroller();
         var url=wincfg.url?wincfg.url:AJAX_ROOT+backendUrl.controller+'/'+backendUrl.func_name;
         
+         
+
         var title ='<img src=' + BASE_URL+ 'imgs/thumbs/backop.png' + ' />&nbsp;'+wincfg.title;
         form.extra_url=url;
         

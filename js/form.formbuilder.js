@@ -43,7 +43,7 @@ var FormBuilder = {};
  };
 
  FormBuilder.getBackendFormItem = function(item,node) {
-     
+
      var readonly = item.readonly ? item.readonly : false;
      var hidden = item.hidden ? item.hidden : false;
      var checked = item.all_checked ? item.all_checked : false;
@@ -274,7 +274,7 @@ var FormBuilder = {};
            break;
          
         case 'uploadFile':
-             var f = FileUpload.getAttachmentEditor(item);
+             var f = FileMgr.getAttachmentEditor(item);
              break;
 
 
@@ -290,13 +290,14 @@ var FormBuilder = {};
                  x: 0,
                  y: 0
              });
-
+                
                 item.grid_id='grid_FILE';
                 var act_config = DeepClone(item);
-                act_config.renderto=f.id;
+                act_config.renderto=container_id;
+
                 act_config.tbar_type='file_'+item.file_type;
                 act_config.showwhere='container';
-               var Act_f= new Act(act_config);
+                var Act_f= new Act(act_config);
              break;
 
          case 'combo_list':
@@ -548,8 +549,9 @@ var FormBuilder = {};
      
      if( mcfg.callback_set_url)
      {
-     opform.on('render',function(){  Fb.CallbackSetFieldValue.createDelegate(this, [mcfg,node], true)() });
+        opform.on('render',function(){  Fb.CallbackSetFieldValue.createDelegate(this, [mcfg,node], true)() });
      }
+
      return opform;
  };
 

@@ -619,7 +619,7 @@ Fb.getWhoami=function()
              name: one_col_cfg['field_e'],
              value: one_col_cfg.editor_cfg.ini
          };
-         return [FileUpload.getAttachmentEditor(cfg)];
+         return [FileMgr.getAttachmentEditor(cfg)];
      }
 
      if (one_col_cfg.editor_cfg.edit_as_html == 1) {
@@ -734,7 +734,9 @@ Fb.setSingleField=function(jsondata, item) {
 
 
  Fb.CallbackSetFieldValue = function(mcfg,node) {
- 
+         
+         alert('CallbackSetFieldValue')
+
          Ext.Ajax.request({
              url: AJAX_ROOT + mcfg.callback_set_url,
              jsonData: Ext.encode(mcfg.json),

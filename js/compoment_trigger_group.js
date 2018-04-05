@@ -169,6 +169,9 @@ var TriggerGroup = {};
  
  TriggerGroup.show_trigger_lines=function(triggers,node,item)
  {
+    
+    alert('show_trigger_lines')
+
     for(var i=0;i<triggers.length;i++)
     {
      

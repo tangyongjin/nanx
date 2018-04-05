@@ -277,13 +277,8 @@ function specialCodeRoute(node,category,opcode)
                         new Act({edit_type:'edit',table:'nanx_code_table',code:'NANX_TBL_DATA',showwhere:'autowin',wintitle:i18n.title_setdisplycfg,host:null});
                         }
                 }
-
-
           return common_fn;
 }
-
-
-
 
 
 function  getMenuItemHandler(node,category,opcode,alt_win_id)
@@ -295,6 +290,7 @@ function  getMenuItemHandler(node,category,opcode,alt_win_id)
       var common_fn=specialCodeRoute(node,category,opcode);
       return common_fn;
     }
+
     var common_fn=function(){
               var opform=FormBuilder.backendForm(category,opcode,node);
               var wincfg={
@@ -313,6 +309,7 @@ function  getMenuItemHandler(node,category,opcode,alt_win_id)
                  if(!Ext.isEmpty(mcfg.controller))
                  {
                  var  url=AJAX_ROOT+mcfg.controller+'/'+mcfg.func_name;
+
                  }
                  wincfg.url=url;
                  wincfg.width=(mcfg&&mcfg.width)?mcfg.width:550;
@@ -321,6 +318,7 @@ function  getMenuItemHandler(node,category,opcode,alt_win_id)
     };
     return common_fn;
 }
+
 
 Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
         getGroups: function(xtype){

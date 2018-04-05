@@ -243,7 +243,7 @@ var menu_for_trigger_group = {
                 'value': '#value',
                 'hostby': '#hostby'
             },
-            opcode: 'view_trigger_group2',
+            opcode: 'not_need',
             place: 'context',
             viewonly: true,
             callback_set_url: 'nanx/getTriggerGroup',
