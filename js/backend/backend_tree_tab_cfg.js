@@ -38,7 +38,8 @@ var appCategory_List = [
     {
         category:'medias',
         label:i18n.file_mnt,
-        leaf:true
+        refer:'tab_filemnt',
+        leaf:false
     }, {
         category:'syscfgs',
         label:i18n.app_cfg,

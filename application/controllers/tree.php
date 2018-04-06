@@ -210,6 +210,12 @@ class Tree extends CI_Controller {
 		        'paratype' => 'activity_code',
 				''         => false),
 
+            'medias' => array(
+				'method'   => "getMediaCategory",
+		        'paratype' => null,
+				''         => false),
+
+
 			'activity_js' => array('sql' =>
 				"select extra_js as text, extra_js as value,'js_file' as category ,'js/upload' as os_path from
              nanx_activity where activity_code='#value' ",
@@ -309,6 +315,9 @@ class Tree extends CI_Controller {
 			'table',
 			'raw_table',
 			'table_columns');
+
+
+
 		for ($i = 0; $i < count($schema_based_category); $i++) {
 			$category              = $schema_based_category[$i];
 			$cfg[$category]['sql'] = str_replace('DATABASE_SCHEMA_REPLACE', $DB_USED, $cfg[$category]['sql']);
@@ -522,6 +531,17 @@ class Tree extends CI_Controller {
 
 		  } 
          return $ret;
+
+		}
+ 
+
+		if( $method='getMediaCategory'){
+			$ret=array();
+			$ret[]=array('value'=>'img','text'=>'图片管理','os_path'=>'imgs','leaf'=>true,'category'=>'fs_table') ;
+			$ret[]=array('value'=>'php','text'=>'CI控制器文件','os_path'=>"application/models",'leaf'=>true,'category'=>'fs_table') ;
+			$ret[]=array('value'=>'php','text'=>'CI模型文件','os_path'=>"application/controllers",'leaf'=>true,'category'=>'fs_table') ; 
+			$ret[]=array('value'=>'js', 'text'=>'Javascript文件','os_path'=>"js/upload",'leaf'=>true,'category'=>'fs_table') ;
+            return $ret;
 
 		}
 

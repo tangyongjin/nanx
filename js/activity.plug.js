@@ -1,3 +1,7 @@
+/*
+activity.plug.js
+*/
+
 Ext.ns('ActPlug')
 
 var ActPlug = {}

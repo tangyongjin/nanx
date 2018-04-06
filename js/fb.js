@@ -735,8 +735,7 @@ Fb.setSingleField=function(jsondata, item) {
 
  Fb.CallbackSetFieldValue = function(mcfg,node) {
          
-         alert('CallbackSetFieldValue')
-
+         
          Ext.Ajax.request({
              url: AJAX_ROOT + mcfg.callback_set_url,
              jsonData: Ext.encode(mcfg.json),
@@ -857,20 +856,6 @@ Fb.getCellStr = function(grid, rowIndex, colIndex) {
      };
      
 
- Fb.UserActivity = {
-     setKeys: function(kv) {
-         for (var i = 0; i < kv.length; i++) {
-             var c = kv[i];
-             Fb.UserActivity.keys[c.key] = c.value;
-         }
-     },
-     getValue: function(a) {
-         return Fb.UserActivity.keys[a];
-     },
-     keys: {}
- };
-
-  
  
  
   Fb.check_table_prefix = function(v) {

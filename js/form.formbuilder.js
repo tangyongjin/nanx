@@ -280,7 +280,9 @@ var FormBuilder = {};
 
          case 'file_selector':
               var container_id = 'media_grid_' + Ext.id();
-             
+              
+          
+
               var f = new Ext.Container({
                  layout: 'absolute',
                  height: item.grid_h,
@@ -297,6 +299,9 @@ var FormBuilder = {};
 
                 act_config.tbar_type='file_'+item.file_type;
                 act_config.showwhere='container';
+                
+                console.log(act_config)
+
                 var Act_f= new Act(act_config);
              break;
 

@@ -34,7 +34,8 @@ var tabsFirst = [
             title:i18n.create_new_table,
             css:'table_builder'
         }]
-    }, {
+    }, 
+    {
         category:'tab1_helps',
         title:i18n.operation_help,
         css:'help',
@@ -63,6 +64,18 @@ var tabsFirst = [
             title:i18n.help_fields,
             css:'sub_help'
         }]
+    },{
+        category:'tab1_files',
+        title:i18n.file_mnt,
+        refer:'files_mnt',
+        css:'medias',
+        child:[
+        {
+            id:'files_mnt',
+            title:'文件管理l2',
+            css:'medias'
+        }
+        ]
     }
 ];
 
@@ -72,11 +85,20 @@ var  TabsMenu={
      {return this.tabsFirst;}
 };
 
+
+
+
+
+Dbl.UserActivity2 = {}
+  
+
+
 Dbl.MainTabPanel = function(){
         var FirstTabs=TabsMenu.getTabs();
         var subtabs=[];
         for (i=0;i<FirstTabs.length;i++){
                 var t={};
+
                 t.id=FirstTabs[i].category;
                 t.title=FirstTabs[i].title;
                 t.hidden=true;
@@ -87,9 +109,12 @@ Dbl.MainTabPanel = function(){
                         },
                         scope:this
                 };
+                console.log(t)
                 t.layout='fit';
                 subtabs.push(t);
         }
+
+
         Dbl.MainTabPanel.superclass.constructor.call(this,{
                 id:"MainTab",
                 region:"center",
@@ -111,14 +136,15 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
         tableStructurePanel:'',
         dbStructurePanel:'',
         lastTableTabId:'',
-        activeTabHandler:function(){
-                Fb.UserActivity.setKeys([{
-                        key:"active_subtab",
-                        value:this.id
-                }]);
+        activeTabHandler:function(node_clicked){
+                
+               
+                Dbl.UserActivity2["active_subtab"]=this.id
+                
+                
                 
                 if ((this.id=='table_data')||(this.id=='table_index')||(this.id=='table_col')){
-                        var current_table = Fb.UserActivity.getValue("table");
+                        var current_table = Dbl.UserActivity2["table"];
                         if (typeof(current_table)=="string")
                         {        
                                 if (this.id=='table_data'){var activity_code='NANX_TBL_DATA';}
@@ -144,6 +170,42 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                         }
                 }
                 
+                console.log(this.id)
+                if ( this.id=='files_mnt'){
+
+                        var current_table = Dbl.UserActivity2["fs_table"];
+                     
+
+                    
+                            var item={checkbox:false,code:"NANX_FS_2_TABLE",edit_type:"edit",
+                            file_type:current_table,grid_h:386,grid_id:"grid_FILE",hideHeaders:false,
+                            id_order:"desc",item_type:"file_selector",nosm:true,os_path:Dbl.UserActivity2['os_path']}
+                            
+                         
+                            item.file_trunk=10
+                            
+                            console.log(item.file_type)
+                            if(item.file_type=='img'){
+                                 item.edit_type='edit'
+                            }else{
+                                 item.edit_type='noedit'
+                            }
+
+                            item.grid_id='grid_FILE';
+                            var act_config = DeepClone(item);
+                            act_config.host=Ext.getCmp('files_mnt') 
+                            act_config.tbar_type='file_'+item.file_type;
+                            act_config.showwhere='render_to_tabpanel';
+
+
+                            console.log(act_config)
+                            var Act_f= new Act(act_config);
+                           
+
+                }
+
+
+                
                 if(['NANX_TBL_CREATE','NANX_APP_SUMMARY','NANX_SYS_CONFIG'].indexOf(this.id)!=-1){
                   var cfg={
                                 code:this.id,
@@ -151,15 +213,19 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                                 showwhere:'render_to_tabpanel',
                                 host: this
                                 };
+
                             if (this.id=='NANX_SYS_CONFIG'){
                               cfg.code='NANX_TBL_DATA';
                               cfg.table='nanx_system_cfg';
                              }
+
                             if(this.id=='NANX_TBL_CREATE'){
                                  cfg.table='nanx_shadow';
                               }
+
                  new Act(cfg);
                 }
+
                 if ((this.id).substring(0,5)=='help_'){
                         this.removeAll();
                         var panel=new Ext.Panel({
@@ -178,12 +244,21 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                  
         },
         getLevel2: function(current){
+                
+
                 var FirstTabs =TabsMenu.getTabs();
+                
+                console.log(FirstTabs)
+
                 current.removeAll();
                 var id = current.id;
                 for(j=0;j<FirstTabs.length;j++){
-                        if (id==FirstTabs[j].category)break;
+                        if (id==FirstTabs[j].category){
+                                    break;
+                        }
+
                 }
+
                 var tbcfg=FirstTabs[j].child;
                 var subtabs=[];
                 for (var i=0;i<tbcfg.length;i++){
@@ -207,25 +282,42 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                         items:subtabs,
                         activeItem:0
                 });
+                console.log(l2tabs)
                 current.add(l2tabs);
                 current.doLayout();
         },
         
         activeTabL1L2:function(level_cfg)
         {   
-            if(!level_cfg){return;}
-            if(level_cfg.isArray)
-            {
-            var x=Ext.getCmp(level_cfg[0]);
-            x.show();
-            var panel=Ext.getCmp('package_'+level_cfg[0]);
-            var xid=panel.findById(level_cfg[1]);
-            xid.show();
+            if(!level_cfg){
+                return;
             }
-            else
-            {
-            var x=Ext.getCmp(level_cfg);
-            x.show();
+
+            if( Ext.getCmp(level_cfg)){
+                Ext.getCmp(level_cfg).show()
+            }else{
+                 if (  Ext.getCmp('package_'+level_cfg)  ){
+                        Ext.getCmp('package_'+level_cfg).show()
+                 }
             }
+
+            
+            // if(level_cfg.isArray)
+            // {
+            
+            // // var x=Ext.getCmp(level_cfg[0]);
+            // // x.show();
+            // // var panel=Ext.getCmp('package_'+level_cfg[0]);
+            // // var xid=panel.findById(level_cfg[1]);
+            // // xid.show();
+            
+            // }
+            // else
+            // {
+            // // level_cfg='package_tab1_files'
+            // var x=Ext.getCmp(level_cfg);
+            // console.log(x)
+            // x.show();
+            // }
         }
 });

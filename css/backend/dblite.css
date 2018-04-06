@@ -269,6 +269,11 @@ background-image:url(backimgs/icons/redtable.png) !important;
 .menu_pic_management{
 	background-image:url(backimgs/icons/menu_pic.png) !important;
 }
+
+.imgs{
+	background-image:url(backimgs/icons/menu_pic.png) !important;
+}
+
 .copy_database {
 	background-image:url(backimgs/icons/database_go.png) !important;
 }

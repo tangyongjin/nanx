@@ -111,6 +111,7 @@ var Explorer={
                                 children:this.dbNodes
                         }]
                 });
+
                 var treeListener={
                         contextmenu:this.onContextMenu,
                         click:this.treeNodeClick,
@@ -129,6 +130,7 @@ var Explorer={
                         },
                         scope:this
                 };
+
                 var treeLoader=new Ext.tree.TreeLoader({
                         dataUrl:AJAX_ROOT + 'tree',
                         preloadChildren: false,
@@ -324,10 +326,15 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
         getGroups: function(xtype){
                 var FirstLevel=AppCategory.getAppCategory(xtype);
                 var retLevel=[];
+
                 for (var i=0;i<FirstLevel.length;i++) {
                         var r={};
                         r.id='tree_'+FirstLevel[i].category;
                         r.category=FirstLevel[i].category;
+                        
+                        console.log( FirstLevel[i].refer )
+                        console.log( xtype )
+
                         r.refer=FirstLevel[i].refer || '';
                         r.level=1;
                         r.value=FirstLevel[i].label;
@@ -348,6 +355,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                         listeners:{click:common_fn}
                 }
         },
+
         onContextMenu: function(node,g){
                 if (this.menu) {
                         this.menu.removeAll()
@@ -377,6 +385,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                 });
                 this.menu.showAt(g.getXY())
         },
+
         processDnD:function(e){
                 e.dropNode.attributes.listeners='';
                 e.target.attributes.listeners='';
@@ -407,6 +416,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                         return false;
                 }
         },
+
         getRefer:function(node){
                 var refer=null;
                 if (node.attributes.refer) {
@@ -423,33 +433,50 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
         },
         
         treeNodeClick:function(node){
+                var tmp=Dbl.UserActivity2['active_subtab'];
                 var refer=this.getRefer(node);
                 Dbl.MainTabPanel.prototype.activeTabL1L2(refer);
-                 
                 var run_time_set=[{
                         key:"current_category",
-                        value:node.attributes.category
+                        value:node.attributes.value
                 },
                 {
                         key:node.attributes.category,
                         value:node.attributes.value
                 }];
+
                 
-                Fb.UserActivity.setKeys(run_time_set);
-                if (node.parentNode){
-                  run_time_set=[{
+              
+                
+                Dbl.UserActivity2['current_category']=node.attributes.value
+                Dbl.UserActivity2[node.attributes.category]=node.attributes.value
+                if(node.attributes.os_path){
+                     Dbl.UserActivity2['os_path']=node.attributes.os_path
+                }
+
+               
+              
+                
+                if( run_time_set[0].value=='fs_table'){
+
+                }else
+                {   
+                    if (node.parentNode){
+                         run_time_set=[{
                                 key:node.parentNode.attributes.category,
                                 value:node.parentNode.attributes.value
                         }];
                   
-                        Fb.UserActivity.setKeys(run_time_set);
+                       Dbl.UserActivity2[node.parentNode.attributes.category]=node.parentNode.attributes.value
+                    }
                 }
                  
-                var currentSubtabId=Fb.UserActivity.getValue("active_subtab");
+                var currentSubtabId=Dbl.UserActivity2['active_subtab']
                 if (Ext.getCmp(currentSubtabId)){
                         var currentSub=Ext.getCmp(currentSubtabId);
                         currentSub.fireEvent('activate');
                 } 
+                
         
         },
         
@@ -464,7 +491,7 @@ Ext.onReady(function(){
         new Ext.KeyMap(document,[{
                 key: Ext.EventObject.F1,
                 handler:function(){
-                        var raw=Fb.UserActivity.getValue("current_category");
+                        var raw=Dbl.UserActivity2["current_category"];
                 },
                 stopEvent: true
         }])

@@ -223,12 +223,16 @@ Act.prototype.createActivityGridPanel=function(){
         listeners:{
             rowdblclick:function(grid,row,col){
                 
-                if(this.file_type=='img'){return;}
+                if(this.file_type=='img'){
+                    alert(this.file_type)
+                    return;
+                }
                 
                 grid.getStore().each(function(item,idx){
                     grid.getSelectionModel().clearSelections();
                     grid.getSelectionModel().selectRow(row);
                 });
+
                 var edit_btn=that.gridPanel.getTopToolbar().findById('pub_edit');
                 if (edit_btn){
                     edit_btn.handler.call(edit_btn);
@@ -240,6 +244,7 @@ Act.prototype.createActivityGridPanel=function(){
             {
                if(this.file_type=='img')
                 {
+                   alert('here img')
                    var src = FileMgr.getFileValue(grid, row, col) ;
                    grid.stopEditing();
                    FileMgr.showPic(src.filename);
@@ -369,7 +374,10 @@ Act.prototype.handleAfterEdit=function(row) {
  
          
 Act.prototype.handleCellClick=function(grid,rowIndex,columnIndex,e){
-    if (grid.file_type=='img') {return;}
+    if (grid.file_type=='img') {
+      
+        return;
+     }
      
     if (grid.id=='grid_NANX_TBL_INDEX') {
         if (columnIndex==3){
@@ -413,7 +421,7 @@ Act.prototype.createSM =function(){
 }
 
 Act.prototype.editIndexCols=function(rowindex,a){
-    var currenttable=Fb.UserActivity.getValue("table");
+    var currenttable=Dbl.UserActivity2["table"];
     var tree=Ext.getCmp('AppTree');
     var colindex=getCurrentColandIndex(rowindex);
     var leftData=colindex.allcol;
@@ -493,6 +501,7 @@ Act.prototype.getOneColModel = function(colCfg) {
     var editor = new Ext.form.TextField({
         'name': colCfg['field_e']
     });
+
     if ((colCfg.editor_cfg) && (colCfg.editor_cfg.combo)) {
         editor = Fb.getDirectComboEditor(colCfg.editor_cfg.combo);
     }
@@ -501,6 +510,7 @@ Act.prototype.getOneColModel = function(colCfg) {
         if(colCfg.display_cfg.idhidden){
            _hid=true;
         }
+    
     var oneColModel = {
         header: colCfg['display_cfg']['field_c'] || colCfg['field_e'],
         dataIndex: colCfg['field_e'],
@@ -547,7 +557,6 @@ Act.prototype.getColModel=function(){
         var onecolModel=this.getOneColModel(this.colsCfg[i]);
         cols.push(onecolModel);
     }
-    //var sm=this.createSM();
     var sm=this.sm;
     var check_col=[sm];
     var cols_array =this.with_checkbox_col?check_col.concat(cols):cols;
@@ -1588,6 +1597,9 @@ Act.prototype.showWindow = function(){
 
 
     if (this.cfg.showwhere == 'render_to_tabpanel') {
+        
+        console.log(this.cfg)
+
         this.cfg.host.removeAll();
         this.cfg.host.add(this.gridPanel);
         this.cfg.host.doLayout();

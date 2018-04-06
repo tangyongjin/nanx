@@ -84,9 +84,11 @@ var FileMgr = {};
                              form.upload_errcount++;
                          },
                          success:function(f,r) {
+                             console.log(f)
+                             console.log(r.result)
                              WaitMask.hide();
                              if (r.result.success){
-                                 var fd = form.getForm().findField(cfg.name);
+                                  var fd = form.getForm().findField(cfg.name);
                                  fd.setValue(r.result.serverURL);
                                  form.uptasks--;
                                  Act.prototype.FormAction(form);
@@ -113,7 +115,8 @@ var FileMgr = {};
  
 
  FileMgr.showUploadResult=function(r)
- {
+ { 
+    
    if(r.result.show_client_upload_info)
         {
         Ext.Msg.alert(i18n.message, r.result.msg);
@@ -260,7 +263,7 @@ FileMgr.getFileBasedBtns=function(file_type){
             },
             ctCls:'x-btn-over',
             handler:function(a){
-            Act.uploadFile(a.findParentByType('grid') || a.findParentByType('editorgrid'))
+            FileMgr.uploadFile(a.findParentByType('grid') || a.findParentByType('editorgrid'))
 
             }
         });
@@ -297,9 +300,12 @@ FileMgr.getFileBasedBtns=function(file_type){
 
 
 FileMgr.uploadFile=function(grid){
+    
+    console.log(grid.initialConfig)
+
     var os_path=grid.initialConfig.os_path;
     
-    var vnode={attributes:{os_path:os_path,file_type:this.cfg.file_type}};
+    var vnode={attributes:{os_path:os_path,file_type:grid.initialConfig.file_type}};
     var category='medias';
     var opcode='upload_file';
     view_file_fun=getMenuItemHandler(vnode,category,opcode,Ext.id());
@@ -335,7 +341,6 @@ FileMgr.editFile=function(grid){
 FileMgr.delFile=function(grid){
 
 
-    alert('FileMgr.delFile')
 
     var os_path=grid.initialConfig.os_path;
     var meida_value=this.getMediaGridValue(grid);

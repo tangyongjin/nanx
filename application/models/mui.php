@@ -97,6 +97,7 @@ class MUI extends CI_Model
                 'js/util.js',
                 'js/form.formbuilder.js',
                 'js/file_mgr.js',
+                'js/activity.plug.js',
                 'js/compoment_menu_tree.js',
                 'js/compoment_basic_combo.js',
                 'js/compoment_layoutmanager.js',

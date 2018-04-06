@@ -49,7 +49,7 @@ class File extends CI_Controller {
  	    $formfield=$params['formfield'];
       $dest=$params['os_path'];
       
- 	    $show_client_upload_info=false;
+ 	    $show_client_upload_info=true;
       if(array_key_exists('opcode',$_REQUEST))
       {
         if($_REQUEST['opcode']=='upload_pic'){$show_client_upload_info=true;}

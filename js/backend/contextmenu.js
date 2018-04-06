@@ -457,7 +457,8 @@ var menu_for_medias = {
         opcode: 'manage_php_controller',
         place: 'context',
         width: 900,
-        itemcfg: [{
+        itemcfg: [
+        {
             code: 'NANX_FS_2_TABLE',
             item_type: 'file_selector',
             grid_h: 386,
@@ -2296,5 +2297,5 @@ contextMenu.push(
     menu_for_roles, menu_for_single_col_display, menu_for_sql_runner, 
     menu_for_sql_statement, menu_for_syscfgs, menu_for_table, 
     menu_for_trigger_group, menu_for_trigger_groups, menu_for_user, 
-    menu_for_user_role, menu_for_user_role_under_acls, 
+    menu_for_user_role, menu_for_user_role_under_acls, menu_for_tables,
     menu_for_user_under_role, menu_for_users)
