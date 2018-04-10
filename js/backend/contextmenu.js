@@ -170,18 +170,22 @@ var menu_for_trigger_groups = {
         opcode: 'add_trigger_group',
         place: 'context',
         width: 1000,
-        itemcfg: [{
+        itemcfg: [
+        {
                 item_type: 'field',
                 id: 'group_id',
                 width: 170,
                 label: i18n.trigger_group
             },
+
             {
-                item_type: 'horizon_line',
-                place: 'context',
-                path: 'server_resp',
+                item_type: 'stepform',
+                id: 'reg_form_1',
                 headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
-                horizon_items: [{
+                width: 170,
+                label: i18n.trigger_group,
+                horizon_items:[
+                    {
                         item_type: 'combo_list',
                         id: 'field_e',
                         value: '#hostby',
@@ -225,9 +229,61 @@ var menu_for_trigger_groups = {
                                 category_to_use: 'biz_cols'
                             }
                         ]
-                    }
-                ]
-            }
+            }]
+        }
+        // ,     {
+        //         item_type: 'trigger_group_header',
+        //         place: 'context',
+        //         path: 'server_resp',
+        //         headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
+        //         horizon_items: [
+        //             {
+        //                 item_type: 'combo_list',
+        //                 id: 'field_e',
+        //                 value: '#hostby',
+        //                 width: 140,
+        //                 displayField: 'text',
+        //                 valueField: 'value',
+        //                 category_to_use: 'biz_cols'
+        //             },
+        //             {
+        //                 item_type: 'combo_group',
+        //                 root_combox: {
+        //                     id: 'combo_table',
+        //                     ds_auto: true,
+        //                     level: 1,
+        //                     width: 140,
+        //                     nanx_type: 'root',
+        //                     value_key_for_slave: 'value',
+        //                     category_to_use: 'biz_tables'
+        //                 },
+        //                 slave_comboxes: [{
+        //                         id: 'list_field',
+        //                         ds_auto: false,
+        //                         level: 2,
+        //                         width: 140,
+        //                         nanx_type: 'slave',
+        //                         category_to_use: 'biz_cols'
+        //                     }, {
+        //                         id: 'value_field',
+        //                         ds_auto: false,
+        //                         level: 2,
+        //                         width: 140,
+        //                         nanx_type: 'slave',
+        //                         category_to_use: 'biz_cols'
+        //                     },
+        //                     {
+        //                         id: 'filter_field',
+        //                         ds_auto: false,
+        //                         level: 2,
+        //                         width: 140,
+        //                         nanx_type: 'slave',
+        //                         category_to_use: 'biz_cols'
+        //                     }
+        //                 ]
+        //             }
+        //         ]
+        //     }
         ]
     }]
 }
@@ -257,7 +313,7 @@ var menu_for_trigger_group = {
                     hidden: false
                 },
                 {
-                    item_type: 'horizon_line',
+                    item_type: 'trigger_group_header',
                     place: 'context',
                     path: 'server_resp',
                     headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
@@ -311,6 +367,30 @@ var menu_for_trigger_group = {
                 }
             ]
         },
+        {
+            title: "i18n.查看联动组",
+            json: {
+                'value': '#value',
+                'hostby': '#hostby'
+            },
+            opcode: 'not_need_2',
+            place: 'context',
+            viewonly: true,
+            callback_set_url: 'nanx/getTriggerGroup',
+            callback_set_json_key: '/',
+            width: 1000,
+            itemcfg: [
+                {
+                    item_type: 'field',
+                    label: i18n.trigger_group,
+                    id: 'group_id',
+                    value: '#text',
+                    hidden: false
+                }
+                 
+            ]
+        },
+
         {
             title: i18n.delete_trigger_group,
             json: {
@@ -1383,7 +1463,7 @@ var menu_for_hooks = {
                 },
 
                 {
-                    item_type: 'horizon_line',
+                    item_type: 'trigger_group_header',
                     place: 'context',
                     headers: ['hook_type', 'hook_when', 'hook_event', 'extra_ci_model', 'model_methods', 'memo'],
                     horizon_items: [
@@ -1457,7 +1537,7 @@ var menu_for_hook = {
             width: 1000,
 
             itemcfg: [{
-                item_type: 'horizon_line',
+                item_type: 'trigger_group_header',
                 place: 'context',
                 path: 'server_resp',
                 headers: ['memo', 'hook_type', 'hook_when', 'hook_event', 'extra_ci_model', 'model_methods'],

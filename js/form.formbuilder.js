@@ -135,6 +135,7 @@ var FormBuilder = {};
                  ]
              });
              break;
+
          case 'dnd_2_col':
              var f = Fb.setDndForm(item, node);
              break;
@@ -318,8 +319,8 @@ var FormBuilder = {};
              break;
 
 
-         case 'horizon_line':
-              var f=Fb.horizon_line(item,node);
+         case 'trigger_group_header':
+              var f=Fb.trigger_group_header(item,node);
               return f;
 
          case 'follow_tbar': 
@@ -362,6 +363,22 @@ var FormBuilder = {};
              });
              
              break;
+
+         case 'stepform':
+
+             var f = new Util.StepForm({  
+                        width:500,  
+                        height:30,  
+                      
+                        headers:item.headers,
+                        item:item,
+                        node:node
+                    });  
+                      
+             console.log(f)
+             break;
+                      
+
          default:
              var f = {};
      }

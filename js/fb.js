@@ -180,8 +180,8 @@ Ext.data.Node.prototype.getJson = function ( node) {
  
 
 
- Fb.horizon_line=function(item,node){
-     alert('horizon_line')
+ Fb.trigger_group_header=function(item,node){
+     alert('trigger_group_header')
      console.log(item)
      var line_add_btn = new Ext.Button({
          text:i18n.add_trigger,
@@ -203,7 +203,7 @@ Ext.data.Node.prototype.getJson = function ( node) {
      var f = new Ext.Container({
          fieldLabel:i18n.group_item,
          layout:'table',
-      items:[line_add_btn,title]
+         items:[line_add_btn,title]
       
      });
      return f;
@@ -720,6 +720,9 @@ Fb.getWhoami=function()
  
 
 Fb.setSingleField=function(jsondata, item) {
+         console.log(jsondata)
+         console.log(item)
+         
          if (item.path) {
              var v = jsondata[item.path];
              console.log("setting ",v)
@@ -748,8 +751,6 @@ Fb.setSingleField=function(jsondata, item) {
                      var data_from_json = ret_json[key_used];
                  }
                  console.log("后台返回:")
-                 console.log(data_from_json)
-
                  Ext.each(mcfg.itemcfg, function(item) {
                     
                      switch (item.item_type){
@@ -776,8 +777,8 @@ Fb.setSingleField=function(jsondata, item) {
                              break;
 
                        
-                      case 'horizon_line':
-                       console.log("setting horizon_line:")
+                      case 'trigger_group_header':
+                       console.log("setting trigger_group_header:")
                        follow_key_used = item.path;
                        TriggerGroup.show_trigger_lines(ret_json[follow_key_used], node,item);
                       break;

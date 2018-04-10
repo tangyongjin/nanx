@@ -106,13 +106,16 @@ var TriggerGroup = {};
 
 
  TriggerGroup.create_comboxs_line=function(item,node,meta_data){
+       alert('create_comboxs_line')
+       console.log(item)
+       console.log(node)
        
        var backend_active_form=Ext.getCmp('back_opform');
        trigger_rows =backend_active_form.find('nanx_type','trigger_row');
        trigger_rows_count=trigger_rows.length+1;
        item.serial=trigger_rows_count;
 
-
+       
 
        var btn_del = new Ext.Button({
          text: i18n.remove,
@@ -123,7 +126,7 @@ var TriggerGroup = {};
              var form = this.findParentByType('form');
              var tr =form.find('nanx_type','trigger_row');
              var current_counter=tr.length;
-             if(this.serial==current_counter)
+             if(this.serial==current_counter)  //只能删除最后一行
                  {
                    this.ownerCt.ownerCt.remove(this.ownerCt);
                  }
@@ -148,7 +151,7 @@ var TriggerGroup = {};
         if (meta_data){
           fixed_sub_item_cfg=Fb.set_cfg_callback_value(fixed_sub_item_cfg,meta_data);
         }
-
+        
         var sub_item=FormBuilder.getBackendFormItem(fixed_sub_item_cfg,node);
         subitems.push(sub_item);
      
@@ -170,7 +173,7 @@ var TriggerGroup = {};
  TriggerGroup.show_trigger_lines=function(triggers,node,item)
  {
     
-    alert('show_trigger_lines')
+    // alert('show_trigger_lines')
 
     for(var i=0;i<triggers.length;i++)
     {

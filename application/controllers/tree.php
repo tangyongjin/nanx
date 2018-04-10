@@ -502,6 +502,7 @@ class Tree extends CI_Controller {
 		 $this->load->model('MFile');
          $ret=array();
          $files=$this->MFile->getFileList('application/models' ,'php');
+         logtext($files);
 		 foreach ($files as $one_file) {
 		 	$fname=str_replace('.php','',$one_file['Filename']);
 		    $ret[]=array('value'=>$fname ,'text'=>$fname ,'category'=>'model') ;

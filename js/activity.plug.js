@@ -46,8 +46,7 @@ ActPlug.getQueryBtn = function(act_instance){
 
 ActPlug.getSerachPanel=function(act_instance,table,storeId,winid){
     
-    // var that=this;
-
+ 
     var btn_add=new Ext.Button({
         text:i18n.addquerylien,
         iconCls:'n_add',

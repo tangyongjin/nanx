@@ -145,6 +145,7 @@ var AppCategory = {
     },
 
     ContextMenu:contextMenu,
+ 
     getGirdIDsForExtraData: function(){
         return this.GridAsForm;
     },
