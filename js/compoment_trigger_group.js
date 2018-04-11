@@ -106,7 +106,7 @@ var TriggerGroup = {};
 
 
  TriggerGroup.create_comboxs_line=function(item,node,meta_data){
-       alert('create_comboxs_line')
+       // alert('create_comboxs_line')
        console.log(item)
        console.log(node)
        
@@ -148,9 +148,15 @@ var TriggerGroup = {};
         fixed_sub_item_cfg = Fb.preProcessNodeAtt(sub_item_cfg, node);
         fixed_sub_item_cfg.using_serial=true;
         
-        if (meta_data){
-          fixed_sub_item_cfg=Fb.set_cfg_callback_value(fixed_sub_item_cfg,meta_data);
+
+        
+        console.log(fixed_sub_item_cfg)
+        
+        if (meta_data){  
+             fixed_sub_item_cfg=Fb.set_trigger_line_ini(fixed_sub_item_cfg,meta_data);
         }
+        
+        console.log(fixed_sub_item_cfg)
         
         var sub_item=FormBuilder.getBackendFormItem(fixed_sub_item_cfg,node);
         subitems.push(sub_item);
@@ -172,9 +178,6 @@ var TriggerGroup = {};
  
  TriggerGroup.show_trigger_lines=function(triggers,node,item)
  {
-    
-    // alert('show_trigger_lines')
-
     for(var i=0;i<triggers.length;i++)
     {
      

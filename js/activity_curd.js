@@ -1731,7 +1731,20 @@ Act.prototype.actionWin = function(type,form,wincfg){
           {
               roots[i].getStore().load({params:{start:0,limit:pageSize}});
           }
+
+             // var trigger_btn= Ext.getCmp('add_trigger_button' )
+             // trigger_btn.on('render',function(a,b,c){
+             //       console.log(a,b,c)
+             //       a.setupclick()
+             //       alert('trigger_btn show!')  
+             // })
+
+
+
       });
+
+      
+
       
       var win_cfg={
         title:title,
@@ -1763,8 +1776,11 @@ Act.prototype.actionWin = function(type,form,wincfg){
       if (type=="backend"){win_cfg.width=wincfg.width?wincfg.width:550}
       if(wincfg&&wincfg.viewonly){win_cfg.buttons[1].disabled=true;};    
       var win = new Ext.Window(win_cfg);
+      form.show()
       win.doLayout();
-      win.show();win.syncSize();
+      win.show();
+   
+      win.syncSize();
 }
 
 Act.prototype.ConfirmBtnHandler=function(btn){

@@ -11,7 +11,16 @@ var FormBuilder = {};
 
 
  FormBuilder.backendForm = function(category, opcode, xnode) {
-     var o_mcfg = AppCategory.getSubMenuCfg(category, opcode);
+
+      var o_mcfg = AppCategory.getSubMenuCfg(category, opcode);
+     
+  console.log(o_mcfg)
+     //查看联动租,从 增加联动租 取得 字段配置.
+     if( opcode=='view_trigger_group_debug'){
+        o_mcfg_create = AppCategory.getSubMenuCfg('trigger_groups', 'add_trigger_group');
+        o_mcfg.itemcfg=o_mcfg_create.itemcfg    // 借用上级的 itemcfg
+     }
+     console.log(o_mcfg)
      var opform = this.getOperationForm(xnode, o_mcfg);
      return opform;
  }
@@ -364,18 +373,21 @@ var FormBuilder = {};
              
              break;
 
-         case 'stepform':
-
-             var f = new Util.StepForm({  
+         case 'DropdownCompoment':
+             
+             var f = new Util.DropdownCompoment({  
                         width:500,  
                         height:30,  
                       
                         headers:item.headers,
                         item:item,
-                        node:node
+                        node:node,
+                        callback_set_url:'nanx/getTriggerGroup',
+                        callback_set_json_key:'/'
                     });  
                       
-             console.log(f)
+            
+             
              break;
                       
 
@@ -498,8 +510,10 @@ var FormBuilder = {};
 
 
  FormBuilder.getOperationForm = function(node, orginal_mcfg) {
-
+     
      var  mcfg = Fb.preProcessNodeAtt(orginal_mcfg, node);
+     console.log(mcfg)
+     
      var layout = 'form';
      var forms = [];
      var needsend = ['id','group_id', 'table', 'hostby', 'column_definition', 'DDL'];
@@ -555,6 +569,7 @@ var FormBuilder = {};
          frame: true,
          autoScroll: true,
          autoDestroy: true,
+         autoShow:true,
          border: false,
          layout: layout,
          height: 400,
@@ -569,9 +584,36 @@ var FormBuilder = {};
          items: forms
      });
      
+     
      if( mcfg.callback_set_url)
-     {
-        opform.on('render',function(){  Fb.CallbackSetFieldValue.createDelegate(this, [mcfg,node], true)() });
+     {  
+
+        if(  mcfg.opcode=='view_trigger_group_debug'){
+             
+             // opform.on('show',function(a,b,c){ 
+             // console.log(a)
+
+             // var trigger_btn= Ext.getCmp('add_trigger_button' )
+             // console.log(trigger_btn)
+
+            
+             // console.log(trigger_btn.container )
+             // console.log(trigger_btn.btnEl  )  
+            
+
+             //  });
+
+        }else{
+            
+            alert('getOperationForm callback 执行')
+            opform.on('render',function(){  Fb.CallbackSetFieldValue.createDelegate(this, [mcfg,node], true)() });
+     
+        }
+
+        
+
+
+
      }
 
      return opform;

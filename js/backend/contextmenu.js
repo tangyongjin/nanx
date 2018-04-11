@@ -179,7 +179,7 @@ var menu_for_trigger_groups = {
             },
 
             {
-                item_type: 'stepform',
+                item_type: 'DropdownCompoment',
                 id: 'reg_form_1',
                 headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
                 width: 170,
@@ -344,7 +344,8 @@ var menu_for_trigger_group = {
                                     width: 140,
                                     nanx_type: 'slave',
                                     category_to_use: 'biz_cols'
-                                }, {
+                                }, 
+                               {
                                     id: 'value_field',
                                     ds_auto: false,
                                     level: 2,
@@ -368,16 +369,17 @@ var menu_for_trigger_group = {
             ]
         },
         {
-            title: "i18n.查看联动组",
+            title: "i18n.查看联动组",  // 联动
             json: {
                 'value': '#value',
                 'hostby': '#hostby'
             },
-            opcode: 'not_need_2',
+            opcode: 'view_trigger_group_debug',
             place: 'context',
             viewonly: true,
             callback_set_url: 'nanx/getTriggerGroup',
             callback_set_json_key: '/',
+            path:'server_resp',
             width: 1000,
             itemcfg: [
                 {

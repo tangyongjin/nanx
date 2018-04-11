@@ -293,6 +293,8 @@ function  getMenuItemHandler(node,category,opcode,alt_win_id)
       return common_fn;
     }
 
+    
+
     var common_fn=function(){
               var opform=FormBuilder.backendForm(category,opcode,node);
               var wincfg={
@@ -346,6 +348,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                 };
                 return retLevel;
         },
+
         menuItemProcessor:function(node,category,opcode,title,css){
                 var common_fn= getMenuItemHandler(node,category,opcode);
                 return {
@@ -374,6 +377,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                           if(enabled){ menu.push(submenuitem);}
                         
                 }
+
                 menu.push("-",ExplorerMenuItems.refreshTreeNode(node), ExplorerMenuItems.whatisthis(node));
                 if (menu[0]=="-"){menu.shift()};
                 this.menu=new Ext.menu.Menu({

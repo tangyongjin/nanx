@@ -48,7 +48,7 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-$db['default']['hostname'] = '61.232.6.35';
+$db['default']['hostname'] = '47.92.72.19';
 $db['default']['username'] = 'root';
 $db['default']['port'] = '3306';
 $db['default']['password'] = 'cnix@1234';

@@ -17,9 +17,9 @@
 // $config['controller_trigger']	= 'c';
 // $config['function_trigger']		= 'm';
 // $config['directory_trigger']	= 'd'; 
-// $config['log_threshold'] =0;
+// $config['log_threshold'] =0; 
 
-$config['base_url'] = 'http://61.232.6.35:9002';
+$config['base_url'] = 'http://47.92.72.19:9002';
 $config['login_url'] = $config['base_url']."/home/login";
 
 $config['log_path'] = '/var/www/html/logs';

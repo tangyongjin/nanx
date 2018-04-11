@@ -2,7 +2,7 @@
 
 APP_PREFIX='parkos'
 
-BASE_URL='http://61.232.6.35:9002/'
+BASE_URL='http://47.92.72.19:9002/'
 TMP_DIR=BASE_URL+'tmp/';
 AJAX_ROOT=BASE_URL;
 HELP_DIR=AJAX_ROOT+'dbdocu/gethelp/';
