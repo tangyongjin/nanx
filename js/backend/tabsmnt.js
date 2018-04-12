@@ -109,7 +109,7 @@ Dbl.MainTabPanel = function(){
                         },
                         scope:this
                 };
-                console.log(t)
+                
                 t.layout='fit';
                 subtabs.push(t);
         }
@@ -170,10 +170,10 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                         }
                 }
                 
-                console.log(this.id)
+                
                 if ( this.id=='files_mnt'){
 
-                        var current_table = Dbl.UserActivity2["fs_table"];
+                            var current_table = Dbl.UserActivity2["fs_table"];
                      
 
                     
@@ -184,7 +184,7 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                          
                             item.file_trunk=10
                             
-                            console.log(item.file_type)
+                        
                             if(item.file_type=='img'){
                                  item.edit_type='edit'
                             }else{
@@ -247,9 +247,7 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                 
 
                 var FirstTabs =TabsMenu.getTabs();
-                
-                console.log(FirstTabs)
-
+                 
                 current.removeAll();
                 var id = current.id;
                 for(j=0;j<FirstTabs.length;j++){
@@ -282,7 +280,7 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                         items:subtabs,
                         activeItem:0
                 });
-                console.log(l2tabs)
+             
                 current.add(l2tabs);
                 current.doLayout();
         },

@@ -778,11 +778,7 @@ Fb.setSingleField=function(jsondata, item) {
 
 
  Fb.CallbackSetFieldValue = function(mcfg,node) {
-         
 
-
-         alert('CallbackSetFieldValue called')
-         
          Ext.Ajax.request({
              url: AJAX_ROOT + mcfg.callback_set_url,
              jsonData: Ext.encode(mcfg.json),
@@ -794,12 +790,12 @@ Fb.setSingleField=function(jsondata, item) {
                  } else {
                      var data_from_json = ret_json[key_used];
                  }
-                 alert("后台返回:")
+                
                  Ext.each(mcfg.itemcfg, function(item) {
                     
                      switch (item.item_type){
                       case 'combo_group':
-                         alert('set combo_group called')
+                     
                          Fb.setSingleField(data_from_json, item.root_combox);
                          for (var i = 0; i < item.slave_comboxes.length; i++) {
                             console.log("setSingleField :",data_from_json,item.slave_comboxes[i])
@@ -812,7 +808,7 @@ Fb.setSingleField=function(jsondata, item) {
                          break;
                       
                       case 'follow_tbar':
-                            alert('set addTriggerRow12_from_response called')
+                         
                              console.log("setting follow_tbar:")
                              follow_key_used = item.path;
                              TriggerGroup.addTriggerRow12_from_response(ret_json[follow_key_used]);
@@ -823,7 +819,7 @@ Fb.setSingleField=function(jsondata, item) {
 
                        
                       case 'trigger_group_header':
-                      alert('设置 show_trigger_lines called')
+                   
                        follow_key_used = item.path;
                        TriggerGroup.show_trigger_lines(ret_json[follow_key_used], node,item);
                       break;
@@ -840,8 +836,7 @@ Fb.setSingleField=function(jsondata, item) {
 
 
  Fb.preProcessNodeAtt = function(cfg, xnode) {
-     console.log(cfg)
-     console.log(xnode)
+    
 
      var fixed = DeepClone(cfg);
      function fix_obj_tag(taged, node) {

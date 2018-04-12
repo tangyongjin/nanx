@@ -1,0 +1,2297 @@
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 14:53:45</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 14:53:47</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 14:53:47</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:06:19</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:06:20</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:06:20</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:06:22</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:06:22</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:06:22</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:06:25</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:06:25</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:06:25</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:06:26</div>category_to_use=trigger_groups&value=parkos_worker&node=xnode-127<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:06:26</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:06:26</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:06:29</div>{"value":"联动组","hostby":"parkos_worker"}<hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:06:30</div>{"value":"联动组","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/view_trigger_group_debug</span></div><div>2018-04-12 16:06:30</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:30</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:30</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:31</div>category_to_use=biz_cols&value=parkos_prov_list<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:31</div>category_to_use=biz_cols&value=parkos_prov_list<hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:06:36</div>category_to_use=buttons&value=act_parkos_worker_2119335872&node=xnode-106<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:06:36</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:06:36</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:38</div>start=0&limit=25&category_to_use=activitys&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:39</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:39</div>category_to_use=activitys&value=<hr/><div><span class =functionname>/dbdocu/gethelp/add_a2a_button</span></div><div>2018-04-12 16:06:39</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:06:39</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:43</div>start=0&limit=25&category_to_use=biz_cols&value=parkos_worker&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:47</div>start=0&limit=25&category_to_use=activitys&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:49</div>start=0&limit=25&category_to_use=biz_cols&value=&query=<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] Invalid argument supplied for foreach()<br/>Line Number: [34]<br/>Filename: [/var/www/html/application/models/mfieldcfg.php]</div>  
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:56</div>start=0&limit=25&category_to_use=activitys&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:56</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/dbdocu/gethelp/add_a2a_button</span></div><div>2018-04-12 16:06:56</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:06:56</div>category_to_use=activitys&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:06:56</div><hr/><div><span class =functionname>/dbdocu/gethelp/add_js_button</span></div><div>2018-04-12 16:07:00</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:07:02</div>category_to_use=hooks&value=act_parkos_worker_2119335872&node=xnode-107<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:07:02</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:07:02</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:07:06</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:11</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:11</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:11</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:11</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:07:24</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:30</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:30</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:30</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:30</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:07:51</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:57</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:57</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:57</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:07:57</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:08:55</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:08:57</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:08:58</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:09:00</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:09:00</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:09:00</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:09:02</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:09:03</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:09:03</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:09:07</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:11</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:11</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:11</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:11</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:09:20</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:09:23</div>category_to_use=buttons&value=act_parkos_worker_2119335872&node=xnode-106<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:09:23</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:09:23</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:09:23</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:09:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:09:24</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:09:28</div>{"value":"parkos_worker","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/add_trigger_group</span></div><div>2018-04-12 16:09:28</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:09:28</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:09:36</div>{"value":"parkos_worker","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/add_trigger_group</span></div><div>2018-04-12 16:09:36</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:09:36</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:42</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:42</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:43</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:43</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:43</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:43</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:09:46</div>category_to_use=trigger_groups&value=parkos_worker&node=xnode-309<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:09:46</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:09:46</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:09:48</div>{"value":"联动组","hostby":"parkos_worker"}<hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:09:51</div>{"value":"联动组","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/view_trigger_group_debug</span></div><div>2018-04-12 16:09:51</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:51</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:51</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:51</div>category_to_use=biz_cols&value=parkos_prov_list<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:09:51</div>category_to_use=biz_cols&value=parkos_prov_list<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:10:19</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:10:22</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:10:22</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:10:24</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:10:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:10:24</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:10:25</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:10:26</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:10:26</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:10:29</div>category_to_use=hooks&value=act_parkos_worker_2119335872&node=xnode-107<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:10:29</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:10:29</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:10:33</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:11:17</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:23</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:23</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:23</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:23</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:25</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:11:57</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:59</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:59</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:59</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:11:59</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:12:49</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:12:50</div>category_to_use=model_method&value=mexcel<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:12:51</div>start=0&limit=25&category_to_use=model_method&value=mexcel&query=<hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:13:06</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:13:07</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:13:07</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:13:09</div>category_to_use=trigger_groups&value=parkos_worker&node=xnode-472<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:13:09</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:13:09</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:13:12</div>{"value":"parkos_worker","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/add_trigger_group</span></div><div>2018-04-12 16:13:12</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:13:12</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:14</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:14</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:13:24</div>category_to_use=dropdown_groups&value=parkos_worker&node=xnode-473<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:13:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:13:24</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:13:26</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:28</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:28</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:28</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:28</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:30</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:31</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:32</div>start=0&limit=25&category_to_use=hook_event&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:32</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:13:33</div>start=0&limit=25&category_to_use=model_method&value=&query=<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] include_once(application//models/.php): failed to open stream: No such file or directory<br/>Line Number: [520]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] include_once(): Failed opening 'application//models/.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')<br/>Line Number: [520]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] array_search() expects parameter 2 to be array, null given<br/>Line Number: [522]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] array_search() expects parameter 2 to be array, null given<br/>Line Number: [526]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] Invalid argument supplied for foreach()<br/>Line Number: [530]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [8] Undefined variable: ret<br/>Line Number: [534]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:14:42</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:14:48</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:14:59</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:02</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:02</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:02</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:02</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:15:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:15:25</div><hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:15:26</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:28</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:28</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:28</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:28</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:15:29</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:15:35</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:15:35</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:17:39</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:17:39</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:17:41</div>{"value":"parkos_worker","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/add_trigger_group</span></div><div>2018-04-12 16:17:41</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:17:41</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:18:08</div>{"value":"parkos_worker","hostby":"parkos_worker"}<hr/><div><span class =functionname>/dbdocu/gethelp/add_trigger_group</span></div><div>2018-04-12 16:18:08</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:18:08</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:09</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:09</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:11</div>category_to_use=biz_cols&value=parkos_worker<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:11</div>category_to_use=biz_tables&value=<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook</span></div><div>2018-04-12 16:18:31</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:33</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:33</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:33</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:33</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_type&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:36</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:38</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:38</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:38</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:38</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:47</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:47</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:47</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:47</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:48</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:48</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:48</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:48</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:49</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:49</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:49</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:49</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:53</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:54</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:54</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:54</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:54</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:18:59</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:21:10</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:12</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:12</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:14</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:14</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:14</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:16</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:16</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:16</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:17</div>category_to_use=hooks&value=act_parkos_worker_2119335872&node=xnode-107<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:17</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:17</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:21:39</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:41</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:41</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:42</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:43</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:43</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:44</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:44</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:44</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:21:46</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:21:46</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:21:46</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:21:50</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:21:50</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:21:55</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:21:55</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:21:55</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:21:55</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:22:05</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:22:06</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:22:07</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:22:08</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:22:09</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:22:09</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:22:10</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:22:10</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:22:10</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:22:13</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:22:13</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:22:15</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:22:15</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:22:15</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:22:15</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:23:10</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:23:12</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:23:13</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:23:14</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:23:14</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:23:14</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:23:16</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:23:16</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:23:16</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:23:18</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:23:18</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:23:20</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:23:20</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:23:20</div>category_to_use=hook_type&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:23:20</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:27:34</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:27:36</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:27:37</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:27:42</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:27:42</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:27:43</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:27:44</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:27:44</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:27:44</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:27:45</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:27:45</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:27:45</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:27:49</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:27:49</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:27:52</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:27:52</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:27:54</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:27:54</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:27:54</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:27:54</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:28:28</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:28:30</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:28:30</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:28:33</div>category_to_use=biz_tables&value=%E4%B8%9A%E5%8A%A1%E8%A1%A8&node=tree_biz_tables<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:28:33</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:28:33</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:28:39</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:28:39</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:28:39</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:28:41</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:28:41</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:28:42</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:28:44</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:28:44</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:28:46</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:28:46</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:28:46</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:28:46</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:29:20</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:29:22</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:29:22</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:29:24</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:29:25</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:29:25</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:29:27</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:29:27</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:29:28</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:29:30</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:29:30</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:29:32</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:29:32</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:29:32</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:29:32</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:31:50</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:31:52</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:31:53</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:31:54</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:31:55</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:31:55</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:31:56</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:31:56</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:31:56</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:31:59</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:31:59</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:32:01</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:32:01</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:32:01</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:32:01</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:33:42</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:33:44</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:33:44</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:33:47</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:33:47</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:33:47</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:33:49</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:33:49</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:33:49</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:33:51</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:33:51</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:33:52</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:33:52</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:33:52</div>category_to_use=hook_type&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:33:52</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:36:38</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:36:39</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:36:40</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:36:41</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:36:41</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:36:41</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:36:42</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:36:43</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:36:43</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:36:44</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:36:44</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:36:45</div>category_to_use=based_biz_table&value=61&node=xnode-106<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:36:45</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:36:45</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:36:53</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:36:53</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:36:54</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:36:54</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:36:54</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:36:54</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:43:07</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:43:09</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:43:09</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:43:12</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:43:14</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:43:14</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:43:29</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:43:31</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:43:31</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:44:35</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:44:37</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:44:37</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:44:39</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:44:40</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:44:40</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:44:53</div>category_to_use=activity&value=dep_mnt&node=282<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:44:53</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:44:54</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:44:56</div>left_category=biz_cols_by_actcode&right_category=forbidden_biz_cols_by_actcode&value=dep_mnt<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:44:56</div>left_category=biz_cols_by_actcode&right_category=forbidden_biz_cols_by_actcode&value=dep_mnt<hr/><div><span class =functionname>/dbdocu/gethelp/set_forbidden_col</span></div><div>2018-04-12 16:44:56</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:45:02</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:45:03</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:45:03</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:45:49</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:45:51</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:45:51</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:45:52</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:45:52</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:45:53</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:45:53</div>category_to_use=activity&value=dep_mnt&node=282<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:45:54</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:45:54</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:46:18</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:46:20</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:46:20</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:46:22</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:46:23</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:46:23</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:46:24</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:46:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:46:24</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:47:35</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:47:37</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:47:37</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:47:39</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:47:39</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:47:39</div><hr/><div><span class =functionname>/dbdocu/gethelp/rename_activity</span></div><div>2018-04-12 16:47:41</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:47:45</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:47:45</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:47:46</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:47:48</div>category_to_use=based_biz_table&value=61&node=xnode-184<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:47:48</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:47:48</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:47:51</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:47:51</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:53</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:53</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:53</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:54</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:47:56</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:48:20</div>start=0&limit=25&category_to_use=hook_event&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:48:23</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:48:25</div>category_to_use=model_method&value=mfile<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:48:26</div>start=0&limit=25&category_to_use=model_method&value=mfile&query=<hr/><div><span class =functionname>/nanx/index</span></div><div>2018-04-12 16:48:41</div>{"rawdata":{"opcode":"set_activity_hook_debug","nodevalue":"act_parkos_worker_2119335872","id":"xnode-186","hostby":"act_parkos_worker_2119335872","base_activity":"debug","hook_type_1":"data","hook_when_1":"before","hook_event_1":"add","extra_ci_model_1":"mfile","model_method_1":"fs2array","trigger_counts":1}}<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [8] Undefined index: set_activity_hook_debug<br/>Line Number: [1137]<br/>Filename: [/var/www/html/application/controllers/nanx.php]</div>  
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:50:15</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:17</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:18</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:50:22</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:22</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:22</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:50:24</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:24</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:50:28</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:50:28</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:30</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:30</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:30</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:30</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:31</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:34</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:36</div>start=0&limit=25&category_to_use=hook_event&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:38</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:40</div>category_to_use=model_method&value=minventory<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:41</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/nanx/index</span></div><div>2018-04-12 16:50:47</div>{"rawdata":{"opcode":"set_activity_hook_debug","nodevalue":"act_parkos_worker_2119335872","id":"xnode-107","hostby":"act_parkos_worker_2119335872","base_activity":"debug","hook_type_1":"data","hook_when_1":"before","hook_event_1":"delete","extra_ci_model_1":"minventory","model_method_1":"check_if_can_input_log","trigger_counts":1}}<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [8] Undefined index: memo_1<br/>Line Number: [1558]<br/>Filename: [/var/www/html/application/controllers/nanx.php]</div>  
+<br/>nanx_activity_hooks
+<br/>array (
+  0 => 
+  array (
+    'activity_code' => 'act_parkos_worker_2119335872',
+    'hook_type' => 'data',
+    'hook_when' => 'before',
+    'hook_event' => 'delete',
+    'extra_ci_model' => 'minventory',
+    'model_method' => 'check_if_can_input_log',
+    'memo' => NULL,
+  ),
+)
+<hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:50:47</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:47</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:47</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:50:52</div>category_to_use=hooks&value=act_parkos_worker_2119335872&node=xnode-405<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:52</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:52</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:50:53</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:50:53</div><hr/><div><span class =functionname>/nanx/getHook</span></div><div>2018-04-12 16:50:57</div>{"value":"2"}<hr/><div><span class =functionname>/dbdocu/gethelp/view_trigger_group2</span></div><div>2018-04-12 16:50:57</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:58</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:58</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:58</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:58</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:50:58</div>category_to_use=model_method&value=minventory<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:51:44</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:51:45</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:51:46</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:51:48</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:51:49</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:51:49</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:51:50</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:51:50</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:51:50</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:51:51</div>category_to_use=hooks&value=act_parkos_worker_2119335872&node=xnode-108<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:51:51</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:51:51</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:51:52</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:51:52</div><hr/><div><span class =functionname>/nanx/getHook</span></div><div>2018-04-12 16:51:54</div>{"value":"2"}<hr/><div><span class =functionname>/dbdocu/gethelp/view_trigger_group2</span></div><div>2018-04-12 16:51:55</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:51:56</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:51:56</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:51:56</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:51:56</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:51:56</div>category_to_use=model_method&value=minventory<hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:52:25</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:52:25</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:27</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:27</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:27</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:27</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:53</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:53</div>category_to_use=hook_when&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:53</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:54</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:54</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:54</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:52:54</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:53:00</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:53:02</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:53:03</div>start=0&limit=25&category_to_use=hook_event&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:53:05</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:53:06</div>start=0&limit=25&category_to_use=model_method&value=&query=<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] include_once(application//models/.php): failed to open stream: No such file or directory<br/>Line Number: [520]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] include_once(): Failed opening 'application//models/.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')<br/>Line Number: [520]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] array_search() expects parameter 2 to be array, null given<br/>Line Number: [522]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] array_search() expects parameter 2 to be array, null given<br/>Line Number: [526]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [2] Invalid argument supplied for foreach()<br/>Line Number: [530]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<br/><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">Message: [8] Undefined variable: ret<br/>Line Number: [534]<br/>Filename: [/var/www/html/application/controllers/tree.php]</div>  
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:54:53</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:54:55</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:54:56</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:54:57</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:54:58</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:54:58</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:54:59</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:54:59</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:54:59</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:55:02</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:55:02</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:55:05</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:55:05</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:55:05</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:55:05</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 16:57:14</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:57:16</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:57:17</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:57:18</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:57:19</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:57:19</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 16:57:19</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 16:57:20</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 16:57:20</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:57:21</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:57:21</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 16:57:56</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 16:57:56</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:57:58</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:57:58</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:57:58</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 16:57:58</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:00:26</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:00:27</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:00:28</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:00:29</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:00:30</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:00:30</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:00:31</div>category_to_use=activity&value=%E7%89%B9%E4%BA%A7&node=287<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:00:31</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:00:31</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:00:32</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:00:32</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:00:32</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:00:35</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:00:35</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:00:43</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:00:43</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:00:43</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:00:43</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:01:33</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:01:35</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:01:36</div><hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:01:47</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:01:49</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:01:49</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:01:50</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:01:50</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:01:50</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:01:52</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:01:52</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:01:52</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:01:54</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:01:54</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:01:56</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:01:57</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:01:57</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:01:57</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:03:44</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:03:46</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:03:46</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:03:47</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:03:48</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:03:48</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:03:49</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:03:49</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:03:50</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:03:51</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:03:51</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:03:52</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:03:52</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:03:52</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:03:52</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:04:18</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:04:20</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:04:21</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:04:22</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:04:22</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:04:22</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:04:23</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:04:23</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:04:23</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:04:25</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:04:25</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:04:27</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:04:27</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:04:27</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:04:27</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:05:12</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:14</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:14</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:05:16</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:16</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:16</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:05:17</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:17</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:17</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:05:19</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:05:19</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:20</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:20</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:20</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:20</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:05:38</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:40</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:40</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:05:41</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:41</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:41</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:05:42</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:05:43</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:05:43</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:05:46</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:05:46</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:47</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:47</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:47</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:47</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:48</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:50</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:53</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:53</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:53</div>category_to_use=extra_ci_model&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:53</div>category_to_use=hook_event&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:54</div>start=0&limit=25&category_to_use=hook_type&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:56</div>start=0&limit=25&category_to_use=hook_when&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:58</div>start=0&limit=25&category_to_use=hook_event&value=&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:05:59</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:00</div>category_to_use=model_method&value=mxmenu_delete<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:01</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:04</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:08</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:11</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:14</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:21</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:28</div>start=0&limit=25&category_to_use=model_method&value=mxmenu_delete&query=<br/>array (
+  'type' => 1,
+  'message' => 'Class \'Mxmenu_delete\' not found',
+  'file' => '/var/www/html/system/core/Loader.php',
+  'line' => 303,
+)
+<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:06:32</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:06:34</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:06:34</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:06:36</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:06:36</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:06:36</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:06:37</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:06:38</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:06:38</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:06:39</div>category_to_use=based_biz_table&value=61&node=xnode-105<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:06:40</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:06:40</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:06:42</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:06:42</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:44</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:44</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:44</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:44</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:45</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:47</div>category_to_use=model_method&value=minventory<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:50</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:54</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:06:58</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:05</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:11</div>start=0&limit=25&category_to_use=model_method&value=minventory&query=<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:07:23</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:07:23</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:07:24</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:07:24</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:07:29</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:07:29</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:31</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:31</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:31</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:31</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:32</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:35</div>category_to_use=model_method&value=mtree<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:36</div>start=0&limit=25&category_to_use=model_method&value=mtree&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:39</div>start=0&limit=25&category_to_use=model_method&value=mtree&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:07:44</div>start=0&limit=25&category_to_use=model_method&value=mtree&query=<hr/><div><span class =functionname>/backend/admin</span></div><div>2018-04-12 17:07:57</div><hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:07:58</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:07:59</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:08:01</div>category_to_use=activitys&value=%E6%B4%BB%E5%8A%A8&node=tree_activitys<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:08:01</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:08:01</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:08:04</div>category_to_use=activity&value=act_parkos_worker_2119335872&node=286<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:08:04</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:08:04</div><hr/><div><span class =functionname>/tree</span></div><div>2018-04-12 17:08:05</div>category_to_use=based_biz_table&value=61&node=xnode-106<hr/><div><span class =functionname>/activity/getActCfg</span></div><div>2018-04-12 17:08:05</div>{"code":"NANX_APP_SUMMARY","grid_id":"grid_NANX_APP_SUMMARY","showwhere":"render_to_tabpanel","tbar_type":"render_to_tabpanel"}<hr/><div><span class =functionname>/tree/systemSummary</span></div><div>2018-04-12 17:08:05</div><hr/><div><span class =functionname>/nanx/getTriggerGroup</span></div><div>2018-04-12 17:08:08</div>{"value":"act_parkos_worker_2119335872","hostby":"act_parkos_worker_2119335872"}<hr/><div><span class =functionname>/dbdocu/gethelp/set_activity_hook_debug</span></div><div>2018-04-12 17:08:08</div><hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:09</div>category_to_use=hook_type&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:09</div>category_to_use=hook_event&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:09</div>category_to_use=hook_when&value=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:09</div>category_to_use=extra_ci_model&value=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:11</div>start=0&limit=25&category_to_use=extra_ci_model&value=&query=<br/>array (
+  0 => 
+  array (
+    'id' => 0,
+    'Filename' => 'mtree.php',
+    'Size' => 953,
+    'Date' => '2018-04-10 22:26:46 PM',
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'Filename' => 'mxmenu_delete.php',
+    'Size' => 3920,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  2 => 
+  array (
+    'id' => 2,
+    'Filename' => 'mfile.php',
+    'Size' => 8181,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  3 => 
+  array (
+    'id' => 3,
+    'Filename' => 'mexcel.php',
+    'Size' => 5331,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+  4 => 
+  array (
+    'id' => 4,
+    'Filename' => 'minventory.php',
+    'Size' => 5707,
+    'Date' => '2018-04-10 13:47:04 PM',
+  ),
+)
+<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:12</div>category_to_use=model_method&value=mexcel<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:13</div>start=0&limit=25&category_to_use=model_method&value=mexcel&query=<hr/><div><span class =functionname>/tree/</span></div><div>2018-04-12 17:08:16</div>start=0&limit=25&category_to_use=model_method&value=mexcel&query=

@@ -73,6 +73,13 @@ class Nanx extends CI_Controller {
 				'dbcmdtype'  => 'insert',
 				'paracfg'    => array('table_name' => 'table_name', 'backup_name' => 'backup_name')),
 
+           'set_activity_hook_debug' => array(
+				'successmsg' => 'success_set',
+				'tbused'     => 'nanx_activity_hooks',
+				'dbcmdtype'  => 'insert',
+				'paracfg'    => array('table_name' => 'table_name', 'backup_name' => 'backup_name')),
+           
+
 			'create_biz_table' => array(
 				'successmsg' => 'success_create_biz_table',
 				'tbused'     => 'nanx_biz_tables',
@@ -949,6 +956,11 @@ class Nanx extends CI_Controller {
 			$data_fixed = $this->getHookGroupData($data_received);
 		}
 
+
+		 
+		if ($opcode == 'set_activity_hook_debug') {
+			$data_fixed = $this->getHookGroupData($data_received);
+		}
 
 
 		if ($opcode == 'set_field_default_value') {

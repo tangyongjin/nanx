@@ -18,7 +18,7 @@ var TriggerGroup = {};
              var root_combo = Ext.getCmp('combo_table');
              var ref_tab = root_combo.getValue();
              if (!Ext.isEmpty(ref_tab)) {
-                 var newline = Fb.triggerRow12({
+                 var newline = TriggerGroup.triggerRow12({
                      'serial': Ext.id(),
                      'base_table': main_table,
                      'refer_table': ref_tab
@@ -106,9 +106,7 @@ var TriggerGroup = {};
 
 
  TriggerGroup.create_comboxs_line=function(item,node,meta_data){
-       // alert('create_comboxs_line')
-       console.log(item)
-       console.log(node)
+       
        
        var backend_active_form=Ext.getCmp('back_opform');
        trigger_rows =backend_active_form.find('nanx_type','trigger_row');
@@ -155,7 +153,7 @@ var TriggerGroup = {};
         if (meta_data){  
              fixed_sub_item_cfg=Fb.set_trigger_line_ini(fixed_sub_item_cfg,meta_data);
         }
-        
+
         console.log(fixed_sub_item_cfg)
         
         var sub_item=FormBuilder.getBackendFormItem(fixed_sub_item_cfg,node);

@@ -32,10 +32,8 @@ var COMBOX = {};
   
  COMBOX.getBasicCombo = function(xcfg, store,_readOnly) {
    
-
+  
    var cfg=DeepClone(xcfg);
-
-   // console.log(cfg)
 
    if ( _readOnly== undefined) {  
          _readOnly=false;  
@@ -247,9 +245,16 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
 
      var f = [];
      var root_cfg = item.root_combox;
-      
+     
+     console.log(xitem)
+     console.log(root_cfg)
+
+ 
     if(   item.hasOwnProperty('using_serial')){
+
+     
      root_cfg.using_serial=true;
+
      root_cfg.serial=item.serial;
     }
 

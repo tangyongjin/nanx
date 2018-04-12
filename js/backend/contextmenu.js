@@ -175,13 +175,14 @@ var menu_for_trigger_groups = {
                 item_type: 'field',
                 id: 'group_id',
                 width: 170,
-                label: i18n.trigger_group
+                value: '#text',
+                label: i18n.trigger_group 
             },
-
             {
                 item_type: 'DropdownCompoment',
+                using_follow:true,
                 id: 'reg_form_1',
-                headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
+                headers: ['base_table_col', 'trigger_table', 'trigger_table_value', 'trigger_table_list', 'trigger_table_filter'],
                 width: 170,
                 label: i18n.trigger_group,
                 horizon_items:[
@@ -205,14 +206,8 @@ var menu_for_trigger_groups = {
                             value_key_for_slave: 'value',
                             category_to_use: 'biz_tables'
                         },
-                        slave_comboxes: [{
-                                id: 'list_field',
-                                ds_auto: false,
-                                level: 2,
-                                width: 140,
-                                nanx_type: 'slave',
-                                category_to_use: 'biz_cols'
-                            }, {
+                        slave_comboxes: [
+                            {
                                 id: 'value_field',
                                 ds_auto: false,
                                 level: 2,
@@ -220,6 +215,16 @@ var menu_for_trigger_groups = {
                                 nanx_type: 'slave',
                                 category_to_use: 'biz_cols'
                             },
+                            
+                            {
+                                id: 'list_field',
+                                ds_auto: false,
+                                level: 2,
+                                width: 140,
+                                nanx_type: 'slave',
+                                category_to_use: 'biz_cols'
+                            }, 
+                            
                             {
                                 id: 'filter_field',
                                 ds_auto: false,
@@ -231,59 +236,7 @@ var menu_for_trigger_groups = {
                         ]
             }]
         }
-        // ,     {
-        //         item_type: 'trigger_group_header',
-        //         place: 'context',
-        //         path: 'server_resp',
-        //         headers: ['base_table_col', 'trigger_table', 'trigger_table_list', 'trigger_table_value', 'trigger_table_filter'],
-        //         horizon_items: [
-        //             {
-        //                 item_type: 'combo_list',
-        //                 id: 'field_e',
-        //                 value: '#hostby',
-        //                 width: 140,
-        //                 displayField: 'text',
-        //                 valueField: 'value',
-        //                 category_to_use: 'biz_cols'
-        //             },
-        //             {
-        //                 item_type: 'combo_group',
-        //                 root_combox: {
-        //                     id: 'combo_table',
-        //                     ds_auto: true,
-        //                     level: 1,
-        //                     width: 140,
-        //                     nanx_type: 'root',
-        //                     value_key_for_slave: 'value',
-        //                     category_to_use: 'biz_tables'
-        //                 },
-        //                 slave_comboxes: [{
-        //                         id: 'list_field',
-        //                         ds_auto: false,
-        //                         level: 2,
-        //                         width: 140,
-        //                         nanx_type: 'slave',
-        //                         category_to_use: 'biz_cols'
-        //                     }, {
-        //                         id: 'value_field',
-        //                         ds_auto: false,
-        //                         level: 2,
-        //                         width: 140,
-        //                         nanx_type: 'slave',
-        //                         category_to_use: 'biz_cols'
-        //                     },
-        //                     {
-        //                         id: 'filter_field',
-        //                         ds_auto: false,
-        //                         level: 2,
-        //                         width: 140,
-        //                         nanx_type: 'slave',
-        //                         category_to_use: 'biz_cols'
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     }
+       
         ]
     }]
 }
@@ -1153,12 +1106,12 @@ var menu_for_biz_col = {
 var menu_for_dropdown_item = {
     category: ['dropdown_item'],
     menus: [{
-            title: i18n.view_follow_and_source,
+            title: 'i18n.view_follow_and_source继承',
             json: {
                 'value': '#value',
                 'hostby': '#hostby'
             },
-            opcode: 'view_dropdown_and_follow',
+            opcode: 'view_dropdown_and_follow',     
             place: 'context',
             callback_set_url: 'nanx/getFieldSource_and_follow',
             callback_set_json_key: 'combo_cfg',
@@ -1467,6 +1420,77 @@ var menu_for_hooks = {
                 {
                     item_type: 'trigger_group_header',
                     place: 'context',
+                    headers: ['hook_type', 'hook_when', 'hook_event', 'extra_ci_model', 'model_methods', 'memo'],
+                    horizon_items: [
+
+                        {
+                            item_type: 'combo_list',
+                            id: 'hook_type',
+                            width: 140,
+                            category_to_use: 'hook_type'
+                        },
+
+                        {
+                            item_type: 'combo_list',
+                            id: 'hook_when',
+                            width: 140,
+                            category_to_use: 'hook_when'
+                        },
+
+                        {
+                            item_type: 'combo_list',
+                            id: 'hook_event',
+                            width: 140,
+                            category_to_use: 'hook_event'
+                        },
+
+                        {
+                            item_type: 'combo_group',
+                            root_combox: {
+                                width: 140,
+                                id: 'extra_ci_model',
+                                path: 'used_activity',
+                                level: 1,
+                                value_key_for_slave: 'extra_ci_model',
+                                category_to_use: 'extra_ci_model'
+                            },
+                            slave_comboxes: [{
+                                id: 'model_method',
+                                ds_auto: false,
+                                width: 140,
+                                level: 2,
+                                path: 'model_method',
+                                category_to_use: 'model_method'
+                            }]
+                        },
+                        {
+                            item_type: 'field',
+                            id: 'memo',
+                            width: 150
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            title: "i18n.addhock",
+            opcode: 'set_activity_hook_debug',
+            place: 'context',
+            width: 1100,
+            serial: 1,
+            itemcfg: [{
+                    item_type: 'field',
+                    id: 'base_activity',
+                    value: '##text',
+                    width: 100,
+                    label: i18n.activity,
+                    readonly: true
+                },
+
+                {
+                    item_type: 'DropdownCompoment',
+                    place: 'context',
+                    using_follow:false,
                     headers: ['hook_type', 'hook_when', 'hook_event', 'extra_ci_model', 'model_methods', 'memo'],
                     horizon_items: [
 

@@ -169,7 +169,7 @@ Act.prototype.showActivityWindow=function(){
             WaitMask.hide();
             var ret_json=Ext.util.JSON.decode(response.responseText);
             that.setcfg(ret_json);
-            console.log(ret_json)
+          
             switch(ret_json.activity_type)
                 {
 
@@ -1541,8 +1541,7 @@ Act.prototype.getBbar=function(){
 };
 
 Act.prototype.showWindow = function(){
-    
-    console.log(this)
+     
 
     if (this.sql_syntax_error){
         Ext.MessageBox.minWidth=250;
@@ -1561,8 +1560,7 @@ Act.prototype.showWindow = function(){
 
     if (this.cfg.showwhere=='autowin'){
         this.cfg.tbar_type='stand';
-
-        // console.log(this.gridPanel)
+ 
 
         this.gridPanel.height=win_h * 1.0 - 34;
         var winid = 'win_' + this.actcode;
@@ -1598,7 +1596,6 @@ Act.prototype.showWindow = function(){
 
     if (this.cfg.showwhere == 'render_to_tabpanel') {
         
-        console.log(this.cfg)
 
         this.cfg.host.removeAll();
         this.cfg.host.add(this.gridPanel);
@@ -1810,6 +1807,27 @@ Act.prototype.FormAction=function(form){
             if (!formData){
                 return;
             }
+            
+         
+            // 如果存在trigger_row ,说明是下拉配置
+            trigger_rows = form.find('nanx_type', 'trigger_row');
+            if( trigger_rows.length>0){
+               alert('   // 如果存在trigger_row ,说明是下拉配置')   
+               alert(trigger_rows.length)
+               //follow_row
+               follow_row_value=[]
+               follow_rows= form.find('nanx_type', 'follow_row')
+               for (var i = 0; i < follow_rows.length; i++) {
+                     follow_row_value.push( follow_rows[i].getfollowValue())
+                } 
+
+            
+              if( follow_row_value.length>0){
+                   formData.follow_rows=follow_row_value
+              }
+
+            }
+            console.log(formData)
             var dataSend={
                 table:form.table,
                 rawdata:formData,

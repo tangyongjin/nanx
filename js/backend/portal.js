@@ -334,8 +334,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                         r.id='tree_'+FirstLevel[i].category;
                         r.category=FirstLevel[i].category;
                         
-                        console.log( FirstLevel[i].refer )
-                        console.log( xtype )
+                     
 
                         r.refer=FirstLevel[i].refer || '';
                         r.level=1;

@@ -14,13 +14,19 @@ var FormBuilder = {};
 
       var o_mcfg = AppCategory.getSubMenuCfg(category, opcode);
      
-  console.log(o_mcfg)
+ 
      //查看联动租,从 增加联动租 取得 字段配置.
      if( opcode=='view_trigger_group_debug'){
         o_mcfg_create = AppCategory.getSubMenuCfg('trigger_groups', 'add_trigger_group');
         o_mcfg.itemcfg=o_mcfg_create.itemcfg    // 借用上级的 itemcfg
      }
-     console.log(o_mcfg)
+
+     // if( opcode=='view_trigger_group_debug'){
+     //    o_mcfg_create = AppCategory.getSubMenuCfg('trigger_groups', 'add_trigger_group');
+     //    o_mcfg.itemcfg=o_mcfg_create.itemcfg    // 借用上级的 itemcfg
+     // }
+
+  
      var opform = this.getOperationForm(xnode, o_mcfg);
      return opform;
  }
@@ -52,49 +58,21 @@ var FormBuilder = {};
  };
 
  FormBuilder.getBackendFormItem = function(item,node) {
-
+     
+     console.log(item)
+     console.log(node)
+     
      var readonly = item.readonly ? item.readonly : false;
      var hidden = item.hidden ? item.hidden : false;
      var checked = item.all_checked ? item.all_checked : false;
      var field_v=item.value;
-   
-     console.log(item.item_type)
+    
 
      switch (item.item_type) {
+
          case 'field':
-
-            if(  item.hasOwnProperty('using_serial') )
-             {
-                  serial='_'+item.serial
-             }
-             else
-             {
-                 serial=''
-             }
-
-
-             var f = {
-                 fieldLabel:item.label,
-                 id:   item.id ? item.id+serial : "input_" + i,
-                 name: item.id ? item.id+serial : "input_" + i,
-                 xtype: 'textfield',
-                 allowBlank:false,
-                 width: item.width ? item.width : 200,
-                 readOnly: readonly,
-                 hidden: hidden,
-                 validator: item.validate_rule ? function(v) {
-                     return Fb[item.validate_rule].apply(null, [v]);
-                 } : function(v){
-                     if(Ext.isEmpty(v)){return false;}else{return true;}
-                   },
-                 value:item.postfix ? field_v + item.postfix : field_v
-             }; 
-
-             if ( item.hasOwnProperty('ini')){
-                f.value=item.ini
-             }
-
-             if(item.inputType){f.inputType=item.inputType;}
+            
+             var f=this.getCommonField(item)
              break;
 
          case 'raw_table':
@@ -316,7 +294,7 @@ var FormBuilder = {};
              break;
 
          case 'combo_list':
-
+             
              item.displayField = 'text';
              item.valueField = 'value';
              var store = Fb.buildTriggerStore(item);
@@ -324,6 +302,7 @@ var FormBuilder = {};
              break;
          
          case 'combo_group':
+             alert('will create combo_group ')
              var f = COMBOX.getComboGroup(item);
              break;
 
@@ -378,7 +357,7 @@ var FormBuilder = {};
              var f = new Util.DropdownCompoment({  
                         width:500,  
                         height:30,  
-                      
+                        using_follow:item.using_follow,
                         headers:item.headers,
                         item:item,
                         node:node,
@@ -399,6 +378,51 @@ var FormBuilder = {};
 
 
 
+FormBuilder.getCommonField=function(item){
+
+      var readonly = item.readonly ? item.readonly : false;
+      var hidden = item.hidden ? item.hidden : false;
+    
+
+      if(  item.hasOwnProperty('using_serial') )
+             {
+                  serial='_'+item.serial
+             }
+             else
+             {
+                 serial=''
+             }
+
+
+             var f = {
+                 fieldLabel:item.label,
+                 id:   item.id ? item.id+serial : "input_" + i,
+                 name: item.id ? item.id+serial : "input_" + i,
+                 xtype: 'textfield',
+                 allowBlank:false,
+                 width: item.width ? item.width : 200,
+                 readOnly: readonly,
+                 hidden: hidden,
+                 validator: item.validate_rule ? function(v) {
+                     return Fb[item.validate_rule].apply(null, [v]);
+                 } : function(v){
+                     if(Ext.isEmpty(v)){return false;}else{return true;}
+                   },
+                 value:item.postfix ? item.value + item.postfix : item.value
+             }; 
+
+             if ( item.hasOwnProperty('ini')){
+                f.value=item.ini
+             }
+
+             if(item.inputType){f.inputType=item.inputType;}
+             
+             return f;
+
+}
+
+
+
  FormBuilder.getFormData = function(form) {
 
      if (!form.getForm().isValid()  &&  !Ext.getCmp('force_not_check')   ) {
@@ -409,13 +433,9 @@ var FormBuilder = {};
      var fmdata = {};
      var formel = form.getEl();
      var ipts = formel.query('input');
-     console.log(ipts)
 
      for (var i = 0; i < ipts.length; i++) {
          var field_id = ipts[i].getAttribute("id");
-         
-         console.log(field_id)
-
          if (Ext.getCmp(field_id)) {
              var field = Ext.getCmp(field_id);
              var field_type = field.getXType();
@@ -430,8 +450,6 @@ var FormBuilder = {};
          }
 
      }
-     console.log('fmdata',fmdata)
-
      var xtypes = form.findByType("timepickerfield");
      
      for (var i = 0; i < xtypes.length; i++) {
@@ -439,7 +457,6 @@ var FormBuilder = {};
      }
 
      var fm_tmp_v = form.getForm().getValues();
-     console.log(fm_tmp_v)
 
      Ext.applyIf(fmdata, form.getForm().getValues());
      for (var p in fmdata) {
@@ -475,8 +492,6 @@ var FormBuilder = {};
         Ext.getCmp('menutree').getRootNode().expand(true);
         extradata= getTreeData('menutree');
         
-        console.log(extradata)
-
      }
 
 
@@ -501,6 +516,7 @@ var FormBuilder = {};
              fmdata.transfer = true;
          }
      }
+     
      return fmdata;
  }
 
@@ -512,8 +528,7 @@ var FormBuilder = {};
  FormBuilder.getOperationForm = function(node, orginal_mcfg) {
      
      var  mcfg = Fb.preProcessNodeAtt(orginal_mcfg, node);
-     console.log(mcfg)
-     
+      
      var layout = 'form';
      var forms = [];
      var needsend = ['id','group_id', 'table', 'hostby', 'column_definition', 'DDL'];
@@ -587,33 +602,7 @@ var FormBuilder = {};
      
      if( mcfg.callback_set_url)
      {  
-
-        if(  mcfg.opcode=='view_trigger_group_debug'){
-             
-             // opform.on('show',function(a,b,c){ 
-             // console.log(a)
-
-             // var trigger_btn= Ext.getCmp('add_trigger_button' )
-             // console.log(trigger_btn)
-
-            
-             // console.log(trigger_btn.container )
-             // console.log(trigger_btn.btnEl  )  
-            
-
-             //  });
-
-        }else{
-            
-            alert('getOperationForm callback 执行')
             opform.on('render',function(){  Fb.CallbackSetFieldValue.createDelegate(this, [mcfg,node], true)() });
-     
-        }
-
-        
-
-
-
      }
 
      return opform;
