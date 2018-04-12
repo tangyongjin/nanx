@@ -103,7 +103,6 @@ class MUI extends CI_Model
                 'js/compoment_basic_combo.js',
                 'js/compoment_layoutmanager.js',
                 'js/compoment_dragdrop_grid.js',
-                'js/compoment_trigger_group.js',
                 'js/fb.js',
                 'js/backend/portal.js',
                 'js/activity_curd.js',

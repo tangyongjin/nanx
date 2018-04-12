@@ -1105,60 +1105,63 @@ var menu_for_biz_col = {
 
 var menu_for_dropdown_item = {
     category: ['dropdown_item'],
-    menus: [{
-            title: 'i18n.view_follow_and_source继承',
-            json: {
-                'value': '#value',
-                'hostby': '#hostby'
-            },
-            opcode: 'view_dropdown_and_follow',     
-            place: 'context',
-            callback_set_url: 'nanx/getFieldSource_and_follow',
-            callback_set_json_key: 'combo_cfg',
-            viewonly: true,
-            width: 700,
-            itemcfg: [{
-                    item_type: 'field',
-                    label: i18n.field,
-                    value: '#text',
-                    readonly: true
-                },
-                {
-                    item_type: 'combo_group',
-                    root_combox: {
-                        id: 'combo_table',
-                        label: i18n.select_source_table,
-                        path: 'combo_table',
-                        group_id: 'follow_gp',
-                        level: 1,
-                        value_key_for_slave: 'value',
-                        category_to_use: 'biz_tables_can_follow'
-                    },
-                    slave_comboxes: [{
-                            id: 'value_field',
-                            label: i18n.value_col_in_source_table,
-                            path: 'value_field',
-                            level: 2,
-                            group_id: 'follow_gp',
-                            ds_auto: false,
-                            category_to_use: 'biz_cols'
-                        },
-                        {
-                            id: 'list_field',
-                            group_id: 'follow_gp',
-                            label: i18n.display_col_in_source_table,
-                            path: 'list_field',
-                            level: 2,
-                            ds_auto: false,
-                            category_to_use: 'biz_cols'
-                        }
-                    ]
-                }, {
-                    item_type: 'follow_tbar',
-                    path: 'follow_cfg'
-                }
-            ]
-        },
+    menus: [
+
+        // {
+        //     title: 'i18n.view_follow_and_source继承',
+        //     json: {
+        //         'value': '#value',
+        //         'hostby': '#hostby'
+        //     },
+        //     opcode: 'view_dropdown_and_follow',     
+        //     place: 'context',
+        //     callback_set_url: 'nanx/getFieldSource_and_follow',
+        //     callback_set_json_key: 'combo_cfg',
+        //     viewonly: true,
+        //     width: 700,
+        //     itemcfg: [{
+        //             item_type: 'field',
+        //             label: i18n.field,
+        //             value: '#text',
+        //             readonly: true
+        //         },
+        //         {
+        //             item_type: 'combo_group',
+        //             root_combox: {
+        //                 id: 'combo_table',
+        //                 label: i18n.select_source_table,
+        //                 path: 'combo_table',
+        //                 group_id: 'follow_gp',
+        //                 level: 1,
+        //                 value_key_for_slave: 'value',
+        //                 category_to_use: 'biz_tables_can_follow'
+        //             },
+        //             slave_comboxes: [{
+        //                     id: 'value_field',
+        //                     label: i18n.value_col_in_source_table,
+        //                     path: 'value_field',
+        //                     level: 2,
+        //                     group_id: 'follow_gp',
+        //                     ds_auto: false,
+        //                     category_to_use: 'biz_cols'
+        //                 },
+        //                 {
+        //                     id: 'list_field',
+        //                     group_id: 'follow_gp',
+        //                     label: i18n.display_col_in_source_table,
+        //                     path: 'list_field',
+        //                     level: 2,
+        //                     ds_auto: false,
+        //                     category_to_use: 'biz_cols'
+        //                 }
+        //             ]
+        //         }, {
+        //             item_type: 'follow_tbar',
+        //             path: 'follow_cfg'
+        //         }
+        //     ]
+        // },
+        
         {
             title: i18n.delete_dropdown_item,
             json: {
@@ -1179,67 +1182,68 @@ var menu_for_dropdown_item = {
 
 var menu_for_dropdown_groups = {
     category: ['dropdown_groups'],
-    menus: [{
-            title: i18n.add_dropdown_and_follow,
-            json: {
-                'value': '#value',
-                'hostby': '#hostby'
-            },
-            opcode: 'set_biz_field_combo_resorce,set_biz_field_combo_follow',
-            place: 'context',
-            callback_set_url: 'nanx/getFieldSource_and_follow',
-            callback_set_json_key: 'combo_cfg',
-            width: 700,
-            itemcfg: [{
-                    item_type: 'field',
-                    id: 'group_id',
-                    value: '@random',
-                    hidden: true
-                },
-                {
-                    item_type: 'combo_list',
-                    id: 'field_e',
-                    label: i18n.value_col_in_base_table,
-                    level: 1,
-                    value: '#value',
-                    category_to_use: 'biz_cols'
-                },
-                {
-                    item_type: 'combo_group',
-                    root_combox: {
-                        id: 'combo_table',
-                        label: i18n.select_source_table,
-                        path: 'combo_table',
-                        group_id: 'follow_gp',
-                        level: 1,
-                        value_key_for_slave: 'value',
-                        category_to_use: 'biz_tables_can_follow'
-                    },
-                    slave_comboxes: [{
-                            id: 'value_field',
-                            label: i18n.value_col_in_source_table,
-                            path: 'value_field',
-                            level: 2,
-                            group_id: 'follow_gp',
-                            ds_auto: false,
-                            category_to_use: 'biz_cols'
-                        },
-                        {
-                            id: 'list_field',
-                            group_id: 'follow_gp',
-                            label: i18n.display_col_in_source_table,
-                            path: 'list_field',
-                            level: 2,
-                            ds_auto: false,
-                            category_to_use: 'biz_cols'
-                        }
-                    ]
-                }, {
-                    item_type: 'follow_tbar',
-                    path: 'follow_cfg'
-                }
-            ]
-        },
+    menus: [
+        //    {
+        //     title: i18n.add_dropdown_and_follow,
+        //     json: {
+        //         'value': '#value',
+        //         'hostby': '#hostby'
+        //     },
+        //     opcode: 'set_biz_field_combo_resorce,set_biz_field_combo_follow',
+        //     place: 'context',
+        //     callback_set_url: 'nanx/getFieldSource_and_follow',
+        //     callback_set_json_key: 'combo_cfg',
+        //     width: 700,
+        //     itemcfg: [{
+        //             item_type: 'field',
+        //             id: 'group_id',
+        //             value: '@random',
+        //             hidden: true
+        //         },
+        //         {
+        //             item_type: 'combo_list',
+        //             id: 'field_e',
+        //             label: i18n.value_col_in_base_table,
+        //             level: 1,
+        //             value: '#value',
+        //             category_to_use: 'biz_cols'
+        //         },
+        //         {
+        //             item_type: 'combo_group',
+        //             root_combox: {
+        //                 id: 'combo_table',
+        //                 label: i18n.select_source_table,
+        //                 path: 'combo_table',
+        //                 group_id: 'follow_gp',
+        //                 level: 1,
+        //                 value_key_for_slave: 'value',
+        //                 category_to_use: 'biz_tables_can_follow'
+        //             },
+        //             slave_comboxes: [{
+        //                     id: 'value_field',
+        //                     label: i18n.value_col_in_source_table,
+        //                     path: 'value_field',
+        //                     level: 2,
+        //                     group_id: 'follow_gp',
+        //                     ds_auto: false,
+        //                     category_to_use: 'biz_cols'
+        //                 },
+        //                 {
+        //                     id: 'list_field',
+        //                     group_id: 'follow_gp',
+        //                     label: i18n.display_col_in_source_table,
+        //                     path: 'list_field',
+        //                     level: 2,
+        //                     ds_auto: false,
+        //                     category_to_use: 'biz_cols'
+        //                 }
+        //             ]
+        //         }, {
+        //             item_type: 'follow_tbar',
+        //             path: 'follow_cfg'
+        //         }
+        //     ]
+        // },
         {
             title: i18n.add_codetable_config,
             json: {

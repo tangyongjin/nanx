@@ -2,7 +2,7 @@ Ext.ns("Util");
 
 Util.DropdownCompoment = Ext.extend(Ext.Container, {
 
-    build_header: function (headers) {
+    build_header: function(headers) {
 
         var head_tb = "<table><tr>";
         for (var i = 0; i < headers.length; i++) {
@@ -16,9 +16,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
     },
 
 
-    create_follow_line: function (cfg) {
-
-        console.log(cfg)
+    create_follow_line: function(cfg) {
 
         var left_tree_cfg = {
             item_type: 'combo_list',
@@ -54,7 +52,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
 
         var btn_del = new Ext.Button({
             text: i18n.remove,
-            handler: function () {
+            handler: function() {
                 this.ownerCt.ownerCt.remove(this.ownerCt);
             }
         });
@@ -66,47 +64,42 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
             }
         });
 
-        var field_link = new Ext.Container(
-        {
-            'id': 'follow_row_' +  Ext.id(),
-            'owner_row_id':cfg.row_serial,
+        var field_link = new Ext.Container({
+            'id': 'follow_row_' + Ext.id(),
+            'owner_row_id': cfg.row_serial,
             'layout': 'table',
             'nanx_type': 'follow_row',
             'style': '{margin-left:62px;margin-top:2px;}',
             'items': [btn_del, xxx_combo, equ, yyy_combo],
-             getfollowValue:function(){
+            getfollowValue: function() {
                 alert('alert getfollowValue')
-                var obj={}
-                obj.owner_row_id=cfg.row_serial;
-                obj.base_table_follow_field=xxx_combo.getValue()
-                obj.combo_table_follow_field=yyy_combo.getValue()
+                var obj = {}
+                obj.owner_row_id = cfg.row_serial;
+                obj.base_table_follow_field = xxx_combo.getValue()
+                obj.combo_table_follow_field = yyy_combo.getValue()
                 console.log(obj)
                 return obj
-                   
+
             }
         });
-        
-        
+
+
 
         return field_link;
     },
 
 
-    create_follow_header: function (row_serial) {
+    create_follow_header: function(row_serial) {
         var that = this
         var follow_add = new Ext.Button({
             text: i18n.add,
-            handler: function () {
-                var tfm = this.findParentByType('form');
-                
-                
-                var combo_table_id='combo_table_'+ row_serial
-                
-                var combo_in_this_group=Ext.getCmp(combo_table_id)
-                if(combo_in_this_group) {
+            handler: function() {
+                var combo_table_id = 'combo_table_' + row_serial
+                var combo_in_this_group = Ext.getCmp(combo_table_id)
+                if (combo_in_this_group) {
                     var ref_tab = combo_in_this_group.getValue();
                 }
-                
+
 
                 if (!Ext.isEmpty(ref_tab)) {
                     var newline = that.create_follow_line({
@@ -117,19 +110,15 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
 
                     this.ownerCt.ownerCt.insert(12, newline);
                     this.ownerCt.ownerCt.doLayout();
-                } else
-                {
-                    Ext.Msg.alert(i18n.error,'请先选择联动表格');
+                } else {
+                    Ext.Msg.alert(i18n.error, '请先选择联动表格');
                 }
             }
         })
 
-     
-
         var lb0 = new Ext.Container({
-            'html': '  ' + i18n.follow_col+'&nbsp;&nbsp;&nbsp;&nbsp;'
+            'html': '  ' + i18n.follow_col + '&nbsp;&nbsp;&nbsp;&nbsp;'
         });
-
 
         var lb1 = new Ext.Container({
             'html': '  ' + i18n.base_table_col
@@ -142,28 +131,27 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
         var f = new Ext.Container({
             'fieldLabel': i18n.follow_col,
             'layout': 'table',
-            items: [lb0,follow_add, lb1, lb2]
+            items: [lb0, follow_add, lb1, lb2]
         });
         return f;
     },
 
 
-    getFollowPanel: function (serial) {
+    getFollowPanel: function(serial) {
         console.log(serial)
         var header = this.create_follow_header(serial)
         var f = new Ext.Container({
-
             width: 590,
             border: 1,
-            height:'auto',
+            height: 'auto',
             nanx_type: 'follow_panel',
-            layout:'auto',
+            layout: 'auto',
             style: {
                 'margin': '2px 0 6px 105px',
-                'padding':'6px 0 6px 0',
+                'padding': '6px 0 6px 0',
                 borderColor: '#F7F7F7',
                 borderStyle: 'solid',
-                'min-height':'40px',
+                'min-height': '40px',
                 borderWidth: '1px'
             },
 
@@ -173,7 +161,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
     },
 
 
-    callback_setvalue: function (btn, config) {
+    callback_setvalue: function(btn, config) {
 
         var that = this
         var json = {
@@ -184,16 +172,16 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
             url: AJAX_ROOT + config.callback_set_url,
             jsonData: Ext.encode(json),
 
-            callback: function (options, success, response) {
+            callback: function(options, success, response) {
                 var ret_json = Ext.util.JSON.decode(response.responseText);
                 var key_used = 'server_resp'
                 var data_from_json = ret_json[key_used];
                 var backend_active_form = Ext.getCmp('back_opform');
-                var serial=1
-                Ext.each(data_from_json, function (meta_item) {
-                    config.item.serial=serial
+                var serial = 1
+                Ext.each(data_from_json, function(meta_item) {
+                    config.item.serial = serial
                     var newline = that.create_comboxs_line(config.item, config.node, meta_item)
-                    serial=serial+1
+                    serial = serial + 1
                     backend_active_form.insert(12, newline);
                     backend_active_form.doLayout();
                 });
@@ -202,24 +190,16 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
     },
 
 
-    create_comboxs_line: function (item, node, meta_data) {
-        
-        console.log(item)
+    create_comboxs_line: function(item, node, meta_data) {
 
         var that = this
-        console.log('添加行....')
-
-        console.log(meta_data)
-
-
         var backend_active_form = Ext.getCmp('back_opform');
-     
-    
+
         var btn_del = new Ext.Button({
             text: i18n.remove,
             id: Ext.id(),
             serial: item.serial,
-            handler: function () {
+            handler: function() {
 
                 var form = this.findParentByType('form');
                 var tr = form.find('nanx_type', 'trigger_row');
@@ -261,32 +241,29 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
             }
 
             if (fixed_sub_item_cfg.item_type == 'combo_group') {
-               var sub_item = COMBOX.getComboGroup(fixed_sub_item_cfg)
+                var sub_item = COMBOX.getComboGroup(fixed_sub_item_cfg)
             }
 
             if (fixed_sub_item_cfg.item_type == 'field') {
+                var sub_item = FormBuilder.getCommonField(fixed_sub_item_cfg)
             }
-
-
-
             subitems.push(sub_item);
 
         }
 
-        var followPanel = that.getFollowPanel( item.serial)
 
         var field_link = new Ext.Container({
             'id': 'followRow_' + Ext.id(),
             'layout': 'table',
-             width: 950,
+            width: 950,
             'nanx_type': 'trigger_row',
             'style': '{margin-left:105px;}',
             items: subitems
         });
 
         var joined = new Ext.Container({
-            'nanx_type':'joined',
-            items:  item.using_follow? [field_link, followPanel]:[field_link]
+            'nanx_type': 'joined',
+            items: item.using_follow ? [field_link, that.getFollowPanel(item.serial)] : [field_link]
         })
 
 
@@ -294,7 +271,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
     },
 
 
-    build_button: function (config, item, node) {
+    build_button: function(config, item, node) {
         var that = this
 
         console.log(node.attributes.category)
@@ -302,7 +279,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
             text: i18n.add_trigger,
             nanx_type: 'trigger_add_button',
             id: 'add_trigger_button',
-            handler: function () {
+            handler: function() {
                 {
                     var form = this.findParentByType('form');
                     var trigger_rows = form.find('nanx_type', 'trigger_row');
@@ -318,7 +295,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
         return addbtn
     },
 
-    constructor: function (config) {
+    constructor: function(config) {
         var headers = config.headers;
         var item = config.item;
         var node = config.node;
