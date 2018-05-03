@@ -308,7 +308,7 @@ FileMgr.uploadFile=function(grid){
     var vnode={attributes:{os_path:os_path,file_type:grid.initialConfig.file_type}};
     var category='medias';
     var opcode='upload_file';
-    view_file_fun=getMenuItemHandler(vnode,category,opcode,Ext.id());
+    view_file_fun= FormBuilder.BackendFormHandler(vnode,category,opcode,Ext.id());
     view_file_fun();
 }
 

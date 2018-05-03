@@ -51,18 +51,20 @@ class MUI extends CI_Model
                 'jslib/ext/Power_htmleditor.js',
                 'jslib/ext/ux/fileuploadfield/fileuploadfield.js',
                 'js/globalvars.js',
+               
                 'js/activity.plug.js',
                 'js/activity_curd.js',
-                // 'js/backend/backend_tree_tab_cfg.js',
                 'js/util.js',
                 'js/compoment_menu_tree.js',
                 'js/compoment_basic_combo.js',
                 'js/form.formbuilder.js',
                 'js/file_mgr.js',
-                'js/fb.js',
+              
                 'js/fixheight.js',
                 'js/event_list.js',
+                 'js/fb.js',
                 'js/boot.js',
+          
                 'menutheme/js/function.js'
             )
         );

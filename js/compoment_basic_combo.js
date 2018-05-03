@@ -31,10 +31,7 @@ var COMBOX = {};
 
   
  COMBOX.getBasicCombo = function(xcfg, store,_readOnly) {
-   
-  
    var cfg=DeepClone(xcfg);
-
    if ( _readOnly== undefined) {  
          _readOnly=false;  
     }  
@@ -51,7 +48,6 @@ var COMBOX = {};
 
      var combox_width=cfg.width?cfg.width:300
      combox_width=140;
-     // console.log(combox_width)
 
      var combox_cfg = {
          id: com_id,
@@ -147,10 +143,6 @@ COMBOX.refreshSlaveStore=function(combo,record,idx,field_cfg){
          
 }
 
-
-
-
-
 COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){ 
          
 
@@ -168,12 +160,10 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
          // console.log(field_cfg.raw_value)
 
          var x_group_id = combox_cfg.group_id;
-         // console.log(x_group_id)
 
          var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
          var tmp_v = combo.getValue();
          if (Ext.isEmpty(tmp_v)) {
-             console.log("return for tmp_v: "+ combo.valueField || combo.displayField  )
              return;
          }
 
@@ -194,7 +184,6 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
              var ds = direct_slaves[i].getStore();
              var path='query_cfg.lines.vset_'+i;
              
-             // console.log(" direct_slaves loading... "+ current_v)
              COMBOX.setStorePara(ds, path,current_v);
              direct_slaves[i].getStore().load();
          }

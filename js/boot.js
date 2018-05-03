@@ -1,3 +1,138 @@
+
+Ext.override(Ext.Button, {
+    setupclick: function() {
+        alert('setupclick')
+        this.getEl().dom.click();
+    }
+});
+
+
+Ext.override(Ext.Component, {
+    Callback_setValue: function(value) {
+        var xtype = this.getXType();
+        if (xtype == 'textfield' || xtype == 'textarea' || xtype == 'combo' || xtype == 'StarHtmleditor') {
+            this.setValue(value);
+            // this.setRawValue(value);
+        }
+
+        if ((xtype == 'panel') && (this.items.itemAt(0).getXType() == 'checkbox')) {
+            for (var i = 0; i < this.items.getCount(); i++) {
+                if (value.indexOf(this.items.itemAt(i).inputValue) !== -1) {
+                    this.items.itemAt(i).setValue(true);
+                } else {
+                    this.items.itemAt(i).setValue(false);
+                }
+            }
+        }
+    }
+});
+
+
+Ext.override(Ext.tree.TreeLoader,{
+        processResponse:function(response,node,callback){
+                var e=Ext.util.JSON.decode(response.responseText);
+                var rows=e.server_resp;
+                node.beginUpdate();
+                for (var i=0,len=rows.length;i<len;i++) {
+                        if(!rows[i].hasOwnProperty('value'))
+                        {
+                          rows[i].value=rows[i].field_e;
+                        }
+                        
+                        var n=this.createNode(rows[i]);
+                        if(n){
+                                node.appendChild(n);
+                        }
+                }
+                node.endUpdate();
+                if (typeof callback=="function"){
+                        callback(this,node);
+                }
+        }
+});
+
+Ext.override(Ext.Component,{
+        findParentBy:function(fn){
+                for(var p=this.ownerCt;
+                (p != null)&&!fn(p);p=p.ownerCt);
+                return p;
+        },
+        findParentByType:function(xtype){
+                return typeof xtype=='function'?this.findParentBy(function(p){
+                        return p.constructor===xtype;
+                }):this.findParentBy(function(p){
+                        return p.constructor.xtype===xtype;
+                });
+        }
+});
+
+
+
+
+Ext.override(Ext.Component, {
+    Callback_setValue: function(value) {
+        var xtype = this.getXType();
+        if (xtype == 'textfield' || xtype == 'textarea' || xtype == 'combo' || xtype == 'StarHtmleditor') {
+            this.setValue(value);
+            // this.setRawValue(value);
+        }
+
+        if ((xtype == 'panel') && (this.items.itemAt(0).getXType() == 'checkbox')) {
+            for (var i = 0; i < this.items.getCount(); i++) {
+                if (value.indexOf(this.items.itemAt(i).inputValue) !== -1) {
+                    this.items.itemAt(i).setValue(true);
+                } else {
+                    this.items.itemAt(i).setValue(false);
+                }
+            }
+        }
+    }
+});
+
+
+
+Ext.override(Ext.tree.TreeLoader,{
+        processResponse:function(response,node,callback){
+                var e=Ext.util.JSON.decode(response.responseText);
+                var rows=e.server_resp;
+                node.beginUpdate();
+                for (var i=0,len=rows.length;i<len;i++) {
+                        if(!rows[i].hasOwnProperty('value'))
+                        {
+                          rows[i].value=rows[i].field_e;
+                        }
+                        
+                        var n=this.createNode(rows[i]);
+                        if(n){
+                                node.appendChild(n);
+                        }
+                }
+                node.endUpdate();
+                if (typeof callback=="function"){
+                        callback(this,node);
+                }
+        }
+});
+
+Ext.override(Ext.Component,{
+        findParentBy:function(fn){
+                for(var p=this.ownerCt;
+                (p != null)&&!fn(p);p=p.ownerCt);
+                return p;
+        },
+        findParentByType:function(xtype){
+                return typeof xtype=='function'?this.findParentBy(function(p){
+                        return p.constructor===xtype;
+                }):this.findParentBy(function(p){
+                        return p.constructor.xtype===xtype;
+                });
+        }
+});
+ 
+ 
+
+
+
 Ext.ns('App');
 App.init = function(){
      Ext.QuickTips.init();

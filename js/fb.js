@@ -1,33 +1,4 @@
 
-Ext.override(Ext.Button, {
-    setupclick: function() {
-        alert('setupclick')
-        this.getEl().dom.click();
-    }
-});
-
-
-Ext.override(Ext.Component, {
-    Callback_setValue: function(value) {
-        var xtype = this.getXType();
-        if (xtype == 'textfield' || xtype == 'textarea' || xtype == 'combo' || xtype == 'StarHtmleditor') {
-            this.setValue(value);
-            // this.setRawValue(value);
-        }
-
-        if ((xtype == 'panel') && (this.items.itemAt(0).getXType() == 'checkbox')) {
-            for (var i = 0; i < this.items.getCount(); i++) {
-                if (value.indexOf(this.items.itemAt(i).inputValue) !== -1) {
-                    this.items.itemAt(i).setValue(true);
-                } else {
-                    this.items.itemAt(i).setValue(false);
-                }
-            }
-        }
-    }
-});
-
-
 Ext.ns('Fb');
 var Fb = {};
 var WaitMask = {

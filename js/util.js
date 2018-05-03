@@ -1,4 +1,7 @@
 
+/*
+工具类函数
+*/
 
 
  function  DeepClone (obj) {
@@ -258,3 +261,193 @@ function getTreeData(treeid){
                  
                  
 }
+
+
+
+function getCurrentColandIndex(rowindex){
+    var grid=Ext.getCmp("grid_NANX_TBL_INDEX");
+    ds=grid.getStore();
+    var cols4index = ds.reader.jsonData.cols4index;
+    var tb_col_arr = [];
+    for (var i=0;i<cols4index.length;i++) {
+        var d = cols4index[i]['Field'];;
+        tb_col_arr[i]=[d,d];
+    }
+    var indexcol=[];
+    var current_cols=Ext.getCmp("grid_NANX_TBL_INDEX").store.getAt(rowindex);
+    var columns=current_cols.data.columns;
+    if (columns){
+        columns=columns.split(",");
+        if (columns.length){
+            for (var i=0;i<columns.length;i++){
+                var onecol=(columns[i]);
+                indexcol.push([onecol,onecol]);
+            }
+        }
+    }
+    var aviableCols=getAviableCols(tb_col_arr,indexcol);
+    var colreader=new Ext.data.ArrayReader({},[{name:'text'},{name:'value'}]);
+    var dscfg1={
+        fields:['value', 'text'],
+        reader:colreader
+    };
+    var dscfg2={};
+    Ext.apply(dscfg2, dscfg1);
+    dscfg1.data=aviableCols;
+    dscfg2.data=indexcol;
+    var leftData=new Ext.data.ArrayStore(dscfg1);
+    var rightData = new Ext.data.ArrayStore(dscfg2);
+    return {
+        allcol:leftData,
+        usedcol:rightData
+    };
+}
+
+
+
+
+function getSqlfromDs(ds)
+{
+    var cols = [];
+    var s = [];
+    var pk_cols = [];
+    var sql = "";
+    for (var i = 0, fieldnum = ds.data.items.length; i < fieldnum; i++) {
+        var field = ds.data.items[i].data;
+        if (field.field_name || field.datatype) {
+            cols.push(field)
+        }
+    }
+    for (var i = 0; i < cols.length; i++) {
+        var field = cols[i];
+        var col_define = '';
+        col_define += field.field_name;
+        col_define += " " + field.datatype;
+        if (field.length) {
+            col_define += "(" + field.length + ")"
+        }
+        if (field.unsigned) {
+            col_define += " UNSIGNED ";
+        }
+        if (field.primary_key || field.not_null) {
+            col_define += " NOT NULL "
+        } else {
+            col_define += " NULL "
+        }
+        if (field.default_value) {
+            var r = field.default_value;
+            field.default_value = r.replace(/[\']{1}/gi, "");
+            var m = /\s/g;
+            if (m.test(field.default_value) || field.datatype.toLowerCase() == "enum") {
+                field.default_value = "'" + field.default_value + "'"
+            }
+            col_define += " DEFAULT " + field.default_value;
+        }
+        if (field.auto_increment) {
+            col_define += " AUTO_INCREMENT "
+        }
+        if (field.comment) {
+            col_define += " COMMENT '" + field.comment + "' "
+        }
+        s.push(col_define);
+        if (field.primary_key) {
+            pk_cols.push(field.field_name)
+        }
+    }
+    if (pk_cols.length) {
+        var f = pk_cols.join(", ");
+        var p = " PRIMARY KEY (" + f + ")";
+        s.push(p);
+    }
+    var sql = "CREATE TABLE TB_TO_REPLACE ( " + s + " )";
+    return sql;
+}
+
+
+
+function getColRange(grid,x,y,event){
+     var gridBox=grid.getBox();
+     var hh=grid.getColumnModel();
+     var max_right_postion=gridBox.x+hh.getTotalWidth();
+
+     var col_count_exists=hh.getColumnCount();
+     var col_postion=[];
+     for (var jj=0; jj < col_count_exists; jj++){
+         var col_width_so_for=0;
+         for (var i=0; i <= jj; i++){
+             col_width_so_for += hh.getColumnWidth(i);
+         }
+
+         var this_width=hh.getColumnWidth(jj);
+         col_postion.push({
+             col_index:jj,
+             col_width_so_for:col_width_so_for,
+             x_start:gridBox.x + col_width_so_for - this_width,
+             x_end:gridBox.x + col_width_so_for
+         });
+     }
+
+     var rows_count=grid.getStore().getCount();
+     if (rows_count > 0){
+         var row=grid.getView().getRow(0);
+         var row_height=Ext.get(row).getHeight();
+         var row_box=Ext.get(row).getBox();
+         var y_start=row_box.y;
+         var row_used=Math.ceil((y - y_start) / row_height);
+
+         var new_row=false;
+         if (row_used > rows_count){
+             row_used=rows_count - 1;
+             new_row=true;
+         } else {
+             row_used=row_used - 1;
+             new_row=false;
+         }
+
+     } else {
+         var new_row=true;
+         var row_used=0;
+     }
+     if (x > max_right_postion){
+         return {
+             new_row:new_row,
+             out:true,
+             col:col_count_exists,
+             row:row_used
+         };
+     } else {
+         for (k=0; k < col_postion.length; k++){
+             if ((x > col_postion[k].x_start) && (x < col_postion[k].x_end)){
+                 var found=k;
+                 break;
+             }
+         }
+         return {
+             new_row:new_row,
+             out:false,
+             col:found,
+             row:row_used
+         };
+     }
+ };
+ 
+ 
+function getAviableCols(tblcols,usedcols){
+     var result=[];
+     for (var i=0; i < tblcols.length; i++){
+         var found=-1;
+         var col=tblcols[i];
+         for (var j=0; j < usedcols.length; j++){
+             if (usedcols[j][0] == col[0]){
+                 found=0;
+                 break;
+             }
+         }
+         if (found == -1){
+             result.push(col);
+         }
+     }
+     return result;
+}
+
+

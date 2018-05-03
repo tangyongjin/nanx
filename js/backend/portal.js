@@ -1,42 +1,95 @@
-Ext.override(Ext.tree.TreeLoader,{
-        processResponse:function(response,node,callback){
-                var e=Ext.util.JSON.decode(response.responseText);
-                var rows=e.server_resp;
-                node.beginUpdate();
-                for (var i=0,len=rows.length;i<len;i++) {
-                        if(!rows[i].hasOwnProperty('value'))
-                        {
-                          rows[i].value=rows[i].field_e;
-                        }
-                        
-                        var n=this.createNode(rows[i]);
-                        if(n){
-                                node.appendChild(n);
-                        }
-                }
-                node.endUpdate();
-                if (typeof callback=="function"){
-                        callback(this,node);
-                }
-        }
-});
 
-Ext.override(Ext.Component,{
-        findParentBy:function(fn){
-                for(var p=this.ownerCt;
-                (p != null)&&!fn(p);p=p.ownerCt);
-                return p;
-        },
-        findParentByType:function(xtype){
-                return typeof xtype=='function'?this.findParentBy(function(p){
-                        return p.constructor===xtype;
-                }):this.findParentBy(function(p){
-                        return p.constructor.xtype===xtype;
+
+var Topmenu = {
+        menuPanel:"",
+        tbar:"",
+        init:function() {
+                Topmenu.userControls = new Ext.ButtonGroup({
+                        xtype:"buttongroup",
+                        id:"user_controls",
+                        frame:false
                 });
-        }
-});
- 
+                Topmenu.menuPanel = this.createMenuPanel();
+        },
 
+        createMenuPanel:function() {
+                return new Ext.Panel({
+                        region:"north",
+                        layout:"fit",
+                        border:false,
+                        tbar:{
+                                id:"header_tbar",
+                                style:{
+                                        "padding-left":"20px"
+                                },
+                                items:[
+                                {
+                                        iconCls:"about_dblite",
+                                        text:'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp',
+                                        handler:Topmenu.showAboutWindow
+                                },
+                                {
+                                        xtype:"tbseparator"
+                                },
+                                {
+                                        text:i18n.return_front_end,
+                                        width:25,
+                                        handler:function() {
+                                                window.location.href = "../";
+                                        }
+                                }]
+                        },
+                        items:[]
+                })
+        },
+
+        showAboutWindow:function() {
+                Topmenu.createAboutWindow();
+        },
+        
+        createAboutWindow:function() {
+                this.win = new Ext.Window({
+                        title:"NaN-X",
+                        id:"about_window",
+                        width:400,
+                        height:400,
+                        resizable:false,
+                        autoScroll:true,
+                        layout:"border",
+                        modal:true,
+                        plain:true,
+                        stateful:true,
+                        items:[{
+                                xtype:"panel",
+                                id:"about_panel",
+                                region:"center",
+                                frame:true,
+                                items:[{
+                                        cls:"dblite_about_logo"
+                                },
+                                {
+                                        id:"about_dblite",
+                                        autoEl:{
+                                                tag:"div" 
+                                        }
+                                }] 
+                        }],
+                        buttons:[{
+                                text:i18n.close,
+                                handler:function() {
+                                        this.ownerCt.ownerCt.close()
+                                }
+                        }]
+                });
+                this.win.show();
+                Ext.Ajax.request({
+                        url:HELP_DIR + 'about',
+                        success:function(response) {
+                                Ext.getCmp('about_dblite').update(response.responseText);
+                        }
+                });
+        } 
+};
 
 var Portal={
         init:function(){
@@ -58,6 +111,7 @@ var Portal={
                 });
         }
 };
+
 var Explorer={
         init:function(){
                 Explorer.explorerPanel=new Ext.Panel({
@@ -80,11 +134,13 @@ var Explorer={
                         tbar:{items:["->"]}
                 });
         }, 
+
         buildTreeWithDefault:function(){
                 explorerTreeeObj=new Explorer.explorerTreePanel;
                 Explorer.explorerPanel.add(explorerTreeeObj);
                 Explorer.explorerPanel.doLayout();
         },
+
         explorerTreePanel:function(){
                 this.appNodes=this.getGroups('AppCategory_List');
                 this.dbNodes=this.getGroups('RawDBCategory_List');
@@ -283,47 +339,7 @@ function specialCodeRoute(node,category,opcode)
 }
 
 
-function  getMenuItemHandler(node,category,opcode,alt_win_id)
-{
-    var specialCodes = ["mem_copy", "mem_paste", "create_table", "preview_activity","edit_public_field","edit_codetable"];
-    var route = specialCodes.indexOf(opcode);
-    if(route>=0)
-    {
-      var common_fn=specialCodeRoute(node,category,opcode);
-      return common_fn;
-    }
-
-    
-
-    var common_fn=function(){
-              var opform=FormBuilder.backendForm(category,opcode,node);
-              var wincfg={
-                 category:category,
-                 opcode:opcode, 
-                 node:node
-                 };
-                 
-                 if(alt_win_id){wincfg.alt_id=alt_win_id;}
-                 var mcfg=AppCategory.getSubMenuCfg( category,opcode);
-                 if(!mcfg){alert('MCFG is null');return;};
-                 if(mcfg.viewonly){wincfg.viewonly=true;}
-                 var defaultCF=AppCategory.getBackendCrontroller();
-                 Ext.applyIf(mcfg,defaultCF);
-                 var url=null;
-                 if(!Ext.isEmpty(mcfg.controller))
-                 {
-                 var  url=AJAX_ROOT+mcfg.controller+'/'+mcfg.func_name;
-
-                 }
-                 wincfg.url=url;
-                 wincfg.width=(mcfg&&mcfg.width)?mcfg.width:550;
-                 wincfg.title=(mcfg && mcfg.title)?mcfg.title : '';
-                 var win=Act.prototype.actionWin('backend',opform,wincfg);
-    };
-    return common_fn;
-}
-
-
+ 
 Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
         getGroups: function(xtype){
                 var FirstLevel=AppCategory.getAppCategory(xtype);
@@ -349,7 +365,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
         },
 
         menuItemProcessor:function(node,category,opcode,title,css){
-                var common_fn= getMenuItemHandler(node,category,opcode);
+                var common_fn= FormBuilder.BackendFormHandler(node,category,opcode);
                 return {
                         itemId:opcode,
                         text:title,
@@ -489,6 +505,32 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
 });
 
 
+
+
+Ext.override(Ext.tree.TreeLoader,{
+        processResponse:function(response,node,callback){
+                var e=Ext.util.JSON.decode(response.responseText);
+                var rows=e.server_resp;
+                node.beginUpdate();
+                for (var i=0,len=rows.length;i<len;i++) {
+                        if(!rows[i].hasOwnProperty('value'))
+                        {
+                          rows[i].value=rows[i].field_e;
+                        }
+                        
+                        var n=this.createNode(rows[i]);
+                        if(n){
+                                node.appendChild(n);
+                        }
+                }
+                node.endUpdate();
+                if (typeof callback=="function"){
+                        callback(this,node);
+                }
+        }
+});
+
+
 Ext.onReady(function(){
         Portal.init();
         new Ext.KeyMap(document,[{
@@ -499,193 +541,3 @@ Ext.onReady(function(){
                 stopEvent: true
         }])
 });
-
-
-getCurrentColandIndex=function(rowindex){
-    var grid=Ext.getCmp("grid_NANX_TBL_INDEX");
-    ds=grid.getStore();
-    var cols4index = ds.reader.jsonData.cols4index;
-    var tb_col_arr = [];
-    for (var i=0;i<cols4index.length;i++) {
-        var d = cols4index[i]['Field'];;
-        tb_col_arr[i]=[d,d];
-    }
-    var indexcol=[];
-    var current_cols=Ext.getCmp("grid_NANX_TBL_INDEX").store.getAt(rowindex);
-    var columns=current_cols.data.columns;
-    if (columns){
-        columns=columns.split(",");
-        if (columns.length){
-            for (var i=0;i<columns.length;i++){
-                var onecol=(columns[i]);
-                indexcol.push([onecol,onecol]);
-            }
-        }
-    }
-    var aviableCols=getAviableCols(tb_col_arr,indexcol);
-    var colreader=new Ext.data.ArrayReader({},[{name:'text'},{name:'value'}]);
-    var dscfg1={
-        fields:['value', 'text'],
-        reader:colreader
-    };
-    var dscfg2={};
-    Ext.apply(dscfg2, dscfg1);
-    dscfg1.data=aviableCols;
-    dscfg2.data=indexcol;
-    var leftData=new Ext.data.ArrayStore(dscfg1);
-    var rightData = new Ext.data.ArrayStore(dscfg2);
-    return {
-        allcol:leftData,
-        usedcol:rightData
-    };
-}
-
-
-
-
-getSqlfromDs=function(ds)
-{
-    var cols = [];
-    var s = [];
-    var pk_cols = [];
-    var sql = "";
-    for (var i = 0, fieldnum = ds.data.items.length; i < fieldnum; i++) {
-        var field = ds.data.items[i].data;
-        if (field.field_name || field.datatype) {
-            cols.push(field)
-        }
-    }
-    for (var i = 0; i < cols.length; i++) {
-        var field = cols[i];
-        var col_define = '';
-        col_define += field.field_name;
-        col_define += " " + field.datatype;
-        if (field.length) {
-            col_define += "(" + field.length + ")"
-        }
-        if (field.unsigned) {
-            col_define += " UNSIGNED ";
-        }
-        if (field.primary_key || field.not_null) {
-            col_define += " NOT NULL "
-        } else {
-            col_define += " NULL "
-        }
-        if (field.default_value) {
-            var r = field.default_value;
-            field.default_value = r.replace(/[\']{1}/gi, "");
-            var m = /\s/g;
-            if (m.test(field.default_value) || field.datatype.toLowerCase() == "enum") {
-                field.default_value = "'" + field.default_value + "'"
-            }
-            col_define += " DEFAULT " + field.default_value;
-        }
-        if (field.auto_increment) {
-            col_define += " AUTO_INCREMENT "
-        }
-        if (field.comment) {
-            col_define += " COMMENT '" + field.comment + "' "
-        }
-        s.push(col_define);
-        if (field.primary_key) {
-            pk_cols.push(field.field_name)
-        }
-    }
-    if (pk_cols.length) {
-        var f = pk_cols.join(", ");
-        var p = " PRIMARY KEY (" + f + ")";
-        s.push(p);
-    }
-    var sql = "CREATE TABLE TB_TO_REPLACE ( " + s + " )";
-    return sql;
-}
-
-
-
-getColRange=function(grid,x,y,event){
-     var gridBox=grid.getBox();
-     var hh=grid.getColumnModel();
-     var max_right_postion=gridBox.x+hh.getTotalWidth();
-
-     var col_count_exists=hh.getColumnCount();
-     var col_postion=[];
-     for (var jj=0; jj < col_count_exists; jj++){
-         var col_width_so_for=0;
-         for (var i=0; i <= jj; i++){
-             col_width_so_for += hh.getColumnWidth(i);
-         }
-
-         var this_width=hh.getColumnWidth(jj);
-         col_postion.push({
-             col_index:jj,
-             col_width_so_for:col_width_so_for,
-             x_start:gridBox.x + col_width_so_for - this_width,
-             x_end:gridBox.x + col_width_so_for
-         });
-     }
-
-     var rows_count=grid.getStore().getCount();
-     if (rows_count > 0){
-         var row=grid.getView().getRow(0);
-         var row_height=Ext.get(row).getHeight();
-         var row_box=Ext.get(row).getBox();
-         var y_start=row_box.y;
-         var row_used=Math.ceil((y - y_start) / row_height);
-
-         var new_row=false;
-         if (row_used > rows_count){
-             row_used=rows_count - 1;
-             new_row=true;
-         } else {
-             row_used=row_used - 1;
-             new_row=false;
-         }
-
-     } else {
-         var new_row=true;
-         var row_used=0;
-     }
-     if (x > max_right_postion){
-         return {
-             new_row:new_row,
-             out:true,
-             col:col_count_exists,
-             row:row_used
-         };
-     } else {
-         for (k=0; k < col_postion.length; k++){
-             if ((x > col_postion[k].x_start) && (x < col_postion[k].x_end)){
-                 var found=k;
-                 break;
-             }
-         }
-         return {
-             new_row:new_row,
-             out:false,
-             col:found,
-             row:row_used
-         };
-     }
- };
- 
- 
-getAviableCols=function(tblcols,usedcols){
-     var result=[];
-     for (var i=0; i < tblcols.length; i++){
-         var found=-1;
-         var col=tblcols[i];
-         for (var j=0; j < usedcols.length; j++){
-             if (usedcols[j][0] == col[0]){
-                 found=0;
-                 break;
-             }
-         }
-         if (found == -1){
-             result.push(col);
-         }
-     }
-     return result;
-}
-
-
- 

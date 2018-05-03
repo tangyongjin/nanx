@@ -51,7 +51,7 @@ FormBuilder.backendFromWrapper = function(opform, opcode) {
 };
 
 
-FormBuilder.getBackendFormItem = function(item, node) {
+FormBuilder.getBackendFormItem = function(mcfg,item, node) {
     var readonly = item.readonly ? item.readonly : false;
     var hidden = item.hidden ? item.hidden : false;
     var checked = item.all_checked ? item.all_checked : false;
@@ -335,6 +335,8 @@ FormBuilder.getBackendFormItem = function(item, node) {
             break;
 
         case 'DropdownCompoment':
+            
+           
 
             var f = new Util.DropdownCompoment({
                 width: 500,
@@ -343,7 +345,7 @@ FormBuilder.getBackendFormItem = function(item, node) {
                 headers: item.headers,
                 item: item,
                 node: node,
-                callback_set_url: 'nanx/getTriggerGroup',
+                callback_set_url: mcfg.callback_set_url,
                 callback_set_json_key: '/'
             });
 
@@ -506,7 +508,8 @@ FormBuilder.getFormData = function(form) {
 
 
 FormBuilder.getOperationForm = function(node, orginal_mcfg) {
-
+    
+    console.log(orginal_mcfg)
     var mcfg = Fb.preProcessNodeAtt(orginal_mcfg, node);
 
     var layout = 'form';
@@ -540,7 +543,7 @@ FormBuilder.getOperationForm = function(node, orginal_mcfg) {
 
             var item = DeepClone(items[i]);
             item = Fb.preProcessNodeAtt(item, node);
-            var f = FormBuilder.getBackendFormItem(item, node);
+            var f = FormBuilder.getBackendFormItem(mcfg,item, node);
             if (f) {
                 if (f.isArray) {
                     for (var j = 0; j < f.length; j++) {
@@ -582,3 +585,45 @@ FormBuilder.getOperationForm = function(node, orginal_mcfg) {
 
     return opform;
 };
+
+
+
+
+  FormBuilder.BackendFormHandler=function(node,category,opcode,alt_win_id) {
+    var specialCodes = ["mem_copy", "mem_paste", "create_table", "preview_activity","edit_public_field","edit_codetable"];
+    var route = specialCodes.indexOf(opcode);
+    if(route>=0)
+    {
+      var common_fn=specialCodeRoute(node,category,opcode);
+      return common_fn;
+    }
+
+    
+
+    var common_fn=function(){
+              var opform=FormBuilder.backendForm(category,opcode,node);
+              var wincfg={
+                 category:category,
+                 opcode:opcode, 
+                 node:node
+                 };
+                 
+                 if(alt_win_id){wincfg.alt_id=alt_win_id;}
+                 var mcfg=AppCategory.getSubMenuCfg( category,opcode);
+                 if(!mcfg){alert('MCFG is null');return;};
+                 if(mcfg.viewonly){wincfg.viewonly=true;}
+                 var defaultCF=AppCategory.getBackendCrontroller();
+                 Ext.applyIf(mcfg,defaultCF);
+                 var url=null;
+                 if(!Ext.isEmpty(mcfg.controller))
+                 {
+                 var  url=AJAX_ROOT+mcfg.controller+'/'+mcfg.func_name;
+
+                 }
+                 wincfg.url=url;
+                 wincfg.width=(mcfg&&mcfg.width)?mcfg.width:550;
+                 wincfg.title=(mcfg && mcfg.title)?mcfg.title : '';
+                 var win=Act.prototype.actionWin('backend',opform,wincfg);
+    };
+    return common_fn;
+}

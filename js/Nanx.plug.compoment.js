@@ -162,12 +162,16 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
 
 
     callback_setvalue: function(btn, config) {
-
+        console.log(config)
+        if( config.callback_set_url ==undefined ){
+          return;
+        }
         var that = this
         var json = {
             'value': config.node.attributes.value,
             'hostby': config.node.attributes.hostby
         }
+        alert('ajax')
         Ext.Ajax.request({
             url: AJAX_ROOT + config.callback_set_url,
             jsonData: Ext.encode(json),
@@ -290,6 +294,7 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
                 }
             }
         })
+        
 
         addbtn.addListener('render', that.callback_setvalue.createDelegate(this, [config], true));
         return addbtn
