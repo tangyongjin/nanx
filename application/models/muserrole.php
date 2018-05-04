@@ -20,8 +20,14 @@ class MuserRole extends CI_Model{
       $this->db->where('parent',$parent);
       $this->db->order_by('id','asc');
       $this->db->distinct();
-      $acts_from_menu=$this->db->get('nanx_menu')->result_array();
 
+      // mysql 5.7 可能导致 sql执行错误, 
+      /*
+      set @@global.sql_mode        ='NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+      */
+
+      
+      $acts_from_menu=$this->db->get('nanx_menu')->result_array();
       if( count($acts_from_menu) ==0){
 
               $this->db->select('activity_code'); 

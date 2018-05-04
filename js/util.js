@@ -165,7 +165,7 @@ function  getDate()
                  }
                  
                  if (ret.showdownload) {
-                     FileUpload.showDownload(ret.fname);
+                     FileMgr.showDownload(ret.fname);
                      return;
                  }
                  

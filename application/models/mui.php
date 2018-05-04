@@ -57,9 +57,9 @@ class MUI extends CI_Model
                 'js/util.js',
                 'js/compoment_menu_tree.js',
                 'js/compoment_basic_combo.js',
+                // 'js/compoment_file_upload.js',
                 'js/form.formbuilder.js',
                 'js/file_mgr.js',
-              
                 'js/fixheight.js',
                 'js/event_list.js',
                  'js/fb.js',
@@ -104,6 +104,7 @@ class MUI extends CI_Model
                 'js/compoment_menu_tree.js',
                 'js/compoment_basic_combo.js',
                 'js/compoment_layoutmanager.js',
+                // 'js/compoment_file_upload.js',
                 'js/compoment_dragdrop_grid.js',
                 'js/fb.js',
                 'js/backend/portal.js',

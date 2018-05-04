@@ -1,8 +1,8 @@
 
 
-APP_PREFIX='parkos'
+APP_PREFIX='boss'
 
-BASE_URL='http://47.92.72.19:9002/'
+BASE_URL='http://119.254.168.247:9002/'
 TMP_DIR=BASE_URL+'tmp/';
 AJAX_ROOT=BASE_URL;
 HELP_DIR=AJAX_ROOT+'dbdocu/gethelp/';
