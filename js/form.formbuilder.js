@@ -467,7 +467,7 @@ FormBuilder.getFormData = function(form) {
     if (fmdata.opcode && fmdata.opcode.indexOf('set_activity_pic') >= 0) {
 
         var fileGrid = Ext.getCmp('grid_FILE');
-        file_choosed = Act.prototype.getMediaGridValue(fileGrid);
+        file_choosed = FileMgr.getMediaGridValue(fileGrid);
         var picname = file_choosed[0].split('/').pop();
         fmdata['activity_pic'] = picname;
     }

@@ -109,8 +109,8 @@ class MUI extends CI_Model
                 'js/fb.js',
                 'js/backend/portal.js',
                 'js/activity_curd.js',
-                'js/backend/tabsmnt.js',
-                'js/backend/topmenu.js'
+                'js/backend/tabsmnt.js'
+                // 'js/backend/topmenu.js'
             )
         );
     }
