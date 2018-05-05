@@ -222,6 +222,8 @@ Ext.extend(Dbl.MainTabPanel,Ext.TabPanel,{
                             if(this.id=='NANX_TBL_CREATE'){
                                  cfg.table='nanx_shadow';
                               }
+                 
+                 console.log(cfg)
 
                  new Act(cfg);
                 }

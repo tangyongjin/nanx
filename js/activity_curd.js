@@ -816,10 +816,13 @@ Act.prototype.buildTopToolbar_backend=function(){
     var that=this;
     var refresh=this.getRefreshButtonGroup();
     var tbinfo=i18n.currenttable+':'+this.table;
+    
+    console.log(this)
 
     if (this.table=='nanx_shadow'){
         tbinfo=i18n.createtable
     }
+
     var tbname_btn={
         xtype:'buttongroup',
         items:[{
@@ -829,6 +832,7 @@ Act.prototype.buildTopToolbar_backend=function(){
             scope:this
         }]
     };
+
     var save={
         xtype:"buttongroup",
         nanx_type:'toggle_save',
@@ -881,7 +885,9 @@ Act.prototype.buildTopToolbar_backend=function(){
         }
     };
 
-    var tbar=[tbname_btn,save,"-",add_del,"-",refresh,"-"];
+    // var tbar=[tbname_btn,save,"-",add_del,"-",refresh,"-"];
+    var tbar=[save,"-",add_del,"-",refresh,"-"];
+
 
     if (this.actcode=='NANX_APP_SUMMARY'){
         var tbar=[refresh];
@@ -1318,7 +1324,7 @@ Act.prototype.createTable=function(btn,e){
     var tree=Ext.getCmp('AppTree');
     var vnode=tree.getNodeById('tree_tables');
     vnode.attributes.DDL=sql;
-    var opform=Fb.backendForm('tables','create_table',vnode);
+    var opform=FormBuilder.backendForm('tables','create_table',vnode);
     var wincfg={
         title:i18n.create_new_table,
         category:'tables',

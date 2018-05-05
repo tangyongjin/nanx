@@ -198,7 +198,7 @@ App.bind = function() {
             Ext.get('border-top').on('click', function(e, target){
             	       var whoami =Ext.get('whoami').dom.innerHTML;
             	       var vnode={attributes:{value:whoami,text:whoami}};
-            	       var opform=Fb.backendForm('user','reset_pwd', vnode);
+            	       var opform=FormBuilder.backendForm('user','reset_pwd', vnode);
                      var wincfg={title:i18n.reset_pwd,category:'user',opcode:'reset_pwd',node:vnode};
                      var win=Act.prototype.actionWin('backend',opform,wincfg);
             }, this,{
@@ -211,7 +211,7 @@ App.bind = function() {
             	      var whoami =Ext.get('whoami').dom.innerHTML;
             	      var vnode={};
             	      vnode.attributes={value:whoami,text:whoami};
-            	      var opform=Fb.backendForm('all','p2p_sms', vnode);
+            	      var opform=FormBuilder.backendForm('all','p2p_sms', vnode);
                     var xwin=Act.prototype.actionWin('backend',opform,{ title:i18n.sms,category:'all',opcode:'p2p_sms',node:vnode});
             }, this,{
                     delegate: 'a#send_sms'
@@ -224,7 +224,7 @@ App.bind = function() {
                 console.log(id);
                     var vnode={};
             	      vnode.attributes={id:id};
-            	      var opform=Fb.backendForm('all','read_sms', vnode);
+            	      var opform=FormBuilder.backendForm('all','read_sms', vnode);
                     var xwin=Act.prototype.actionWin('backend',opform,{viewonly:true,title:i18n.read_sms,category:'all',opcode:'read_sms',node:vnode});
             }, this,{
                     delegate:'a.sms_tag'
