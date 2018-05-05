@@ -411,7 +411,7 @@ Ext.extend(Explorer.explorerTreePanel,Ext.tree.TreePanel,{
                 e.dropNode.attributes.loader='';
                 e.target.attributes.loader='';
                 var p={'src':e.dropNode.attributes,'target': e.target.attributes };
-                ajaxPostData(AJAX_ROOT+'nanx/dnd',p,function(ret){
+                ajaxPostData(AJAX_ROOT+'dndmgr/dnd',p,function(ret){
                        if(e.target.parentNode){
                          var f=e.target.parentNode;
                          e.target.parentNode.on('load',function(){ f.expand(); },this,{single:true});
