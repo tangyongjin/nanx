@@ -46,7 +46,9 @@ function helper_getlogname()
 function logtext($para)
 {
     
-    $log = fopen(helper_getlogname(), "a+");
+    // $log = fopen(helper_getlogname(), "a+");
+    $log = fopen('/tmp/aaa.log', "a+");
+    
     if (is_string($para)){
         $logtext =$para;
     }else{

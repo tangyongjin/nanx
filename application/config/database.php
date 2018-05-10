@@ -48,7 +48,7 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-$db['default']['hostname'] = '119.254.168.247';
+$db['default']['hostname'] = '119.254.119.59';
 $db['default']['username'] = 'root';
 $db['default']['port'] = '3306';
 $db['default']['password'] = 'sinnet1234';

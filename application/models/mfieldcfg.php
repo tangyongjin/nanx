@@ -185,13 +185,17 @@ class MFieldcfg extends CI_Model
         }
         
         
+        
         $field_comment=$this->getColumnComment($base_table, $field );
         if( strlen($field_comment)>1){
-         $field=$field_comment;
+         $field_c=$field_comment;
+        } else{
+         $field_c= $field;
         }
 
+
         $display = array(
-            'field_c' => $field,
+            'field_c' => $field_c,
             'value' => $field,
             'width' => 200,
             'show_as_pic' => "0"

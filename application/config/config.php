@@ -19,7 +19,7 @@
 // $config['directory_trigger']	= 'd'; 
 // $config['log_threshold'] =0; 
 
-$config['base_url'] = 'http://119.254.168.247:9002';
+$config['base_url'] = 'http://119.254.119.59:7000';
 $config['login_url'] = $config['base_url']."/home/login";
 
 $config['log_path'] = '/var/www/html/logs';
