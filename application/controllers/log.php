@@ -24,15 +24,11 @@ class Log extends CI_Controller
         echo "<input onclick=clear_log() type=button value=Clear_log name=Hide_Input>";
         echo "</div>";
         $logfile = helper_getlogname();
+        $string = read_file(helper_getlogname());
+        $php_errmsg='<h2>PHP error info:(/tmp/php_error.log)</h2>'.read_file('/tmp/php_error.log');
+        echo "<pre>" . $php_errmsg . "</pre>";
         echo "<h2>Docker:logfile=$logfile </h2>";
         echo "<br/>";
-
-        $string = read_file(helper_getlogname());
-        $php_errmsg=read_file('/var/log/apache2/error.log');
-        
-
-        
-        $string=$string.$php_errmsg;
         echo "<pre>" . $string . "</pre>";
         echo "</body></html>";
     }
@@ -41,6 +37,8 @@ class Log extends CI_Controller
     public function clearlog()
     {
         file_put_contents(helper_getlogname(), '');
+        file_put_contents('/tmp/php_error.log', '');
+    
     }
     
 
