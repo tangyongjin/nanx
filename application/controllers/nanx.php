@@ -585,6 +585,7 @@ class Nanx extends CI_Controller {
 				'default'      => array('level' => 1, 'group_type' => 'nogroup'),
 				'wherecfg'                      => array('field_e' => 'field_e', 'base_table' => 'hostby')),
 
+
 			'set_biz_field_combo_follow' => array(
 				'successmsg' => 'success_set_follow',
 				'tbused'     => 'nanx_biz_column_follow_cfg',
@@ -597,6 +598,23 @@ class Nanx extends CI_Controller {
 					'combo_table_value_field' => 'value_field'),
 				'key_for_array_col_data'   => 'nanx_follow_cfg',
 				'wherecfg'                 => array('combo_table' => 'combo_table', 'base_table' => 'hostby')),
+
+            //字典表设置
+ 
+			'set_codetable_category' => array(
+				'successmsg' => 'success_set',
+				'tbused'     => 'nanx_biz_column_trigger_group',
+				'dbcmdtype'  => 'delete_and_insert',
+				'paracfg'    => array(
+					'base_table'  => 'hostby',
+					'field_e'     => 'field_e',
+					'group_id'    => 'group_id',
+					'codetable_category_value'=>'category'
+					),
+				'default'      => array('level' => 1, 'group_type' => 'nogroup','combo_table'=>'nanx_code_table','list_field'=>'display_text','value_field'=>'value'),
+				'wherecfg'                      => array('field_e' => 'field_e', 'base_table' => 'hostby')),
+			
+
 
 			'set_show_as_pic' => array(
 				'successmsg' => 'success_set',

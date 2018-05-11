@@ -390,16 +390,21 @@ Fb.getTriggerWhoIsWho = function(one_col_cfg, whoami_cfg) {
 
 Fb.getDropdownOption = function(one_col_cfg) {
 
+    console.log(one_col_cfg)
+
     var fields = [one_col_cfg.editor_cfg.trigger_cfg.list_field, one_col_cfg.editor_cfg.trigger_cfg.value_field];
     var table = one_col_cfg.editor_cfg.trigger_cfg.combo_table;
     var filter_cfg = {
         filter_field: one_col_cfg.editor_cfg.trigger_cfg.filter_field
     };
-    return {
+
+    var getDropdownOption={
         'table': table,
         'fields': fields,
         'filter_cfg': filter_cfg
     }
+    console.log(getDropdownOption)
+    return getDropdownOption;
 
 }
 

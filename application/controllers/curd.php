@@ -17,8 +17,10 @@ class Curd extends CI_Controller
         
         if ($p['table'] == 'nanx_code_table' && array_key_exists('codetable_filter_cfg', $p)) {
             $ret = array();
+            
             $code_filter = (array) $p['codetable_filter_cfg'];
             $category_value = $code_filter['codetable_category_value'];
+            // $category_value='gender';
             $sql         = "select * from nanx_code_table where category=  '{$category_value}' ";
             $rows        = $this->db->query($sql)->result_array();
             $ret['rows'] = $rows;

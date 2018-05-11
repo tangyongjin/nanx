@@ -231,7 +231,6 @@ class MFieldcfg extends CI_Model
     
     function getTriggerCfg($base_table, $field)
     {
-        
         $where = array(
             'base_table' => $base_table,
             'field_e' => $field
@@ -241,10 +240,8 @@ class MFieldcfg extends CI_Model
         $this->db->where($where);
         $this->db->select('combo_table,codetable_category_value,list_field,value_field,filter_field,group_id,level');
         $dropdown_from_table = $this->db->get('nanx_biz_column_trigger_group')->first_row('array');
-        
-        return $dropdown_from_table;
-        
-        
+        return  $dropdown_from_table;
+ 
     }
     
     

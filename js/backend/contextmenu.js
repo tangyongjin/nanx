@@ -1251,7 +1251,7 @@ var menu_for_dropdown_groups = {
                 'value': '#value',
                 'hostby': '#hostby'
             },
-            opcode: '1set_biz_field_combo_resorce,1set_biz_field_combo_follow',
+            opcode: 'set_codetable_category',
             place: 'context',
             // callback_set_url:'nanx/getFieldSource_and_follow',
             // callback_set_json_key:'combo_cfg',
