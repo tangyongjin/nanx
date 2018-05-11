@@ -1,5 +1,4 @@
-
-tmp/
+imgs/
+logs/*
 logs/
-/imgs/thumbs/
-/imgs
+
