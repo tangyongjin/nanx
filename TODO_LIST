@@ -28,3 +28,9 @@ sed -ie s/^BASE_URL=.*/BASE_URL=\'http:\\/\\/techblog.moerks.dk\'/  globalvars.j
 database:
 
   cloud_cnix
+
+
+
+功能:  
+
+   在某个字段边上增加按钮,弹出子表的录入界面.

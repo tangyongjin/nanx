@@ -252,6 +252,7 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
             break;
 
         case 'uploadFile':
+            console.log(item)
             var f = FileMgr.getAttachmentEditor(item);
             break;
 
@@ -292,7 +293,6 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
             break;
 
         case 'combo_group':
-            alert('will create combo_group ')
             var f = COMBOX.getComboGroup(item);
             break;
 
@@ -437,7 +437,7 @@ FormBuilder.getFormData = function(form) {
             }
             fmdata[field_id] = field_value;
         }
-        
+
     }
 
     console.log(fmdata)

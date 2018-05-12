@@ -1289,7 +1289,7 @@ var menu_for_activitys =
                     label: i18n.select_js_file,
                     name: 'extra_js',
                     file_type: 'js',
-                    dest: 'js/upload',
+                    os_path:'js/upload',
                     id: 'extra_js',
                     value: ''
                 },

@@ -169,13 +169,24 @@ class MUI extends CI_Model
         
         $bs_url = $this->config->item('base_url');
         
-        if (!($flag == 'login')) {
-            $app_js = $this->getPluginJs();
-            foreach ($app_js as $one) {
-                $jsfile = $one['jsfile'];
-                $js .= "<script type='text/javascript' src={$bs_url}js/upload/$jsfile></script>";
+        if (!($flag == 'login') ) {
+            
+            if( !($flag =='backend') ){
+ 
+                $app_js = $this->getPluginJs();
+                foreach ($app_js as $one) {
+                    $jsfile = $one['jsfile'];
+                    $js .= "<script type='text/javascript' src={$bs_url}js/upload/$jsfile></script>";
+                }
+            
             }
+
+            
+
+
         }
+
+
         return array(
             'js' => $js,
             'css' => $css

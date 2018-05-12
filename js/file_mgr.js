@@ -73,9 +73,12 @@ var FileMgr = {};
                  var postcfg = {
                      'params': Ext.encode(p)
                  };
+                 
+                 console.log(postcfg)
+
                  if (form.getForm().isValid()){
                      form.getForm().submit({
-                         url: AJAX_ROOT + UPLOAD_URL,
+                         url: AJAX_ROOT + UPLOAD_URL,   //file/upload
                          params:postcfg,
                          failure: function(f, r) {
                              WaitMask.hide();
