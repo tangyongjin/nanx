@@ -47,7 +47,7 @@ var COMBOX = {};
      }
 
      var combox_width=cfg.width?cfg.width:300
-     combox_width=240;
+     combox_width=140;
      console.log(store)
      var combox_cfg = {
          id: com_id,
