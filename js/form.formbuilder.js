@@ -591,6 +591,69 @@ FormBuilder.getOperationForm = function(node, orginal_mcfg) {
 };
 
 
+FormBuilder.specialCodeRoute=function(node,category,opcode)
+{
+
+     if (opcode=='mem_copy'){
+                  common_fn=function(){
+                  var  copypaste_src={'category':node.attributes.category,
+                                    'id':node.attributes.id,
+                                    'id':node.attributes.id,
+                                    'text':node.attributes.text,
+                                    'value':node.attributes.value 
+                                     };
+                  MEM_COPY_PASTE.source=copypaste_src;
+                  Ext.Msg.alert(i18n.msg,i18n.dup_success);                
+                         }
+                }
+                
+                
+                if (opcode=='mem_paste'){
+                  common_fn=function(){
+                    var  copypaste_target={'category':node.attributes.category,
+                                    'id':node.attributes.id,
+                                    'text':node.attributes.text,
+                                    'value':node.attributes.value 
+                                  };
+                                  
+                    MEM_COPY_PASTE.target=copypaste_target;              
+                    ajaxPostData(AJAX_ROOT +'copynode/',MEM_COPY_PASTE,function(){});
+                         }
+                }
+                 
+                if (opcode=='create_table'){
+                        common_fn=function(){
+                                var mainTab=Ext.getCmp('MainTab');
+                                  mainTab.activeTabL1L2(['tab_tblmnt','NANX_TBL_CREATE']);
+                        }
+                }
+                
+                if (opcode=='preview_activity'){
+                        common_fn=function(){
+                        var grid_type='table';
+                        if ('activity_sql'==node.attributes.category){grid_type='sql';}
+                        new Act({'edit_type':'noedit','code': node.attributes.value,  'showwhere': 'autowin', 'host': null });
+                        }
+                     }
+                     
+                     
+                if (opcode=='edit_public_field'){
+                        common_fn=function(){
+                        var host=Ext.getCmp('table_data');
+                        new Act({edit_type:'edit',table:'nanx_activity_field_public_display_cfg',code:'NANX_TBL_DATA',showwhere:'autowin',wintitle:i18n.title_setdisplycfg,host:null});
+                        }
+                }
+
+
+                if (opcode=='edit_codetable'){
+                        common_fn=function(){
+                        var host=Ext.getCmp('table_data');
+                        new Act({edit_type:'edit',table:'nanx_code_table',code:'NANX_TBL_DATA',showwhere:'autowin',wintitle:i18n.title_setdisplycfg,host:null});
+                        }
+                }
+          return common_fn;
+}
+
 
 
   FormBuilder.BackendFormHandler=function(node,category,opcode,alt_win_id) {
@@ -598,7 +661,7 @@ FormBuilder.getOperationForm = function(node, orginal_mcfg) {
     var route = specialCodes.indexOf(opcode);
     if(route>=0)
     {
-      var common_fn=specialCodeRoute(node,category,opcode);
+      var common_fn=this.specialCodeRoute(node,category,opcode);
       return common_fn;
     }
 
