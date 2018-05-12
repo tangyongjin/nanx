@@ -291,12 +291,8 @@ class Tree extends CI_Controller {
               nanx_user_role_assign  where role_code='#value'", 'leaf' => true),
 
            'codetable_category' => array('sql' =>
-				"select  distinct category  as text , category ,category as value   from nanx_code_table  ", 'leaf' => true),
-			 
-
-
-
-			'user_role_refer' => array('sql' => "
+				" select  distinct category  as text , category  as value   from nanx_code_table order by id desc ", 'leaf' => true),
+   			    'user_role_refer' => array('sql' => "
           SELECT 'user_role_refer_detail' as category, nanx_user_role.role_name,nanx_user.user as value  FROM nanx_user,nanx_user_role_assign,nanx_user_role
           WHERE ( nanx_user_role_assign.user = nanx_user.user )
           and (nanx_user_role.role_code=nanx_user_role_assign.role_code)",

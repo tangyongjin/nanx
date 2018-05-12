@@ -420,9 +420,11 @@ FormBuilder.getFormData = function(form) {
     var fmdata = {};
     var formel = form.getEl();
     var ipts = formel.query('input');
-
+    
     for (var i = 0; i < ipts.length; i++) {
         var field_id = ipts[i].getAttribute("id");
+        
+
         if (Ext.getCmp(field_id)) {
             var field = Ext.getCmp(field_id);
             var field_type = field.getXType();
@@ -435,8 +437,10 @@ FormBuilder.getFormData = function(form) {
             }
             fmdata[field_id] = field_value;
         }
-
+        
     }
+
+    console.log(fmdata)
     var xtypes = form.findByType("timepickerfield");
 
     for (var i = 0; i < xtypes.length; i++) {

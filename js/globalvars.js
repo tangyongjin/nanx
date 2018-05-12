@@ -1,5 +1,5 @@
 APP_PREFIX='boss'
-BASE_URL='http://119.254.119.59:7000/'
+BASE_URL='http://47.92.72.19:8090/'
 TMP_DIR=BASE_URL+'tmp/';
 AJAX_ROOT=BASE_URL;
 HELP_DIR=AJAX_ROOT+'dbdocu/gethelp/';

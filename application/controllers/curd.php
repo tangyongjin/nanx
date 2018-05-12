@@ -20,13 +20,18 @@ class Curd extends CI_Controller
             
             $code_filter = (array) $p['codetable_filter_cfg'];
             $category_value = $code_filter['codetable_category_value'];
-            // $category_value='gender';
             $sql         = "select * from nanx_code_table where category=  '{$category_value}' ";
+            
+            logtext($sql);
+
             $rows        = $this->db->query($sql)->result_array();
             $ret['rows'] = $rows;
             echo json_encode($ret, JSON_UNESCAPED_UNICODE);
             die;
+        } else{
+             logtext('bbbbb');
         }
+
         
         $this->load->model('MCurd');
         $result = $this->MCurd->getActivityData($p);
