@@ -16,7 +16,7 @@ class Sinnet_tree  extends CI_Controller {
 				'leaf' => false),
 
 			'idc' => array('sql' =>
-				"select IDCid as value,buildName as  text ,'building' as category from  boss_Building where IDCid='#value'",
+				"select id  as value,buildName as  text ,'building' as category from  boss_Building where IDCid='#value'",
 				'leaf' => false),
 
 			'building' => array('sql' =>
