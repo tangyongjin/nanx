@@ -4,7 +4,7 @@ NANXplugin_window.prototype.entry_fun=function()
  
 
        var treeloader=new Ext.tree.TreeLoader({
-                        dataUrl:AJAX_ROOT + 'tree',
+                        dataUrl:AJAX_ROOT + 'sinnet_tree',
                         preloadChildren: false,
                         listeners:{
                                 beforeload: function(loader, node) 
@@ -20,17 +20,18 @@ NANXplugin_window.prototype.entry_fun=function()
         
         var rootnode=new Ext.tree.AsyncTreeNode({   
             id:'1',   
-            category:'activitys',
+            category:'sinnet',
             value:'',
-            text:'目录树根节点'   
+            iconCls:'sinnet',
+            text:'光环新网'   
         });   
            
         var treepanel = new Ext.tree.TreePanel({   
             rootVisible:true,     //隐藏根节点   
-            border:true,          //边框   
+            // border:true,          //边框   
             animate:true,         //动画效果   
             autoScroll:true,      //自动滚动   
-            enableDD:false,       //节点是否可以拖拽                
+            height:564,
             containerScroll:true,   
             root:rootnode,        
             loader:treeloader               

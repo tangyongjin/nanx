@@ -32,6 +32,7 @@ class MUI extends CI_Model
             'css' => array(
                 'menutheme/css/menu.css',
                 'menutheme/css/font-awesome.css',
+                'css/sinnet.css',
                 'css/template.css',
                 'jslib/ext/resources/css/ext-all.css',
                 'jslib/ext/ux/fileuploadfield/css/fileuploadfield.css',

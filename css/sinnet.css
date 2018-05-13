@@ -1,0 +1,25 @@
+
+.sinnet{
+  background-image:url(front/sinnet.png) !important;	
+}
+
+.idc{
+	background-image:url(front/idc.ico) !important;
+}
+
+.building{
+	background-image:url(front/building.ico) !important;
+}
+
+
+.floor{
+	background-image:url(front/floor.png) !important;
+}
+
+.hostroom{
+	background-image:url(front/hostroom.png) !important;
+}
+
+.cabinet{
+	background-image:url(front/cabinet.png) !important;
+}
