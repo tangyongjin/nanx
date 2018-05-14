@@ -37,7 +37,7 @@ function login(){
                  $('#myModal').reveal();
                  
                  window.location.href = AJAX_ROOT+'home/index?ts='+Math.floor(Date.now() / 1000)
-                 alert('will href to '+AJAX_ROOT+'home/index/' );
+                 // alert('will href to '+AJAX_ROOT+'home/index/' );
                 // window.location.href = AJAX_ROOT+'home/index/' 
                 
                  
