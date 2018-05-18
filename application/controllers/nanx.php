@@ -351,11 +351,20 @@ class Nanx extends CI_Controller {
 				'dbcmdtype'  => 'delete',
 				'paracfg'    => array('rule_name' => 'nodevalue')),
 
-			'delete_trigger_group' => array(
-				'successmsg' => 'success_delete_trigger_group',
-				'tbused'     => 'nanx_biz_column_trigger_group',
+			// 'delete_trigger_group' => array(
+			// 	'successmsg' => 'success_delete_trigger_group',
+			// 	'tbused'     => 'nanx_biz_column_trigger_group',
+			// 	'dbcmdtype'  => 'delete',
+			// 	'paracfg'    => array('group_id' => 'group_id', 'base_table' => 'hostby')),
+
+   		    'delete_trigger_group' => array(
+				'successmsg' => 'success_delete_dropdown_item',
 				'dbcmdtype'  => 'delete',
-				'paracfg'    => array('group_id' => 'group_id', 'base_table' => 'hostby')),
+				'paracfg'    => array('group_id' => 'group_id'),
+				'tbused'                         => array('nanx_biz_column_follow_cfg', 'nanx_biz_column_trigger_group')),
+
+
+
 
 			'edit_notify_rule' => array(
 				'tbused'     => 'nanx_activity_nofity',
@@ -843,7 +852,61 @@ class Nanx extends CI_Controller {
 		}
 
 		if ($opcode == 'add_trigger_group') {
+
+		    logtext('999');
+			logtext($data_received);
+            //前台js字符串名字错误配置,导致group_id 与 group_name 混淆.
+
+            $data_received['group_name']= $data_received['group_id'];   
+            $rand_grpid=  randstr(10);
+
+            $base_table= $data_received['nodevalue'];
+
+
+            $data_received['group_id']= $rand_grpid ;
+
 			$data_fixed = $this->getTriggerGroupData($data_received);
+
+			logtext($data_fixed);
+          
+		 /*
+		    owner_row_id : 1
+			base_table_follow_field : "mob"
+			combo_table_follow_field : "idcSite"
+			1
+			owner_row_id : 2
+			base_table_follow_field : "classname"
+			combo_table_follow_field : "Site_x"
+
+*/
+
+			if (array_key_exists('follow_rows', $data_received)){
+				    logtext('1000');
+					logtext($data_received['follow_rows']);
+
+			        foreach ($data_received['follow_rows']  as $key => $follow_obj) {
+			             
+                         $follow=(array)$follow_obj;
+                         $tmp=array();
+                         $tmp['level']=  $follow['owner_row_id'];
+                         $tmp['group_id']=  $rand_grpid;
+                         $tmp['base_table']=  $base_table;
+                         $combo_key='combo_table_'.$follow['owner_row_id'];
+						 $tmp['combo_table']=  $data_received[$combo_key];
+                         
+                         $field_key='field_e_'.$follow['owner_row_id'];
+						 $tmp['field_e']=  $data_received[$field_key];
+                        
+
+
+                         $tmp['base_table_follow_field']=  $follow['base_table_follow_field'];  
+                         $tmp['combo_table_follow_field']=  $follow['combo_table_follow_field'];  
+                         logtext('tmp raw is ');
+                         logtext($tmp);
+                         $this->db->insert('nanx_biz_column_follow_cfg',$tmp);
+			        }
+			}
+			 
 		}
 
 		 
@@ -1424,6 +1487,8 @@ class Nanx extends CI_Controller {
 			$records[] = array(
 				'base_table'   => $para['hostby'],
 				'group_id'     => $para['group_id'],
+				'group_name'     => $para['group_name'],
+				
 				'field_e'      => $para['field_e_' . $i],
 				'combo_table'  => $para['combo_table_' . $i],
 				'group_type'   => 'isgroup',

@@ -66,25 +66,36 @@ var debug_fun = function(node) {
 var cabinet_detail = function(node) {
     
     //1、模拟数据结构
-    var data = {
-        "cabinetName":"10012",
-        "roomNumber":"302",
-        "cabinetType":"标准机柜",
-        "belongUser":"北京三块科技股份有限公司",
-        "location_x":"1",
-        "location_y":"1",
-        "powerArk":"PDU4-3",
-        "leaseNature":"整包",
-        "equipmentCount":"3",
+    var data = {    
+        "cabinetName":"10012",                          //机柜名称
+        "roomNumber":"302",                             //所在房间
+        "cabinetType":"标准机柜",                         //机柜类型
+        "belongUser":"北京三块科技股份有限公司",            //所属客户
+        "location_x":"1",                               //位置X
+        "location_y":"1",                               //位置Y
+        "leaseNature":"整包",                            //租赁性质
+        "equipmentCount":"3",                            //设备总数
+        "is_own_bring":"否",                             //是否自带
         "u_count":42,
         "equipmentList":[
-            {"id":"10001","equipmentName":"暂无","shelvesDate":"2018-03-28","u_location":19,"u_count":2,"equipmentType":"服务器","model":"DELL R730","IP_address":"10.73.10.60","serialNumber":"29304823"},
+            {
+                "id":"10001",                           //设备ID
+                "equipmentName":"暂无",                  //设备名称
+                "shelvesDate":"2018-03-28",             //上架日期
+                "u_location":19,                        //所在位置（第几U）
+                "u_count":2,                            //所占容量（几U）
+                "equipmentType":"服务器",                //设备类型
+                "model":"DELL R730",                    //设备型号
+                "IP_address":"10.73.10.60",             //IP地址
+                "serialNumber":"29304823"               //主机编号
+            },
             {"id":"10002","equipmentName":"暂无","shelvesDate":"2018-04-12","u_location":30,"u_count":4,"equipmentType":"网络设备","model":"联想 R730","IP_address":"10.73.10.61","serialNumber":"30304823"},
             {"id":"10003","equipmentName":"暂无","shelvesDate":"2018-05-11","u_location":10,"u_count":5,"equipmentType":"其他","model":"苹果 R730","IP_address":"10.73.10.62","serialNumber":"41304823"}
         ]
     } 
 
     //2、页面展示部分
+    //左边容器 机柜结构
     var html1 = '<div style="padding-left:40px; padding-right:40px;">';
     html1 +=        '<div style="height:5px;">';
     html1 +=            '<div style="float:left; width:15px; height:5px; background-color:rgba(38, 53, 82, 1);"></div>';
@@ -101,20 +112,15 @@ var cabinet_detail = function(node) {
             if(i == item.u_location){
                 has_equipment = true;
                 //根据设备所占U数量，合并展示
-                html1 +=    '<div style="border: 5px solid rgba(38, 53, 82, 1); cursor: pointer; margin-bottom:2px;">';
-                for (var j = 0; j < item.u_count; j++) {
-                    if(j==(item.u_count-1)){
-                        html1 +=    '<div style="width:100%; height:' + h + 'px; background-color:rgba(38, 53, 82, 1);"></div>';
-                    } else {
-                        html1 +=    '<div style="width:100%; height:' + h + 'px; background-color:rgba(38, 53, 82, 1); margin-bottom:1px;"></div>';
-                    }
-                }
+                html1 +=    '<div id="' + item.id + '" class="equipment-item" style="height:' + (h*item.u_count) + 'px;border: 2px solid rgba(38, 53, 82, 1); cursor: pointer; padding:5px; margin-bottom:2px;border-radius:8px;">';
+                html1 +=        '<strong>设备名称：</strong>' + item.equipmentName + '，<strong>容量：</strong>' + item.u_count + 'U（' + i + '-' + (i+item.u_count-1) + '）' ;
                 html1 +=    '</div>';
-                plusSum = item.u_count;
+                plusSum = item.u_count;//存在设备，循环U数+设备所占U数
             }
         });
+        //没有设备 生成空U
         if(!has_equipment){
-            html1 +=        '<div style="width:100%; height:' + h + 'px; background-color:rgba(242, 242, 242, 1); margin-bottom:2px; cursor: pointer;"></div>';
+            html1 +=        '<div style="width:100%; height:' + h + 'px; background-color:rgba(242, 242, 242, 1); margin-bottom:2px;">' + i + '</div>';
         }
         i=i+plusSum;
     };
@@ -124,7 +130,36 @@ var cabinet_detail = function(node) {
     html1 +=            '<div style="float:left; width:20%; height:20px; background-color:rgba(38, 53, 82, 1); margin-left:20%;"></div>';
     html1 +=        '</div>';
     html1 +=    '</div>';
-    var html2 = '<div>→右边容器</div>';
+
+    //右边容器 机柜详情和设备详情
+    var html2 = '<div style="margin:20px;">';
+    html2 +=        '<div>';
+    html2 +=            '<div style="margin-bottom:10px">';
+    html2 +=                '<h2 style="color:#676a6c;">机柜信息</h2>';
+    html2 +=            '</div>';
+    html2 +=            '<div>';
+    html2 +=                '<ul style="list-style:none;margin:5px;">';
+    html2 +=                    '<li><strong>机柜类型：</strong>' + data.cabinetType + '</li>';
+    html2 +=                    '<li><strong>机柜名称：</strong>' + data.cabinetName + '</li>';
+    html2 +=                    '<li><strong>所在房间：</strong>' + data.roomNumber + '</li>';
+    html2 +=                    '<li><strong>机柜位置：</strong>' + data.location_x + '排*' + data.location_y + '列</li>';
+    html2 +=                    '<li><strong>租赁性质：</strong>' + data.leaseNature + '</li>';
+    html2 +=                    '<li><strong>设备总数：</strong>' + data.equipmentCount + '</li>';
+    html2 +=                    '<li><strong>是否自带：</strong>' + data.is_own_bring + '</li>';
+    html2 +=                '</ul>';
+    html2 +=            '</div>';
+    html2 +=        '</div>';
+    html2 +=    '</div>';
+    html2 +=    '<div style="margin:20px;">';
+    html2 +=        '<div>';
+    html2 +=            '<div style="margin-bottom:10px">';
+    html2 +=                '<h2 style="color:#676a6c;">设备信息</h2>';
+    html2 +=            '</div>';
+    html2 +=            '<div id="equipment-detail">';
+    html2 +=                '请选择左边机柜中的设备查看详情';
+    html2 +=            '</div>';
+    html2 +=        '</div>';
+    html2 +=    '</div>';
     
     var u1=new Ext.Panel({
         columnWidth:0.5,
@@ -155,6 +190,34 @@ var cabinet_detail = function(node) {
     });
 
     cabinet_win.show();
+
+    //为机柜中的设备  添加点击事件
+    $(".equipment-item").click(function(){
+        var equipmentItem = null;
+        var id = $(this).attr("id");
+        $.each(data.equipmentList, function(index, item){
+            if(id == item.id){
+                equipmentItem = item;
+                return;
+            }
+        });
+        if(equipmentItem != null){
+            $("#equipment-detail").html("");
+            var html = '<ul style="list-style:none;margin:5px;">';
+            html +=         '<li><strong>上架日期：</strong>' + equipmentItem.shelvesDate + '</li>';
+            html +=         '<li><strong>主机位置：</strong>' + equipmentItem.u_location + '</li>';
+            html +=         '<li><strong>主机名称：</strong>' + equipmentItem.equipmentName + '</li>';
+            html +=         '<li><strong>主机编号：</strong>' + equipmentItem.serialNumber + '</li>';
+            html +=         '<li><strong>主机类型：</strong>' + equipmentItem.equipmentType + '</li>';
+            html +=         '<li><strong>设备型号：</strong>' + equipmentItem.model + '</li>';
+            html +=         '<li><strong>IP地址：</strong>' + equipmentItem.IP_address + '</li>';
+            html +=    '</ul>';
+            $("#equipment-detail").html(html);
+            //选中样式
+            $(".equipment-item").css({"border-color":"rgba(38, 53, 82, 1)"});
+            $(this).css({"border-color":"#1ab394"});
+        }
+    });
 }
 
 

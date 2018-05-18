@@ -39,3 +39,7 @@ database:
 后台选择数据是否可以直接选择 raw 数据,在展现页面进行
 	挨个字段的分别显示(combo /dropdown)
 
+
+
+ add/del/update 提供可配置的url.(即:不使用钩子功能,而
+ 是直接提供api url)
