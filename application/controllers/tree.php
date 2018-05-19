@@ -61,7 +61,7 @@ class Tree extends CI_Controller {
 				'leaf' => false),
 
 			'trigger_groups' => array('sql' =>
-				"select  distinct  group_id  as value, group_name as  text ,'trigger_group' as category, base_table as hostby
+				"select  distinct  group_id  as value, group_id as  text ,'trigger_group' as category, base_table as hostby
                     from  nanx_biz_column_trigger_group   where base_table='#value' and group_type='isgroup'
                     ",
 				'leaf' => true),
