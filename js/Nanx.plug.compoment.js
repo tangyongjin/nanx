@@ -171,11 +171,12 @@ Util.DropdownCompoment = Ext.extend(Ext.Container, {
             'value': config.node.attributes.value,
             'hostby': config.node.attributes.hostby
         }
-        alert('ajax')
+        
+        alert('Ajax取值,并回显')
+        
         Ext.Ajax.request({
             url: AJAX_ROOT + config.callback_set_url,
             jsonData: Ext.encode(json),
-
             callback: function(options, success, response) {
                 var ret_json = Ext.util.JSON.decode(response.responseText);
                 var key_used = 'server_resp'

@@ -131,8 +131,6 @@ class Home extends CI_Controller
         $this->load->model('MXmenu');
         $this->load->model('MUi');
         $allsession = $this->session->all_userdata();
-        
-        
         $roles         = $allsession['roles'];
         $activity_list = $this->MXmenu->getActivitybyRoleCode($roles, $parent);
         

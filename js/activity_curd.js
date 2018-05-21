@@ -114,7 +114,11 @@ Act.prototype.init_all = function(cfg) {
 
 
 Act.prototype.setcfg = function(ret) {
-
+    console.log(ret)  
+ 
+    this.bpmcfg=ret.bpmcfg
+    
+    console.log(this.bpmcfg)
 
     this.actcode = ret.activity_code;
     this.activity_type = ret.activity_type;
@@ -148,6 +152,7 @@ Act.prototype.setcfg = function(ret) {
     this.tBar = this.getTbar();
     this.bBar = this.getBbar();
     this.treeViewCfg={tree_text_field:ret.tree_text_field,tree_parent_field:ret.tree_parent_field}
+    
 };
 
 
@@ -253,6 +258,11 @@ Act.prototype.createActivityGridPanel=function(){
             },
             beforeedit:function(col){
                 if (col.field=='id'){
+                    return false;
+                }
+
+
+                if (col.field=='uuid'){
                     return false;
                 }
 
@@ -540,14 +550,16 @@ Act.prototype.getOneColModel = function(colCfg) {
         oneColModel.renderer = function(value) {
             return '<span  class="x-grid3-cell-inner" style="color:#004080;">' + value + '</span>'
         };
-        oneColModel.editor.readOnly = true;
     }
+    
+
     if (colCfg['field_e'] == 'add_column') {
         var fn = function(b, a){
             return '<a href="javascript:void(0);"><div class="index_add_cols">a</div></a>'
         }
         oneColModel.renderer = fn;
     }
+
     return oneColModel;
 }
 
@@ -563,6 +575,7 @@ Act.prototype.getColModel=function(){
     var cm = new Ext.grid.ColumnModel({
         columns:cols_array
     });
+    console.log(cm)
     return cm;
 }
 
@@ -722,8 +735,11 @@ Act.prototype.getStoreByTableAndField=function(basetable,fields,cfg,codetable_fi
     return ds;
 }
 
-
+//按钮组
 Act.prototype.getPublicBtns=function(){
+    
+   
+
     var that=this;
     var public_btns=[];
     if ((this.curdCfg.fn_add===1)||(this.curdCfg.fn_add === '1')){
@@ -770,6 +786,7 @@ Act.prototype.getPublicBtns=function(){
         });
 
     }
+
     var excel_exp_btn={
         text:'Excel',
         iconCls:'n_excel',
@@ -782,20 +799,197 @@ Act.prototype.getPublicBtns=function(){
             that.writeExcel(btn,e)
         }
     };
-    if (!this.cfg.nosearch){
-        //ActPlug.getQueryBtn
-        console.log(this)
-        var qbtn=ActPlug.getQueryBtn(this);
-        public_btns.push(qbtn);
-    }
 
     public_btns.push(excel_exp_btn);
+
+      
+    bpm_btns=this.getBpmBtns(this)
+    console.log(bpm_btns)
+ 
+    
+    if (!this.cfg.nosearch){
+        var query_btn=ActPlug.getQueryBtn(this);
+        public_btns.push(query_btn);
+    }
+    
+
+   
 
     if (that.activity_type=='sql'){
         var public_btns=[excel_exp_btn]
     }
-    return public_btns;
+
+   return public_btns.concat(bpm_btns);
 }
+
+
+Act.prototype.getBpmBtns=function(cfg){
+
+     var that=this;
+     
+     if( !(cfg.hasOwnProperty('bpmcfg') ) ){
+        return [];
+     }
+    
+     if( cfg.bpmcfg===null){
+           return [];
+     }
+    
+    if( !(cfg.bpmcfg.hasOwnProperty('bpmn_process_name') ) ){
+        return [];
+     }
+
+     if (cfg.bpmcfg.bpmn_process_name ==null ){
+          return [];
+     }
+     
+    
+     if(cfg.bpmcfg.bpmn_process_name.length==0){
+          return [];
+     }
+    
+        var bpm_start_btn={
+            text:this.bpmcfg.btntext,
+            iconCls:'bpm_start',
+            ctCls:'x-btn-over',
+            transfer:true,
+            style:{
+                marginRight: '6px'
+            },
+            handler:function(btn,e){
+                that.startbpm(btn,e)
+            }
+         };
+ 
+        var bpm_view_diagram_btn={
+            text:'查看流程',
+            iconCls:'bpm_diagram',  
+            ctCls:'x-btn-over',
+            transfer:true,
+            style:{
+                marginRight: '6px'
+            },
+            handler:function(btn,e){
+                that.viewdiagram(btn,e)
+            }
+         };
+        
+        return[bpm_start_btn,bpm_view_diagram_btn]
+       
+}
+
+
+
+// $.ajax({  
+
+//       url : 'http://47.92.72.19:7000/books/users',  
+//       type:'POST',
+//       // data: 'userid/1',
+//       // contentType: 'application/json',
+//       data:  {"email":"abcd@aa.com","DocumentPageTemplateID":41,"DocumentName":"JSONTest"},
+//       xhrFields: {  
+//         withCredentials: false // 设置运行跨域操作  
+//       },  
+//       success : function(ret) {  
+//         console.log(ret);  
+//       }  
+
+// });  
+
+ 
+Act.prototype.startbpm=function(btn){
+
+
+$.ajax({  
+
+      url : 'http://47.92.72.19:7000/books/users',  
+      type:'GET',
+      // data: 'userid/1',
+      // contentType: 'application/json',
+      // data:  {"email":"abcd@aa.com","DocumentPageTemplateID":41,"DocumentName":"JSONTest"},
+      xhrFields: {  
+        withCredentials: false // 设置运行跨域操作  
+      },  
+      success : function(ret) {  
+        console.log(ret);  
+      }  
+
+});  
+
+
+
+  //  Ext.Ajax.request({
+  //   url: 'http://47.92.72.19:7000/books/users/',
+  //   cors: true,
+  //   useDefaultXhrHeader: false,
+  //   withCredentials: false,
+  //   method: 'GET',
+    
+  //   // params: {
+  //   //     username: 'admin',
+  //   //     password: 'admin'
+  //   // },
+
+  //   success: function(response) {
+  //       console.log(response);
+  //   }
+  // });
+
+   
+
+    // var host_grid_id=btn.ownerCt.ownerCt.id;
+    // var that=this;
+    // if (Ext.getCmp('update_win')) {
+    //     Ext.getCmp('update_win').close();
+    // }
+    // var userRecord = Ext.getCmp(host_grid_id).getSelectionModel().getSelections();
+    // if (!(userRecord.length == 1)) {
+    //     Ext.Msg.alert(i18n.tips, i18n.choose_only_one_record);
+    //     return false;
+    // }
+
+
+    // this.fixLayout('update',this);
+    // var all_fields_form=this.getLayoutedForms(this, 'update', userRecord[0]);
+    // var w=this.getLayoutWidth(all_fields_form)*1.0;
+    // var updateForm =new Ext.form.FormPanel({
+    //     xtype:'form',
+    //     id:'update_form',
+    //     autoHeight:true,
+    //     fileMgr:true,
+    //     width:w,
+    //     table:this.table,
+    //     actcode:this.actcode,
+    //     borderStyle:'padding-top:3px',
+    //     frame:true,
+    //     labelAlign:'right',
+    //     defaluts:{
+    //         allowBlank:false,
+    //         width:200,
+    //         readOnly : true
+    //     },
+    //     fieldDefaults: {
+    //                 readOnly : true //all fiels are in readOnly mode
+    //     },
+
+    //     items: all_fields_form 
+    // });
+
+    //  updateForm.items.each(function(f){
+         
+    //      console.log(f)
+
+
+    //   // f.el.dom.readOnly = true;
+    
+    // });
+
+
+    // this.actionWin('update', updateForm);
+
+
+}
+
 
 
 Act.prototype.buildTopToolbar_backend=function(){
@@ -1735,15 +1929,7 @@ Act.prototype.actionWin = function(type,form,wincfg){
               roots[i].getStore().load({params:{start:0,limit:pageSize}});
           }
 
-             // var trigger_btn= Ext.getCmp('add_trigger_button' )
-             // trigger_btn.on('render',function(a,b,c){
-             //       console.log(a,b,c)
-             //       a.setupclick()
-             //       alert('trigger_btn show!')  
-             // })
-
-
-
+         
       });
 
       

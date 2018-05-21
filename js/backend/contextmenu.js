@@ -248,7 +248,7 @@ var menu_for_trigger_group = {
     category: ['trigger_group'],
     menus: [
         {
-            title: "i18n.查看联动组",  // 联动
+            title: i18n.view_trigger_group ,  // 联动
             json: {
                 'value': '#value',
                 'hostby': '#hostby'
@@ -1053,9 +1053,9 @@ var menu_for_dropdown_item = {
 }
 
 var menu_for_dropdown_groups = {
-    category: ['dropdown_groups'],
+    category: ['dropdown_codetable'],
     menus: [
-        
+         
         {
             title: i18n.add_codetable_config,
             json: {
@@ -1206,12 +1206,16 @@ var menu_for_activitys =
                 label: i18n.memo,
                 id: 'memo'
             }]
-        }, {
+        }, 
+        
+        {
             title: i18n.paste,
             opcode: 'mem_paste',
             place: 'context',
             itemcfg: []
-        }]
+        }
+        
+        ]
     }
 
 var menu_for_hooks = {
@@ -1572,7 +1576,8 @@ var menu_for_activity = {
             opcode: 'mem_copy',
             place: 'context',
             itemcfg: []
-        }, {
+        }, 
+        {
             title: i18n.set_owner_data_only,
             opcode: 'set_owner_data_only',
             place: 'context',
@@ -1587,6 +1592,14 @@ var menu_for_activity = {
                 checkbox: true,
                 id: 'owner_data_only'
             }]
+        },
+        {
+            title: "i18n.工作流配置",
+            opcode: 'activiti_config',
+            place: 'context',
+            width: 900,
+            height: 420,
+            itemcfg: []
         }
     ]
 }

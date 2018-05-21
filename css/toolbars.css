@@ -250,3 +250,16 @@ color:blue;
 }
 
 .docu_table th { background-color:#E1E1E1;color:black; }
+
+.bpm_start{
+    background-image: url( images/run16.png) !important;
+}
+
+
+.bpm_diagram{
+    background-image: url( images/diagram.png) !important;
+}
+
+.bpm_process{
+    background-image: url( images/bpm_process.png) !important;
+}

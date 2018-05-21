@@ -48,7 +48,6 @@ var COMBOX = {};
 
      var combox_width=cfg.width?cfg.width:300
      combox_width=140;
-     console.log(store)
      var combox_cfg = {
          id: com_id,
          serial:cfg.serial,
@@ -59,8 +58,8 @@ var COMBOX = {};
          fieldLabel: cfg.label,
          forceSelection: true,
          editable: true,
-         // pageSize:pageSize,           //显示下拉列表的分页
-         pageSize:100,           //显示下拉列表的分页
+         pageSize:pageSize,           //显示下拉列表的分页
+         // pageSize:100,           //显示下拉列表的分页
          name: com_id,
          width:combox_width,
          allowBlank: cfg.hasOwnProperty('allowBlank') ? cfg.allowBlank : true,

@@ -15,10 +15,6 @@ FormBuilder.backendForm = function(category, opcode, xnode) {
         o_mcfg.itemcfg = o_mcfg_create.itemcfg // 借用上级的 itemcfg
     }
 
-    // if( opcode=='view_trigger_group_debug'){
-    //    o_mcfg_create = AppCategory.getSubMenuCfg('trigger_groups', 'add_trigger_group');
-    //    o_mcfg.itemcfg=o_mcfg_create.itemcfg    // 借用上级的 itemcfg
-    // }
 
 
     var opform = this.getOperationForm(xnode, o_mcfg);
@@ -365,6 +361,9 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
 FormBuilder.getCommonField = function(item) {
 
     var readonly = item.readonly ? item.readonly : false;
+
+ 
+
     var hidden = item.hidden ? item.hidden : false;
 
 
@@ -513,7 +512,6 @@ FormBuilder.getFormData = function(form) {
 
 FormBuilder.getOperationForm = function(node, orginal_mcfg) {
     
-    console.log(orginal_mcfg)
     var mcfg = Fb.preProcessNodeAtt(orginal_mcfg, node);
 
     var layout = 'form';

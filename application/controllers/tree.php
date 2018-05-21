@@ -51,7 +51,7 @@ class Tree extends CI_Controller {
                     select  table_name as value,'" . $this->lang->line('trigger_groups') . "'  as  text ,'trigger_groups' as category, table_name as hostby
                     from  nanx_biz_tables      where id='#value'
                     union  
-                    select  table_name as value,'" . $this->lang->line('dropdown_groups') . "'  as  text ,'dropdown_groups' as category, table_name as hostby
+                    select  table_name as value,'" . $this->lang->line('dropdown_codetable') . "'  as  text ,'dropdown_codetable' as category, table_name as hostby
                     from  nanx_biz_tables      where id='#value'  
                     union
                     select  '#hostby' as value,'" . $this->lang->line('view_filter') . "'  as  text ,'view_filter' as category, id as hostby
@@ -61,12 +61,12 @@ class Tree extends CI_Controller {
 				'leaf' => false),
 
 			'trigger_groups' => array('sql' =>
-				"select  distinct  group_id  as value, group_id as  text ,'trigger_group' as category, base_table as hostby
+				"select  distinct  group_id  as value, group_name as  text ,'trigger_group' as category, base_table as hostby
                     from  nanx_biz_column_trigger_group   where base_table='#value' and group_type='isgroup'
                     ",
 				'leaf' => true),
 
-			'dropdown_groups' => array(
+			'dropdown_codetable' => array(
 				'sql' =>
 				"select id, group_id , field_e  as value, field_e as text , 'dropdown_item' as category, base_table as hostby
                      from  nanx_biz_column_trigger_group   where base_table='#value' and group_type='nogroup'

@@ -43,3 +43,8 @@ database:
 
  add/del/update 提供可配置的url.(即:不使用钩子功能,而
  是直接提供api url)
+
+
+  
+  update-delete 增加如果和工作流相关的处理:
+     前置检查下是否可以update/delete

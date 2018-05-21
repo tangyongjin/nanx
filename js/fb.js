@@ -538,10 +538,15 @@ Fb.getFieldEditor = function(master_act, op_type, one_col_cfg, row, whoami_cfg) 
     this.determineOriginalValue(op_type, one_col_cfg, row);
     var readonly_flag = false;
     var skip_flag = false;
+    
     if (one_col_cfg['field_e'] == 'id') {
         readonly_flag = true;
     }
 
+    if (one_col_cfg['field_e'] == 'uuid') {
+        if(op_type=='update') {readonly_flag = true; }
+     }
+     
 
     if (one_col_cfg.editor_cfg.hasOwnProperty('readonly')) {
         if (one_col_cfg.editor_cfg.readonly == '1')
