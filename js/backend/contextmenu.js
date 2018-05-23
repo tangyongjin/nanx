@@ -945,7 +945,8 @@ var menu_for_biz_col = {
                 }
 
             ]
-        }, {
+        }, 
+        {
             title: i18n.using_html_editor,
             opcode: 'set_use_html_editor',
             place: 'context',
@@ -960,7 +961,31 @@ var menu_for_biz_col = {
                 checkbox: 'true',
                 id: 'edit_as_html'
             }]
-        }, {
+        }, 
+        {
+            title: "i18n.只读",
+            opcode: 'set_readonly',
+            place: 'context',
+            itemcfg: [{
+                item_type: 'field',
+                label: i18n.field,
+                readonly: true,
+                value: '#text'
+            }, {
+                item_type: 'checkbox',
+                label: i18n.readonly,
+                checkbox: 'true',
+                id: 'readonly'
+            }]
+        },
+
+
+
+
+
+
+
+        {
             title: i18n.show_as_pic,
             opcode: 'set_show_as_pic',
             place: 'context',
@@ -1667,7 +1692,8 @@ var menu_for_sql_statement = {
 
 var menu_for_based_biz_table = {
     category: ['based_biz_table'],
-    menus: [{
+    menus: [
+       {
             title: i18n.set_forbidden_fields,
             opcode: 'set_forbidden_col',
             place: 'context',
@@ -1681,7 +1707,8 @@ var menu_for_based_biz_table = {
                 left_filter_value: 'hostby',
                 right_value: true
             }]
-        }, {
+        }, 
+        {
             title: i18n.set_order,
             opcode: 'set_id_order',
             place: 'context',

@@ -646,6 +646,7 @@ class Nanx extends CI_Controller {
 				'dbcmdtype'  => 'update_or_insert',
 				'paracfg'    => array('readonly' => 'readonly'
 					),
+
 				'wherecfg'   => array('base_table' => 'hostby', 'field_e' => 'nodevalue') ),
 
  

@@ -19,6 +19,8 @@ class MXmenu extends CI_Model
         
         $data = $this->db->get_where('nanx_activity', array('activity_code' => $acode ))->row_array();
         
+        // print_r($data);
+
         if( $data){
 
         }   else{
@@ -29,7 +31,7 @@ class MXmenu extends CI_Model
         
         $act_type = $data['activity_type'];
         $base_url = $this->config->item('base_url');
-        $onediv   = "<div>not set</div>";
+        $onediv   = "<div>not_set</div>";
         
         if ($act_type == 'folder') {
             $bs     = $this->config->base_url();

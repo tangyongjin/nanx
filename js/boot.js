@@ -148,8 +148,10 @@ App.renewHash=function(parent){
                   url:GET_FIRST_LEVEL_URL,
                   jsonData:jsondata,
                   callback:function(options,success,response){
+                     
                       var div=Ext.fly('nanx_act_blocks')
                       var ret_json=Ext.util.JSON.decode(response.responseText);
+                      console.log(ret_json)
                       var newhtml=''
                       for (var i=0;i<ret_json.length;i++){
                                  newhtml=newhtml+ret_json[i]['block']

@@ -136,13 +136,18 @@ class Home extends CI_Controller
         
         $ret = array();
         $tmp = array();
+        
+        // print_r($activity_list);
+        // die;
         foreach ($activity_list as $act) {
             
             $block                = $this->MXmenu->getOneBlockbyActivityCode($act['activity_code']);
             $tmp['activity_code'] = $act['activity_code'];
             $tmp['block']         = $block;
+            $tmp['act_type']      = $act['act_type'];
             $ret[]                = $tmp;
         }
+
         echo json_encode($ret, JSON_UNESCAPED_UNICODE);
     }
     

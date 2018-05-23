@@ -801,18 +801,12 @@ Act.prototype.getPublicBtns=function(){
     };
 
     public_btns.push(excel_exp_btn);
-
-      
     bpm_btns=this.getBpmBtns(this)
-    console.log(bpm_btns)
- 
     
     if (!this.cfg.nosearch){
         var query_btn=ActPlug.getQueryBtn(this);
         public_btns.push(query_btn);
     }
-    
-
    
 
     if (that.activity_type=='sql'){
@@ -880,33 +874,86 @@ Act.prototype.getBpmBtns=function(cfg){
 
 
 
-// $.ajax({  
+Act.prototype.viewdiagram=function(btn){
+    
+   
+    var host_grid_id=btn.ownerCt.ownerCt.id;
 
-//       url : 'http://47.92.72.19:7000/books/users',  
-//       type:'POST',
-//       // data: 'userid/1',
-//       // contentType: 'application/json',
-//       data:  {"email":"abcd@aa.com","DocumentPageTemplateID":41,"DocumentName":"JSONTest"},
-//       xhrFields: {  
-//         withCredentials: false // 设置运行跨域操作  
-//       },  
-//       success : function(ret) {  
-//         console.log(ret);  
-//       }  
+    var current_row=null;
+    var userRecord = Ext.getCmp(host_grid_id).getSelectionModel().getSelections();
+    if (!(userRecord.length == 1)) {
+        Ext.Msg.alert(i18n.tips, i18n.choose_only_one_record);
+        return false;
+    }else{
+        current_row= userRecord[0]
+    }
+    
 
-// });  
+     var _id=current_row.id
+
+     pic='http://47.92.72.19:7000/Bpm/diagram/id/'+_id;
+     alert(pic)
+     
+     var diagram_xwin = new Ext.Window({
+ 
+                autoScroll:true,
+                closeAction:'destroy',
+                stateful:false,
+                constrain:true,
+                shadow:false,
+                cascadeOnFirstShow: 20,
+                width: 1400 * 1.0,
+                height: 600* 1.0,
+                title:'流程图',
+                html: '<br/>&nbsp;&nbsp;' + pic + "<br/><img style='margin:10px;' src='" + pic + "'>"
+     });
+    
+     diagram_xwin.doLayout()
+     diagram_xwin.show();
+   
+ 
+ 
+
+}
 
  
 Act.prototype.startbpm=function(btn){
+   
+    
+    var _process_name=this.bpmcfg.bpmn_process_name
+    
+    var host_grid_id=btn.ownerCt.ownerCt.id;
+    var that=this;
+    if (Ext.getCmp('bpm_start_win')) {
+        Ext.getCmp('bpm_start_win').close();
+    }
+    var current_row=null;
+    var userRecord = Ext.getCmp(host_grid_id).getSelectionModel().getSelections();
+    if (!(userRecord.length == 1)) {
+        Ext.Msg.alert(i18n.tips, i18n.choose_only_one_record);
+        return false;
+    }else{
+        current_row= userRecord[0]
+    }
+    
+    var raw_json=current_row.json
+    raw_json._process_name=_process_name
 
+     var loggeduser=document.getElementById('whoami');
+     loggeduser=loggeduser.innerHTML;
+     console.log(loggeduser)
+     raw_json._whoami=loggeduser;
 
-$.ajax({  
+    
 
-      url : 'http://47.92.72.19:7000/books/users',  
-      type:'GET',
+    console.log(raw_json )
+    $.ajax({  
+
+      url : 'http://47.92.72.19:7000/Bpm/startprocess',  
+      type:'POST',
       // data: 'userid/1',
       // contentType: 'application/json',
-      // data:  {"email":"abcd@aa.com","DocumentPageTemplateID":41,"DocumentName":"JSONTest"},
+      data: raw_json,
       xhrFields: {  
         withCredentials: false // 设置运行跨域操作  
       },  
@@ -917,76 +964,7 @@ $.ajax({
 });  
 
 
-
-  //  Ext.Ajax.request({
-  //   url: 'http://47.92.72.19:7000/books/users/',
-  //   cors: true,
-  //   useDefaultXhrHeader: false,
-  //   withCredentials: false,
-  //   method: 'GET',
-    
-  //   // params: {
-  //   //     username: 'admin',
-  //   //     password: 'admin'
-  //   // },
-
-  //   success: function(response) {
-  //       console.log(response);
-  //   }
-  // });
-
-   
-
-    // var host_grid_id=btn.ownerCt.ownerCt.id;
-    // var that=this;
-    // if (Ext.getCmp('update_win')) {
-    //     Ext.getCmp('update_win').close();
-    // }
-    // var userRecord = Ext.getCmp(host_grid_id).getSelectionModel().getSelections();
-    // if (!(userRecord.length == 1)) {
-    //     Ext.Msg.alert(i18n.tips, i18n.choose_only_one_record);
-    //     return false;
-    // }
-
-
-    // this.fixLayout('update',this);
-    // var all_fields_form=this.getLayoutedForms(this, 'update', userRecord[0]);
-    // var w=this.getLayoutWidth(all_fields_form)*1.0;
-    // var updateForm =new Ext.form.FormPanel({
-    //     xtype:'form',
-    //     id:'update_form',
-    //     autoHeight:true,
-    //     fileMgr:true,
-    //     width:w,
-    //     table:this.table,
-    //     actcode:this.actcode,
-    //     borderStyle:'padding-top:3px',
-    //     frame:true,
-    //     labelAlign:'right',
-    //     defaluts:{
-    //         allowBlank:false,
-    //         width:200,
-    //         readOnly : true
-    //     },
-    //     fieldDefaults: {
-    //                 readOnly : true //all fiels are in readOnly mode
-    //     },
-
-    //     items: all_fields_form 
-    // });
-
-    //  updateForm.items.each(function(f){
-         
-    //      console.log(f)
-
-
-    //   // f.el.dom.readOnly = true;
-    
-    // });
-
-
-    // this.actionWin('update', updateForm);
-
+ 
 
 }
 

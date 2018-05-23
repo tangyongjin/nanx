@@ -16,19 +16,19 @@ class Sinnet_tree  extends CI_Controller {
 				'leaf' => false),
 
 			'idc' => array('sql' =>
-				"select id  as value,buildName as  text ,'building' as category from  boss_Building where IDCid='#value'",
+				"select id  as value,buildName as  text ,'building' as category from  boss_IDC_building where IDCid='#value'",
 				'leaf' => false),
 
 			'building' => array('sql' =>
-				"select  id as value, floorName as  text ,'floor' as category from  boss_Floor where buildID='#value'  ",
+				"select  id as value, floorName as  text ,'floor' as category from  boss_IDC_building_floor where buildID='#value'  ",
 				'leaf' => false),
 
 			'floor' => array('sql' =>
-				"select  id as value, roomName as  text ,'hostroom' as category from  boss_Room where floorID='#value'  ",
+				"select  id as value, roomName as  text ,'hostroom' as category from  boss_IDC_room where floorID='#value'  ",
 				'leaf' => false),
 
 			'hostroom' => array('sql' =>
-				"select  id as value,cabinetName as text ,'cabinet' as category from boss_Cabinet  where roomID='#value' ", 
+				"select  id as value,cabinetName as text ,'cabinet' as category from boss_cabinet  where roomID='#value' ", 
 				'leaf' => false),
    			
 
