@@ -187,6 +187,7 @@ class MFieldcfg extends CI_Model
         
         
         $field_comment=$this->getColumnComment($base_table, $field );
+
         if( strlen($field_comment)>1){
          $field_c=$field_comment;
         } else{
@@ -357,6 +358,12 @@ class MFieldcfg extends CI_Model
         if ($field == 'id') {
             return 'ID';
         }
+
+        if(   $base_table=='NULL' ) {
+            return $field;
+        }
+
+       
 
         $comment         = '';
         $table_cols = $this->db->query("show full fields from  $base_table")->result_array();

@@ -94,6 +94,7 @@ class MActivity extends CI_Model
     }
     
     function getFieldesByType_sql($activity_code, $sql_fixed){
+        
         $sqltype = $this->judeSqlType($sql_fixed);
         $ret     = array();
         if ($sqltype == 'select') {
@@ -334,9 +335,6 @@ class MActivity extends CI_Model
     function getActivityCfg($para_array){
         
 
-       
-
-
         $this->load->model('MFieldcfg');
         $this->load->model('MLayout');
         $layout_cfg    = array();
@@ -369,6 +367,8 @@ class MActivity extends CI_Model
         if ($activity_type == 'menugroup') {
             $activity_summary['data_url'] = 'xmenu/getchild/' . $activity_code;
         }
+
+       
         
         $activity_summary['idOrder']            = $this->getIdOrder($activity_code);
         $activity_summary['curdCfg']            = $this->getCURDcfg($activity_code);

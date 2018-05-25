@@ -118,8 +118,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     var triggers=[obj1,obj2,obj3,obj4,obj5]
     var meta5= Act.prototype.LayoutBuilder(triggers)
     
-    console.log(meta5)
-
+   
     var sdh_number = {
         fieldLabel: 'SDH号码',
         id: 'sdh_number',
@@ -142,7 +141,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     var xadd_form = new Ext.form.FormPanel({
         xtype:'form',
         id:'add_form',
-        width:900,
+        width:700,
         fileMgr:true,
         borderStyle:'padding-top:3px',
         frame:true,
@@ -151,7 +150,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
             allowBlank:false,
             width:200
         },
-        items:meta5
+        items:[customer_selector,sdh_number,meta5]
     });
 
     var Tree_win = new Ext.Window({
@@ -167,7 +166,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         items:xadd_form
     });
 
-    xadd_form.show()
+    // xadd_form.show()
     Tree_win.doLayout();
     Tree_win.show();
 }

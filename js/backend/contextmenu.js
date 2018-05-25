@@ -1738,7 +1738,8 @@ var menu_for_based_biz_table = {
             place: 'context',
             width: 900,
             height: 420,
-            itemcfg: [{
+            itemcfg: [
+            {
                 item_type: 'dndgrid',
                 gridlabel: i18n.mouse_drag_drop,
                 category_to_use: 'table',
