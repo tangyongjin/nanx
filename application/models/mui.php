@@ -52,7 +52,7 @@ class MUI extends CI_Model
                 'jslib/ext/Power_htmleditor.js',
                 'jslib/ext/ux/fileuploadfield/fileuploadfield.js',
                 'js/globalvars.js',
-               
+                'js/ghxw_cabinet_selector.js',
                 'js/activity.plug.js',
                 'js/activity_curd.js',
                 'js/util.js',

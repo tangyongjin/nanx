@@ -1,3 +1,6 @@
+
+
+
 NANXplugin_window.prototype.sdh_line_editor = function() {
      
   
@@ -43,80 +46,80 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     
 
 
-    var obj1={
-    field_e:'idcName',
-    display_cfg:{field_c:'idcName'},
-    displayField:"idcName",
-    editor_cfg:{
-          id:'idcName',
-          follow_cfg:[],
-          trigger_cfg:{
-             codetable_category_value:null,combo_table:"boss_IDC",filter_field:null,group_id:"0c5axzEriN",level:"1",
-             list_field:"idcName",value_field:"id"
-        }
-     }
-    }
+   //  var obj1={
+   //  field_e:'idcName',
+   //  display_cfg:{field_c:'idcName'},
+   //  displayField:"idcName",
+   //  editor_cfg:{
+   //        id:'idcName',
+   //        follow_cfg:[],
+   //        trigger_cfg:{
+   //           codetable_category_value:null,combo_table:"boss_IDC",filter_field:null,group_id:"0c5axzEriN",level:"1",
+   //           list_field:"idcName",value_field:"id"
+   //      }
+   //   }
+   //  }
 
-   var obj2={
-    field_e:'building',
-    display_cfg:{field_c:'building'},
-    displayField:"building",
-    editor_cfg:{
-           id:'building',
-               follow_cfg:[],
-        trigger_cfg:{
-             codetable_category_value:null,combo_table:"boss_IDC_building",filter_field:'IDCid',group_id:"0c5axzEriN",level:"2",
-             list_field:"buildName",value_field:"id"
-        }
-     }
-    }
-
-
-    var obj3={
-        field_e:'floor',
-        display_cfg:{field_c:'floor'},
-        displayField:"floor",
-        editor_cfg:{
-                follow_cfg:[],
-                 id:'floor',
-            trigger_cfg:{
-                 codetable_category_value:null,combo_table:"boss_IDC_building_floor",filter_field:'buildID',group_id:"0c5axzEriN",level:"3",
-                 list_field:"floorName",value_field:"id"
-            }
-         }
-        }
-
-    var obj4={
-        field_e:'room',
-        display_cfg:{field_c:'room'},
-        displayField:"room",
-        editor_cfg:{
-                follow_cfg:[],
-               id:'room',
-               trigger_cfg:{
-                 codetable_category_value:null,combo_table:"boss_IDC_room",filter_field:'floorID',group_id:"0c5axzEriN",level:"4",
-                 list_field:"roomName",value_field:"id"
-            }
-         }
-        }
-
-    var obj5={
-        field_e:'cabinet',
-        display_cfg:{field_c:'cabinet'},
-        displayField:"cabinet",
-        editor_cfg:{
-                follow_cfg:[],
-                 id:'cabinet',
-                  trigger_cfg:{
-                 codetable_category_value:null,combo_table:"boss_cabinet",filter_field:'roomID',group_id:"0c5axzEriN",level:"5",
-                 list_field:"cabinetName",value_field:"id"
-            }
-         }
-        }
+   // var obj2={
+   //  field_e:'building',
+   //  display_cfg:{field_c:'building'},
+   //  displayField:"building",
+   //  editor_cfg:{
+   //         id:'building',
+   //             follow_cfg:[],
+   //      trigger_cfg:{
+   //           codetable_category_value:null,combo_table:"boss_IDC_building",filter_field:'IDCid',group_id:"0c5axzEriN",level:"2",
+   //           list_field:"buildName",value_field:"id"
+   //      }
+   //   }
+   //  }
 
 
-    var triggers=[obj1,obj2,obj3,obj4,obj5]
-    var meta5= Act.prototype.LayoutBuilder(triggers)
+   //  var obj3={
+   //      field_e:'floor',
+   //      display_cfg:{field_c:'floor'},
+   //      displayField:"floor",
+   //      editor_cfg:{
+   //              follow_cfg:[],
+   //               id:'floor',
+   //          trigger_cfg:{
+   //               codetable_category_value:null,combo_table:"boss_IDC_building_floor",filter_field:'buildID',group_id:"0c5axzEriN",level:"3",
+   //               list_field:"floorName",value_field:"id"
+   //          }
+   //       }
+   //      }
+
+   //  var obj4={
+   //      field_e:'room',
+   //      display_cfg:{field_c:'room'},
+   //      displayField:"room",
+   //      editor_cfg:{
+   //              follow_cfg:[],
+   //             id:'room',
+   //             trigger_cfg:{
+   //               codetable_category_value:null,combo_table:"boss_IDC_room",filter_field:'floorID',group_id:"0c5axzEriN",level:"4",
+   //               list_field:"roomName",value_field:"id"
+   //          }
+   //       }
+   //      }
+
+   //  var obj5={
+   //      field_e:'cabinet',
+   //      display_cfg:{field_c:'cabinet'},
+   //      displayField:"cabinet",
+   //      editor_cfg:{
+   //              follow_cfg:[],
+   //               id:'cabinet',
+   //                trigger_cfg:{
+   //               codetable_category_value:null,combo_table:"boss_cabinet",filter_field:'roomID',group_id:"0c5axzEriN",level:"5",
+   //               list_field:"cabinetName",value_field:"id"
+   //          }
+   //       }
+   //      }
+
+
+   //  var triggers=[obj1,obj2,obj3,obj4,obj5]
+   //  var meta5= Act.prototype.LayoutBuilder(triggers)
     
    
     var sdh_number = {
@@ -124,8 +127,28 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         id: 'sdh_number',
         name:  'sdh_number',
         xtype: 'textfield',
+        // xtype: 'CabinetSelector',
         allowBlank: false,
-        width: 176,
+        // width: 176,
+        // value: '',
+        validator: function(v) {
+            if (Ext.isEmpty(v)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    };
+ 
+
+    var cabinet_selector = {
+        fieldLabel: '机柜',
+        id: 'cabinet_selector',
+        name:  'cabinet_selector',
+        // xtype: 'textfield',
+        xtype: 'CabinetSelector',
+        allowBlank: false,
+        // width: 176,
         // value: '',
         validator: function(v) {
             if (Ext.isEmpty(v)) {
@@ -137,6 +160,8 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     };
  
      
+     
+
 
     var xadd_form = new Ext.form.FormPanel({
         xtype:'form',
@@ -150,7 +175,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
             allowBlank:false,
             width:200
         },
-        items:[customer_selector,sdh_number,meta5]
+        items:[customer_selector,sdh_number,cabinet_selector]
     });
 
     var Tree_win = new Ext.Window({
@@ -166,7 +191,17 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         items:xadd_form
     });
 
-    // xadd_form.show()
+       
+
+
+
+    xadd_form.show()
     Tree_win.doLayout();
     Tree_win.show();
+
+    // var grid = new ghxw.ui.NameGrid({
+    //             renderTo: 'work_event'
+    //         });
+
+ 
 }
