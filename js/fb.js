@@ -371,6 +371,8 @@ Fb.getDefaultEditor = function(master_act, oneFieldCfg, readonly_flag) {
 }
 
 Fb.getTriggerWhoIsWho = function(one_col_cfg, whoami_cfg) {
+   
+     
 
     var trigger_cfg = one_col_cfg.editor_cfg.trigger_cfg;
     var trigger_table = trigger_cfg.combo_table;
@@ -389,8 +391,7 @@ Fb.getTriggerWhoIsWho = function(one_col_cfg, whoami_cfg) {
 
 
 Fb.getDropdownOption = function(one_col_cfg) {
-
-    console.log(one_col_cfg)
+ 
 
     var fields = [one_col_cfg.editor_cfg.trigger_cfg.list_field, one_col_cfg.editor_cfg.trigger_cfg.value_field];
     var table = one_col_cfg.editor_cfg.trigger_cfg.combo_table;
@@ -403,7 +404,7 @@ Fb.getDropdownOption = function(one_col_cfg) {
         'fields': fields,
         'filter_cfg': filter_cfg
     }
-    console.log(getDropdownOption)
+   
     return getDropdownOption;
 
 }
@@ -431,7 +432,7 @@ Fb.getColInitValueAndRawValue = function(one_col_cfg, row, whoami_cfg) {
             _raw = null;
         }
     }
-    console.log(row);
+   
     return {
         '_ini': _ini,
         '_raw_value': _raw
@@ -441,8 +442,8 @@ Fb.getColInitValueAndRawValue = function(one_col_cfg, row, whoami_cfg) {
 //下拉字段
 Fb.getDropdownlistEditor = function(one_col_cfg, row, readonly_flag, whoami_cfg) {
 
-
-
+    
+    console.log('下拉:',one_col_cfg)
     var row_value = this.getColInitValueAndRawValue(one_col_cfg, row, whoami_cfg)
     one_col_cfg.ini = row_value._ini
     one_col_cfg.raw_value = row_value._raw_value
@@ -459,7 +460,8 @@ Fb.getDropdownlistEditor = function(one_col_cfg, row, readonly_flag, whoami_cfg)
         one_col_cfg.nanx_type = 'slave';
     }
     one_col_cfg.group_id = one_col_cfg.editor_cfg.trigger_cfg.group_id;
-    one_col_cfg.detail_btn = true;
+    
+    // one_col_cfg.detail_btn = true;
 
     var dropdownOption = this.getDropdownOption(one_col_cfg)
 
@@ -534,6 +536,8 @@ Fb.determineOriginalValue = function(op_type, editCfg, row) {
 
 
 Fb.getFieldEditor = function(master_act, op_type, one_col_cfg, row, whoami_cfg) {
+    
+     
 
     this.determineOriginalValue(op_type, one_col_cfg, row);
     var readonly_flag = false;
@@ -556,9 +560,17 @@ Fb.getFieldEditor = function(master_act, op_type, one_col_cfg, row, whoami_cfg) 
     if (one_col_cfg.editor_cfg.is_produce_col == 1) {
         readonly_flag = true;
     }
+
+   //增加新记录时候,强制设定readonly_flag为 false
+    if(op_type=='add'){
+          readonly_flag = false;
+    }
+
+    
     if ((one_col_cfg['field_e'] == 'id') && (op_type == 'add')) {
         skip_flag = true;
     }
+
     if (skip_flag) {
         return null;
     }
@@ -566,6 +578,7 @@ Fb.getFieldEditor = function(master_act, op_type, one_col_cfg, row, whoami_cfg) 
     if ((one_col_cfg['field_e'] == master_act.cfg.filter_field) && (op_type == 'add')) {
         return [this.getInheritEditor(one_col_cfg, master_act.cfg.filter_value)];
     }
+              
 
     if (!Ext.isEmpty(one_col_cfg.editor_cfg.trigger_cfg)) {
         return [Fb.getDropdownlistEditor(one_col_cfg, row, readonly_flag, whoami_cfg)];

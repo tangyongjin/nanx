@@ -281,7 +281,7 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
             break;
 
         case 'combo_list':
-
+            alert('combo_list')
             item.displayField = 'text';
             item.valueField = 'value';
             var store = Fb.buildTriggerStore(item);
@@ -289,6 +289,7 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
             break;
 
         case 'combo_group':
+            alert('combo_group')
             var f = COMBOX.getComboGroup(item);
             break;
 
@@ -361,12 +362,7 @@ FormBuilder.getBackendFormItem = function(mcfg,item, node) {
 FormBuilder.getCommonField = function(item) {
 
     var readonly = item.readonly ? item.readonly : false;
-
- 
-
     var hidden = item.hidden ? item.hidden : false;
-
-
     if (item.hasOwnProperty('using_serial')) {
         serial = '_' + item.serial
     } else {

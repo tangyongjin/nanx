@@ -49,6 +49,7 @@ class MXmenu extends CI_Model
             $id_div = 'ct_' . $acode;
             $onediv = " 
             <div class='icon' id=$id_div>  
+
               <a class='nanx-4-ext'  activity_type='table' id=$acode  href=#>
                 <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>
@@ -121,7 +122,7 @@ class MXmenu extends CI_Model
         if ($act_type == 'sql') {
             $url    = $data['service_url'];
             $onediv = " 
-            <div class='icon'>  
+            <div class='icon'  data-badge='27'>  
               <a href=# class='nanx-4-ext' activity_type='sql' id=$acode  service_url=$url>
                 <img src='{$bs}imgs/{$data['pic_url']}'/>
                 <span>{$data['grid_title']}</span>

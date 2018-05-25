@@ -10,8 +10,14 @@ var COMBOX = {};
 
  
  COMBOX.findSlaves = function(form, grp_id, level, direct) {
+
+
+     console.log(form)
      if(!form){return []}
      var found = [];
+     
+     console.log(grp_id)
+
      var slaves = form.find('group_id', grp_id);
      for (i = 0; i < slaves.length; i++) {
          if (arguments.length == 4) 
@@ -31,6 +37,8 @@ var COMBOX = {};
 
   
  COMBOX.getBasicCombo = function(xcfg, store,_readOnly) {
+   
+ 
    var cfg=DeepClone(xcfg);
    if ( _readOnly== undefined) {  
          _readOnly=false;  
@@ -46,8 +54,11 @@ var COMBOX = {};
         cfg.serial=0;
      }
 
+     
+     console.log(cfg)
+
      var combox_width=cfg.width?cfg.width:300
-     combox_width=140;
+         
      var combox_cfg = {
          id: com_id,
          serial:cfg.serial,
@@ -55,11 +66,11 @@ var COMBOX = {};
          displayField: cfg.displayField,
          valueField: cfg.valueField,
          emptyText: i18n.combo_choose,
-         fieldLabel: cfg.label,
+         fieldLabel: cfg.display_cfg.field_c,
          forceSelection: true,
          editable: true,
          pageSize:pageSize,           //显示下拉列表的分页
-         // pageSize:100,           //显示下拉列表的分页
+         pageSize:100,           //显示下拉列表的分页
          name: com_id,
          width:combox_width,
          allowBlank: cfg.hasOwnProperty('allowBlank') ? cfg.allowBlank : true,
@@ -79,20 +90,27 @@ var COMBOX = {};
       var combo = new Ext.form.ComboBox(combox_cfg);
       store.addListener('load', COMBOX.loadHandler.createDelegate(store,[cfg,combox_cfg,combo],false));
       combo.addListener('select', COMBOX.refreshSlaveStore.createDelegate(combo,[cfg],true));
+     
+      var itms=[]
       
-     if (cfg.detail_btn) {
+     if (cfg.detail_btn) 
+     {
          var table = cfg.editor_cfg.trigger_cfg.combo_table;
          var btn_detail = Fb.getDetailBtn(table);
-         var combowithdetail = new Ext.Container({
-             fieldLabel: cfg['display_cfg'].field_c,
-             layout: 'table',
-             nanx_type: 'combo_with_detail',
-             items: [combo, btn_detail]
-         });
-         return combowithdetail;
+         itms=[combo,btn_detail]
+        
      } else {
-         return combo;
+         itms=[combo]
      }
+ 
+
+     var combowithdetail = new Ext.Container({
+         fieldLabel: cfg['display_cfg'].field_c,
+         layout: 'column',
+         nanx_type: 'combo_with_detail',
+         items: itms
+     });
+     return combowithdetail;
  }
 
 
@@ -117,9 +135,11 @@ COMBOX.ComboStoreChangeHandler=function(combo,field_cfg){
          
          var x_group_id = field_cfg.group_id;
 
-         var level = field_cfg.level;COMBOX
+         var level = field_cfg.level; 
          var all_slaves = COMBOX.findSlaves(fm, x_group_id, level);
          var direct_slaves = COMBOX.findSlaves(fm, x_group_id, level, true);
+         
+         
 
          for (var i = 0; i < all_slaves.length; i++) {
              all_slaves[i].getStore().clearData();
@@ -160,6 +180,8 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
          // console.log(field_cfg.raw_value)
 
          var x_group_id = combox_cfg.group_id;
+         
+         console.log(combox_cfg)
 
          var tfm = Ext.getCmp(combox_cfg.id).findParentByType('form');
          var tmp_v = combo.getValue();
@@ -230,6 +252,8 @@ COMBOX.loadHandler=function(field_cfg,combox_cfg,combo){
 
  COMBOX.getComboGroup = function(xitem) {
      
+     console.log(xitem)
+
      var item=DeepClone(xitem);
 
      var f = [];

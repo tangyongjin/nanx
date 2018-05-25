@@ -58,6 +58,7 @@ Ext.ns('Act');
 
  
 Act=function(cfg) {
+
     var winid = 'win_' + cfg.code;
     if (!Ext.getCmp(winid)) {
         this.init_all(cfg);
@@ -1077,6 +1078,106 @@ Act.prototype.buildTopToolbar_backend=function(){
 }
 
 
+
+// Act.prototype.LayoutBuilder = function(triggers) {
+    
+     
+ 
+//     var optype = 'add'
+   
+//     var whoami_cfg={whoami:'admin',who_is_who:[],owner_data_only:null};
+//     var all_lines = [];
+//     var max_col = 0;
+//     var line_width = 0;
+//     for (var i = 0; i < triggers.length; i++) {
+//         var single_line = {};
+//         single_line.layout = 'column';
+//         single_line.items = [];
+//         var single_field = triggers[i].field_e;
+//         var colsCfg_found=triggers[i]
+      
+//           var item_one =[Fb.getDropdownlistEditor(colsCfg_found, null, false, whoami_cfg)]
+//           var tmp={};
+//                     tmp.layout='form';
+//                     tmp.items=[item_one[0]];
+//                     if (item_one[0].id==single_field){
+//                         single_line.items.push(tmp);
+//                     }
+
+//                     if (item_one[0].nanx_type=='combo_with_detail'){
+//                         single_line.items.push(tmp);
+//                     }
+
+//                     if (item_one[0].isArray){
+//                         if (item_one[0][0].fake_id==single_field){
+//                             single_line.items.push(tmp);
+//                         }
+//                     }
+//           all_lines.push(single_line);
+//     }
+
+//     console.log(all_lines)
+//     return all_lines;
+// }
+
+
+Act.prototype.LayoutBuilder=function(triggers){
+     
+
+     
+    var optype = 'add'
+    var row=null;
+    var whoami_cfg={owner_data_only:null,who_is_who:[],whoami:'admin'}
+    var all_lines=[];
+    var max_col=0;
+    var line_width=0;
+    for (var i=0;i<triggers.length;i++){
+        var single_line={};
+        single_line.layout='column';
+        single_line.items =[];
+       
+        {
+             
+              
+
+               var single_field = triggers[i].field_e;
+               var colsCfg_found=triggers[i]
+
+          
+                console.log(colsCfg_found)
+                
+                var item_one =[Fb.getDropdownlistEditor(colsCfg_found, null, false, whoami_cfg)]
+                console.log(item_one)
+
+                if (item_one)
+                {
+                    var tmp={};
+                    tmp.layout='form';
+                    tmp.items=[item_one[0]];
+                    if (item_one[0].id==single_field){
+                        single_line.items.push(tmp);
+                    }
+
+                    if (item_one[0].nanx_type=='combo_with_detail'){
+                        single_line.items.push(tmp);
+                    }
+
+                    if (item_one[0].isArray){
+                        if (item_one[0][0].fake_id==single_field){
+                            single_line.items.push(tmp);
+                        }
+                    }
+                }
+            }
+        
+        all_lines.push(single_line);
+    }
+
+    return  all_lines;
+}
+ 
+
+
 Act.prototype.getLayoutedForms=function(total_cfg,optype,row,orgin_act){
      
     var number_of_params = arguments.length;
@@ -1091,7 +1192,9 @@ Act.prototype.getLayoutedForms=function(total_cfg,optype,row,orgin_act){
 
     
     var layoutCfg=total_cfg.layoutCfg;
+
     var whoami_cfg={whoami:total_cfg.whoami,who_is_who:total_cfg.who_is_who,owner_data_only:total_cfg.owner_data_only };
+   
     var all_lines=[];
     var max_col=0;
     var line_width=0;
@@ -1109,10 +1212,14 @@ Act.prototype.getLayoutedForms=function(total_cfg,optype,row,orgin_act){
                         var colsCfg_found=master_act.colsCfg[x];
                     }
                 }
-                
+
+          
+                console.log(colsCfg_found)
                 var item_one=Fb.getFieldEditor(master_act,optype,colsCfg_found,row,whoami_cfg);
-         
-                if (item_one){
+                console.log(item_one)
+
+                if (item_one)
+                {
                     var tmp={};
                     tmp.layout='form';
                     tmp.items=[item_one[0]];
@@ -1194,8 +1301,9 @@ Act.prototype.addData=function(){
     }
     this.fixLayout('add',this);
 
-    var x=this.getLayoutedForms(this,'add',null);
-    var width=this.getLayoutWidth(x);
+    var items=this.getLayoutedForms(this,'add',null);
+    console.log(items)
+    var width=this.getLayoutWidth(items);
     var add_form = new Ext.form.FormPanel({
         xtype:'form',
         id:'add_form',
@@ -1210,7 +1318,7 @@ Act.prototype.addData=function(){
             allowBlank:false,
             width:200
         },
-        items:x
+        items:items
     });
     this.actionWin('add',add_form);
 }
