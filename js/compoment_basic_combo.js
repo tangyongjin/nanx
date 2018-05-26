@@ -66,7 +66,7 @@ var COMBOX = {};
          displayField: cfg.displayField,
          valueField: cfg.valueField,
          emptyText: i18n.combo_choose,
-         fieldLabel: cfg.display_cfg.field_c,
+         // fieldLabel: cfg.display_cfg.field_c,
          forceSelection: true,
          editable: true,
          pageSize:pageSize,           //显示下拉列表的分页
@@ -102,10 +102,15 @@ var COMBOX = {};
      } else {
          itms=[combo]
      }
- 
+     if( cfg.hasOwnProperty('display_cfg')){
+     var _label=cfg['display_cfg'].field_c
+     }else
+     {
+     var _label=null
+     }
 
      var combowithdetail = new Ext.Container({
-         fieldLabel: cfg['display_cfg'].field_c,
+         fieldLabel: _label,
          layout: 'column',
          nanx_type: 'combo_with_detail',
          items: itms
