@@ -416,6 +416,8 @@ FormBuilder.getFormData = function(form) {
     var formel = form.getEl();
     var ipts = formel.query('input');
     
+    console.log(ipts)
+
     for (var i = 0; i < ipts.length; i++) {
         var field_id = ipts[i].getAttribute("id");
         
@@ -432,10 +434,9 @@ FormBuilder.getFormData = function(form) {
             }
             fmdata[field_id] = field_value;
         }
-
     }
 
-    console.log(fmdata)
+  
     var xtypes = form.findByType("timepickerfield");
 
     for (var i = 0; i < xtypes.length; i++) {
@@ -687,4 +688,18 @@ FormBuilder.specialCodeRoute=function(node,category,opcode)
                  var win=Act.prototype.actionWin('backend',opform,wincfg);
     };
     return common_fn;
+}
+
+
+
+
+FormBuilder.getUiPluginEditor= function(value,id,displayname,plugname) {
+
+
+    if(plugname=='CabinetSelector_weak'){
+     var f = [new ghxw.ui.CabinetSelector_weak({value:value,readOnly:true,id:id,fieldLabel:displayname,'nanx_type':'sdh_point'})];
+    }
+
+    return f;
+
 }

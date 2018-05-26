@@ -1,12 +1,7 @@
 
-
-
 NANXplugin_window.prototype.sdh_line_editor = function() {
      
-  
-   
     var one_col_cfg={}
-
     one_col_cfg.detail_btn=false;
     one_col_cfg.displayField='subName'
     one_col_cfg.display_cfg={
@@ -31,7 +26,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     }
     
     one_col_cfg.field_e='custid'
-    one_col_cfg.group_id='adsfsfsa'
+    one_col_cfg.group_id=1111;
     one_col_cfg.id='custid'
     one_col_cfg.level=1
     one_col_cfg.nanx_type='root'
@@ -51,35 +46,36 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         id: 'sdh_number',
         name:  'sdh_number',
         xtype: 'textfield',
-        // xtype: 'CabinetSelector',
-        allowBlank: false,
-        // width: 176,
-        // value: '',
-        validator: function(v) {
-            if (Ext.isEmpty(v)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
+        allowBlank: false
     };
  
 
-    var cabinet_selector = {
-        fieldLabel: '机柜',
-        id: 'cabinet_selector_weak_1',
-        value:'',
-        // name:  'cabinet_selector_weak_1',
-        xtype: 'CabinetSelector'
-        };
- 
      
      
 
+    var addbtn = new Ext.Button({
+            text:'增加跳线节点',
+            nanx_type: 'trigger_add_button',
+            id: 'add_trigger_button',
+            style: 'margin-left:106px;margin-bottom:6px;',
+            handler: function() {
+                {
+                    var form = this.findParentByType('form');
+                    var sdh_points = form.find('nanx_type', 'sdh_point');
+                    console.log(sdh_points)
+                    var point_id='point_'+parseInt(sdh_points.length+1)
+                    var point = new ghxw.ui.CabinetSelector_udf({id:point_id,fieldLabel:'配线架','nanx_type':'sdh_point',readOnly:true});
+                    form.insert(12, point);
+                    form.doLayout();
+                }
+            }
+        })
+        
+ 
 
     var xadd_form = new Ext.form.FormPanel({
         xtype:'form',
-        id:'add_form',
+        id:'sdh_line_form',
         width:700,
         fileMgr:true,
         borderStyle:'padding-top:3px',
@@ -89,7 +85,9 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
             allowBlank:false,
             width:200
         },
-        items:[customer_selector,sdh_number,cabinet_selector]
+
+
+        items:[customer_selector,sdh_number,addbtn]
     });
 
     var sdh_win = new Ext.Window({
@@ -102,7 +100,21 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         closeAction:'destroy',
         id: 'sdh_line_editor',
         title: 'SDH跳线记录',
-        items:xadd_form
+        items:xadd_form,
+        buttons:
+          [{
+                xtype: 'button',
+                text: "确定",
+                iconCls: 'n_exit',
+                handler: function(e, f) {
+                    // var form=
+                    var fm_array= sdh_win.findByType('form');
+                    var fm=fm_array[0];
+                    console.log(fm)
+                    var fmdata=FormBuilder.getFormData(fm)
+                    console.log(fmdata)
+                }
+            }]
     });
 
        

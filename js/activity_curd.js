@@ -1214,10 +1214,8 @@ Act.prototype.getLayoutedForms=function(total_cfg,optype,row,orgin_act){
                 }
 
           
-                console.log(colsCfg_found)
                 var item_one=Fb.getFieldEditor(master_act,optype,colsCfg_found,row,whoami_cfg);
-                console.log(item_one)
-
+             
                 if (item_one)
                 {
                     var tmp={};

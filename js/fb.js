@@ -537,7 +537,26 @@ Fb.determineOriginalValue = function(op_type, editCfg, row) {
 
 Fb.getFieldEditor = function(master_act, op_type, one_col_cfg, row, whoami_cfg) {
     
-     
+    if(one_col_cfg.editor_cfg.editor_plug_name ){
+         console.log(one_col_cfg)
+         console.log(one_col_cfg.field_e)
+ 
+         console.log(op_type)
+         console.log(row)
+
+
+         if(op_type=='update'){
+              var _plugvalue=row.data[one_col_cfg.field_e]
+         }else{
+              var _plugvalue=null
+         }
+    
+         //对某个字段采用插件编辑方式.
+         console.log(_plugvalue)
+         return FormBuilder.getUiPluginEditor(_plugvalue,one_col_cfg.field_e, 
+            one_col_cfg.display_cfg.field_c ,one_col_cfg.editor_cfg.editor_plug_name)
+         }
+    
 
     this.determineOriginalValue(op_type, one_col_cfg, row);
     var readonly_flag = false;
