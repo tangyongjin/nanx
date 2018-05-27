@@ -2,8 +2,6 @@ Ext.namespace("ghxw.ui");
 
 
 
-var global_meta_4=[]
-
 function getPublicMeta4(){
         
         var obj1 = {
@@ -549,7 +547,7 @@ ghxw.ui.CabinetSelector_udf = Ext.extend(Ext.form.TextField, {
             closable: false,
             closeAction: 'destroy',
             id: 'cab_pop_win',
-            title: '选择机柜',
+            title: '选择配线架',
             buttons: [
             
             {

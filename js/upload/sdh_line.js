@@ -73,6 +73,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
                 
                 var point = new ghxw.ui.CabinetSelector_udf({
                     id: point_id,
+                    name:'sdh_point',
                     fieldLabel: '配线架',
                     'nanx_type': 'sdh_point',
                     readOnly: true
@@ -81,7 +82,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
                 var location = new Ext.form.TextField({
                 id:loc_id,
                 fieldLabel:'位置',
-                name:'textName'
+                name:'sdh_location'
                 });
 
 
@@ -152,6 +153,13 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
                 console.log(fm)
                 var fmdata = FormBuilder.getFormData(fm)
                 console.log(fmdata)
+                if(fmdata){
+                   ajaxPostData(BASE_URL +'sinnet_mgr/addSdhPath',fmdata,null);
+                }else{
+                   Ext.Msg.alert(i18n.msg, '请选择客户并且填写SDH号');
+                }
+                
+                
             }
         }]
     });
