@@ -46,15 +46,24 @@ class Sinnet_mgr extends CI_Controller
         $db_errno = 0;
         $db_msg='';
         for ($i = 0; $i < $counters; $i++) {
+
             $row                 = array();
             $row['custid']       = $para['custid'];
             $row['sdh_number']   = $para['sdh_number'];
             $row['odfid']        = $para['sdh_point'][$i];
+            
+            if(  intval($para['sdh_point'][$i] ) ==0){
+                $ret=array('errno'=>-1,'errmsg'=>'没有SDH节点数据','msg'=>'操作失败');
+                echo json_encode($ret);
+                return;
+            }
+
             $row['odf_location'] = $para['sdh_location'][$i];
             $row['serial']       = intval($i + 1);
             $this->db->insert('boss_SDH', $row);
             $db_errno = $db_errno + $this->db->_error_number();
             $db_msg =$db_msg.$this->db->_error_message();
+        
         }
         
         $ret=array();
