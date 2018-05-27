@@ -28,15 +28,30 @@ class Sinnet_tree  extends CI_Controller {
 				'leaf' => false),
 
 			'hostroom' => array('sql' =>
-				"select  id as value,cabinetName as text ,'cabinet' as category from boss_cabinet  where roomID='#value' ", 
+
+				"
+select  id as value,concat('机',cabinetName) as text ,'cabinet_device' as category from boss_cabinet  where roomID='#value' 
+union
+select  id as value,concat('强',cabinetName) as text ,'cabinet_strong' as category from boss_cabinet_strong  where roomID='#value' 
+union
+select  id as value, concat('弱',cabinetName) as text ,'cabinet_weak' as category from boss_cabinet_weak  where roomID='#value' 
+", 
 				'leaf' => false),
    			
+			'cabinet_device' => array('sql' =>
+				"select id as value,deviceName as text,'device' as category from boss_cabinet_facility where cabinetId='#value'", 
+				'leaf' => true),
 
-			'cabinet' => array('sql' =>
-				"select  id as value,cabinetName as text ,'cabinet' as category from boss_Cabinet  where roomID='#value' ", 
-				'leaf' => false)
-   			);
 
+			'cabinet_weak' => array('sql' =>
+				"select id as value,cabinetName as text,'udf' as category from boss_cabinet_weak_facility where cabinetWeekId='#value'", 
+				'leaf' => true),
+
+			'cabinet_strong' => array('sql' =>
+				"select id as value,switchCode as text,'AirPower' as category from boss_cabinet_strong_facility where cabinetId='#value'", 
+				'leaf' => true)
+   			) ;
+ 
 
 
 
@@ -79,13 +94,17 @@ class Sinnet_tree  extends CI_Controller {
 		if (array_key_exists('sql', $subCategoryCfg)) {
             
 			$res = $this->getCategoryResultBySqls($subCategoryCfg, $tree_request);
+			$res = $this->setNodeIDandCSS($res, $tree_request); //设置css
+		    return $res;
+
 		} else 
 		{
-			$res = $this->getSubCategorybyMethod($subCategoryCfg, $tree_request);
+			// logtext($subCategoryCfg);
+			// $res = $this->getSubCategorybyMethod($subCategoryCfg, $tree_request);
 		}
 
-		$res = $this->setNodeIDandCss($res, $tree_request);
-		return $res;
+		// $res = $this->setNodeIDandCSS($res, $tree_request); //设置css
+		// return $res;
 	}
 
 
@@ -123,7 +142,7 @@ class Sinnet_tree  extends CI_Controller {
 		return $rows;
 	}
 
-	function setNodeIDandCss($arr, $tree_request) {
+	function setNodeIDandCSS($arr, $tree_request) {
 		for ($i = 0; $i < count($arr); $i++) {
 			$parent_v           = array_key_exists('value', $tree_request) ? $tree_request['value'] : '';
 			$current_v          = array_key_exists('value', $arr[$i]) ? $arr[$i]['value'] : $arr[$i]['field_e'];

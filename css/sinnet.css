@@ -20,8 +20,17 @@
 	background-image:url(front/hostroom.png) !important;
 }
  
-.cabinet{
+.cabinet_device{
 	background-image:url(front/cabinet.png) !important;
+}
+
+
+.cabinet_weak{
+	background-image:url(front/weak.ico) !important;
+}
+
+.cabinet_strong{
+	background-image:url(front/strong.png) !important;
 }
 
 

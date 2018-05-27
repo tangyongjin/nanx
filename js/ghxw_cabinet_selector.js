@@ -355,7 +355,7 @@ ghxw.ui.CabinetSelector_device = Ext.extend(Ext.form.TextField, {
         var obj5 = {
             field_e: 'cabinet',
             display_cfg: {
-                field_c: 'cabinet'
+                field_c: '设备机柜'
             },
             displayField: "cabinet",
             editor_cfg: {

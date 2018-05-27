@@ -700,6 +700,16 @@ FormBuilder.getUiPluginEditor= function(value,id,displayname,plugname) {
      var f = [new ghxw.ui.CabinetSelector_weak({value:value,readOnly:true,id:id,fieldLabel:displayname,'nanx_type':'sdh_point'})];
     }
 
+
+    if(plugname=='CabinetSelector_strong'){
+     var f = [new ghxw.ui.CabinetSelector_strong({value:value,readOnly:true,id:id,fieldLabel:displayname,'nanx_type':'sdh_point'})];
+    }
+
+    if(plugname=='CabinetSelector_device'){
+     var f = [new ghxw.ui.CabinetSelector_device({value:value,readOnly:true,id:id,fieldLabel:displayname,'nanx_type':'sdh_point'})];
+    }
+
+
     return f;
 
 }
