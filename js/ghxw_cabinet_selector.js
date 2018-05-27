@@ -507,7 +507,7 @@ ghxw.ui.CabinetSelector_udf = Ext.extend(Ext.form.TextField, {
                     filter_field: 'cabinetWeekId',
                     group_id: "0c5axzEriN",
                     level: "6",
-                    list_field: "deviceName",
+                    list_field: "udf_sesrial",
                     value_field: "id"
                 }
             }

@@ -44,7 +44,7 @@ select  id as value, concat('弱',cabinetName) as text ,'cabinet_weak' as catego
 
 
 			'cabinet_weak' => array('sql' =>
-				"select id as value,cabinetName as text,'udf' as category from boss_cabinet_weak_facility where cabinetWeekId='#value'", 
+				"select id as value,udf_sesrial as text,'udf' as category from boss_cabinet_weak_facility where cabinetWeekId='#value'", 
 				'leaf' => true),
 
 			'cabinet_strong' => array('sql' =>
