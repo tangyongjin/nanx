@@ -68,41 +68,61 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
                 var form = this.findParentByType('form');
                 var sdh_points = form.find('nanx_type', 'sdh_point');
                 console.log(sdh_points)
-                var point_id = 'point_' + parseInt(sdh_points.length + 1)
-                var loc_id = 'loc_' + parseInt(sdh_points.length + 1)
                 
+                var point_id = 'point_' + parseInt(sdh_points.length + 1)
+                var path_id = point_id+'_path'
+                var port_id = 'loc_' + parseInt(sdh_points.length + 1)
+                 
+
                 var point = new ghxw.ui.CabinetSelector_udf({
                     id: point_id,
                     name:'sdh_point',
-                    fieldLabel: '配线架',
+                    width:80,
+                    fieldLabel: '配线架ID',
                     'nanx_type': 'sdh_point',
                     readOnly: true
                 });
                 
-                var location = new Ext.form.TextField({
-                id:loc_id,
+                //配线架详情
+                var point_path = new Ext.form.TextField({
+                id:path_id,
                 fieldLabel:'位置',
+                readOnly:true,
+                width:300,
+                name:'sdh_path'
+                });
+
+                var port = new Ext.form.TextField({
+                id:port_id,
+                width:80,
+                fieldLabel:'端口',
                 name:'sdh_location'
                 });
 
 
                 var one_row = new Ext.Container({
                     xtype: 'container',
-                    width: 500,
+                    width: 990,
                     layout: 'form',
                     items: [{
                         layout: 'column', //定义该元素为布局为列布局方式
                         items: [{
-                                columnWidth: .5, //该列占用的宽度，标识为50％
+                                // columnWidth: .1, //该列占用的宽度，标识为50％
                                 layout: 'form',
                                 border: false,
                                 items: [point]
                             },
                             {
-                                columnWidth: .5,
+                                // columnWidth: .5,
                                 layout: 'form',
                                 border: false,
-                                items: [location ]
+                                items: [point_path ]
+                            },
+                            {
+                                // columnWidth: .1,
+                                layout: 'form',
+                                border: false,
+                                items: [port ]
                             }
                         ]
                     }]
@@ -119,7 +139,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
     var xadd_form = new Ext.form.FormPanel({
         xtype: 'form',
         id: 'sdh_line_form',
-        width: 700,
+        width: 980,
         fileMgr: true,
         borderStyle: 'padding-top:3px',
         frame: true,
@@ -136,7 +156,7 @@ NANXplugin_window.prototype.sdh_line_editor = function() {
         shadow: false,
         autoDestroy: true,
         cascadeOnFirstShow: 20,
-        width: 800,
+        width: 1000,
         height: 450,
         closeAction: 'destroy',
         id: 'sdh_line_editor',

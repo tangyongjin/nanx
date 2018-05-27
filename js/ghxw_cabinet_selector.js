@@ -425,7 +425,6 @@ ghxw.ui.CabinetSelector_device = Ext.extend(Ext.form.TextField, {
                     var field_value = field.getValue();
                     if(field_value){
 
-                          Ext.getCmp(event_source_id).setRawValue(field_value)
                           Ext.getCmp(event_source_id).setValue(field_value)
                           Ext.getCmp('cab_pop_win').close()
                     } else
@@ -566,7 +565,6 @@ ghxw.ui.CabinetSelector_udf = Ext.extend(Ext.form.TextField, {
                     var field_value = field.getValue();
                     if(field_value){
 
-                          Ext.getCmp(event_source_id).setRawValue(field_value)
                           Ext.getCmp(event_source_id).setValue(field_value)
                           Ext.getCmp('cab_pop_win').close()
                     } else
