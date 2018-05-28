@@ -253,7 +253,6 @@ class MUI extends CI_Model
             $inner_table_column = $this->session->userdata('inner_table_column');
             
             
-            date_default_timezone_set('PRC');
             $current_user_info = "<a class=tbar_a href=# id=userpanel>$user/$staff_name</a>";
             $current_user_info .= "<span style='display:none;' id=whoami>$user</span>";
             $current_user_info .= "<span style='display:none;' id=inner_table_value>$inner_table_value</span>";

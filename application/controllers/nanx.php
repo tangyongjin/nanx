@@ -812,7 +812,8 @@ class Nanx extends CI_Controller {
 	}
 
 	function index() {
-		 date_default_timezone_set('Asia/Chongqing');
+		date_default_timezone_set('Asia/Chongqing');
+		
 		$data_get_post = (array ) json_decode(file_get_contents('php://input'));
 		$data_recevied = (array ) $data_get_post['rawdata'];
 		$opcode        = $data_recevied['opcode'];
@@ -854,8 +855,6 @@ class Nanx extends CI_Controller {
 
 		if ($opcode == 'add_trigger_group') {
 
-		    logtext('999');
-			logtext($data_received);
             //前台js字符串名字错误配置,导致group_id 与 group_name 混淆.
 
             $data_received['group_name']= $data_received['group_id'];   

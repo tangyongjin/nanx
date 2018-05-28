@@ -22,14 +22,15 @@ class Curd extends CI_Controller
             $category_value = $code_filter['codetable_category_value'];
             $sql         = "select * from nanx_code_table where category=  '{$category_value}' ";
             
-            logtext($sql);
+         
 
             $rows        = $this->db->query($sql)->result_array();
             $ret['rows'] = $rows;
             echo json_encode($ret, JSON_UNESCAPED_UNICODE);
             die;
-        } else{
-             logtext('bbbbb');
+        } else
+        {
+             // logtext('bbbbb');
         }
 
         
@@ -137,6 +138,8 @@ class Curd extends CI_Controller
     
     function updateData()
     {
+
+      
         $post = file_get_contents('php://input');
         $p    = (array) json_decode($post);
         
@@ -144,8 +147,6 @@ class Curd extends CI_Controller
         
         $this->load->model('MHooks');
         $hooks = $this->MHooks->getHooksbyActcode($actcode, 'update');
-        
-        
         $before = $hooks['before'];
         $after  = $hooks['after'];
         $checks = $hooks['checks'];
@@ -156,32 +157,25 @@ class Curd extends CI_Controller
             
             $resp = array(
                 'success' => false,
-                'msg' => '单据号不存在'
-                
+                'msg' => '数据检查未通过,不能继续操作'
             );
             echo json_encode($resp);
             return;
         }
-        
+
         
         $this->hookhandler($before, $p, 'update');
-        
-        
-        
         $this->write_notify($actcode, 'update');
         $base_table = $p['table'];
         $rawData    = (array) $p['rawdata'];
         $id         = $rawData['id'];
         
-        
         $dt_fileds  = $this->getDatetimeFiled($base_table);
         $date_check = $this->checkDateFmt($p, $dt_fileds);
         unset($rawData['id']);
-        
-        
         $this->db->where('id', $id);
-        
         $row_to_update = $this->db->get($base_table)->result_array();
+        
         if (count($row_to_update) == 1) {
             $row_to_update = $row_to_update[0];
         } else {
@@ -190,6 +184,7 @@ class Curd extends CI_Controller
         
         $this->db->where('id', $id);
         $this->db->update($base_table, $rawData);
+        
         $errno = $this->db->_error_number();
         if ($errno == 0) {
             $sql  = $this->db->last_query();
@@ -204,7 +199,8 @@ class Curd extends CI_Controller
                 'msg' => $this->lang->line('error_code') . ':' . $errno
             );
         }
-        
+
+
         $this->hookhandler($after, $p, 'update');
         $this->write_session_log('update', $p, $row_to_update);
         echo json_encode($resp);
@@ -251,15 +247,17 @@ class Curd extends CI_Controller
     
     function hookhandler($hooks, $para, $curd_type, $checking = false)
     {
-        
+      
         if (count($hooks) == 0) {
             return true;
         }
-        
+       
         $check_result = true;
         
         foreach ($hooks as $one_hook) {
+
             
+
             $model  = $one_hook['extra_ci_model'];
             $method = $one_hook['model_method'];
             $this->load->model($model);
@@ -294,7 +292,7 @@ class Curd extends CI_Controller
         if ($check_result == false) {
             $resp = array(
                 'success' => false,
-                'msg' => '单据号不存在'
+                'msg' => '数据检查不通过'
             );
             echo json_encode($resp);
             return;
@@ -305,6 +303,9 @@ class Curd extends CI_Controller
         $base_table = $p['table'];
         $rawData    = (array) $p['rawdata'];
         $this->db->insert($base_table, $rawData);
+        
+        $new_inserted_row_id=$this->db->insert_id(); 
+        
         $errno = $this->db->_error_number();
         if ($errno == 0) {
             $resp = array(
@@ -318,6 +319,9 @@ class Curd extends CI_Controller
             );
         }
         
+        // $p['new_inserted_row_id']=$new_inserted_row_id;
+        
+        $p['rawdata']->new_inserted_row_id=$new_inserted_row_id;
         $this->hookhandler($after, $p, 'add');
         $this->write_session_log('add', $p, '');
         echo json_encode($resp);
@@ -514,19 +518,29 @@ class Curd extends CI_Controller
           where nanx_activity.activity_code=nanx_activity_nofity.activity_code  and
           nanx_activity_nofity.activity_code ='$activity_code'  and action='$action' and 
           nanx_activity_nofity.receiver_role_list=nanx_user_role_assign.role_code";
-        
+     
+     
         if ($action == 'add') {
             $action = $this->lang->line('operation_add');
         }
+
         if ($action == 'update') {
             $action = $this->lang->line('operation_update');
         }
+     
         if ($action == 'delete') {
             $action = $this->lang->line('operation_delete');
         }
-        date_default_timezone_set('PRC');
+     
+      
+
+       
         $datesend = date('Y-m-d H:i:s');
+        
+     
+
         $msgs     = $this->db->query($sql)->result_array();
+        
         if ($msgs) {
             for ($i = 0; $i < count($msgs); $i++) {
                 $operator = $msgs[$i]['operator'];

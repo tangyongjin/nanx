@@ -5,25 +5,30 @@ class Ts extends CI_Controller
 {
     function   test()
     {
-        $where = array(
-            'base_table' =>'aa',
-            'field_e' => 'cc'
-        );
         
-        
-        $this->db->where($where);
-        $this->db->select('combo_table,codetable_category_value,list_field,value_field,filter_field,group_id,level');
-        $dropdown_from_table = $this->db->get('nanx_biz_column_trigger_group')->first_row('array');
-        
-        debug($dropdown_from_table) ;
+        logtext('abcd');
 
-        if( $dropdown_from_table ){
-              echo "find";
-        }else
-        {
-        	 echo "not find " ;
-         }
-        return $dropdown_from_table;
+        echo 111;
+        die;
+        // $where = array(
+        //     'base_table' =>'aa',
+        //     'field_e' => 'cc'
+        // );
+        
+        
+        // $this->db->where($where);
+        // $this->db->select('combo_table,codetable_category_value,list_field,value_field,filter_field,group_id,level');
+        // $dropdown_from_table = $this->db->get('nanx_biz_column_trigger_group')->first_row('array');
+        
+        // debug($dropdown_from_table) ;
+
+        // if( $dropdown_from_table ){
+        //       echo "find";
+        // }else
+        // {
+        // 	 echo "not find " ;
+        //  }
+        // return $dropdown_from_table;
         
 
 

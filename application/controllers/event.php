@@ -7,7 +7,6 @@ class Event extends CI_Controller {
     {
     	$this->load->model('MSession');
       $user=$this->MSession->getCurrentUser();
-    	date_default_timezone_set('PRC');
     	$post = file_get_contents('php://input') ;
       $sender=$this->lang->line('sender');  	
       $title=$this->lang->line('title');  	

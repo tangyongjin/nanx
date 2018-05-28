@@ -12,7 +12,7 @@ class Util extends CI_Controller {
 
    // 加载文件辅助函数并将文件写入你的服务器
    $this->load->helper('file');
-   date_default_timezone_set('PRC');
+  
    $datestr=date('Ymd_His');
    $fname = "downloads\\".$datestr.".gz";   
    

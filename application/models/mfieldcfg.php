@@ -297,9 +297,7 @@ class MFieldcfg extends CI_Model
             'base_table' => $base_table,
             'field_e' => $field
         );
-        logtext(300);
-        logtext($where);
-
+       
         $this->db->where($where);
         $this->db->select('base_table,field_e,combo_table,combo_table_value_field,base_table_follow_field,combo_table_follow_field');
         $follow_cfg = $this->db->get('nanx_biz_column_follow_cfg')->result_array();

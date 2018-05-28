@@ -75,10 +75,10 @@
 	</div>
 	<div id=footer>
 	  <?php
-	    date_default_timezone_set('PRC');
-		$date = date('Y-m-d');
+	   
+		$date = date("Y-m-d", time());
 		$week = $this->lang->line('week') [date('w') ];
-       echo "<div id=foot_date>$date $week</div>";
+        echo "<div id=foot_date>$date $week</div>";
       ?>
 	</div>
 </body>

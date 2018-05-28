@@ -4,23 +4,47 @@
 class MGhxwhook extends CI_Model{
 
  
-    function debug($para){
+    function debug_update($para){
 
-        // logtext('MGhxwhook called:data recevied is');   
-        // logtext('--------------------------------');
-        // logtext($para);   
+
+        logtext('钩子开始工作:MGhxwhook debug_update:data recevied is');   
+       
 
         $rawdata=(array)$para['rawdata'];
-        logtext($rawdata);   
-
         $cabinetWeekId=$rawdata['cabinetWeekId'];
-
-        
-        $sql="select * from boss_cabinet_weak where id =$cabinetWeekId";
-
-        $row=$this->db->query($sql)->row_array();
-        
         $id=$rawdata['id'];
+        $text=$this->getCabinetWeakPath($cabinetWeekId);
+        $this->db->where('id', $id);
+        $data=array('cabinetName'=>$text);
+        $this->db->update('boss_cabinet_weak_facility', $data);
+    }
+
+    
+    function debug_add($para){
+        logtext('钩子开始工作:MGhxwhook debug_add:data recevied is');   
+        logtext('--------------------------------');
+        logtext($para);   
+        $rawdata=(array)$para['rawdata'];
+        logtext($rawdata);   
+        $cabinetWeekId=$rawdata['cabinetWeekId'];
+        $text=$this->getCabinetWeakPath($cabinetWeekId);
+        $id=$rawdata['new_inserted_row_id'];
+
+        $this->db->where('id', $id);
+        $data=array('cabinetName'=>$text);
+        $this->db->update('boss_cabinet_weak_facility', $data);
+
+        
+    }
+
+
+     //由弱电柜的ID取得 IDC/楼宇/楼层/机房 字符串
+    function getCabinetWeakPath($cabinetWeekId){
+
+        $sql="select * from boss_cabinet_weak where id =$cabinetWeekId";
+        logtext($sql);
+        $row=$this->db->query($sql)->row_array();
+
         $idcID=$row['idcID'];
         $buildingID=$row['buildingID'];
         $floorID=$row['floorID'];
@@ -32,14 +56,8 @@ class MGhxwhook extends CI_Model{
         $room=$this->getRoom($roomID); 
         $cabinetName=$this->getWeakCabinet($cabinetWeekId);
         $text=$idc.'/'.$build.'/'.$floor.'/'.$room.'/'.$cabinetName;
-        
-        $this->db->where('id', $id);
-        $data=array('cabinetName'=>$text);
-        $this->db->update('boss_cabinet_weak_facility', $data);
-        $sql = $this->db->last_query();
-        logtext($sql);    
+        return  $text;
     }
-
 
 
     function getIDC($idcID){
